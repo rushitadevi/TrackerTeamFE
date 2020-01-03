@@ -1,13 +1,106 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family:'Georgia, 'Times New Roman', Times, serif'
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.lblTracker{
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+padding-top: 20px;
+color: #052F5F;
+}
+
+.Displaycard{
+  width: '18rem' !important;
+  padding-top: "20px" !important
+}
+
+#buttonSearch{
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
+font-style: normal;
+font-weight: bold;
+font-size: 18px;
+line-height: 120%;
+color: #052F5F;
+width: 111px;
+height: 34px;
+border-radius: 10px;
+}
+
+.btn-primary{
+  background-color:white !important;
+  color:#052F5F !important;
+}
+
+/* #cardHeaderActive{
+  color: "#FCFFFF" !important;
+  background-color:"#3D7085";
+  text-align:"center"
+} */
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 150px;
+  width: 1000px !important;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+
+.my-manager-scrollbar{
+  position: relative;
+  height: 350px !important;
+  width: 980px !important;
+  overflow: auto;
+}
+
+  #btnDetails{
+    margin-top: 10px !important;
+      border-radius: 10px;
+  }
+
+  #btnUpdate{
+    margin-top: 10px !important;
+      border-radius: 10px;
+  }
+
+  #buttonExport{
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    height: 30px;
+    width: 70px;
+    padding: 0;
+  }
+
+  .recentScroll
+  {
+    height:700px;
+  overflow-y: scroll;
+  }
+
+  .scroll{
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  
+
+  /* #btnJobInfo{
+    border:"0px" !important;
+    background:"transparent" !important;
+    
+  } */
