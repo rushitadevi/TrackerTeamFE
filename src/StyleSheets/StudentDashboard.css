@@ -1,0 +1,70 @@
+.filterBar {
+  position: relative;
+  display: inline-block;
+  width: 1294px;
+  height: 186px;
+  left: 180px !important;
+  top: 20px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  background: #fcffff;
+}
+
+.studentHomepage {
+  background: #eaeef6 !important;
+  height: 100vh;
+  overflow-y:auto;
+}
+
+.dashboardMainDisplay {
+  position: relative;
+  display: inline-block;
+  width: 1294px;
+  height: 700px;
+  left: 180px !important;
+  top: 50px;
+  margin-bottom: 80px;
+  background: #fcffff;
+}
+
+.searchCompany{
+  position: absolute;
+  width: 130px !important;
+  height: 25px !important;
+  left: 88px;
+  top: 125px;
+  border-radius: 8px;
+  border: none !important;
+}
+
+.form-control:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none !important;
+}
+
+#searchIcon{
+  color: #052F5F !important;
+  margin-left: 75px;
+  margin-top: 20px;
+  font-size: 17px !important;
+}
+
+
+
+.material-icons #search  {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  margin-left: 50px !important;
+
+}
+/* //font-family: 'Arvo', serif; */
