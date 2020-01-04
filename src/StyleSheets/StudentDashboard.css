@@ -1,10 +1,8 @@
 .filterBar {
-  position: relative;
-  display: inline-block;
-  width: 1294px;
+  position: absolute;
   height: 186px;
   left: 180px !important;
-  top: 20px;
+  margin-top: 50px;
   padding-left: 0px !important;
   padding-right: 0px !important;
   background: #fcffff;
@@ -13,28 +11,35 @@
 .studentHomepage {
   background: #eaeef6 !important;
   height: 100vh;
-  overflow-y:auto;
+  overflow: scroll;
+  position: absolute;
 }
 
 .dashboardMainDisplay {
-  position: relative;
+  position: absolute;
   display: inline-block;
-  width: 1294px;
   height: 700px;
   left: 180px !important;
-  top: 50px;
+  margin-top: 300px;
   margin-bottom: 80px;
   background: #fcffff;
 }
 
-.searchCompany{
+.searchCompany {
   position: absolute;
   width: 130px !important;
   height: 25px !important;
   left: 88px;
-  top: 125px;
-  border-radius: 8px;
+  margin-top: 17px;
   border: none !important;
+  font-family: "Arvo", serif;
+  background: #fcffff !important;
+  font-size: 1.1rem !important;
+}
+
+::placeholder {
+  color: #052f5f !important;
+  opacity: 1;
 }
 
 .form-control:focus {
@@ -43,28 +48,123 @@
   box-shadow: none !important;
 }
 
-#searchIcon{
-  color: #052F5F !important;
-  margin-left: 75px;
-  margin-top: 20px;
-  font-size: 17px !important;
+#searchIcon {
+  color: #052f5f !important;
+  margin-left: 70px;
+  bottom: 38px;
+  font-size: 19px !important;
+  position: absolute;
 }
 
-
-
-.material-icons #search  {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  margin-left: 50px !important;
-
+#jobCategory {
+  position: absolute;
+  width: 145px !important;
+  height: 40px !important;
+  left: 280px;
+  margin-top: 10px;
+  border: none !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  border-radius: 0.25rem !important;
+  font-family: "Arvo", serif;
+  /* color: rgb(111, 114, 121) !important; */
+  color: #052f5f !important;
+  background: #fcffff;
+  padding: 0px;
 }
-/* //font-family: 'Arvo', serif; */
+
+#categoryIcon {
+  color: #052f5f !important;
+  margin-left: 255px;
+  bottom: 38px;
+  font-size: 19px !important;
+  position: absolute;
+}
+
+#contractType {
+  position: absolute;
+  width: 160px !important;
+  height: 40px !important;
+  left: 525px;
+  margin-top: 10px;
+  border: none !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  border-radius: 0.25rem !important;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  background: #fcffff;
+  padding: 0px;
+}
+
+#contractIcon {
+  color: #052f5f !important;
+  margin-left: 500px;
+  bottom: 38px;
+  font-size: 19px !important;
+  position: absolute;
+}
+
+.locationImg {
+  position: absolute;
+  margin-left: 760px;
+  bottom: 38px;
+  width: 15px !important;
+  height: 19px;
+  font: #052f5f !important;
+}
+
+#location {
+  position: absolute;
+  width: 130px !important;
+  height: 40px !important;
+  left: 780px;
+  right: 88px !important;
+  margin-top: 10px;
+  border: none !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  border-radius: 0.25rem !important;
+  font-family: "Arvo", serif;
+  /* color: rgb(111, 114, 121) !important; */
+  background: #fcffff;
+  padding: 0px;
+  color: #052f5f !important;
+}
+
+.searchButton {
+  position: absolute;
+  margin-left: 985px !important;
+  margin-top: 12px !important;
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  width: 80px;
+  height: 35px;
+  background-color: #e5b85f;
+  color: #052f5f !important;
+}
+
+#wishList {
+  position: absolute;
+  width: 348px;
+  height: 466px;
+  left: 105px;
+  top: 100px;
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  background: #FFFFFF;
+box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+}
+
+#wishList .card-header{
+
+  background-color: #EAEEF6;
+  border-top: 8px;
+  color:#052f5f !important;
+  text-align: center;
+  font-size: 20px;
+}
