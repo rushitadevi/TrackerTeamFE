@@ -1,8 +1,9 @@
 import React from 'react';
-import Modal from "react-bootstrap/Modal";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+// import Modal from "react-bootstrap/Modal";
+// import InputGroup from "react-bootstrap/InputGroup";
+// import FormControl from "react-bootstrap/FormControl";
 import NavBar from './Navbar';
+import { Link } from "react-router-dom"
 import { Container, Input, Button, Card, CardHeader, CardFooter, CardBody, CardTitle, CardText  } from "reactstrap";
 
 class StudentDashboard extends React.Component {
@@ -92,9 +93,10 @@ class StudentDashboard extends React.Component {
                         <Card id="wishList">
                             <CardHeader>WISHLIST</CardHeader>
                             <CardBody>
-                                <CardTitle>Special Title Treatment</CardTitle>
-                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                <Button>Go somewhere</Button>
+                                {/* <CardTitle>Special Title Treatment</CardTitle>
+                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
+                                <div className="wishlistRecord"> <img className="companyLogo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1" alt="logo" /></div>
+                                <a href="/" id="editLink">See More</a>
                             </CardBody>
                         </Card>
                     </div>
