@@ -15,6 +15,26 @@
   position: absolute;
 }
 
+#logo{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 35px;
+  margin-left: 88px;
+  position: absolute;
+/* left: 8.19%;
+right: 81.82%;
+top: 7.23%; */
+/* bottom: 89.14%; */
+font-style: normal;
+font-weight: bold;
+font-size: 22px;
+line-height: 27px;
+letter-spacing: 0.25em;
+
+color: #052F5F;
+  font-family: "Arvo", serif;
+}
+
 .dashboardMainDisplay {
   position: absolute;
   display: inline-block;
@@ -147,11 +167,14 @@
   color: #052f5f !important;
 }
 
+
+/* WISHLIST APPLICATIONS CARD   */
+
 #wishList {
   position: absolute;
-  width: 348px;
+  width: 300px;
   height: 466px;
-  left: 105px;
+  left: 40px;
   top: 100px;
   border-radius: 8px;
   font-family: "Arvo", serif;
@@ -169,18 +192,119 @@
 }
 
 .wishlistRecord {
-  width: 272px;
+  width: 250px;
   height: 50px;
-  margin-left: 15px;
+  margin-left: 5px;
   display: block;
   background: #ffffff;
   border: 2px solid #eaeef6;
   box-sizing: border-box;
 }
 
-.companyLogo {
+.wishCompanyLogo {
   width: 50px;
   height: 50px;
   margin-left: 10px;
-  margin-top: 4px; 
+}
+
+#seeMoreLink{
+  display: block;
+  margin-top: 300px;
+  text-align: center;
+  color: #8A7F7F
+}
+
+
+/* ACTIVE APPLICATIONS CARD   */
+
+.activeRecord{
+  width: 250px;
+  height: 50px;
+  margin-left: 5px;
+  display: block;
+  background: #ffffff;
+  border: 2px solid #eaeef6;
+  box-sizing: border-box;
+}
+
+#active .card-header {
+  background-color: #59FF60;
+  border-top: 8px;
+  color: #052f5f !important;
+  text-align: center;
+  font-size: 20px;
+}
+
+#active {
+  position: absolute;
+  width: 300px;
+  height: 466px;
+  left: 420px;
+  top: 100px;
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  background: #ffffff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.activeCompanyLogo {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+#seeMoreActiveLink{
+  display: block;
+  margin-top: 300px;
+  text-align: center;
+  color: #8A7F7F
+}
+
+
+
+/* CLOSED APPLICATIONS CARD   */
+
+.closedRecord{
+  width: 250px;
+  height: 50px;
+  margin-left: 5px;
+  display: block;
+  background: #ffffff;
+  border: 2px solid #eaeef6;
+  box-sizing: border-box;
+}
+
+#closed .card-header {
+  background-color: #F38982;
+  border-top: 8px;
+  color: #052f5f !important;
+  text-align: center;
+  font-size: 20px;
+}
+
+#closed {
+  position: absolute;
+  width: 300px;
+  height: 466px;
+  left: 800px;
+  top: 100px;
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  background: #ffffff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.closedCompanyLogo {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+#seeMoreClosedLink{
+  display: block;
+  margin-top: 300px;
+  text-align: center;
+  color: #8A7F7F
 }

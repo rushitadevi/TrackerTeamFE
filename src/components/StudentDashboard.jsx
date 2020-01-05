@@ -50,6 +50,7 @@ class StudentDashboard extends React.Component {
                     <NavBar />
                 </div>
                 <Container className="filterBar">
+                    <h5 id="logo">TrackeR</h5>
                     <hr
                         style={{
                             backgroundColor: "#fcffff",
@@ -78,7 +79,7 @@ class StudentDashboard extends React.Component {
                         <option>Remote</option>
                         <option>Freelance</option>
                     </select>
-                    <img className="locationImg" src="https://www.freeiconspng.com/uploads/simple-location-icon-png-22.png" alt="gray location icon png" />
+                    <img className="locationImg" src="https://www.freeiconspng.com/uploads/simple-location-icon-png-22.png" alt="/" />
 
                     <select className="form-control" id="location">
                         <option>Location</option>
@@ -95,8 +96,30 @@ class StudentDashboard extends React.Component {
                             <CardBody>
                                 {/* <CardTitle>Special Title Treatment</CardTitle>
                                 <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
-                                <div className="wishlistRecord"> <img className="companyLogo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1" alt="logo" /></div>
-                                <a href="/" id="editLink">See More</a>
+                                <div className="wishlistRecord"> <img className="wishCompanyLogo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1" alt="logo" /></div>
+                                <a href="/" id="seeMoreLink">See More</a>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <div>
+                        <Card id="active">
+                            <CardHeader>ACTIVE APPLICATIONS</CardHeader>
+                            <CardBody>
+                                {/* <CardTitle>Special Title Treatment</CardTitle>
+                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
+                                <div className="activeRecord"> <img className="activeCompanyLogo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1" alt="logo" /></div>
+                                <a href="/" id="seeMoreActiveLink">See More</a>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <div>
+                        <Card id="closed">
+                            <CardHeader>CLOSED APPLICATIONS</CardHeader>
+                            <CardBody>
+                                {/* <CardTitle>Special Title Treatment</CardTitle>
+                                <CardText>With supporting text below as a natural lead-in to additional content.</CardText> */}
+                                <div className="closedRecord"> <img className="closedCompanyLogo" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1" alt="logo" /></div>
+                                <a href="/" id="seeMoreClosedLink">See More</a>
                             </CardBody>
                         </Card>
                     </div>
