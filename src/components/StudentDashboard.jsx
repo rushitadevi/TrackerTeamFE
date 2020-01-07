@@ -1,41 +1,52 @@
 import React from 'react';
-// import Modal from "react-bootstrap/Modal";
-// import InputGroup from "react-bootstrap/InputGroup";
-// import FormControl from "react-bootstrap/FormControl";
+import { connect } from 'react-redux';
 import NavBar from './Navbar';
-import { Link } from "react-router-dom"
-import { Container, Input, Button, Card, CardHeader, CardFooter, CardBody, CardTitle, CardText  } from "reactstrap";
+// import { Link } from "react-router-dom"
+import { Container, Input, Card, CardHeader, CardBody } from "reactstrap";
+import { getJobCategory, getContractType } from '../Actions/apiFetches'
+
+
+const mapStateToProps = state => state
+
+const mapDispatchToProps = dispatch => ({
+    getJobCategoryThunk: () => dispatch(getJobCategory()),
+    getContractTypeThunk: () => dispatch(getContractType()),
+})
 
 class StudentDashboard extends React.Component {
+
     state = {
-        newApp: [],
-        wishList: [],
-        interview: [],
+        // newApp: [],
+        // wishList: [],
+        // interview: [],
         showModal: false
     }
 
     componentDidMount = async () => {
-        try {
-            var res = await fetch("http://localhost:4000/application/newApp");
-            var newApplications = await res.json();
-            this.setState({
-                newApp: newApplications
-            })
+        await this.props.getJobCategoryThunk();
+        await this.props.getContractTypeThunk();
+        console.log(this.props.publicAPIfetches.jobCategory)
+        // try {
+        //     var res = await fetch("http://localhost:4000/application/newApp");
+        //     var newApplications = await res.json();
+        //     this.setState({
+        //         newApp: newApplications
+        //     })
 
-            res = await fetch("http://localhost:4000/application/wishlist");
-            var wishList = await res.json();
-            this.setState({
-                wishList: wishList
-            })
+        //     res = await fetch("http://localhost:4000/application/wishlist");
+        //     var wishList = await res.json();
+        //     this.setState({
+        //         wishList: wishList
+        //     })
 
-            res = await fetch("http://localhost:4000/application/interview");
-            var interview = await res.json();
-            this.setState({
-                interview: interview
-            })
+        //     res = await fetch("http://localhost:4000/application/interview");
+        //     var interview = await res.json();
+        //     this.setState({
+        //         interview: interview
+        //     })
 
-        } catch (err) {
-        }
+        // } catch (err) {
+        // }
     }
 
     toggleModal = () => {
@@ -64,20 +75,24 @@ class StudentDashboard extends React.Component {
                         placeholder="Company"
                         onKeyUp={this.searchInput}
                     />
+
                     <i className="material-icons" id="categoryIcon">work_outline</i>
                     <select className="form-control" id="jobCategory">
-                        <option>Job Category</option>
-                        <option>Front-End</option>
-                        <option>Back-End</option>
-                        <option>Product Management</option>
+                    <option selected="selected"> Job Category </option>
+                        {this.props.publicAPIfetches.jobCategory && this.props.publicAPIfetches.jobCategory.map((job, index) => (                                         
+                            <option key={index}>{job.name.replace("&amp;", "&")}</option>
+                        )
+                        )}
                     </select>
+
                     <i className="material-icons" id="contractIcon">file_copy</i>
                     <select className="form-control" id="contractType">
-                        <option>Contract Type</option>
-                        <option>Full Time</option>
-                        <option>Part Time</option>
-                        <option>Remote</option>
-                        <option>Freelance</option>
+                        <option selected="selected"> Contract Type </option>
+                        {this.props.publicAPIfetches.jobCategory && this.props.publicAPIfetches.jobCategory.map((job, index) => (                                         
+                            <option key={index}>{job.name.replace("&amp;", "&")}</option>
+                        )
+                        )}
+             
                     </select>
                     <img className="locationImg" src="https://www.freeiconspng.com/uploads/simple-location-icon-png-22.png" alt="/" />
 
@@ -329,4 +344,5 @@ class StudentDashboard extends React.Component {
     }
 }
 
-export default StudentDashboard;
+
+export default connect(mapStateToProps, mapDispatchToProps)(StudentDashboard);

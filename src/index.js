@@ -4,10 +4,10 @@ import './index.css';
 import './StyleSheets/StudentDashboard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
-import StudentDashboard from './components/StudentDashboard';
-import ManagerDashboard from './components/ManagerDashboard';
+import Main from './components/Main';
 
-ReactDOM.render(<StudentDashboard />, document.getElementById('root'));
+
+ReactDOM.render(<Main />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

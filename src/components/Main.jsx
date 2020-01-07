@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import { Provider } from 'react-redux';
 import StudentDashboard from "./StudentDashboard";
+import configureStore from "../store";
 
 
 class Main extends Component {
@@ -16,9 +18,12 @@ class Main extends Component {
 
   render() {
     return (
+      <Provider store={configureStore()}>
+    
       <Router>
         <Route path="/student" exact component={StudentDashboard} />
       </Router>
+     </Provider>
     );
   }
 
