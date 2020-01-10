@@ -40,3 +40,39 @@ export const getContractType = () => {
     }
     
 }
+
+
+//   export const getLocation = (location) => {
+//     return async (dispatch, getState) => {
+   
+//       var response=await fetch(process.env.REACT_APP_URL + "companyApi/" + location, {
+//       method: "GET", 
+//     })
+
+//     var selectedLocation = await response.json();
+//     selectedLocation = selectedLocation;
+
+//     dispatch({
+//       type: "LOCATION",
+//       payload: selectedLocation
+//     });
+//   }
+// }
+
+export const getEntryLevel = (grade) => {
+  return async (dispatch, getState) => {
+ 
+    var response=await fetch(process.env.REACT_APP_URL + "companyApi/" + grade, {
+    method: "GET", 
+  })
+
+  var selectedGrade = await response.json();
+ 
+
+  dispatch({
+    type: "GET_GRADE",
+    payload: selectedGrade
+  });
+}
+}
+  

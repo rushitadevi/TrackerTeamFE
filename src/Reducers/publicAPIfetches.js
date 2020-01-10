@@ -14,7 +14,20 @@ export default function(state = {}, action) {
             contractType: state.contractType.concat(action.payload)
             
           };
-
+          // case "LOCATION":
+          //   console.log(action.payload)
+          //   return {
+          //     ...state,
+          //     selectedLocation: state.selectedLocation.concat(action.payload)
+              
+          //   };
+          case "GET_GRADE":
+            console.log(action.payload)
+            return {
+              ...state,
+              selectedGrade: state.selectedGrade.concat(action.payload)
+              
+            };
       default:
         return state;
     }
