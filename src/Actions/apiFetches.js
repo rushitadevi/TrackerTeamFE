@@ -59,19 +59,18 @@ export const getContractType = () => {
 //   }
 // }
 
-export const getEntryLevel = (grade) => {
+export const getSearch = (url) => {
   return async (dispatch, getState) => {
- 
-    var response=await fetch(process.env.REACT_APP_URL + "companyApi/" + grade, {
+    var response=await fetch(process.env.REACT_APP_URL + "companyApi/" + url, {
     method: "GET", 
   })
 
-  var selectedGrade = await response.json();
+  var filteredSearch = await response.json();
  
 
   dispatch({
-    type: "GET_GRADE",
-    payload: selectedGrade
+    type: "FILTERED_SEARCH",
+    payload: filteredSearch
   });
 }
 }

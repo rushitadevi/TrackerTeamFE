@@ -9,7 +9,7 @@ const initialState = {
     jobCategory: [],
     contractType: [],
     // selectedLocation: [],
-    selectedGrade: []
+    filteredSearch: []
 
     
   },

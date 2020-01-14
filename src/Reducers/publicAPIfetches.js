@@ -21,11 +21,11 @@ export default function(state = {}, action) {
           //     selectedLocation: state.selectedLocation.concat(action.payload)
               
           //   };
-          case "GET_GRADE":
+          case "FILTERED_SEARCH":
             console.log(action.payload)
             return {
               ...state,
-              selectedGrade: state.selectedGrade.concat(action.payload)
+              filteredSearch: state.filteredSearch.concat(action.payload)
               
             };
       default:
