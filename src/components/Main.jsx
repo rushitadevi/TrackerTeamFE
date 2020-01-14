@@ -4,18 +4,14 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import StudentDashboard from "./StudentDashboard";
 import ManagerDashboard from "./ManagerDashboard";
-import FilteredSearch from "./FilteredSearch";
+import FilteredSearchBar from "./FilteredSearchBar";
 import Navbar from "./Navbar";
 import configureStore from "../store";
-import { ok } from "assert";
+// import { ok } from "assert";
 
 
 class Main extends Component {
   state = {}
-  constructor(props) {
-    super(props);
-
-  }
 
   render() {
     return (
@@ -24,7 +20,7 @@ class Main extends Component {
         <Navbar/>
         <Container fluid className="studentHomepage">
      
-          <FilteredSearch/>
+          {/* <FilteredSearchBar/> */}
           {/* <StudentDashboard triggerSearch={this.search} location={this.state.locationResults} /> */}
           <Route path="/student" exact component={StudentDashboard} />
           </Container>
