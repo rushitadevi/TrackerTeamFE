@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 // import { Link } from "react-router-dom"
-import { Container, Card, CardHeader, CardBody, Input} from "reactstrap";
+import { Container, Card, CardHeader, CardBody, Input, Row, Col} from "reactstrap";
 import {getJobCategory,  getSearch} from "../Actions/apiFetches";
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const mapStateToProps = state => state;
 
@@ -20,7 +21,7 @@ class StudentDashboard extends React.Component {
     role: "",
     level: "senior",
     location: "",
-    url: null
+    url: ""
   };
 
   componentDidMount = async () => {
@@ -35,24 +36,27 @@ class StudentDashboard extends React.Component {
 
     // debugger;
 
-if(!this.state.url ){
+// if(!this.state.url ){
 let url = "search=";
 
     if (this.state.company.length >= 4)
         url += "+" + this.state.company
-    
+
     if (this.state.role.length >= 4)
         url += "+" + this.state.role
-    
+      // } else {
+      //   url = ""
+      //   this.setState({
+      //     url: url
+      // })
+      // }
     if (this.state.level.length) 
         url += "+" + this.state.level
-    
+
     if (this.state.location.length >= 4) 
         url += "&location=" + this.state.location
-    
-    // else{
-    //     await this.props.getSearchThunk("");
-    // }
+
+
     console.log(url)
 
     this.setState({
@@ -60,14 +64,10 @@ let url = "search=";
     })
     console.log(this.state.url)
     await this.props.getSearchThunk(url);
-} else{
-    var url = null
-    this.setState({
-        url: url
-    })
+
 }
     //if fetch is an empty array return a message: (no results matching your search)
-}
+
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
   };
@@ -182,10 +182,30 @@ let url = "search=";
    )}
       {this.state.url && (
           <Container className="dashboardMainDisplay">
-          {this.props.publicAPIfetches.filteredSearch && this.props.publicAPIfetches.filteredSearch.map((jobs, index) => (                                         
-                             <div>{jobs.company} / {jobs.title}</div>
+            
+               <Row className="col-12" id="titleRow">
+               <Col xs="2"> Company </Col>
+               <Col xs="2"  id="roleTitle"> Role </Col>
+               <Col xs="2" id="locationTitle"> Location </Col>
+               <Col xs="2" id="descriptionTitle"> Description </Col>
+               </Row>
+               <Scrollbars id="filteredScroll" style={{ height: 500 }}>
+               <Row id="record">
+          {this.props.publicAPIfetches.filteredSearch && this.props.publicAPIfetches.filteredSearch.map((jobs, index) => (    
+            <>
+                   {/* <Row className="col-12" id="titleRow"></Row> */}
+                  <Col xs="3" id="companyRecord">{jobs.company}</Col>                  
+                  <Col xs="3" id="roleRecord">{jobs.title}</Col> 
+                  <Col xs="3" id="locationRecord">{jobs.location}</Col> 
+                  <Col xs="3" id="descriptionRecord">{jobs.description.replace("<p>", "")}}</Col> 
+{/*                          
+                             <div>{jobs.company} / {jobs.title}</div> */}
+                  </>
                              )
+                       
                              )}
+                </Row>
+            </Scrollbars>              
           </Container>
       )}
 </>
