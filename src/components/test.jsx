@@ -199,54 +199,54 @@
       // </footer>
 
 
-      class StudentDashboard extends React.Component {
-          state = {
-            showModal: false,
-            company: "",
-            role: "",
-            level: "senior",
-            location: "",
+      // class StudentDashboard extends React.Component {
+      //     state = {
+      //       showModal: false,
+      //       company: "",
+      //       role: "",
+      //       level: "senior",
+      //       location: "",
         
-          };
+      //     };
         
-          componentDidMount = async () => {
+          // componentDidMount = async () => {
         
-            await this.props.getJobCategoryThunk();
+          //   await this.props.getJobCategoryThunk();
             // await this.props.getEntryLevelThunk();
-            console.log(this.props.publicAPIfetches.jobCategory);
-          };
+          //   console.log(this.props.publicAPIfetches.jobCategory);
+          // };
         
-          toggleModal = () => {
-            this.setState({ showModal: !this.state.showModal });
-          };
+          // toggleModal = () => {
+          //   this.setState({ showModal: !this.state.showModal });
+          // };
         
-          searchInput = async (value) => {
-            value.preventDefault();
+          // searchInput = async (value) => {
+          //   value.preventDefault();
             
-            console.log(value)
-            var selectElement = this.state.level//document.getElementById("entryLevel")[1];
-            value = selectElement.value
-            var arr = []
-            arr.push(value)
+          //   console.log(value)
+          //   var selectElement = this.state.level//document.getElementById("entryLevel")[1];
+          //   value = selectElement.value
+          //   var arr = []
+          //   arr.push(value)
             // console.log(arr)
         
         
         
         
-            if (this.state.location.length >= 4 || this.state.company.length >= 4 || this.state.role.length >= 4) {
+            // if (this.state.location.length >= 4 || this.state.company.length >= 4 || this.state.role.length >= 4) {
               // parameter = {
               //   company: this.state.company,
               //   role: this.state.role,
               //   level: this.state.level,
               //   location: this.state.location
               // }
-              await this.props.getSearchThunk(this.state);
-            }
+            //   await this.props.getSearchThunk(this.state);
+            // }
         
             // else {
             //   await this.props.getSearchThunk("");
             // }
-          };
+          // };
         
         
      //      render() {
