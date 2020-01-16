@@ -313,14 +313,16 @@ color: #052F5F;
 
 #titleRow{
   position: absolute;
-  margin-left: 50px;
+  margin-left: 53px;
   margin-top: 30px;
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 1.05rem !important;
   font-weight: 400 !important;
   line-height: 1.5 !important;
+
 }
+
 
 #roleTitle{
   margin-left: 212px;
@@ -343,25 +345,15 @@ color: #052F5F;
   margin-left: 67px;
 }
 
-/* #companyRecord{
-  padding-top: 0px;
-  position: absolute;
-  margin-left: 50px
-} */
-
-#roleRecord{
-  margin-left: 0px;
-  margin-top: 0px;
-}
-
-/* #locationRecord{
-  padding-top: 0px;
-  margin-left: 443px
-} */
-
-#descriptionRecord{
+#record #descriptionRecord{
   /* position: absolute; */
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+#record{
+  margin-top: 2px
+}
+
+

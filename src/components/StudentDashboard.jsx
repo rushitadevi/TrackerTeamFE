@@ -14,15 +14,19 @@ const mapDispatchToProps = dispatch => ({
 
 
 class StudentDashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      company: "",
+      role: "",
+      level: "senior",
+      location: "",
+      url: "",
+      hover: false
+    };
+  }
 
-  state = {
-    showModal: false,
-    company: "",
-    role: "",
-    level: "senior",
-    location: "",
-    url: ""
-  };
 
   componentDidMount = async () => {
 
@@ -184,33 +188,36 @@ let url = "search=";
           <Container className="dashboardMainDisplay">
             
                <Row className="col-12" id="titleRow">
-               <Col xs="2"> Company </Col>
+               <Col xs="2" id="companyTitle"> Company </Col>
                <Col xs="2"  id="roleTitle"> Role </Col>
                <Col xs="2" id="locationTitle"> Location </Col>
                <Col xs="2" id="descriptionTitle"> Description </Col>
                </Row>
                <Scrollbars id="filteredScroll" style={{ height: 500 }}>
-               <Row id="record">
+               {/* <Row id="record"> */}
           {this.props.publicAPIfetches.filteredSearch && this.props.publicAPIfetches.filteredSearch.map((jobs, index) => (    
             <>
+                 <Row className="col-12" id="record">
                    {/* <Row className="col-12" id="titleRow"></Row> */}
-                  <Col xs="3" id="companyRecord">{jobs.company}</Col>                  
-                  <Col xs="3" id="roleRecord">{jobs.title}</Col> 
-                  <Col xs="3" id="locationRecord">{jobs.location}</Col> 
-                  <Col xs="3" id="descriptionRecord">{jobs.description.replace("<p>", "")}}</Col> 
-{/*                          
-                             <div>{jobs.company} / {jobs.title}</div> */}
+                  <Col xs="2" id="companyRecord" >{jobs.company}</Col>                  
+                  <Col xs="3" id="titleRecord">{jobs.title}</Col> 
+                  <Col xs="2">{jobs.location}</Col> 
+                  <Col xs="4" id="descriptionRecord" onMouseOver= {this.mouseOver}>{jobs.description.replace("<p>", "").replace("<strong>", "").replace("<em>", "").replace("</p>", "")}</Col> 
+                  </Row>
                   </>
                              )
                        
                              )}
-                </Row>
+                {/* </Row> */}
             </Scrollbars>              
           </Container>
       )}
 </>
     );
   }
+  mouseOver = () => {
+    this.setState({hover: true});
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentDashboard);
