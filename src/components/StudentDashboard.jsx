@@ -202,7 +202,8 @@ let url = "search=";
                   <Col xs="2" id="companyRecord" >{jobs.company}</Col>                  
                   <Col xs="3" id="titleRecord">{jobs.title}</Col> 
                   <Col xs="2">{jobs.location}</Col> 
-                  <Col xs="4" id="descriptionRecord" onMouseOver= {this.mouseOver}>{jobs.description.replace("<p>", "").replace("<strong>", "").replace("<em>", "").replace("</p>", "")}</Col> 
+                  <Col xs="3" id="descriptionRecord" onMouseOver= {this.mouseOver}>{jobs.description.replace("<p>", "").replace("<strong>", "").replace("<em>", "").replace("</p>", "")}</Col> 
+                  <button className="detailsButton">Details</button>
                   </Row>
                   </>
                              )
