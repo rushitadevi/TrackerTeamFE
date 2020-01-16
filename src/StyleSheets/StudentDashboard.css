@@ -323,25 +323,24 @@ color: #052F5F;
 
 }
 
-
 #roleTitle{
-  margin-left: 212px;
+  margin-left: 180px;
   position: absolute;
 }
 
 #locationTitle{
-  margin-left: 445px;
+  margin-left: 449px;
   position: absolute;
 }
 
 #descriptionTitle{
-  margin-left: 690px;
+  margin-left: 630px;
   position: absolute;
 }
 
 #filteredScroll{
   position: absolute;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-left: 67px;
 }
 
