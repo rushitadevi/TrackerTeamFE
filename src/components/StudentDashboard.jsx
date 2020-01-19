@@ -122,7 +122,7 @@ class StudentDashboard extends React.Component {
             onChange={(e) => this.setState({ location: e.currentTarget.value })}
           />
 
-          <button className="searchButton" type='submit' onClick={this.searchInput}>Search</button>
+          <button className="searchButton" type='submit' onClick={this.searchInput} >Search</button>
 
         </Container>
         {!this.state.url && (
@@ -203,50 +203,55 @@ class StudentDashboard extends React.Component {
                     <Col xs="3" id="descriptionRecord" onMouseOver={this.mouseOver}>{jobs.description.replace("<p>", "").replace("<strong>", "").replace("</strong>", "").replace("<em>", "").replace("</p>", "")}</Col>
                     <button   onClick={() => this.setState({ showModal: true })}  className="detailsButton">Details</button>
    
-          <Modal show={this.state.showModal} onHide={this.toggleModal}>
-            <Modal.Header style={{ backgroundColor: "#2867B2" }} closeButton>
-              <Modal.Title></Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <InputGroup className="mb-3">
-                <FormControl
-                  placeholder="school name"
-                  aria-label="schoolName"
-                  onChange={this.handleInput}
-                  id="name"
-                  defaultValue="hello"
-                />
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <FormControl
-                  placeholder="Email"
-                  aria-label="email"
-                  onChange={this.handleInput}
-                  id="email"
-                  defaultValue="hello"
-                />
-              </InputGroup>
-              <InputGroup className="mb-3">
-                <FormControl
-                  placeholder="Address"
-                  as="textarea" style={{ height: "100px" }}
-                  aria-label="address"
-                  onChange={this.handleInput}
-                  id="address"
-                  defaultValue="hello"
-                />
-              </InputGroup>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={() => this.toggleModal()}>
-                Close
-                     </Button>
-              <Button variant="primary" style={{ backgroundColor: "#2867B2" }}
-                onClick={() => { this.toggleModal(); this.setState({show:false}) }}>
-                Update
-                   </Button>
-            </Modal.Footer>
-          </Modal>
+          {/* <Modal show={this.state.showModal} onHide={this.toggleModal}> */}
+          <Modal show={this.state.showModal} id="statusModal" aria-labelledby="contained-modal-title-vcenter">
+      <Container id="modalHeader" >  
+      <Row id="xButtonRow" className = "col-sm-12">
+      <Button id="xButton" onClick={() => { this.toggleModal(); this.setState({ show: false }); }}>X</Button>
+      </Row>
+      <Row id= "modalTitleRow" className = "col-sm-12">
+        <Col sm="8">
+        <Modal.Title id="title">
+          Using Grid in Modal
+        
+        </Modal.Title>
+        </Col>
+        <Col sm="4">
+        <Button className="updateButton">UPDATE STATUS</Button>
+        </Col>
+        </Row>
+      </Container>
+      {/* <Modal.Body> */}
+        <Container>
+          <Row className="modalOptions" >
+            {/* <Col xs={12} md={8}> */}
+              <h6 className="header first">JOB INFO</h6>
+             <h6 className="header second">JOB INFO</h6>
+            <h6 className="header third">JOB INFO</h6>
+             <h6 className="header fourth">JOB INFO</h6>
+              {/* <code>TASKS</code>
+              <code>NOTES</code>
+              <code>COMPANY</code> */}
+            {/* </Col> */}
+     
+            {/* <Col xs={6} md={4}>
+              <code>.col-xs-6 .col-md-4</code>
+            </Col> */}
+          </Row>
+          {/* <Row className="show-grid">
+            <Col xs={6} md={4}>
+              <code>.col-xs-6 .col-md-4</code>
+            </Col>
+            <Col xs={6} md={4}>
+              <code>.col-xs-6 .col-md-4</code>
+            </Col>
+            <Col xs={6} md={4}>
+              <code>.col-xs-6 .col-md-4</code>
+            </Col>
+          </Row> */}
+        </Container>
+      {/* </Modal.Body> */}
+    </Modal>
                   </Row>
                 </>
               )
