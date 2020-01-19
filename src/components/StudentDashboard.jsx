@@ -224,16 +224,17 @@ class StudentDashboard extends React.Component {
       {/* <Modal.Body> */}
         <Container>
           <Row className="modalOptions" >
-            {/* <Col xs={12} md={8}> */}
+            <Col xs={12} md={8}>
               <h6 className="header first">JOB INFO</h6>
+      
              <h6 className="header second">JOB INFO</h6>
             <h6 className="header third">JOB INFO</h6>
              <h6 className="header fourth">JOB INFO</h6>
               {/* <code>TASKS</code>
               <code>NOTES</code>
               <code>COMPANY</code> */}
-            {/* </Col> */}
      
+     </Col>
             {/* <Col xs={6} md={4}>
               <code>.col-xs-6 .col-md-4</code>
             </Col> */}

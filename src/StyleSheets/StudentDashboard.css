@@ -396,6 +396,7 @@ top: 7.23%; */
   top: 89px;
   border-bottom-left-radius: 8px;
   padding-left: 0px !important;
+  display: table;
 }
 
 .modal-content {
@@ -464,19 +465,26 @@ text-align: center;
   /* height: 50px */
 }
 
-.first {
+/* .first {
 margin-top: 15px !important;
 height: 35px
 }
 .second {
   /* margin-top: 10px !important;
   height: 35px */
-  height: 35px !important;
-  margin-bottom: 290px
-  }
+  /* height: 35px !important;
+  margin-top: 0px
+  } */
 
-  .third {
-     margin-bottom: 290px !important;
-    height: 35px !important;
+  /* .third {
+    bottom: 5px !important;
+    height: 50px !important;
 
-    }
+    
+    } */ 
+    
+/*   
+  [class*="col-"] {
+      float: none;
+      display: table-cell;
+  }   */
