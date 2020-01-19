@@ -212,7 +212,7 @@ class StudentDashboard extends React.Component {
       <Row id= "modalTitleRow" className = "col-sm-12">
         <Col sm="8">
         <Modal.Title id="title">
-          Using Grid in Modal
+          Company Name
         
         </Modal.Title>
         </Col>
@@ -223,13 +223,19 @@ class StudentDashboard extends React.Component {
       </Container>
       {/* <Modal.Body> */}
         <Container>
+          <Row className="modalOptionsRect" >
           <Row className="modalOptions" >
-            <Col xs={12} md={8}>
-              <h6 className="header first">JOB INFO</h6>
-      
-             <h6 className="header second">JOB INFO</h6>
-            <h6 className="header third">JOB INFO</h6>
-             <h6 className="header fourth">JOB INFO</h6>
+            <Col xs={12} className="first">
+              <h6>JOB INFO</h6>
+              </Col>
+              <Col xs={12} className="second">
+             <h6>TASKS</h6>
+             </Col>
+             <Col xs={12} className="third" >
+            <h6 >NOTES</h6>
+            </Col>
+            <Col xs={12} className="fourth" >
+             <h6 >DIRECTORY</h6>
               {/* <code>TASKS</code>
               <code>NOTES</code>
               <code>COMPANY</code> */}
@@ -238,6 +244,7 @@ class StudentDashboard extends React.Component {
             {/* <Col xs={6} md={4}>
               <code>.col-xs-6 .col-md-4</code>
             </Col> */}
+            </Row>
           </Row>
           {/* <Row className="show-grid">
             <Col xs={6} md={4}>

@@ -6,14 +6,26 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
   background: #fcffff;
+  
+  
+}
+
+@media (min-width: 100px) {
+  .filterBar {
+    /* max-width: 700px !important; */
+   width: 1145px !important;
+    left: 100px !important;
+  }
 }
 
 .studentHomepage {
   background: #eaeef6 !important;
-  height: 100vh;
+  height: 100%;
+  overflow-y: scroll;
   overflow: scroll;
   position: absolute;
 }
+
 
 #logo {
   padding-top: 0px;
@@ -21,16 +33,11 @@
   margin-top: 35px;
   margin-left: 88px;
   position: absolute;
-  /* left: 8.19%;
-right: 81.82%;
-top: 7.23%; */
-  /* bottom: 89.14%; */
   font-style: normal;
   font-weight: bold;
   font-size: 22px;
   line-height: 27px;
   letter-spacing: 0.25em;
-
   color: #052f5f;
   font-family: "Arvo", serif;
 }
@@ -43,6 +50,15 @@ top: 7.23%; */
   margin-top: 300px;
   margin-bottom: 80px;
   background: #fcffff;
+}
+
+
+@media (min-width: 100px) {
+  .dashboardMainDisplay {
+    /* max-width: 600px !important; */
+   width: 1145px !important;
+    left: 100px !important;
+  }
 }
 
 .searchCompany {
@@ -388,7 +404,21 @@ top: 7.23%; */
 .modalOptions {
   position: absolute;
   width: 120px;
-  height: 460px;
+  height:200px;
+  background: #fcffff;
+  border-right: 1px solid #cccccc;
+  box-sizing: border-box;
+  left: 14px;
+  top: 0px;
+  /* border-bottom-left-radius: 8px; */
+  padding-left: 0px !important;
+  display: table;
+}
+
+.modalOptionsRect{
+  position: absolute;
+  width: 120px;
+  height:460px;
   background: #fcffff;
   border: 1px solid #cccccc;
   box-sizing: border-box;
@@ -398,6 +428,7 @@ top: 7.23%; */
   padding-left: 0px !important;
   display: table;
 }
+
 
 .modal-content {
   position: absolute;
@@ -459,32 +490,60 @@ text-align: center;
   border-radius: 8px !important;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
- .header{
+ /* .header{
   border-bottom: 1px solid #cccccc !important;
-  width: 120px;
+  width: 120px; */
   /* height: 50px */
-}
+/* } */
 
-/* .first {
+.first {
+  color: #052f5f !important;
 margin-top: 15px !important;
-height: 35px
+height: 35px;
+width: 100px !important;
+border-bottom: 1px solid #cccccc !important;
+left: 0px;
+padding-left: 0px !important;
+text-align: center
 }
 .second {
-  /* margin-top: 10px !important;
-  height: 35px */
-  /* height: 35px !important;
-  margin-top: 0px
-  } */
+  color: #052f5f !important;
+  top: 0px !important;
+  height: 35px;
+  width: 100px !important;
+  border-bottom: 1px solid #cccccc !important;
+  left: 0px;
+  padding-left: 0px !important;
+  text-align: center;
+  
+  }
 
-  /* .third {
-    bottom: 5px !important;
-    height: 50px !important;
+ .third {
+  color: #052f5f !important;
+  height: 35px;
+  width: 100px !important;
+  border-bottom: 1px solid #cccccc !important;
+  left: 0px;
+  padding-left: 0px !important;
+  text-align: center
+    } 
+    
+    .fourth {
+      color: #052f5f !important;
+      height: 35px;
+      width: 100px !important;
+      border-bottom: 1px solid #cccccc !important;
+      left: 0px;
+      padding-left: 0px !important;
+      text-align: center
+      } 
 
-    
-    } */ 
-    
-/*   
-  [class*="col-"] {
-      float: none;
-      display: table-cell;
-  }   */
+      .h4, h4 {
+        font-size: 1.5rem;
+        color: #052f5f !important;
+    }
+
+    .container{
+      max-width: none !important;
+      width: 970px;
+    }
