@@ -6,14 +6,12 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
   background: #fcffff;
-  
-  
 }
 
 @media (min-width: 100px) {
   .filterBar {
     /* max-width: 700px !important; */
-   width: 1145px !important;
+    width: 1145px !important;
     left: 100px !important;
   }
 }
@@ -25,7 +23,6 @@
   overflow: scroll;
   position: absolute;
 }
-
 
 #logo {
   padding-top: 0px;
@@ -52,11 +49,10 @@
   background: #fcffff;
 }
 
-
 @media (min-width: 100px) {
   .dashboardMainDisplay {
     /* max-width: 600px !important; */
-   width: 1145px !important;
+    width: 1145px !important;
     left: 100px !important;
   }
 }
@@ -380,7 +376,7 @@
 /*Modal */
 
 #statusModal {
-  height: 550px;
+  height: 560px;
   border-radius: 8px;
   background: #ffffff;
   border: 1px solid #cccccc;
@@ -404,7 +400,7 @@
 .modalOptions {
   position: absolute;
   width: 120px;
-  height:200px;
+  height: 200px;
   background: #fcffff;
   border-right: 1px solid #cccccc;
   box-sizing: border-box;
@@ -415,10 +411,10 @@
   display: table;
 }
 
-.modalOptionsRect{
+.modalOptionsRect {
   position: absolute;
   width: 120px;
-  height:460px;
+  height: 460px;
   background: #fcffff;
   border: 1px solid #cccccc;
   box-sizing: border-box;
@@ -429,29 +425,27 @@
   display: table;
 }
 
-
 .modal-content {
   position: absolute;
   border: none !important;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   padding-top: 0px;
-
 }
 
-#xButton{
+#xButton {
   padding-top: 0px;
   margin-left: 462px;
   font-size: 1rem;
-    font-weight: 700;
-    color: #000;
-    border:none;
-    text-shadow: 0 1px 0 #fff;  
-    background: #fcffff; 
+  font-weight: 700;
+  color: #000;
+  border: none;
+  text-shadow: 0 1px 0 #fff;
+  background: #fcffff;
 }
 
-.updateButton{
-  margin-left:50px;
+.updateButton {
+  margin-left: 370px;
   background-color: #e5b85f !important;
   position: absolute;
   border-radius: 8px;
@@ -460,11 +454,10 @@
   height: 45px;
   background-color: #e5b85f;
   color: #fcffff !important;
-font-style: normal;
-font-size: smaller !important;
-font-weight: bold;
-text-align: center;
-
+  font-style: normal;
+  font-size: smaller !important;
+  font-weight: bold;
+  text-align: center;
 }
 /* @media (min-width: 100px) {
   .modalOptions {
@@ -488,23 +481,24 @@ text-align: center;
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 8px !important;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
- /* .header{
+/* .header{
   border-bottom: 1px solid #cccccc !important;
   width: 120px; */
-  /* height: 50px */
+/* height: 50px */
 /* } */
 
 .first {
   color: #052f5f !important;
-margin-top: 15px !important;
-height: 35px;
-width: 100px !important;
-border-bottom: 1px solid #cccccc !important;
-left: 0px;
-padding-left: 0px !important;
-text-align: center
+  margin-top: 15px !important;
+  height: 35px;
+  width: 100px !important;
+  border-bottom: 1px solid #cccccc !important;
+  left: 0px;
+  padding-left: 0px !important;
+  text-align: center;
 }
 .second {
   color: #052f5f !important;
@@ -515,35 +509,197 @@ text-align: center
   left: 0px;
   padding-left: 0px !important;
   text-align: center;
-  
-  }
+}
 
- .third {
+.third {
   color: #052f5f !important;
   height: 35px;
   width: 100px !important;
   border-bottom: 1px solid #cccccc !important;
   left: 0px;
   padding-left: 0px !important;
-  text-align: center
-    } 
-    
-    .fourth {
-      color: #052f5f !important;
-      height: 35px;
-      width: 100px !important;
-      border-bottom: 1px solid #cccccc !important;
-      left: 0px;
-      padding-left: 0px !important;
-      text-align: center
-      } 
+  text-align: center;
+}
 
-      .h4, h4 {
-        font-size: 1.5rem;
-        color: #052f5f !important;
-    }
+.fourth {
+  color: #052f5f !important;
+  height: 35px;
+  width: 100px !important;
+  border-bottom: 1px solid #cccccc !important;
+  left: 0px;
+  padding-left: 0px !important;
+  text-align: center;
+}
 
-    .container{
-      max-width: none !important;
-      width: 970px;
-    }
+.h4,
+h4 {
+  font-size: 1.5rem;
+  color: #052f5f !important;
+}
+
+.container {
+  max-width: none !important;
+  width: 970px;
+}
+
+.companyInfoCont {
+  padding-right: 0px !important;
+  height: 458px
+}
+
+.companyInfoRow {
+  border-bottom-right-radius: 8px;
+  padding-right: 0px !important;
+  margin-right: 0px !important;
+  margin-left: 88px !important;
+  width: 396px !important;
+  height: 458px
+}
+
+.companyInfo {
+  /* height: 270px; */
+  /* width: 400px; */
+}
+
+.companyRoleDesc {
+  height: 159px;
+  width: 400px;
+  border-bottom-right-radius: 8px;
+}
+
+#logoCol {
+  margin-top: 15px !important;
+}
+
+#titleCol {
+  margin-top: 15px !important;
+  padding-left: 0px !important;
+}
+
+#title {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 20px !important;
+}
+
+#modalTitleRow {
+  width: 300px;
+}
+
+#modalLogo {
+  height: 20px !important;
+  width: 40px !important;
+}
+
+#vacancyTitle{
+  margin-top: 15px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  font-weight: bold
+}
+
+#companyTitle{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#jobInfo{
+  color: #8A7F7F;
+  font-size: 15px;
+  font-family: "Arvo", serif !important;
+}
+
+#role{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#loco{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+
+#applicationTitle{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#applicationJobInfo{
+  display: block;
+  color: #8A7F7F;
+  font-size: 15px;
+  font-family: "Arvo", serif !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+}
+
+#statusTitle{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  font-weight: bold
+}
+
+#appDateTitle{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#interviewDateTitle{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#replyDateTitle{
+  margin-top: 17px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#dateTime{
+  height: 25px;
+  width: 120px;
+  font-size: 10px;
+  padding: 0px
+}
+
+#companyRoleTitle{ 
+  margin-top: 15px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
+
+#companyRoleDesc{ 
+  /* padding-top: 19px !important; */
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  margin-bottom: 0px
+}
