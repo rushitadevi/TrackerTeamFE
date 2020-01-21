@@ -1,0 +1,43 @@
+#statusListModal{
+    height: 225px !important;
+    width: 300px !important;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    margin-top: 90px;
+   z-index: 1070 !important;
+   transform: none !important;
+   opacity: 0.9 !important;
+  
+}
+
+#xListButton{
+    padding-top: 0px;
+    margin-left: 262px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    border: none;
+    text-shadow: 0 1px 0 #fff;
+    background: #fcffff;
+}
+#statOptionsRow{
+    padding-right: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 30px
+}
+
+#addStatusOptCol{
+    padding-right: 0px;
+}
+
+#statusOptCol h6{
+ line-height: 20px;
+ font-family: "Arvo", serif;
+ color: #052f5f !important;
+}
+
+#statusOptCol{
+    padding-right: 0px !important;
+}

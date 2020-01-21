@@ -1,0 +1,338 @@
+#statusModal {
+    height: 560px;
+    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+  }
+  
+  #modalHeader {
+    padding-top: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 499px;
+    height: 90px;
+    background: #fcffff;
+    border: 1px solid #cccccc;
+    border-top: 0px;
+    border-left: 0px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .modalOptions {
+    position: absolute;
+    width: 120px;
+    height: 200px;
+    background: #fcffff;
+    border-right: 1px solid #cccccc;
+    box-sizing: border-box;
+    left: 14px;
+    top: 0px;
+    padding-left: 0px !important;
+    display: table;
+  }
+  
+  .modalOptionsRect {
+    position: absolute;
+    width: 120px;
+    height: 460px;
+    background: #fcffff;
+    border: 1px solid #cccccc;
+    box-sizing: border-box;
+    left: 14px;
+    top: 89px;
+    border-bottom-left-radius: 8px;
+    padding-left: 0px !important;
+    display: table;
+  }
+  
+  .modal-content {
+    position: absolute;
+    border: none !important;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding-top: 0px;
+  }
+  
+  #xButton {
+    padding-top: 0px;
+    margin-left: 462px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    border: none;
+    text-shadow: 0 1px 0 #fff;
+    background: #fcffff;
+  }
+  
+  .updateButton {
+    margin-left: 370px;
+    background-color: #e5b85f !important;
+    position: absolute;
+    border-radius: 8px;
+    font-family: "Arvo", serif;
+    width: 80px;
+    height: 45px;
+    background-color: #e5b85f;
+    color: #fcffff !important;
+    font-style: normal;
+    font-size: smaller !important;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: none !important;
+    padding: 0px !important;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 8px !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  
+  .first {
+    margin-top: 15px !important;
+    height: 35px;
+    width: 100px !important;
+    border-bottom: 1px solid #cccccc !important;
+    left: 0px;
+    padding-left: 0px !important;
+    text-align: center;
+  }
+
+  .second {
+    top: 0px !important;
+    height: 35px;
+    width: 100px !important;
+    border-bottom: 1px solid #cccccc !important;
+    left: 0px;
+    padding-left: 0px !important;
+    text-align: center;
+  }
+  
+  .third {
+    height: 35px;
+    width: 100px !important;
+    border-bottom: 1px solid #cccccc !important;
+    left: 0px;
+    padding-left: 0px !important;
+    text-align: center;
+  }
+  
+  .fourth {
+    height: 35px;
+    width: 100px !important;
+    border-bottom: 1px solid #cccccc !important;
+    left: 0px;
+    padding-left: 0px !important;
+    text-align: center;
+  }
+  
+  a{
+      text-decoration: none !important;
+      color: #052f5f !important;
+  }
+
+  .h4,
+  h4 {
+    font-size: 1.5rem;
+    color: #052f5f !important;
+  }
+  
+  .container {
+    max-width: none !important;
+    width: 970px;
+  }
+  
+  .companyInfoCont {
+    padding-right: 0px !important;
+    height: 458px
+  }
+  
+  .companyInfoRow {
+    border-bottom-right-radius: 8px;
+    padding-right: 0px !important;
+    margin-right: 0px !important;
+    margin-left: 88px !important;
+    width: 396px !important;
+    height: 458px
+  }
+   
+  .companyRoleDesc {
+    height: 159px;
+    width: 400px;
+    border-bottom-right-radius: 8px;
+  }
+  
+  #logoCol {
+    margin-top: 15px !important;
+  }
+  
+  #titleCol {
+    margin-top: 15px !important;
+    padding-left: 0px !important;
+  }
+  
+  #title {
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 20px !important;
+  }
+  
+  #modalTitleRow {
+    width: 300px;
+  }
+  
+  #modalLogo {
+    height: 20px !important;
+    width: 40px !important;
+  }
+  
+  #vacancyTitle{
+    margin-top: 15px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    font-weight: bold
+  }
+  
+  #companyInfoTitle{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #jobInfo{
+    color: #8A7F7F;
+    font-size: 15px;
+    font-family: "Arvo", serif !important;
+  }
+  
+  #role{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #loco{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  
+  #applicationTitle{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #applicationJobInfo{
+    display: block;
+    color: #8A7F7F!important;
+    font-size: 15px;
+    font-family: "Arvo", serif !important;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  
+  }
+  
+  #statusTitle{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    font-weight: bold
+  }
+  
+  #appDateTitle{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #interviewDateTitle{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #replyDateTitle{
+    margin-top: 17px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #dateTime{
+    height: 25px;
+    width: 120px;
+    font-size: 10px;
+    padding: 0px
+  }
+  
+  #companyRoleTitle{ 
+    margin-top: 15px;
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+  
+  #companyRoleDesc{ 
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    margin-bottom: 0px
+  }
+
+  .tasksRow{
+      padding: 0px !important;
+      width: 378px !important;
+      left: 120px
+  }
+
+  .addTaskTitle{
+    font-family: "Arvo", serif;
+    color: #052f5f !important;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 0px!important; 
+  }
+
+ .addTaskCol{
+  margin-top: 15px
+ }
+
+
+  .addTask::placeholder {
+    color: #8A7F7F !important;
+    opacity: 1;
+  }

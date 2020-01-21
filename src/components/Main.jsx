@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import StudentDashboard from "./StudentDashboard";
 import ManagerDashboard from "./ManagerDashboard";
-import FilteredSearchBar from "./FilteredSearchBar";
 import Navbar from "./Navbar";
 import configureStore from "../store";
 // import { ok } from "assert";

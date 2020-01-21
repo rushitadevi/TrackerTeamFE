@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './StyleSheets/StatusListModal.css';
 import './StyleSheets/StudentDashboard.css';
+import './StyleSheets/Modal.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import Main from './components/Main';

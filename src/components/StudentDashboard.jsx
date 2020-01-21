@@ -12,10 +12,7 @@ import {
 } from "reactstrap";
 import { getJobCategory, getSearch } from "../Actions/apiFetches";
 import { Scrollbars } from "react-custom-scrollbars";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import InputGroup from "react-bootstrap/InputGroup";
-import FormControl from "react-bootstrap/FormControl";
+import StudentModal from "./StudentModal";
 
 const mapStateToProps = state => state;
 
@@ -35,13 +32,17 @@ class StudentDashboard extends React.Component {
       url: "",
       hover: false,
       showModal: false,
-      show: false,
-      selectedJob: {}
+      selectedJob: {},
     };
   }
 
+
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
+  };
+
+  toggleView = () => {
+    this.setState({ selectedView: !this.state.selectedView });
   };
 
   componentDidMount = async () => {
@@ -58,11 +59,8 @@ class StudentDashboard extends React.Component {
     let url = "search=";
 
     if (this.state.company.length >= 4) url += "+" + this.state.company;
-
     if (this.state.role.length >= 4) url += "+" + this.state.role;
-
     if (this.state.level.length) url += "+" + this.state.level;
-
     if (this.state.location.length >= 4)
       url += "&location=" + this.state.location;
 
@@ -74,9 +72,6 @@ class StudentDashboard extends React.Component {
   };
   //if fetch is an empty array return a message: (no results matching your search)
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-  };
 
   render() {
     return (
@@ -130,7 +125,7 @@ class StudentDashboard extends React.Component {
           </select>
           <img
             className="locationImg"
-            src="https://www.freeiconspng.com/uploads/simple-location-icon-png-22.png"
+            src="https://www.freeiconspng.com/uploads/gray-location-icon-png-6.png"
             alt="/"
           />
 
@@ -150,6 +145,7 @@ class StudentDashboard extends React.Component {
             Search
           </button>
         </Container>
+
         {!this.state.url && (
           <Container className="dashboardMainDisplay">
             <div>
@@ -208,6 +204,7 @@ class StudentDashboard extends React.Component {
             </div>
           </Container>
         )}
+
         {this.state.url && (
           <Container className="dashboardMainDisplay">
             <Row className="col-12" id="titleRow">
@@ -272,129 +269,7 @@ class StudentDashboard extends React.Component {
                   }
                 )}
             </Scrollbars>
-            <Modal
-              show={this.state.showModal}
-              id="statusModal"
-              aria-labelledby="contained-modal-title-vcenter"
-            >
-              <Container id="modalHeader">
-                <Row id="xButtonRow" className="col-sm-12">
-                  <Button
-                    id="xButton"
-                    onClick={() => {
-                      this.toggleModal();
-                      this.setState({ show: false });
-                    }}
-                  >
-                    X
-                  </Button>
-                </Row>
-                <Row id="modalTitleRow" className="col-sm-12">
-                  <Col sm="3" id="logoCol">
-                    <img
-                      id="modalLogo"
-                      src={this.state.selectedJob.company_logo}
-                      height="20px"
-                      alt="logo"
-                    />
-                  </Col>
-                  <Col sm="9" id="titleCol">
-                    {/* <Modal.Title > */}
-                    <h3 id="title">{this.state.selectedJob.company}</h3>
-                    {/* </Modal.Title> */}
-                  </Col>
-                  {/* <Col sm="8"> */}
-                  <Button className="updateButton">UPDATE STATUS</Button>
-                  {/* </Col> */}
-                </Row>
-              </Container>
-              {/* <Modal.Body> */}
-              <Container>
-                <Row className="modalOptionsRect">
-                  <Row className="modalOptions">
-                    <Col xs={12} className="first">
-                      <h6>JOB INFO</h6>
-                    </Col>
-                    <Col xs={12} className="second">
-                      <h6>TASKS</h6>
-                    </Col>
-                    <Col xs={12} className="third">
-                      <h6>NOTES</h6>
-                    </Col>
-                    <Col xs={12} className="fourth">
-                      <h6>DIRECTORY</h6>
-                    </Col>
-                  </Row>
-                </Row>
-              </Container>
-
-              <Container className="companyInfoCont">
-                <Row className="col-sm-12 companyInfoRow">
-                  <Col xs={6} className="companyInfo">
-                    <h6 id="vacancyTitle">Vacancy Details</h6>
-                    <h6 id="companyTitle">Company Name</h6>
-                    <h6 id="jobInfo">
-                      {this.state.selectedJob.company}
-                    </h6>
-                    <h6 id="role">Role Title</h6>
-                    <h6 id="jobInfo">{this.state.selectedJob.title}</h6>
-                    <h6 id="loco">Location</h6>
-                    <h6 id="jobInfo">
-                      {this.state.selectedJob.location}
-                    </h6>
-                    <h6 id="applicationTitle">Posting URL</h6>
-                    {/* <h6 id="applicationJobInfo">{this.state.selectedJob.url}</h6> */}
-                    <a
-                      id="applicationJobInfo"
-                      href={this.state.selectedJob.url}
-                    >
-                      {this.state.selectedJob.url}
-                    </a>
-                  </Col>
-                  <Col xs={6} className="companyInfo">
-                    <h6 id="statusTitle">Status: New</h6>
-                    <h6 id="appDateTitle">Application Date</h6>
-                    <Input
-                      type="datetime-local"
-                      name="dateTime"
-                      id="dateTime"
-                      placeholder="Date &amp; Time"
-                      // value={this.state.reservation.dateTime}
-                      // onChange={this.updateReservation}
-                    />
-                    <h6 id="interviewDateTitle">Interview Date</h6>
-                    <Input
-                      type="datetime-local"
-                      name="dateTime"
-                      id="dateTime"
-                      placeholder="Date &amp; Time"
-                      // value={this.state.reservation.dateTime}
-                      // onChange={this.updateReservation}
-                    />
-
-                    <h6 id="replyDateTitle">Expected Reply Date</h6>
-                    <Input
-                      type="datetime-local"
-                      name="dateTime"
-                      id="dateTime"
-                      placeholder="Date &amp; Time"
-                      // value={this.state.reservation.dateTime}
-                      // onChange={this.updateReservation}
-                    />
-                  </Col>
-                  <Col xs={12} className="companyRoleDesc">
-                  <h6 id="companyRoleTitle">Role Description</h6>
-
-                  <p id="jobInfo">
-                  <Scrollbars id="modalScroll" style={{ height: 110}}>
-                      {this.state.selectedJob.description}
-                      </Scrollbars>
-                    </p>
-                  </Col>
-                </Row>
-              </Container>
-              {/* </Modal.Body> */}
-            </Modal>
+            <StudentModal showModal={this.state.showModal} toggleModal={this.toggleModal} selectedJob={this.state.selectedJob} />
           </Container>
         )}
       </>
