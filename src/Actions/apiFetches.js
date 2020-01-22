@@ -75,3 +75,28 @@ export const getSearch = (url) => {
 }
 }
   
+export const addJobApp=(application) => async dispatch =>{
+  // console.log("hello", application)
+  try {
+       var res = await fetch(process.env.REACT_APP_URL + "application" , {
+        method: "POST",
+        body: JSON.stringify(application),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      if (res.ok) {
+        var jobApp = await res.json();
+      console.log("hello", jobApp)
+    dispatch({
+      type: "ADD_JOB_APP",
+      payload: jobApp
+    })
+  }
+  
+  } catch (err) {
+    console.log(err)
+  }			
+  }
+
+  

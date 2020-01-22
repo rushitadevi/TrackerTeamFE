@@ -12,20 +12,14 @@ class StatusUpdateModal extends Component {
       statusDateTime: null,
       intDateTime: null,
       replyDateTime: null,
-      status: null
+    
     };
   }
 
-
-
-  statusInput = async status => {
-
-    this.setState({ status: status });
-    return(
-    <StudentModal status={this.state.status}/>
-    )
+  statusInput = status => {  
+    this.props.handleStatus(status)
   };
-
+ 
 
   render() {
     return (
@@ -35,14 +29,6 @@ class StatusUpdateModal extends Component {
         aria-labelledby="contained-modal-title-vcenter"
       >
         <Container id="statusList">
-          {/* <Row id="xButtonRow" className="col-sm-12">
-            <Button
-              id="xListButton"
-              onClick={() => {this.props.toggleModal();}}
-            >
-              X
-            </Button>
-          </Row> */}
           <Row id="statOptionsRow" className="col-sm-12">
             <Col id="statusOptCol" sm={10}>
              <h6>Save to wishlist</h6>
@@ -62,10 +48,10 @@ class StatusUpdateModal extends Component {
                 <a href="#" onClick={() => {this.statusInput("interview"); {this.props.toggleModal();}}}>
             <i class="material-icons" id="addCircle">add_circle_outline</i>
                 </a>
-                <a href="#" onClick={() => {this.statusInput("offer"); {this.props.toggleModal();}}}>
+                <a href="#"  onClick={() => {this.statusInput("offer"); {this.props.toggleModal();}}}>
             <i class="material-icons" id="addCircle">add_circle_outline</i>
                 </a>
-                <a href="#" onClick={() => {this.statusInput("application withdrawn");{this.props.toggleModal();}}}>
+                <a href="#"  onClick={() => {this.statusInput("application withdrawn");{this.props.toggleModal();}}}>
             <i class="material-icons" id="addCircle">add_circle_outline</i> 
                 </a>
                 <a href="#" onClick={() => {this.statusInput("JobInfo");}}>

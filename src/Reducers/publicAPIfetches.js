@@ -14,13 +14,13 @@ export default function(state = {}, action) {
             contractType: state.contractType.concat(action.payload)
             
           };
-          // case "LOCATION":
-          //   console.log(action.payload)
-          //   return {
-          //     ...state,
-          //     selectedLocation: state.selectedLocation.concat(action.payload)
+          case "ADD_JOB_APP":
+            console.log(action.payload)
+            return {
+              ...state,
+              jobApp: state.jobApp.concat(action.payload)
               
-          //   };
+            };
           case "FILTERED_SEARCH":
             console.log(action.payload)
             return {
