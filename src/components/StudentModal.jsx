@@ -84,7 +84,7 @@ class StudentModal extends Component {
               onClick={() => {
                 this.props.toggleModal();
                 {
-                  this.state.application && this.handleApplication();
+                  this.state.application && (this.handleApplication());
                 }
                 // onSubmit={() => this.handleApplication}
               }}

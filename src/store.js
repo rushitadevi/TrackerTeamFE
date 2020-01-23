@@ -14,6 +14,8 @@ const initialState = {
     jobApp: [],
     allJobApps: [],
     wishlist: [],
+    active: [],
+    closed: []
   },
 
 };

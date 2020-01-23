@@ -11,13 +11,17 @@ import {
   Col
 } from "reactstrap";
 import { getSearch } from "../Actions/apiFetches";
+import { getWishlistJobApps, getActiveJobApps, getClosedJobApps  } from "../Actions/jobAppFetches";
 import { Scrollbars } from "react-custom-scrollbars";
 import StudentModal from "./StudentModal";
 
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  getSearchThunk: url => dispatch(getSearch(url))
+  getSearchThunk: url => dispatch(getSearch(url)),
+  getWishlistJobAppsThunk: (query) => dispatch(getWishlistJobApps(query)),
+  getActiveJobAppsThunk: (query) => dispatch(getActiveJobApps(query)),
+  getClosedJobAppsThunk: (query) => dispatch(getClosedJobApps(query))
 });
 
 class StudentDashboard extends React.Component {
@@ -32,9 +36,17 @@ class StudentDashboard extends React.Component {
       hover: false,
       showModal: false,
       selectedJob: {},
+      query: null
     };
   }
 
+  componentDidMount= async () => {
+    let query = "?limit=5";
+    this.setState({query: query})
+     await this.props.getWishlistJobAppsThunk(query)
+     await this.props.getActiveJobAppsThunk(query)
+     await this.props.getClosedJobAppsThunk(query)
+  };
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
@@ -142,54 +154,111 @@ class StudentDashboard extends React.Component {
         {!this.state.url && (
           <Container className="dashboardMainDisplay">
             <div>
-              <Card id="wishList">
+              <Card className="listCard wishCard">
                 <CardHeader>WISHLIST</CardHeader>
                 <CardBody>
-                  <div className="wishlistRecord">
-                    {" "}
+                {this.props.jobApp.wishlist &&
+                this.props.jobApp.wishlist.map(wishlistJobs => {
+                    return(
+                  <Row key={wishlistJobs._id} className = "col-sm-12" id="listRecord">
+                    <Col sm="3" className="logoCol">
+                    {wishlistJobs.companyLogo &&(
                     <img
-                      className="wishCompanyLogo"
-                      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1"
+                      className="companyLogo"
+                      src={wishlistJobs.companyLogo}
                       alt="logo"
                     />
-                  </div>
-                  <a href="/" id="seeMoreLink">
+                    )}
+                      {!wishlistJobs.companyLogo &&(
+                      <img
+                      className="companyLogo"
+                      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                      alt="logo"
+                    />
+                    )}
+                    </Col>
+                    <Col sm="9" className="companyCol">
+                    {wishlistJobs.companyName}<br/>
+                    {wishlistJobs.roleTitle}
+                    </Col>
+                  </Row>
+                    )
+                  })}
+                  <a href="/" className="seeMoreLink wishlist">
                     See More
                   </a>
                 </CardBody>
               </Card>
             </div>
             <div>
-              <Card id="active">
+              <Card className="listCard activeCard">
                 <CardHeader>ACTIVE APPLICATIONS</CardHeader>
                 <CardBody>
-                  <div className="activeRecord">
-                    {" "}
+                     {this.props.jobApp.active &&
+                this.props.jobApp.active.map(activeJobs => {
+                    return(
+                  <Row key={activeJobs._id} className = "col-sm-12" id="listRecord">
+                    <Col sm="3" className="logoCol">
+                    {activeJobs.companyLogo &&(
                     <img
-                      className="activeCompanyLogo"
-                      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1"
+                      className="companyLogo"
+                      src={activeJobs.companyLogo}
                       alt="logo"
                     />
-                  </div>
-                  <a href="/" id="seeMoreActiveLink">
+                    )}
+                      {!activeJobs.companyLogo &&(
+                      <img
+                      className="companyLogo"
+                      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                      alt="logo"
+                    />
+                    )}
+                    </Col>
+                    <Col sm="9" className="companyCol">
+                    {activeJobs.companyName}<br/>
+                    {activeJobs.roleTitle}
+                    </Col>
+                  </Row>
+                    )
+                  })}
+                  <a href="/" className="seeMoreLink active"> 
                     See More
                   </a>
                 </CardBody>
               </Card>
             </div>
             <div>
-              <Card id="closed">
+              <Card className="listCard closedCard">
                 <CardHeader>CLOSED APPLICATIONS</CardHeader>
                 <CardBody>
-                  <div className="closedRecord">
-                    {" "}
+                {this.props.jobApp.closed &&
+                this.props.jobApp.closed.map(closedJobs => {
+                    return(
+                  <Row key={closedJobs._id} className = "col-sm-12" id="listRecord">
+                    <Col sm="3" className="logoCol">
+                    {closedJobs.companyLogo &&(
                     <img
-                      className="closedCompanyLogo"
-                      src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbrandox-production.s3-eu-central-1.amazonaws.com%2Fad0c0479-e033-4016-93fa-dbf1cb3d0972%2Fbrand-page-logo%2F1553513398828%2FDummy-logo-BW--1200x1200.png&f=1&nofb=1"
+                      className="companyLogo"
+                      src={closedJobs.companyLogo}
                       alt="logo"
                     />
-                  </div>
-                  <a href="/" id="seeMoreClosedLink">
+                    )}
+                      {!closedJobs.companyLogo &&(
+                      <img
+                      className="companyLogo"
+                      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                      alt="logo"
+                    />
+                    )}
+                    </Col>
+                    <Col sm="9" className="companyCol">
+                    {closedJobs.companyName}<br/>
+                    {closedJobs.roleTitle}
+                    </Col>
+                  </Row>
+                    )
+                  })}
+                  <a href="/" className="seeMoreLink closed">
                     See More
                   </a>
                 </CardBody>
@@ -202,20 +271,16 @@ class StudentDashboard extends React.Component {
           <Container className="dashboardMainDisplay">
             <Row className="col-12" id="titleRow">
               <Col xs="2" id="companyTitle">
-                {" "}
-                Company{" "}
+                Company
               </Col>
               <Col xs="2" id="roleTitle">
-                {" "}
-                Role{" "}
+                Role
               </Col>
               <Col xs="2" id="locationTitle">
-                {" "}
-                Location{" "}
+                Location
               </Col>
               <Col xs="2" id="descriptionTitle">
-                {" "}
-                Description{" "}
+                Description
               </Col>
             </Row>
             <Scrollbars id="filteredScroll" style={{ height: 500 }}>

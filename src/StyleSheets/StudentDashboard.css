@@ -70,8 +70,8 @@
 }
 
 ::placeholder {
-  color: #8A7F7F !important;
-    opacity: 1;
+  color: #8a7f7f !important;
+  opacity: 1;
 }
 
 .form-control:focus {
@@ -81,7 +81,7 @@
 }
 
 #searchIcon {
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
   margin-left: 70px;
   bottom: 38px;
   font-size: 19px !important;
@@ -101,13 +101,13 @@
   border-radius: 0.25rem !important;
   font-family: "Arvo", serif;
   /* color: rgb(111, 114, 121) !important; */
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
   background: #fcffff;
   padding: 0px;
 }
 
 #roleIcon {
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
   margin-left: 310px;
   bottom: 38px;
   font-size: 19px !important;
@@ -126,13 +126,13 @@
   line-height: 1.5 !important;
   border-radius: 0.25rem !important;
   font-family: "Arvo", serif;
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
   background: #fcffff;
   padding: 0px;
 }
 
 #entryLevelIcon {
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
   margin-left: 513px;
   bottom: 38px;
   font-size: 19px !important;
@@ -145,7 +145,7 @@
   bottom: 38px;
   width: 15px !important;
   height: 19px;
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
 }
 
 #location {
@@ -164,7 +164,7 @@
   /* color: rgb(111, 114, 121) !important; */
   background: #fcffff;
   padding: 0px;
-  color: #8A7F7F !important;
+  color: #8a7f7f !important;
 }
 
 .searchButton {
@@ -179,14 +179,13 @@
   color: #052f5f !important;
 }
 
-/* WISHLIST APPLICATIONS CARD   */
+/* SAVE APPLICATIONS CARDS  */
 
-#wishList {
+.listCard {
   position: absolute;
   width: 300px;
   height: 466px;
-  left: 40px;
-  top: 100px;
+
   border-radius: 8px;
   font-family: "Arvo", serif;
   background: #ffffff;
@@ -194,7 +193,21 @@
   border-radius: 8px;
 }
 
-#wishList .card-header {
+#listRecord {
+  width: 260px;
+  height: 50px;
+  margin-left: 0px;
+  display: block;
+  background: #ffffff;
+  border: 2px solid #eaeef6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+  margin-bottom: 10px !important;
+}
+
+.listCard .card-header {
   background-color: #eaeef6;
   border-top: 8px;
   color: #052f5f !important;
@@ -202,42 +215,53 @@
   font-size: 20px;
 }
 
-.wishlistRecord {
-  width: 250px;
-  height: 50px;
-  margin-left: 5px;
-  display: block;
-  background: #ffffff;
-  border: 2px solid #eaeef6;
-  box-sizing: border-box;
+.logoCol {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  display: inline-block !important;
+  width: 50px !important;
 }
 
-.wishCompanyLogo {
+.companyCol {
+  padding-left: 0px !important;
+  display: inline-block !important;
+  padding-right: 0px !important;
+  width: 400px !important;
+  font-size: small;
+  color: #052f5f !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.companyLogo{
   width: 50px;
-  height: 50px;
-  margin-left: 10px;
+  height: 30px;
+  margin-bottom: 20px !important;
 }
 
-#seeMoreLink {
+/* WISHLIST APPLICATIONS CARD   */
+
+.listCard.wishCard {
+  top: 100px;
+  left: 40px;
+}
+
+.seeMoreLink {
   display: block;
-  margin-top: 300px;
-  text-align: center;
+  position: absolute;
+  margin-left: 90px;
+  text-align: center !important;
   color: #8a7f7f;
+}
+
+.seeMoreLink.wishlist {
+  margin-top: 100px !important;
 }
 
 /* ACTIVE APPLICATIONS CARD   */
 
-.activeRecord {
-  width: 250px;
-  height: 50px;
-  margin-left: 5px;
-  display: block;
-  background: #ffffff;
-  border: 2px solid #eaeef6;
-  box-sizing: border-box;
-}
-
-#active .card-header {
+.activeCard .card-header {
   background-color: #59ff60;
   border-top: 8px;
   color: #052f5f !important;
@@ -245,45 +269,23 @@
   font-size: 20px;
 }
 
-#active {
-  position: absolute;
-  width: 300px;
-  height: 466px;
-  left: 420px;
-  top: 100px;
-  border-radius: 8px;
-  font-family: "Arvo", serif;
-  background: #ffffff;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
+.listCard.activeCard {
+  left: 420px !important;
+  bottom: 367px;
 }
 
-.activeCompanyLogo {
-  width: 50px;
-  height: 50px;
-  margin-left: 10px;
-}
-
-#seeMoreActiveLink {
-  display: block;
-  margin-top: 300px;
-  text-align: center;
-  color: #8a7f7f;
+.seeMoreLink.active {
+  margin-top: 40px !important;
 }
 
 /* CLOSED APPLICATIONS CARD   */
 
-.closedRecord {
-  width: 250px;
-  height: 50px;
-  margin-left: 5px;
-  display: block;
-  background: #ffffff;
-  border: 2px solid #eaeef6;
-  box-sizing: border-box;
+.listCard.closedCard {
+  left: 800px !important;
+  bottom: 833px;
 }
 
-#closed .card-header {
+.closedCard .card-header {
   background-color: #f38982;
   border-top: 8px;
   color: #052f5f !important;
@@ -291,30 +293,8 @@
   font-size: 20px;
 }
 
-#closed {
-  position: absolute;
-  width: 300px;
-  height: 466px;
-  left: 800px;
-  top: 100px;
-  border-radius: 8px;
-  font-family: "Arvo", serif;
-  background: #ffffff;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-}
-
-.closedCompanyLogo {
-  width: 50px;
-  height: 50px;
-  margin-left: 10px;
-}
-
-#seeMoreClosedLink {
-  display: block;
-  margin-top: 300px;
-  text-align: center;
-  color: #8a7f7f;
+.seeMoreLink.closed {
+  margin-top: 160px !important;
 }
 
 /* filteredsearch display */
@@ -372,6 +352,3 @@
   font-size: 12px;
   margin-left: 50px;
 }
-
-
-
