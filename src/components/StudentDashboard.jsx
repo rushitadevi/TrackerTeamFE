@@ -11,7 +11,7 @@ import {
   Col
 } from "reactstrap";
 import { getSearch } from "../Actions/apiFetches";
-import { getWishlistJobApps, getActiveJobApps, getClosedJobApps  } from "../Actions/jobAppFetches";
+import { getWishlistJobApps, getActiveJobApps, getClosedJobApps, getJobApps  } from "../Actions/jobAppFetches";
 import { Scrollbars } from "react-custom-scrollbars";
 import StudentModal from "./StudentModal";
 
@@ -19,6 +19,7 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
   getSearchThunk: url => dispatch(getSearch(url)),
+  getJobAppsThunk: () => dispatch(getJobApps()),
   getWishlistJobAppsThunk: (query) => dispatch(getWishlistJobApps(query)),
   getActiveJobAppsThunk: (query) => dispatch(getActiveJobApps(query)),
   getClosedJobAppsThunk: (query) => dispatch(getClosedJobApps(query))
@@ -43,6 +44,7 @@ class StudentDashboard extends React.Component {
   componentDidMount= async () => {
     let query = "?limit=5";
     this.setState({query: query})
+    //  await this.props.getJobAppsThunk();
      await this.props.getWishlistJobAppsThunk(query)
      await this.props.getActiveJobAppsThunk(query)
      await this.props.getClosedJobAppsThunk(query)
@@ -81,6 +83,12 @@ class StudentDashboard extends React.Component {
   render() {
     return (
       <>
+      
+       {this.props.jobApp.allJobApps &&
+        this.props.jobApp.allJobApps.map(application =>
+         <StudentModal id={application._id} />
+         )}
+
         <Container className="filterBar">
           <h5 id="logo">TrackeR</h5>
           <hr
@@ -150,6 +158,7 @@ class StudentDashboard extends React.Component {
             Search
           </button>
         </Container>
+
 
         {!this.state.url && (
           <Container className="dashboardMainDisplay">

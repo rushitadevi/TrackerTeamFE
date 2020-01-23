@@ -11,7 +11,8 @@ import TaskComponent from "./TaskComponent";
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  addJobAppThunk: application => dispatch(addJobApp(application))
+  addJobAppThunk: application => dispatch(addJobApp(application)),
+
 });
 
 class StudentModal extends Component {
@@ -20,6 +21,7 @@ class StudentModal extends Component {
     this.state = {
       showModal: false,
       selectedComponent: "JobInfo",
+      id: null,
       application: {
         tasks: [],
         statusDateTime: undefined,
@@ -33,6 +35,11 @@ class StudentModal extends Component {
         description: undefined,
       }
     };
+  }
+
+  componentDidMount= () => {
+  //  let id = this.props.application._id
+  //  this.setState({id: id})
   }
 
   handleApplication = () => {
