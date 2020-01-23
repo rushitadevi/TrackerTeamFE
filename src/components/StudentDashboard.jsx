@@ -10,14 +10,13 @@ import {
   Row,
   Col
 } from "reactstrap";
-import { getJobCategory, getSearch } from "../Actions/apiFetches";
+import { getSearch } from "../Actions/apiFetches";
 import { Scrollbars } from "react-custom-scrollbars";
 import StudentModal from "./StudentModal";
 
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  getJobCategoryThunk: () => dispatch(getJobCategory()),
   getSearchThunk: url => dispatch(getSearch(url))
 });
 
@@ -43,12 +42,6 @@ class StudentDashboard extends React.Component {
 
   toggleView = () => {
     this.setState({ selectedView: !this.state.selectedView });
-  };
-
-  componentDidMount = async () => {
-    await this.props.getJobCategoryThunk();
-    // await this.props.getEntryLevelThunk();
-    console.log(this.props.publicAPIfetches.jobCategory);
   };
 
   searchInput = async value => {
@@ -226,10 +219,9 @@ class StudentDashboard extends React.Component {
               </Col>
             </Row>
             <Scrollbars id="filteredScroll" style={{ height: 500 }}>
-              {this.props.publicAPIfetches.filteredSearch &&
-                this.props.publicAPIfetches.filteredSearch.map(
+              {this.props.publicAPI.filteredSearch &&
+                this.props.publicAPI.filteredSearch.map(
                   (jobs, index) => {
-                    var idOne = jobs.id;
                     return (
                       <>
                         <Row key={index} className="col-12" id="record">

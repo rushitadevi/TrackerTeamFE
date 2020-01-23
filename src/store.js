@@ -1,23 +1,24 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-import publicAPIfetchesReducer from "./Reducers/publicAPIfetches";
+import publicAPIReducer from "./Reducers/publicAPI";
+import jobAppReducer from "./Reducers/jobApp";
 import thunk from "redux-thunk";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initialState = {
-  publicAPIfetches: {
-    jobCategory: [],
-    contractType: [],
-    // selectedLocation: [],
+  publicAPI: {
     filteredSearch: [],
-    jobApp: [],
+  },
 
-    
+  jobApp: {
+    jobApp: [],
+    allJobApps: [],
+    wishlist: [],
   },
 
 };
 
-const combReducer = combineReducers({ publicAPIfetches: publicAPIfetchesReducer});
+const combReducer = combineReducers({ publicAPI: publicAPIReducer,  jobApp: jobAppReducer });
 
 export default function configureStore() {
   return createStore(

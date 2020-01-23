@@ -5,12 +5,13 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Scrollbars } from "react-custom-scrollbars";
 import StatusUpdateModal from "./StatusUpdateModal";
-import { addJobApp } from "../Actions/apiFetches";
-/*if status has a state then on close call post method*/ 
+import { addJobApp } from "../Actions/jobAppFetches";
+import TaskComponent from "./TaskComponent";
+
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
- addJobAppThunk: (application) => dispatch(addJobApp(application)),
+  addJobAppThunk: application => dispatch(addJobApp(application))
 });
 
 class StudentModal extends Component {
@@ -19,35 +20,46 @@ class StudentModal extends Component {
     this.state = {
       showModal: false,
       selectedComponent: "JobInfo",
-      task: "",
-      statusDateTime: "",
-      intDateTime: "",
-      replyDateTime: "",
-      status: "",
-      // application: {}
+      application: {
+        tasks: [],
+        statusDateTime: undefined,
+        intDateTime: undefined,
+        replyDateTime: undefined,
+        status: undefined,
+        companyName: undefined,
+        companyLogo: undefined,
+        roleTitle: undefined,
+        location: undefined,
+        description: undefined,
+      }
     };
   }
 
-  // handlePost = () => {
-  //   // console.log("hello")
-  //   // this.setState({ status: status });
-  //   this.handleApplication()
-  // };
-
-
   handleApplication = () => {
-    // e.preventDefault();
-    console.log("hello")
-    var application = {
-      task: this.state.task,
+    let application = {
+      tasks: this.state.tasks,
       statusDateTime: this.state.statusDateTime,
       intDateTime: this.state.intDateTime,
       replyDateTime: this.state.replyDateTime,
       status: this.state.status,
-    }
-    console.log(application)
-    // this.setState({application: application})
+      companyName: this.props.selectedJob.company,
+      companyLogo: this.props.selectedJob.company_logo,
+      roleTitle: this.props.selectedJob.title,
+      location: this.props.selectedJob.location,
+      description: this.props.selectedJob.description,
+    };
+
+    console.log(application);
+    this.setState({ application: application });
     this.props.addJobAppThunk(application);
+  };
+
+  addTask = () => {
+    if (this.state.application._id) {
+      // execute the PUT
+    } else {
+      // execute the post and save the _id
+    }
   };
 
   selectComponent = component => {
@@ -64,7 +76,6 @@ class StudentModal extends Component {
         show={this.props.showModal}
         id="statusModal"
         aria-labelledby="contained-modal-title-vcenter"
-        onSubmit={() => this.handleApplication}
       >
         <Container id="modalHeader">
           <Row id="xButtonRow" className="col-sm-12">
@@ -72,9 +83,10 @@ class StudentModal extends Component {
               id="xButton"
               onClick={() => {
                 this.props.toggleModal();
-                // {this.state.status && (
-                //  this.handleApplication()
-                // )}
+                {
+                  this.state.application && this.handleApplication();
+                }
+                // onSubmit={() => this.handleApplication}
               }}
             >
               X
@@ -93,14 +105,17 @@ class StudentModal extends Component {
               <h3 id="title">{this.props.selectedJob.company}</h3>
             </Col>
 
-            <Button className="updateButton"  onClick={() => this.setState({showModal: true,})}>UPDATE STATUS</Button>
-            <StatusUpdateModal 
-                showModal={this.state.showModal} 
-                toggleModal={this.toggleModal}
-                handleApplication={(newStatus) => this.setState({ status: newStatus}), this.handleApplication} 
-                // handleStatus={this.handlePost} 
-                />       
-                        
+            <Button
+              className="updateButton"
+              onClick={() => this.setState({ showModal: true })}
+            >
+              UPDATE STATUS
+            </Button>
+            <StatusUpdateModal
+              showModal={this.state.showModal}
+              toggleModal={this.toggleModal}
+              handleStatus={newStatus => this.setState({ status: newStatus })}
+            />
           </Row>
         </Container>
 
@@ -152,10 +167,9 @@ class StudentModal extends Component {
         </Container>
 
         <Container className="companyInfoCont">
-        {this.state.selectedComponent === "JobInfo" && (
-              <>
-          <Row className="col-sm-12 companyInfoRow">
-         
+          {this.state.selectedComponent === "JobInfo" && (
+            <>
+              <Row className="col-sm-12 companyInfoRow">
                 <Col xs={6} className="companyInfo">
                   <h6 id="vacancyTitle">Vacancy Details</h6>
                   <h6 id="companyInfoTitle">Company Name</h6>
@@ -178,16 +192,18 @@ class StudentModal extends Component {
                     id="dateTime"
                     placeholder="Date &amp; Time"
                     value={this.state.statusDateTime}
-                    onChange={e => this.setState({ statusDateTime: e.currentTarget.value })}
+                    onChange={e =>
+                      this.setState({ statusDateTime: e.currentTarget.value })
+                    }
                   />
-                
+
                   <h6 id="interviewDateTitle">Interview Date</h6>
                   <Input
                     type="date"
                     name="intDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.intDateTime }
+                    value={this.state.intDateTime}
                     onChange={e =>
                       this.setState({ intDateTime: e.currentTarget.value })
                     }
@@ -214,33 +230,14 @@ class StudentModal extends Component {
                     </Scrollbars>
                   </p>
                 </Col>
-          </Row>
-          </>
-            )}
-                  
-            {this.state.selectedComponent === "Tasks" && (
-              <>
-               <Row className="col-sm-12 tasksRow">
-                <Col xs={12} className="addTaskTitle">
-                  <h6 id="vacancyTitle">Tasks</h6>
-                </Col>
-                <Col xs={12} className="addTaskCol">
-                  <Input
-                    className="addTask"
-                    id="addTask"
-                    placeholder="+ Add Task"
-                    value={this.state.task}
-                    onChange={e =>
-                      this.setState({ task: e.currentTarget.value })
-                    }
-                  />
-                </Col>
-                </Row>
-               
-              </>
-            )}
-             {/* <input type="submit" value="Submit" /> */}
-             {/* <button type="submit" onClick={(this.handleApplication)}>submit</button> */}
+              </Row>
+            </>
+          )}
+
+          {this.state.selectedComponent === "Tasks" && (
+            <TaskComponent taskList={this.state.tasks} addTask={this.addTask} />
+          )}
+   
         </Container>
       </Modal>
     );
@@ -248,3 +245,5 @@ class StudentModal extends Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentModal);
+
+/*addTask={this.adddTask} removeTask={this.removeTask} */

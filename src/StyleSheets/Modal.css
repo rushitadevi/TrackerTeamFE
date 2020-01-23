@@ -178,12 +178,15 @@
   }
   
   #logoCol {
-    margin-top: 15px !important;
+    margin-top: 12px !important;
+    padding-right:5px !important;
+    text-align: right !important
   }
   
   #titleCol {
     margin-top: 15px !important;
     padding-left: 0px !important;
+ 
   }
   
   #title {
@@ -193,12 +196,13 @@
   }
   
   #modalTitleRow {
-    width: 300px;
+    width: 400px;
+    padding-left: 0px!important
   }
   
   #modalLogo {
-    height: 20px !important;
-    width: 40px !important;
+    height: 30px !important;
+    width: 50px !important;
   }
   
   #vacancyTitle{

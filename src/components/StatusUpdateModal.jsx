@@ -5,16 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import StudentModal from "./StudentModal";
 
 class StatusUpdateModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      task: "",
-      statusDateTime: null,
-      intDateTime: null,
-      replyDateTime: null,
-    
-    };
-  }
+  state={}
 
   statusInput = status => {  
     this.props.handleStatus(status)
