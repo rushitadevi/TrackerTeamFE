@@ -2,6 +2,21 @@ import React from 'react';
 import NavBar from "./Navbar";
 //import diagrampicture1 from './Img/diagrampicture1.png'
 import diagrampicture2 from './Img/diagrampicture2.png'
+import { getApplications, getStudents, totAppsWeek, totApps } from "../actions/manager.js"
+import { connect } from "react-redux";
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
+//import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
+
+const mapStateToProps = state => {
+    return state;
+};
+
+const mapDispatchToProps = dispatch => ({
+    getApplicationThunk: () => dispatch(getApplications()),
+    fetchStudents: () => dispatch(getStudents()),
+    totAppsWeekThunk: () => dispatch(totAppsWeek()),
+    totAppsThunk: () => dispatch(totApps())
+});
 
 class ManagerDashboard extends React.Component {
     constructor(props) {
@@ -9,112 +24,65 @@ class ManagerDashboard extends React.Component {
         this.state = {
             applications: [],
             students: [],
-            newStudet:[],
+            newStudet: [],
             weekapps: null,
-            appCount:0
+            appCount: 0
         }
     }
 
     componentDidMount = async () => {
-        try {
-            var res = await fetch("http://localhost:4000/application/app", {
-                method: "GET",
-                // headers: {
-                //     "Authorization": "Bearer " + localStorage.token
-                // },
-            })
-            if (res.ok) {
-                var applications = await res.json();
-                this.setState({
-                    applications: applications
-                })
-            }
-            // }
-        } catch (err) {
-            console.log(err)
-        }
-
-        try {
-            res = await fetch("http://localhost:4000/user/", {
-                method: "GET",
-                // headers: {
-                //     "Authorization": "Bearer " + localStorage.token
-                // },
-            })
-            if (res.ok) {
-                var student = await res.json();
-                var students = student
-                this.setState({
-                    students: students
-                })
-                //   console.log(this.state.students,"st")
-            }
-        } catch (err) {
-            console.log(err)
-        }
-
-        try {
-            res = await fetch("http://localhost:4000/application/AppsWeek", {
-                method: "GET",
-                // headers: {
-                //     "Authorization": "Bearer " + localStorage.token
-                // },
-            })
-            if (res.ok) {
-                var weekApps = await res.json();
-                weekApps = weekApps.lastWeek
-                this.setState({
-                    weekapps: weekApps
-                })
-            }
-        } catch (err) {
-            console.log(err)
-        }
-
-        try {
-            res = await fetch("http://localhost:4000/application/totApp", {
-                method: "GET",
-                // headers: {
-                //     "Authorization": "Bearer " + localStorage.token
-                // },
-            })
-            if (res.ok) {
-                var appCount = await res.json();
-                appCount = appCount.totApp
-                this.setState({
-                    appCount:appCount
-                })
-            }
-        } catch (err) {
-            console.log(err)
-        }
+        this.props.getApplicationThunk();
+        this.props.fetchStudents();
+        this.props.totAppsWeekThunk();
+        //this.props.totAppsThunk();        
     }
 
     getName = (id) => {
-        var arr = this.state.students
+        var arr = this.props.students.students
+        
         if (arr !== undefined) {
             var student = []
             student = arr.find(a => a._id === id);
+            if(student!==undefined)
+            console.log(student.name,"stid")
             return student !== undefined && student.name !== undefined
                 ? student.name
                 : "";
         }
     }
 
-    updateStatus = async (state,value) => {
-        try {                  
-           var selectElement = document.getElementById("ddlVal")[1];
-          value=selectElement.value  
-          var arr=[]
-          var results=[]
-          arr.push(state)  
-          for(var i=0; i<arr.length; i++) {
-            if(arr[i].status === "Pending"){
-                arr[i].status=value
-              results.push(arr[i])
+    updateStatus = async (state, value) => {
+        try {
+            var selectElement = document.getElementById("ddlVal")[1];
+            value = selectElement.value
+            var arr = []
+            var results = []
+            arr.push(state)
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].status === "Pending") {
+                    arr[i].status = value
+                    results.push(arr[i])
+                }
             }
-          }
-            var res = await fetch("http://localhost:4000/user/"+ results[0]._id, {
+
+            console.log(state.email)
+            const toSend = { Email: state.email };
+            console.log(toSend, "se")
+            var res = await fetch("http://localhost:4000/user", {
+                method: "POST",
+                body: JSON.stringify(toSend),
+                headers: {
+                    //"Authorization": "Bearer " + localStorage.token,
+                    "Content-Type": "application/json"
+                }
+            })
+            if (res.ok) {
+                await res.json();
+                console.log("success")
+            }
+
+
+            res = await fetch("http://localhost:4000/user/" + results[0]._id, {
                 method: "PUT",
                 body: JSON.stringify(results[0]),
                 headers: {
@@ -125,6 +93,7 @@ class ManagerDashboard extends React.Component {
             if (res.ok) {
                 await res.json();
             }
+
         } catch (err) {
             console.log(err)
         }
@@ -132,12 +101,12 @@ class ManagerDashboard extends React.Component {
 
     onClickHandler = async () => {
         let resp = await fetch('http://localhost:4000/application/downloadPdf', {
-          method: "GET",
-        //   headers: {
-        //     "Authorization": "Bearer " + localStorage.token
-        //   },
+            method: "GET",
+            //   headers: {
+            //     "Authorization": "Bearer " + localStorage.token
+            //   },
         })
-    
+
         const blob = await resp.blob()
         const url = window.URL.createObjectURL(new Blob([blob]));
         const link = document.createElement('a');
@@ -149,11 +118,12 @@ class ManagerDashboard extends React.Component {
         link.click();
         // 5. Clean up and remove the link
         link.parentNode.removeChild(link);
-    
+
         //https://medium.com/yellowcode/download-api-files-with-react-fetch-393e4dae0d9e
-      }    
+    }
 
     render() {
+        console.log(this.props,"pp")
         return (
             <div className="container-fluid" style={{ backgroundColor: "#F5F9FC", paddingLeft: "0px", paddingRight: "0px" }} >
                 <div>
@@ -163,42 +133,42 @@ class ManagerDashboard extends React.Component {
                     <div className="col-md-8">
                         <div className="container" style={{ borderRight: "1px solid #dee2e6", borderBottom: "1px solid #dee2e6" }}>
                             <div className="row table-wrapper-scroll-y my-manager-scrollbar">
-                                <table className="table table-hover" id="tblData">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Surname</th>
-                                            <th>Email</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    {this.state.students && this.state.students.map((st) => (
-                                        <tbody>
-                                            <tr>
-                                                {st.name !== "" && st.status==='Pending' ?
+                                <Table responsive className="table table-hover" id="tblData" >
+                                    <Thead>
+                                        <Tr>
+                                            <Th>Name</Th>
+                                            <Th>Surname</Th>
+                                            <Th>Email</Th>
+                                            <Th>Status</Th>
+                                        </Tr>
+                                    </Thead>
+                                    {this.props.students.students && this.props.students.students.map((st, id) => (
+                                        <Tbody key={id} >
+                                            <Tr>
+                                                {st.name !== "" && st.status === 'Pending' ?
                                                     <>
-                                                        <td>{st.name}</td>
-                                                        <td>{st.surname}</td>
-                                                        <td>{st.email}</td>
-                                                        <td ><select id="ddlVal">
+                                                        <Td>{st.name}</Td>
+                                                        <Td>{st.surname}</Td>
+                                                        <Td>{st.email}</Td>
+                                                        <Td ><select id="ddlVal">
                                                             <option value="Pending">Pending</option>
                                                             <option value="Accept">Accept</option>
                                                             <option value="Reject">Reject</option>
-                                                        </select></td>
+                                                        </select></Td>
                                                         <button type="button" className="btn btn-warning btn-sm m-0" id="btnUpdate"
-                                                            onClick={()=>this.updateStatus(st)}  >Update Status</button>
+                                                            onClick={() => this.updateStatus(st)}  >Update Status</button>
                                                     </>
                                                     : null}
-                                            </tr>
-                                        </tbody>
+                                            </Tr>
+                                        </Tbody>
                                     ))}
-                                </table>
+                                </Table>
                             </div>
                             <div className="row py-3" style={{ border: "1px solid #dee2e6", marginTop: "10px" }} >
                                 <div className="col-md-4">
-                                TOTAL APPLICATIONS THIS WEEK :<b>{this.state.weekapps}</b><br></br>
-                                TOTAL APPLICATIONS :<b>{this.state.appCount}</b>
-                                </div>                                                                
+                                    TOTAL APPLICATIONS THIS WEEK :<b></b><br></br>
+                                    TOTAL APPLICATIONS :<b></b>
+                                </div>
                                 <img
                                     src={diagrampicture2}
                                     width="50%"
@@ -213,8 +183,8 @@ class ManagerDashboard extends React.Component {
                         <div className="row" style={{ fontWeight: "bolder", fontSize: "24px", borderBottom: "1px solid #dee2e6" }}>RECENT ACTIVITIES
                         </div>
                         <br />
-                        {this.state.applications && this.state.applications.map((app) => (
-                            <div >
+                        {this.props.applications.applications && this.props.applications.applications.map((app, id) => (
+                            <div key={id} >
                                 {this.getName(app.studentId) !== "" ?
                                     <div >
                                         {app.status === "offer" ?
@@ -223,7 +193,7 @@ class ManagerDashboard extends React.Component {
                                         }
                                     </div>
                                     :
-                                    null
+                                   null
                                 }
                             </div>
                         )
@@ -237,4 +207,4 @@ class ManagerDashboard extends React.Component {
     }
 }
 
-export default ManagerDashboard;
+export default connect(mapStateToProps, mapDispatchToProps)(ManagerDashboard);

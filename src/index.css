@@ -63,7 +63,7 @@ border-radius: 10px;
 .my-manager-scrollbar{
   position: relative;
   height: 350px !important;
-  width: 980px !important;
+  /* width: 980px !important; */
   overflow: auto;
 }
 
@@ -97,8 +97,15 @@ border-radius: 10px;
     overflow-y: auto;
   }
 
-  
+  .my-conatiner{
+    background-color: "#F5F9FC" !important;
+     padding-left: "0px" !important ;
+     padding-right: "0px" !important;
+  }
 
+  #tblData{
+
+  }
   /* #btnJobInfo{
     border:"0px" !important;
     background:"transparent" !important;

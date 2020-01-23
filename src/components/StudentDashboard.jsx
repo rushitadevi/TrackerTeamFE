@@ -4,6 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import NavBar from './Navbar';
+import {Container} from "reactstrap"
 
 class StudentDashboard extends React.Component {
     state = {
@@ -43,7 +44,7 @@ class StudentDashboard extends React.Component {
 
     render() {
         return (
-            <div className="container-fluid" style={{backgroundColor: "#F5F9FC" , paddingLeft: "0px" ,paddingRight: "0px"}} >
+            <Container fluid className="my-conatiner" >
                 <div >
                     <NavBar/>
                 </div>
@@ -242,7 +243,7 @@ class StudentDashboard extends React.Component {
                 </Modal>
                 <footer className="py-5 bg-dark">
                 </footer>
-            </div>
+            </Container>
         );
     }
 }
