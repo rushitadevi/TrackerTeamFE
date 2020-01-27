@@ -50,9 +50,6 @@ class StudentDashboard extends React.Component {
      await this.props.getClosedJobAppsThunk(query)
   };
 
-  sendId  = (id) => {
-  
-  }
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
@@ -88,11 +85,11 @@ class StudentDashboard extends React.Component {
   render() {
     return (
       <>
-      
+{/*       
        {this.props.jobApp.allJobApps &&
         this.props.jobApp.allJobApps.map(application =>
          <StudentModal id={application._id} id={this.sendId} />
-         )}
+         )} */}
 
         <Container className="filterBar">
           <h5 id="logo">TrackeR</h5>

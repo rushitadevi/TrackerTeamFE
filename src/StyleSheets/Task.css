@@ -1,0 +1,47 @@
+.titleRow {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  font-weight: bold;
+  left: 135px !important;
+}
+
+.addTasksRow {
+  display: block !important;
+}
+
+.addTask {
+  display: inline-block !important;
+  width: 50% !important;
+  margin-left: 120px;
+  border: none !important;
+}
+
+#plusButton {
+  padding-top: 0px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  text-shadow: 0 1px 0 #fff;
+  background: #fcffff;
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+  color: #8a7f7f !important;
+}
+
+/* .tasksRow .addTaskCol #addTask{
+  padding: 0px !important;
+  width: 350px !important;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+
+
+  */
+
+  .addTask::placeholder {
+
+    opacity: 1;
+  } 

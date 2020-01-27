@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './StyleSheets/Task.css';
 import './StyleSheets/StatusListModal.css';
 import './StyleSheets/StudentDashboard.css';
 import './StyleSheets/Modal.css';
