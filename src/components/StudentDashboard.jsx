@@ -50,6 +50,10 @@ class StudentDashboard extends React.Component {
      await this.props.getClosedJobAppsThunk(query)
   };
 
+  sendId  = (id) => {
+  
+  }
+
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
   };
@@ -79,6 +83,7 @@ class StudentDashboard extends React.Component {
   };
   //if fetch is an empty array return a message: (no results matching your search)
 
+  
 
   render() {
     return (
@@ -86,7 +91,7 @@ class StudentDashboard extends React.Component {
       
        {this.props.jobApp.allJobApps &&
         this.props.jobApp.allJobApps.map(application =>
-         <StudentModal id={application._id} />
+         <StudentModal id={application._id} id={this.sendId} />
          )}
 
         <Container className="filterBar">

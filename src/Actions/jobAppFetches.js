@@ -81,3 +81,18 @@ export const addJobApp=(application) => async dispatch =>{
         });
       }
       }
+
+      export const getSingleApp = (id) => {
+        // console.log(query)
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
+          method: "GET", 
+        })
+        var application = await response.json();
+
+        dispatch({
+          type: "APPLICATION",
+          payload: application
+        });
+      }
+      }

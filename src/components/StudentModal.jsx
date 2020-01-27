@@ -44,7 +44,7 @@ class StudentModal extends Component {
 
   handleApplication = () => {
     let application = {
-      tasks: this.state.tasks,
+      tasks: this.state.application.tasks,
       statusDateTime: this.state.statusDateTime,
       intDateTime: this.state.intDateTime,
       replyDateTime: this.state.replyDateTime,
@@ -61,12 +61,15 @@ class StudentModal extends Component {
     this.props.addJobAppThunk(application);
   };
 
-  addTask = () => {
-    if (this.state.application._id) {
-      // execute the PUT
-    } else {
-      // execute the post and save the _id
-    }
+  addTask = (newTask) => {
+    const application = this.state.application
+    application.tasks = [...application.tasks, newTask]
+    this.setState({application: application})
+    // if (this.state.application._id) {
+    //   // execute the PUT
+    // } else {
+    //   // execute the post and save the _id
+    // }
   };
 
   selectComponent = component => {
@@ -242,7 +245,7 @@ class StudentModal extends Component {
           )}
 
           {this.state.selectedComponent === "Tasks" && (
-            <TaskComponent taskList={this.state.tasks} addTask={this.addTask} />
+            <TaskComponent tasks={this.state.application.tasks} addTask={this.addTask} />
           )}
    
         </Container>

@@ -32,6 +32,12 @@ export default function(state = {}, action) {
                       ...state,
                       closed: state.closed.concat(action.payload)                  
                     };
+                    case "APPLICATION":
+                      console.log(action.payload)
+                      return {
+                        ...state,
+                        application: state.application.concat(action.payload)                  
+                      };
       default:
         return state;
     }

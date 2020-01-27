@@ -5,7 +5,7 @@ class TaskComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          tasks: []
+          task: ""
         };
       }
     render() { 
@@ -19,11 +19,19 @@ class TaskComponent extends Component {
                  className="addTask"
                  id="addTask"
                  placeholder="+ Add Task"
-                 value={this.props.tasks}
+                 value={this.state.task}
+                 onKeyDown={e => { 
+                 if (e.key === "Enter"){
+                   this.props.addTask(this.state.task)
+                   this.setState({task: ""})
+                 }
+                }}
                  onChange={e => 
-                   this.props.addTask(e.currentTarget.value)
+                   this.setState({ task: e.currentTarget.value})
                  }
                />
+
+               {this.props.tasks && this.props.tasks.map( task => <p>{task}</p>)}
              </Col>
              </Row>
             
