@@ -1,0 +1,34 @@
+.shadow .p-3 .mb-5 .bg-white .registerform
+{ 
+    border: "3px solid blueviolet" !important;
+    border-radius: "20px";
+    padding: "20px";
+    margin-left: "80px";
+    margin-right: "80px";
+    margin-top: "80px";
+
+     /* : "p-3 mb-5 bg-white"; */
+}
+
+
+
+.submitButton {
+    /* position: absolute;
+    margin-left: 985px !important;
+    margin-top: 12px !important; */
+    border-radius: 10px;
+    font-family: "Arvo", serif;
+    width: 80px;
+    height: 35px;
+    background-color: #e5b85f;
+    color: #052f5f !important;
+  }
+
+  .btnCancel{
+      border-radius: 10px;
+      font-family: "Arvo","serif";
+      width: 80px;
+      height: 35px;
+      background-color: #e5b85f;
+      color: #052f5f !important;
+  }

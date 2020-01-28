@@ -5,13 +5,14 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Scrollbars } from "react-custom-scrollbars";
 import StatusUpdateModal from "./StatusUpdateModal";
-import { addJobApp } from "../Actions/jobAppFetches";
+import { addJobApp,updateJobApp } from "../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
 
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  addJobAppThunk: application => dispatch(addJobApp(application))
+  addJobAppThunk: application => dispatch(addJobApp(application)),
+  updateJobAppThunk:(application,id)=>dispatch(updateJobApp(application,id))
 });
 
 class StudentModal extends Component {
@@ -35,9 +36,9 @@ class StudentModal extends Component {
     };
   }
 
-  handleApplication = () => {
+  handleApplication = (task) => {
     let application = {
-      tasks: this.state.tasks,
+      tasks: task,//Rushita
       statusDateTime: this.state.statusDateTime,
       intDateTime: this.state.intDateTime,
       replyDateTime: this.state.replyDateTime,
@@ -46,18 +47,29 @@ class StudentModal extends Component {
       companyLogo: this.props.selectedJob.company_logo,
       roleTitle: this.props.selectedJob.title,
       location: this.props.selectedJob.location,
-      description: this.props.selectedJob.description,
+      description: this.props.selectedJob.description      
     };
-
+    
     console.log(application);
     this.setState({ application: application });
-    this.props.addJobAppThunk(application);
+    if (this.state.application._id) 
+    {
+       this.props.updateJobAppThunk(application,this.state.application._id)
+    } 
+    else
+    {
+      this.props.addJobAppThunk(application);
+    }
+    
   };
 
-  addTask = () => {
+  addTask = (task) => {
     if (this.state.application._id) {
       // execute the PUT
+      this.handleApplication(task); //Rushita
     } else {
+      console.log(task,"task")
+      this.handleApplication(task); //Rushita
       // execute the post and save the _id
     }
   };
@@ -84,7 +96,7 @@ class StudentModal extends Component {
               onClick={() => {
                 this.props.toggleModal();
                 {
-                  this.state.application && this.handleApplication();
+                  this.state.application && this.handleApplication("");
                 }
                 // onSubmit={() => this.handleApplication}
               }}

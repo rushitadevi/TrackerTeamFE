@@ -22,6 +22,30 @@ export const addJobApp=(application) => async dispatch =>{
     }			
     }
 
+    export const updateJobApp=(application,id) => async dispatch =>{
+       console.log("hellolplp", application,id)
+      try {
+           var res = await fetch(process.env.REACT_APP_URL + "application/"+ id , {
+            method: "PUT",
+            body: JSON.stringify(application),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          })
+          if (res.ok) {
+            var jobApp = await res.json();
+          console.log("helloppp", jobApp)
+        dispatch({
+          type: "UPDATE_JOB_APP",
+          payload: jobApp
+        })
+      }
+      
+      } catch (err) {
+        console.log(err)
+      }			
+      }
+
     export const getJobApps = () => {
         return async (dispatch, getState) => {
           var response=await fetch(process.env.REACT_APP_URL + "application/app", {
@@ -29,7 +53,6 @@ export const addJobApp=(application) => async dispatch =>{
         })
       
         var allJobApps = await response.json();
-
         dispatch({
           type: "GET_JOB_APPS",
           payload: allJobApps

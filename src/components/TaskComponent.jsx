@@ -19,7 +19,7 @@ class TaskComponent extends Component {
                  className="addTask"
                  id="addTask"
                  placeholder="+ Add Task"
-                 value={this.props.tasks}
+                 value={this.props.taskList}
                  onChange={e => 
                    this.props.addTask(e.currentTarget.value)
                  }

@@ -4,9 +4,11 @@ import './index.css';
 import './StyleSheets/StatusListModal.css';
 import './StyleSheets/StudentDashboard.css';
 import './StyleSheets/Modal.css';
+import './StyleSheets/Register.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import Main from './components/Main';
+import Register from './components/Register';
 
 
 ReactDOM.render(<Main />, document.getElementById('root'));

@@ -6,6 +6,8 @@ import StudentDashboard from "./StudentDashboard";
 import ManagerDashboard from "./ManagerDashboard";
 import Navbar from "./Navbar";
 import configureStore from "../store";
+import Register from "./Register";
+import Login from "./Login";
 // import { ok } from "assert";
 
 
@@ -15,8 +17,9 @@ class Main extends Component {
   render() {
     return (
       <Provider store={configureStore()}>
+         <Navbar/>
         <Router>
-        <Navbar/>
+       
         <Container fluid className="studentHomepage">
      
           {/* <FilteredSearchBar/> */}
@@ -24,7 +27,8 @@ class Main extends Component {
           <Route path="/student" exact component={StudentDashboard} />
           </Container>
           <Route path="/manager" exact component={ManagerDashboard} />
-
+          <Route path="/register" exact component={Register} />
+          <Route path="/signIn" exact component={Login} />
         </Router>
       </Provider>
     );

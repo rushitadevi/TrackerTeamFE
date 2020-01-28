@@ -12,12 +12,14 @@ import {
 } from "reactstrap";
 import { getSearch } from "../Actions/apiFetches";
 import { Scrollbars } from "react-custom-scrollbars";
+import {getJobApps} from "../Actions/jobAppFetches"
 import StudentModal from "./StudentModal";
 
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  getSearchThunk: url => dispatch(getSearch(url))
+  getSearchThunk: url => dispatch(getSearch(url)),
+  getJobApps: () => dispatch(getJobApps()) //Rushita
 });
 
 class StudentDashboard extends React.Component {
@@ -62,6 +64,7 @@ class StudentDashboard extends React.Component {
     });
 
     await this.props.getSearchThunk(url);
+    await this.props.getJobApps(); //Rushita
   };
   //if fetch is an empty array return a message: (no results matching your search)
 
