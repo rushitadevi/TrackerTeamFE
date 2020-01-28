@@ -11,8 +11,7 @@ import TaskComponent from "./TaskComponent";
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  addJobAppThunk: application => dispatch(addJobApp(application)),
-
+  addJobAppThunk: application => dispatch(addJobApp(application))
 });
 
 class StudentModal extends Component {
@@ -32,15 +31,15 @@ class StudentModal extends Component {
         companyLogo: undefined,
         roleTitle: undefined,
         location: undefined,
-        description: undefined,
+        description: undefined
       }
     };
   }
 
-  componentDidMount= () => {
-  //  let id = this.props.application._id
-  //  this.setState({id: id})
-  }
+  componentDidMount = () => {
+    //  let id = this.props.application._id
+    //  this.setState({id: id})
+  };
 
   handleApplication = () => {
     let application = {
@@ -53,7 +52,7 @@ class StudentModal extends Component {
       companyLogo: this.props.selectedJob.company_logo,
       roleTitle: this.props.selectedJob.title,
       location: this.props.selectedJob.location,
-      description: this.props.selectedJob.description,
+      description: this.props.selectedJob.description
     };
 
     console.log(application);
@@ -61,15 +60,27 @@ class StudentModal extends Component {
     this.props.addJobAppThunk(application);
   };
 
-  addTask = (newTask) => {
-    const application = this.state.application
-    application.tasks = [...application.tasks, newTask]
-    this.setState({application: application})
+  addTask = newTask => {
+    const application = this.state.application;
+    application.tasks = [...application.tasks, newTask];
+    this.setState({ application: application });
+    // this.setState({ task: "" })
     // if (this.state.application._id) {
     //   // execute the PUT
     // } else {
     //   // execute the post and save the _id
     // }
+  };
+
+  deleteTask = deleteTask => {
+    console.log(deleteTask);
+    const application = this.state.application;
+    const taskArray = application.tasks;
+    var index = taskArray.indexOf(deleteTask);
+    if (index !== -1) {
+      taskArray.splice(index, 1);
+      this.setState({ taskArray: taskArray });
+    }
   };
 
   selectComponent = component => {
@@ -94,7 +105,7 @@ class StudentModal extends Component {
               onClick={() => {
                 this.props.toggleModal();
                 {
-                  this.state.application && (this.handleApplication());
+                  this.state.application && this.handleApplication();
                 }
                 // onSubmit={() => this.handleApplication}
               }}
@@ -245,9 +256,12 @@ class StudentModal extends Component {
           )}
 
           {this.state.selectedComponent === "Tasks" && (
-            <TaskComponent tasks={this.state.application.tasks} addTask={this.addTask} />
+            <TaskComponent
+              tasks={this.state.application.tasks}
+              addTask={this.addTask}
+              deleteTask={this.deleteTask}
+            />
           )}
-   
         </Container>
       </Modal>
     );

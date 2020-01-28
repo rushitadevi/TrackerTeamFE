@@ -19,7 +19,18 @@ class StatusUpdateModal extends Component {
         id="statusListModal"
         aria-labelledby="contained-modal-title-vcenter"
       >
+
         <Container id="statusList">
+        <Row id="xButtonRow" className="col-sm-12">
+            <Button
+              id="minModalxButton"
+              onClick={() => {
+                this.props.toggleModal();
+              }}
+            >
+              X
+            </Button>
+          </Row>
           <Row id="statOptionsRow" className="col-sm-12">
             <Col id="statusOptCol" sm={10}>
              <h6>Save to wishlist</h6>
