@@ -1,7 +1,7 @@
 import React from "react"
 import { Container, Row, Col } from 'react-bootstrap'
 import { connect } from "react-redux";
-import {addRegisterData} from "../Actions/register";
+import { addRegisterData } from "../Actions/register";
 
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
@@ -63,7 +63,7 @@ class Register extends React.Component {
                     <Row>
                         <Col></Col>
                         <Col>
-                            <form  className="shadow p-3 mb-5 bg-white registerform" onSubmit={e=>this.handleSubmit(e)}  >
+                            <form  className="registerform shadow p-3 mb-5 bg-white" onSubmit={e=>this.handleSubmit(e)}  >
                                 <div className="columns">
                                     <div className="column"></div>
                                     <div className="column"></div>

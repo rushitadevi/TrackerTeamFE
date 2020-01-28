@@ -6,14 +6,14 @@ export const addLoginData = data => async dispatch => {
         headers: {
           "Content-Type": "application/json"
         }
-      });
+      })
       if (res.ok) {
-        var loggedInData = await res.json();
-      }
+        var loggedInData = await res.json();      
         dispatch({
-        type: "SIGNIN",
+        type: "SIGN_IN",
         payload: loggedInData
       });
+    }
     } catch (err) {}
   };
   

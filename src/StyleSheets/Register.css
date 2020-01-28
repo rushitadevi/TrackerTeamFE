@@ -1,11 +1,11 @@
-.shadow .p-3 .mb-5 .bg-white .registerform
+.registerform.shadow.p-3.mb-5.bg-white
 { 
     border: "3px solid blueviolet" !important;
-    border-radius: "20px";
-    padding: "20px";
-    margin-left: "80px";
-    margin-right: "80px";
-    margin-top: "80px";
+    border-radius: "20px" !important;
+    padding: "20px" !important;
+    margin-left: "80px" !important;
+    margin-right: "80px" !important;
+    margin-top: "80px" !important;
 
      /* : "p-3 mb-5 bg-white"; */
 }

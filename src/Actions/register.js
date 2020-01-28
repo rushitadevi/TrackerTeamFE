@@ -9,10 +9,11 @@ export const addRegisterData = data => async dispatch => {
     });
     if (res.ok) {
       var registeredData = await res.json();
-    }
+    
     dispatch({
       type: "REGISTRATION",
       payload: registeredData
     });
+  }
   } catch (err) {}
 };
