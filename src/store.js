@@ -16,7 +16,6 @@ const initialState = {
     wishlist: [],
     active: [],
     closed: [],
-    applciaiton: []
   },
 
 };
