@@ -8,6 +8,7 @@ import StatusUpdateModal from "./StatusUpdateModal";
 import { addJobApp } from "../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
+import DirectoryComponent from "./DirectoryComponent";
 
 const mapStateToProps = state => state;
 
@@ -85,7 +86,6 @@ class StudentModal extends Component {
   };
 
   deleteTask = deleteTask => {
-    console.log(deleteTask);
     const application = this.state.application;
     const taskArray = application.tasks;
     var index = taskArray.indexOf(deleteTask);
@@ -94,6 +94,17 @@ class StudentModal extends Component {
       this.setState({ taskArray: taskArray });
     }
   };
+
+  deleteNotes = deleteNotes => {
+    const application = this.state.application;
+    const taskArray = application.notes;
+    var index = taskArray.indexOf(deleteNotes);
+    if (index !== -1) {
+      taskArray.splice(index, 1);
+      this.setState({ taskArray: taskArray });
+    }
+  };
+
 
   selectComponent = component => {
     this.setState({ selectedComponent: component });
@@ -155,7 +166,7 @@ class StudentModal extends Component {
         <Container>
           <Row className="modalOptionsRect">
             <Row className="modalOptions">
-              <Col xs={12} className="first">
+              <Col xs={12} className="sideOptions first">
                 <a
                   href="#"
                   onClick={() => {
@@ -165,7 +176,7 @@ class StudentModal extends Component {
                   JOB INFO
                 </a>
               </Col>
-              <Col xs={12} className="second">
+              <Col xs={12} className="sideOptions">
                 <a
                   href="#"
                   onClick={() => {
@@ -175,7 +186,7 @@ class StudentModal extends Component {
                   TASKS
                 </a>
               </Col>
-              <Col xs={12} className="third">
+              <Col xs={12} className="sideOptions">
                 <a
                   href="#"
                   onClick={() => {
@@ -185,14 +196,14 @@ class StudentModal extends Component {
                   NOTES
                 </a>
               </Col>
-              <Col xs={12} className="fourth">
+              <Col xs={12} className="sideOptions more">
                 <a
                   href="#"
                   onClick={() => {
                     this.selectComponent("Directory");
                   }}
                 >
-                  DIRECTORY
+                  MORE VACANCIES
                 </a>
               </Col>
             </Row>
@@ -279,7 +290,14 @@ class StudentModal extends Component {
             <NotesComponent
               notes={this.state.application.notes}
               addNotes={this.addNotes}
-      
+              deleteNotes={this.deleteNotes}
+            />
+          )} 
+
+       {this.state.selectedComponent === "Directory" && (
+            <DirectoryComponent
+              companyName={this.props.selectedJob.company.replace(/ /g, '+')}
+    
             />
           )} 
         </Container>

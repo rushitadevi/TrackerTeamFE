@@ -50,3 +50,8 @@
   color: #8a7f7f !important;
 
 }
+
+.taskListRow{
+  overflow-y:auto;
+  overflow-x: hidden;
+}

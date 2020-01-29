@@ -77,6 +77,7 @@ class StudentDashboard extends React.Component {
     });
 
     await this.props.getSearchThunk(url);
+
   };
   //if fetch is an empty array return a message: (no results matching your search)
 
@@ -314,11 +315,12 @@ class StudentDashboard extends React.Component {
                             onMouseOver={this.mouseOver}
                           >
                             {jobs.description
-                              .replace("<p>", "")
-                              .replace("<strong>", "")
-                              .replace("</strong>", "")
-                              .replace("<em>", "")
-                              .replace("</p>", "")}
+                              .replace("<p>", ' ') 
+                              .replace("<h1>", ' ')
+                              .replace("<strong>", ' ')
+                              .replace("</strong>", ' ')
+                              .replace("<em>", ' ')
+                         }
                           </Col>
                           <button
                             onClick={() =>

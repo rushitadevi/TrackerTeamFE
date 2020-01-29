@@ -16,6 +16,11 @@ class NotesComponents extends Component {
     this.setState({ note: "" });
   };
 
+  deleteOneNote= note => {
+    this.props.deleteNotes(note);
+
+  };
+
   render() {
     return (
       <>
@@ -52,7 +57,7 @@ class NotesComponents extends Component {
                 <Col sm="3" id="allNotesList">
                   <Button
                     id="deleteTaskButton"
-                    //   onClick={() => this.deleteOneTask(task)}
+                      onClick={() => this.deleteOneNote(singleNote)}
                   >
                     x
                   </Button>

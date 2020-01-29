@@ -6,7 +6,14 @@ export default function(state = {}, action) {
               ...state,
               filteredSearch: state.filteredSearch.concat(action.payload)
               
-            };
+            }
+            case "COMPANY_VACANCIES":
+              console.log(action.payload)
+              return {
+                ...state,
+                companyVacancies: state.companyVacancies.concat(action.payload)
+                
+              };
       default:
         return state;
     }

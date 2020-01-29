@@ -42,7 +42,7 @@
 .notesListRow {
   width: 370px !important;
   left: 125px;
-  /* height: 200px !important; */
+  height: 200px !important;
 }
 #allNotesList {
   border-top: 1px solid #cccccc;
