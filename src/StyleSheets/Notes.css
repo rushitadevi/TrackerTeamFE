@@ -42,16 +42,22 @@
 .notesListRow {
   width: 370px !important;
   left: 125px;
-  height: 200px !important;
+  height: 80px !important;
 }
 #allNotesList {
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
-  margin-top: 20px !important;
+  margin-top: 15px !important;
   display: inline-block !important;
+  height: 40px !important
 }
 
 #deleteTaskButton {
   margin-left: 60px;
   display: inline-block !important;
+}
+
+#allNotesScroll{
+ margin-top: 6px;
+ color: #8a7f7f !important;
 }

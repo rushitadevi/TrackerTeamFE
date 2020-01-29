@@ -49,7 +49,7 @@ class NotesComponents extends Component {
             this.props.notes.map(singleNote => (
               <>
                 <Col sm="9" id="allNotesList">
-                  <Scrollbars id="jobInfo" style={{ height: 40 }}>
+                  <Scrollbars id="allNotesScroll" style={{ height: 40 }}>
                     {singleNote}
                   </Scrollbars>
                 </Col>
