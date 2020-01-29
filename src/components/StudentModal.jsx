@@ -7,6 +7,7 @@ import { Scrollbars } from "react-custom-scrollbars";
 import StatusUpdateModal from "./StatusUpdateModal";
 import { addJobApp } from "../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
+import NotesComponent from "./NotesComponent";
 
 const mapStateToProps = state => state;
 
@@ -15,7 +16,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class StudentModal extends Component {
-  constructor(props) {
+  constructor(props) 
+  {
     super(props);
     this.state = {
       showModal: false,
@@ -31,7 +33,8 @@ class StudentModal extends Component {
         companyLogo: undefined,
         roleTitle: undefined,
         location: undefined,
-        description: undefined
+        description: undefined,
+        notes: [],
       }
     };
   }
@@ -48,11 +51,13 @@ class StudentModal extends Component {
       intDateTime: this.state.intDateTime,
       replyDateTime: this.state.replyDateTime,
       status: this.state.status,
+      notes: this.state.notes,
       companyName: this.props.selectedJob.company,
       companyLogo: this.props.selectedJob.company_logo,
       roleTitle: this.props.selectedJob.title,
       location: this.props.selectedJob.location,
-      description: this.props.selectedJob.description
+      description: this.props.selectedJob.description,
+  
     };
 
     console.log(application);
@@ -70,6 +75,13 @@ class StudentModal extends Component {
     // } else {
     //   // execute the post and save the _id
     // }
+  };
+
+  addNotes = newNote => {
+    console.log(newNote)
+    const application = this.state.application;
+    application.notes = [...application.notes, newNote];
+    this.setState({ application: application });
   };
 
   deleteTask = deleteTask => {
@@ -262,6 +274,14 @@ class StudentModal extends Component {
               deleteTask={this.deleteTask}
             />
           )}
+
+        {this.state.selectedComponent === "Notes" && (
+            <NotesComponent
+              notes={this.state.application.notes}
+              addNotes={this.addNotes}
+      
+            />
+          )} 
         </Container>
       </Modal>
     );

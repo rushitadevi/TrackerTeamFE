@@ -23,13 +23,9 @@ class TaskComponent extends Component {
   render() {
     return (
       <>
-        <Row className="col-sm-12 titleRow">
-          <h6 id="taskHeader">Add Task</h6>
-        </Row>
-
         <Input
           className="addTask"
-          placeholder="...Task "
+          placeholder="Add Task "
           value={this.state.task}
           onChange={e => this.setState({ task: e.currentTarget.value })}
           // onKeyDown={e => {
@@ -44,10 +40,6 @@ class TaskComponent extends Component {
           +
         </Button>
 
-        <Row className="col-sm-12 titleRow">
-          <h6 id="taskHeader">Task List</h6>
-        </Row>
-
         <Row className="col-sm-12 taskListRow">
           {this.props.tasks &&
             this.props.tasks.map(task => (
@@ -57,12 +49,12 @@ class TaskComponent extends Component {
                 </Col>
 
                 <Col sm="3" id="allList">
-                <Button
-                  id="deleteTaskButton"
-                  onClick={() => this.deleteOneTask(task)}
-                >
-                  x
-                </Button>
+                  <Button
+                    id="deleteTaskButton"
+                    onClick={() => this.deleteOneTask(task)}
+                  >
+                    x
+                  </Button>
                 </Col>
               </>
             ))}

@@ -1,23 +1,12 @@
-.titleRow {
-  font-family: "Arvo", serif;
-  color: #052f5f !important;
-  left: 135px !important;
-  margin-top: 20px
-}
-
-#taskHeader{
-  font-size: 15px !important;
-  font-weight: bold;
-}
-
 .addTask {
   display: inline-block !important;
   width: 50% !important;
-  margin-left: 125px;
+  margin-top: 5px;
   border: none !important;
   font-family: "Arvo", serif;
   color: #8a7f7f !important;
   font-size: 15px !important;
+  margin-left: 105px !important;
 }
 
 #plusButton {
@@ -37,26 +26,27 @@
   opacity: 1;
 } */
 
-.taskListRow{
-  left: 122px;
-  width: 340px !important
+.taskListRow {
+  left: 105px;
+  width: 335px !important;
+  margin-top: 15px
 }
 
-#allList{
+#allList {
   font-family: "Arvo", serif;
   color: #8a7f7f !important;
   font-size: 15px !important;
 }
 
-#deleteTaskButton{
+#deleteTaskButton {
   padding-top: 0px !important;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #000;
   border: none;
   text-shadow: 0 1px 0 #fff;
   background: #fcffff;
   margin-bottom: 10px;
   border: 1px solid #cccccc;
   color: #8a7f7f !important;
+
 }
