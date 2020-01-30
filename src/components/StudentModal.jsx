@@ -17,8 +17,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class StudentModal extends Component {
-  constructor(props) 
-  {
+  constructor(props) {
     super(props);
     this.state = {
       showModal: false,
@@ -35,7 +34,7 @@ class StudentModal extends Component {
         roleTitle: undefined,
         location: undefined,
         description: undefined,
-        notes: [],
+        notes: []
       }
     };
   }
@@ -45,24 +44,56 @@ class StudentModal extends Component {
     //  this.setState({id: id})
   };
 
+  setStatusState = newStatus => {
+    console.log("hello", newStatus);
+    const application = this.state.application;
+    application.status = newStatus;
+
+    this.setState({
+      application: application
+    });
+    // console.log(application)
+  };
+
+  onChange = e => {
+    console.log("onChangeMethod");
+    const application = this.state.application;
+    if (e.currentTarget.name === "statusDateTime") {
+      application.statusDateTime = e.currentTarget.value;
+    } else if (e.currentTarget.name === "intDateTime") {
+      application.intDateTime = e.currentTarget.value;
+    } else if (e.currentTarget.name === "replyDateTime") {
+      application.replyDateTime = e.currentTarget.value;
+    } else if (e.currentTarget.value === undefined) {
+      e.currentTarget.value = "";
+    }
+
+    this.setState({
+      application: application
+    });
+  };
+
   handleApplication = () => {
+    console.log("handleapplication");
+    //   if (this.state === undefined) {
+    //     this.state = ""
+    // }
     let application = {
       tasks: this.state.application.tasks,
-      statusDateTime: this.state.statusDateTime,
-      intDateTime: this.state.intDateTime,
-      replyDateTime: this.state.replyDateTime,
-      status: this.state.status,
-      notes: this.state.notes,
+      statusDateTime: this.state.application.statusDateTime,
+      intDateTime: this.state.application.intDateTime,
+      replyDateTime: this.state.application.replyDateTime,
+      status: this.state.application.status,
+      notes: this.state.application.notes,
       companyName: this.props.selectedJob.company,
       companyLogo: this.props.selectedJob.company_logo,
       roleTitle: this.props.selectedJob.title,
       location: this.props.selectedJob.location,
-      description: this.props.selectedJob.description,
-  
+      description: this.props.selectedJob.description
     };
 
-    console.log(application);
     this.setState({ application: application });
+
     this.props.addJobAppThunk(application);
   };
 
@@ -79,7 +110,7 @@ class StudentModal extends Component {
   };
 
   addNotes = newNote => {
-    console.log(newNote)
+    console.log(newNote);
     const application = this.state.application;
     application.notes = [...application.notes, newNote];
     this.setState({ application: application });
@@ -105,13 +136,27 @@ class StudentModal extends Component {
     }
   };
 
-
   selectComponent = component => {
     this.setState({ selectedComponent: component });
   };
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
+    this.setState({
+      application: {
+        tasks: [],
+        statusDateTime: undefined,
+        intDateTime: undefined,
+        replyDateTime: undefined,
+        status: undefined,
+        companyName: undefined,
+        companyLogo: undefined,
+        roleTitle: undefined,
+        location: undefined,
+        description: undefined,
+        notes: []
+      }
+    });
   };
 
   render() {
@@ -126,11 +171,9 @@ class StudentModal extends Component {
             <Button
               id="xButton"
               onClick={() => {
+                if (this.state.application.status) this.handleApplication();
+
                 this.props.toggleModal();
-                {
-                  this.state.application && this.handleApplication();
-                }
-                // onSubmit={() => this.handleApplication}
               }}
             >
               X
@@ -158,7 +201,8 @@ class StudentModal extends Component {
             <StatusUpdateModal
               showModal={this.state.showModal}
               toggleModal={this.toggleModal}
-              handleStatus={newStatus => this.setState({ status: newStatus })}
+              handleStatus={newStatus => this.setStatusState(newStatus)}
+              // handleStatus={newStatus => this.setState({ status: newStatus })}
             />
           </Row>
         </Container>
@@ -235,10 +279,11 @@ class StudentModal extends Component {
                     name="statusDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.statusDateTime}
-                    onChange={e =>
-                      this.setState({ statusDateTime: e.currentTarget.value })
-                    }
+                    value={this.state.application.statusDateTime}
+                    onChange={e => this.onChange(e)}
+                    /* onChange={e =>
+                      this.setState({ statusDateTime: e.currentTarget.value  || "" })
+                    } */
                   />
 
                   <h6 id="interviewDateTitle">Interview Date</h6>
@@ -247,10 +292,11 @@ class StudentModal extends Component {
                     name="intDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.intDateTime}
-                    onChange={e =>
-                      this.setState({ intDateTime: e.currentTarget.value })
-                    }
+                    value={this.state.application.intDateTime}
+                    onChange={e => this.onChange(e)}
+                    // onChange={e =>
+                    //   this.setState({ intDateTime: e.currentTarget.value || "" })
+                    // }
                   />
 
                   <h6 id="replyDateTitle">Expected Reply Date</h6>
@@ -259,20 +305,21 @@ class StudentModal extends Component {
                     name="replyDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.replyDateTime}
-                    onChange={e =>
-                      this.setState({ replyDateTime: e.currentTarget.value })
-                    }
+                    value={this.state.application.replyDateTime}
+                    onChange={e => this.onChange(e)}
+                    // onChange={e =>
+                    //   this.setState({ replyDateTime: e.currentTarget.value || "" })
+                    // }
                   />
                 </Col>
                 <Col xs={12} className="companyRoleDesc">
                   <h6 id="companyRoleTitle">Role Description</h6>
 
-                  <p id="jobInfo">
+                  <div id="jobInfo">
                     <Scrollbars id="modalScroll" style={{ height: 110 }}>
                       {this.props.selectedJob.description}
                     </Scrollbars>
-                  </p>
+                  </div>
                 </Col>
               </Row>
             </>
@@ -286,20 +333,19 @@ class StudentModal extends Component {
             />
           )}
 
-        {this.state.selectedComponent === "Notes" && (
+          {this.state.selectedComponent === "Notes" && (
             <NotesComponent
               notes={this.state.application.notes}
               addNotes={this.addNotes}
               deleteNotes={this.deleteNotes}
             />
-          )} 
+          )}
 
-       {this.state.selectedComponent === "Directory" && (
+          {this.state.selectedComponent === "Directory" && (
             <DirectoryComponent
-              companyName={this.props.selectedJob.company.replace(/ /g, '+')}
-    
+              companyName={this.props.selectedJob.company.replace(/ /g, "+")}
             />
-          )} 
+          )}
         </Container>
       </Modal>
     );

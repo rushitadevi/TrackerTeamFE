@@ -4,14 +4,14 @@ export default function(state = {}, action) {
             console.log(action.payload)
             return {
               ...state,
-              filteredSearch: state.filteredSearch.concat(action.payload)
+              filteredSearch: action.payload
               
             }
             case "COMPANY_VACANCIES":
               console.log(action.payload)
               return {
                 ...state,
-                companyVacancies: state.companyVacancies.concat(action.payload)
+                companyVacancies: action.payload
                 
               };
       default:

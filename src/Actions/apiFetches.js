@@ -5,7 +5,6 @@ export const getSearch = (url) => {
     })
 
     var filteredSearch = await response.json();
-    console.log(filteredSearch[0].description)
 
     dispatch({
       type: "FILTERED_SEARCH",

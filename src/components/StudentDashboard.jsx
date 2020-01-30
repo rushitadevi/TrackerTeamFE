@@ -48,6 +48,9 @@ class StudentDashboard extends React.Component {
      await this.props.getWishlistJobAppsThunk(query)
      await this.props.getActiveJobAppsThunk(query)
      await this.props.getClosedJobAppsThunk(query)
+     this.setState({
+      selectedJob: {}
+     })
   };
 
 
@@ -61,7 +64,13 @@ class StudentDashboard extends React.Component {
 
   searchInput = async value => {
     value.preventDefault();
-
+    this.setState({
+      // company: "",
+      // role: "",
+      // level: "senior",
+      // location: "",
+      // url: "",
+    });
     // debugger;
 
     let url = "search=";
@@ -77,6 +86,7 @@ class StudentDashboard extends React.Component {
     });
 
     await this.props.getSearchThunk(url);
+
 
   };
   //if fetch is an empty array return a message: (no results matching your search)
