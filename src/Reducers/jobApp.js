@@ -27,7 +27,24 @@ export default function(state = {}, action) {
                   ...state,
                   wishlist: state.wishlist.concat(action.payload)                  
                 };
-    
+                case "ACTIVE":
+                  console.log(action.payload)
+                  return {
+                    ...state,
+                    active: state.active.concat(action.payload)                  
+                  };
+                  case "CLOSED":
+                    console.log(action.payload)
+                    return {
+                      ...state,
+                      closed: state.closed.concat(action.payload)                  
+                    };
+                    case "WISHLIST_COUNT":
+                      console.log(action.payload)
+                      return {
+                        ...state,
+                        wishlistCount: action.payload          
+                      };
       default:
         return state;
     }

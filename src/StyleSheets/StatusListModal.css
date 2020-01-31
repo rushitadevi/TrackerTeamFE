@@ -41,3 +41,13 @@
 #statusOptCol{
     padding-right: 0px !important;
 }
+
+#minModalxButton{
+   margin-left: 262px !important;
+   font-size: 1rem;
+   font-weight: 700;
+   color: #000 !important;
+   border: none;
+   text-shadow: 0 1px 0 #fff;
+   background: #fcffff;
+}

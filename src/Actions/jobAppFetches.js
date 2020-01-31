@@ -60,9 +60,9 @@ export const addJobApp=(application) => async dispatch =>{
       }
       }
 
-      export const getWishlistJobApps = () => {
+      export const getWishlistJobApps = (query) => {
         return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/wishlist", {
+          var response=await fetch(process.env.REACT_APP_URL + "application/wishlist" + query, {
           method: "GET", 
         })
       
@@ -74,3 +74,63 @@ export const addJobApp=(application) => async dispatch =>{
         });
       }
       }
+
+      export const getWishlistCount = () => {
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/wishlistCount", {
+          method: "GET", 
+        })
+      
+        var wishlistCount = await response.json();
+
+        dispatch({
+          type: "WISHLIST_COUNT",
+          payload: wishlistCount
+        });
+      }
+      }
+
+      export const getActiveJobApps = (query) => {
+        // console.log(query)
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/active" + query, {
+          method: "GET", 
+        })
+        var active = await response.json();
+
+        dispatch({
+          type: "ACTIVE",
+          payload: active
+        });
+      }
+      }
+
+      export const getClosedJobApps = (query) => {
+        // console.log(query)
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/closed" + query, {
+          method: "GET", 
+        })
+        var closed = await response.json();
+
+        dispatch({
+          type: "CLOSED",
+          payload: closed
+        });
+      }
+      }
+
+      // export const getSingleApp = (id) => {
+      //   // console.log(query)
+      //   return async (dispatch, getState) => {
+      //     var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
+      //     method: "GET", 
+      //   })
+      //   var application = await response.json();
+
+      //   dispatch({
+      //     type: "APPLICATION",
+      //     payload: application
+      //   });
+      // }
+      // }

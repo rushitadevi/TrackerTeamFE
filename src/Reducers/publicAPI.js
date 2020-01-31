@@ -4,9 +4,16 @@ export default function(state = {}, action) {
             console.log(action.payload)
             return {
               ...state,
-              filteredSearch: state.filteredSearch.concat(action.payload)
+              filteredSearch: action.payload
               
-            };
+            }
+            case "COMPANY_VACANCIES":
+              console.log(action.payload)
+              return {
+                ...state,
+                companyVacancies: action.payload
+                
+              };
       default:
         return state;
     }
