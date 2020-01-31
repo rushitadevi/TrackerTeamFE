@@ -52,6 +52,21 @@ export const addJobApp=(application) => async dispatch =>{
       }
       }
 
+      export const getWishlistCount = () => {
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/wishlistCount", {
+          method: "GET", 
+        })
+      
+        var wishlistCount = await response.json();
+
+        dispatch({
+          type: "WISHLIST_COUNT",
+          payload: wishlistCount
+        });
+      }
+      }
+
       export const getActiveJobApps = (query) => {
         // console.log(query)
         return async (dispatch, getState) => {

@@ -32,11 +32,11 @@ export default function(state = {}, action) {
                       ...state,
                       closed: state.closed.concat(action.payload)                  
                     };
-                    case "APPLICATION":
+                    case "WISHLIST_COUNT":
                       console.log(action.payload)
                       return {
                         ...state,
-                        application: state.application.concat(action.payload)                  
+                        wishlistCount: action.payload          
                       };
       default:
         return state;

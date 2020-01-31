@@ -13,7 +13,7 @@ import {
 import { getSearch } from "../Actions/apiFetches";
 import { getWishlistJobApps, getActiveJobApps, getClosedJobApps, getJobApps  } from "../Actions/jobAppFetches";
 import { Scrollbars } from "react-custom-scrollbars";
-import StudentModal from "./StudentModal";
+import StudentModal from "./ModalComponents/StudentModal";
 
 const mapStateToProps = state => state;
 
@@ -44,7 +44,6 @@ class StudentDashboard extends React.Component {
   componentDidMount= async () => {
     let query = "?limit=5";
     this.setState({query: query})
-    //  await this.props.getJobAppsThunk();
      await this.props.getWishlistJobAppsThunk(query)
      await this.props.getActiveJobAppsThunk(query)
      await this.props.getClosedJobAppsThunk(query)
@@ -64,13 +63,7 @@ class StudentDashboard extends React.Component {
 
   searchInput = async value => {
     value.preventDefault();
-    this.setState({
-      // company: "",
-      // role: "",
-      // level: "senior",
-      // location: "",
-      // url: "",
-    });
+
     // debugger;
 
     let url = "search=";
@@ -91,17 +84,10 @@ class StudentDashboard extends React.Component {
   };
   //if fetch is an empty array return a message: (no results matching your search)
 
-  
 
   render() {
     return (
       <>
-{/*       
-       {this.props.jobApp.allJobApps &&
-        this.props.jobApp.allJobApps.map(application =>
-         <StudentModal id={application._id} id={this.sendId} />
-         )} */}
-
         <Container className="filterBar">
           <h5 id="logo">TrackeR</h5>
           <hr
@@ -180,8 +166,7 @@ class StudentDashboard extends React.Component {
                 <CardHeader>WISHLIST</CardHeader>
                 <CardBody>
                 {this.props.jobApp.wishlist &&
-                this.props.jobApp.wishlist.map(wishlistJobs => {
-                    return(
+                this.props.jobApp.wishlist.map(wishlistJobs => 
                   <Row key={wishlistJobs._id} className = "col-sm-12" id="listRecord">
                     <Col sm="3" className="logoCol">
                     {wishlistJobs.companyLogo &&(
@@ -204,9 +189,8 @@ class StudentDashboard extends React.Component {
                     {wishlistJobs.roleTitle}
                     </Col>
                   </Row>
-                    )
-                  })}
-                  <a href="/" className="seeMoreLink wishlist">
+                  )}
+                  <a href="/wishlist" className="seeMoreLink wishlist">
                     See More
                   </a>
                 </CardBody>
@@ -217,8 +201,7 @@ class StudentDashboard extends React.Component {
                 <CardHeader>ACTIVE APPLICATIONS</CardHeader>
                 <CardBody>
                      {this.props.jobApp.active &&
-                this.props.jobApp.active.map(activeJobs => {
-                    return(
+                this.props.jobApp.active.map(activeJobs => 
                   <Row key={activeJobs._id} className = "col-sm-12" id="listRecord">
                     <Col sm="3" className="logoCol">
                     {activeJobs.companyLogo &&(
@@ -241,9 +224,8 @@ class StudentDashboard extends React.Component {
                     {activeJobs.roleTitle}
                     </Col>
                   </Row>
-                    )
-                  })}
-                  <a href="/" className="seeMoreLink active"> 
+                  )}
+                  <a href="/active" className="seeMoreLink active"> 
                     See More
                   </a>
                 </CardBody>
@@ -254,8 +236,7 @@ class StudentDashboard extends React.Component {
                 <CardHeader>CLOSED APPLICATIONS</CardHeader>
                 <CardBody>
                 {this.props.jobApp.closed &&
-                this.props.jobApp.closed.map(closedJobs => {
-                    return(
+                this.props.jobApp.closed.map(closedJobs =>  
                   <Row key={closedJobs._id} className = "col-sm-12" id="listRecord">
                     <Col sm="3" className="logoCol">
                     {closedJobs.companyLogo &&(
@@ -278,9 +259,8 @@ class StudentDashboard extends React.Component {
                     {closedJobs.roleTitle}
                     </Col>
                   </Row>
-                    )
-                  })}
-                  <a href="/" className="seeMoreLink closed">
+                 )}
+                  <a href="/closed" className="seeMoreLink closed">
                     See More
                   </a>
                 </CardBody>
@@ -308,9 +288,7 @@ class StudentDashboard extends React.Component {
             <Scrollbars id="filteredScroll" style={{ height: 500 }}>
               {this.props.publicAPI.filteredSearch &&
                 this.props.publicAPI.filteredSearch.map(
-                  (jobs, index) => {
-                    return (
-                      <>
+                  (jobs, index) => 
                         <Row key={index} className="col-12" id="record">
                           <Col xs="2" id="companyRecord">
                             {jobs.company}
@@ -324,12 +302,12 @@ class StudentDashboard extends React.Component {
                             id="descriptionRecord"
                             onMouseOver={this.mouseOver}
                           >
-                            {jobs.description
-                              .replace("<p>", ' ') 
-                              .replace("<h1>", ' ')
-                              .replace("<strong>", ' ')
-                              .replace("</strong>", ' ')
-                              .replace("<em>", ' ')
+                            {jobs.description.replace(/<[^>]*>?/gm, '')
+                              // .replace(/<p>/g, ' ') 
+                              // .replace("<h1>", ' ')
+                              // .replace("<strong>", ' ')
+                              // .replace("</strong>", ' ')
+                              // .replace("<em>", ' ')
                          }
                           </Col>
                           <button
@@ -344,9 +322,6 @@ class StudentDashboard extends React.Component {
                             Details
                           </button>
                         </Row>
-                      </>
-                    );
-                  }
                 )}
             </Scrollbars>
             <StudentModal showModal={this.state.showModal} toggleModal={this.toggleModal} selectedJob={this.state.selectedJob} />

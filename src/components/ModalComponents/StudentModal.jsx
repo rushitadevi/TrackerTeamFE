@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Scrollbars } from "react-custom-scrollbars";
 import StatusUpdateModal from "./StatusUpdateModal";
-import { addJobApp } from "../Actions/jobAppFetches";
+import { addJobApp } from "../../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
 import DirectoryComponent from "./DirectoryComponent";
@@ -23,6 +23,7 @@ class StudentModal extends Component {
       showModal: false,
       selectedComponent: "JobInfo",
       id: null,
+      // desc: null,
       application: {
         tasks: [],
         statusDateTime: undefined,
@@ -42,12 +43,23 @@ class StudentModal extends Component {
   componentDidMount = () => {
     //  let id = this.props.application._id
     //  this.setState({id: id})
+    // const selectedJob = this.props.selectedJob
+    // console.log(selectedJob)
+    // let desc = selectedJob.description
+    // desc = desc.replace(/<[^>]*>?/gm, '')
+
+    // this.setState({
+    //    desc: desc
+    // })
+
   };
 
   setStatusState = newStatus => {
     console.log("hello", newStatus);
     const application = this.state.application;
     application.status = newStatus;
+
+    console.log(application)
 
     this.setState({
       application: application
@@ -58,15 +70,16 @@ class StudentModal extends Component {
   onChange = e => {
     console.log("onChangeMethod");
     const application = this.state.application;
-    if (e.currentTarget.name === "statusDateTime") {
-      application.statusDateTime = e.currentTarget.value;
-    } else if (e.currentTarget.name === "intDateTime") {
-      application.intDateTime = e.currentTarget.value;
-    } else if (e.currentTarget.name === "replyDateTime") {
-      application.replyDateTime = e.currentTarget.value;
-    } else if (e.currentTarget.value === undefined) {
-      e.currentTarget.value = "";
-    }
+    application[e.currentTarget.name] = e.currentTarget.value;
+    // if (e.currentTarget.name === "statusDateTime") {
+    //   application.statusDateTime = e.currentTarget.value;
+    // } else if (e.currentTarget.name === "intDateTime") {
+    //   application.intDateTime = e.currentTarget.value;
+    // } else if (e.currentTarget.name === "replyDateTime") {
+    //   application.replyDateTime = e.currentTarget.value;
+    // } else if (e.currentTarget.value === undefined) {
+    //   e.currentTarget.value = "";
+    // }
 
     this.setState({
       application: application
@@ -140,8 +153,9 @@ class StudentModal extends Component {
     this.setState({ selectedComponent: component });
   };
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
+  toggleStatusModal = () => { this.setState({ showModal: false})}
+
+  resetState = () => {   
     this.setState({
       application: {
         tasks: [],
@@ -172,7 +186,7 @@ class StudentModal extends Component {
               id="xButton"
               onClick={() => {
                 if (this.state.application.status) this.handleApplication();
-
+                this.resetState()
                 this.props.toggleModal();
               }}
             >
@@ -200,7 +214,7 @@ class StudentModal extends Component {
             </Button>
             <StatusUpdateModal
               showModal={this.state.showModal}
-              toggleModal={this.toggleModal}
+              toggleModal={this.toggleStatusModal}
               handleStatus={newStatus => this.setStatusState(newStatus)}
               // handleStatus={newStatus => this.setState({ status: newStatus })}
             />
@@ -317,7 +331,7 @@ class StudentModal extends Component {
 
                   <div id="jobInfo">
                     <Scrollbars id="modalScroll" style={{ height: 110 }}>
-                      {this.props.selectedJob.description}
+                      {this.state.desc}
                     </Scrollbars>
                   </div>
                 </Col>
