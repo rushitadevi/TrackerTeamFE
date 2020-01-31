@@ -9,6 +9,7 @@ export default function(state={},action)
             loggedInUser: state.loggedInUser.concat(action.payload)                       
            
           };
+       
           default:
             return state;
     }

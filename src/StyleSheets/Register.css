@@ -1,13 +1,13 @@
-.registerform.shadow.p-3.mb-5.bg-white
-{ 
-    border: "3px solid blueviolet" !important;
-    border-radius: "20px" !important;
-    padding: "20px" !important;
-    margin-left: "80px" !important;
-    margin-right: "80px" !important;
-    margin-top: "80px" !important;
+#registerform
+{    
+    border: 3px solid #cbdad7;
+    border-radius: 20px;
+    padding: 20px;  
+    margin-top: 20px;
+}
 
-     /* : "p-3 mb-5 bg-white"; */
+.label{
+    font-size: 12px;
 }
 
 
@@ -22,6 +22,12 @@
     height: 35px;
     background-color: #e5b85f;
     color: #052f5f !important;
+    margin-left: 35%;
+  }
+
+  .signIn{
+      display: block;
+      margin-left: 37%;
   }
 
   .btnCancel{

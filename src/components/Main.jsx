@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import configureStore from "../store";
 import Register from "./Register";
 import Login from "./Login";
+import LandingPage from "./LandingPage";
 // import { ok } from "assert";
 
 
@@ -16,8 +17,11 @@ class Main extends Component {
 
   render() {
     return (
+      <>
+      
       <Provider store={configureStore()}>
          <Navbar/>
+         <LandingPage/>
         <Router>
        
         <Container fluid className="studentHomepage">
@@ -30,7 +34,9 @@ class Main extends Component {
           <Route path="/register" exact component={Register} />
           <Route path="/signIn" exact component={Login} />
         </Router>
+       
       </Provider>
+      </>
     );
   }
 

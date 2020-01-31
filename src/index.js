@@ -5,6 +5,8 @@ import './StyleSheets/StatusListModal.css';
 import './StyleSheets/StudentDashboard.css';
 import './StyleSheets/Modal.css';
 import './StyleSheets/Register.css';
+import './StyleSheets/login.css';
+import "./StyleSheets/LandingPage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import Main from './components/Main';

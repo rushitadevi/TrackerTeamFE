@@ -17,15 +17,20 @@ const initialState = {
     allJobApps: [],
     wishlist: [],    
   },
-  user:{
-   userData:[],
-   loggedInUser:[]
-  },
+ userData:{
+  userData:[]
+ },
+ loggedInUser :{
+  loggedInUser:[]
+ }
+ 
+   
+ 
   
 
 };
 
-const combReducer = combineReducers({user:registratioReducer,user:loginReducer, publicAPI: publicAPIReducer,  jobApp: jobAppReducer });
+const combReducer = combineReducers({userData:registratioReducer,loggedInUser:loginReducer, publicAPI: publicAPIReducer,  jobApp: jobAppReducer });
 
 export default function configureStore() {
   return createStore(

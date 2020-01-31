@@ -1,6 +1,6 @@
 export const addLoginData = data => async dispatch => {
     try {
-      var res = await fetch(process.env.REACT_APP_URL + 'user/login', {
+       var res = await fetch(process.env.REACT_APP_URL + 'user/login', {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -16,4 +16,6 @@ export const addLoginData = data => async dispatch => {
     }
     } catch (err) {}
   };
+
+  
   

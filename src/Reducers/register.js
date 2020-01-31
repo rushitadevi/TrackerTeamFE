@@ -5,7 +5,7 @@ export default function(state={},action)
         case "REGISTRATION" : 
         return {
             ...state,
-            user: state.user.concat(action.payload)            
+            userData: state.userData.concat(action.payload)            
           };
           default:
             return state;
