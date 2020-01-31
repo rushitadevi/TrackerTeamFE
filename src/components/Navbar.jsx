@@ -15,7 +15,7 @@ class NavBar extends React.Component {
                         <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10" >
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a href="https://github.com/reactstrap/reactstrap" className="nav-link" >
+                                    <a href="/student" className="nav-link" >
                                         Home</a>
                                 </li>
                                 <li className="nav-item text-center">

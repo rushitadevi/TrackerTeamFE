@@ -1,0 +1,40 @@
+#registerform
+{    
+    border: 3px solid #cbdad7;
+    border-radius: 20px;
+    padding: 20px;  
+    margin-top: 20px;
+}
+
+.label{
+    font-size: 12px;
+}
+
+
+
+.submitButton {
+    /* position: absolute;
+    margin-left: 985px !important;
+    margin-top: 12px !important; */
+    border-radius: 10px;
+    font-family: "Arvo", serif;
+    width: 80px;
+    height: 35px;
+    background-color: #e5b85f;
+    color: #052f5f !important;
+    margin-left: 35%;
+  }
+
+  .signIn{
+      display: block;
+      margin-left: 37%;
+  }
+
+  .btnCancel{
+      border-radius: 10px;
+      font-family: "Arvo","serif";
+      width: 80px;
+      height: 35px;
+      background-color: #e5b85f;
+      color: #052f5f !important;
+  }
