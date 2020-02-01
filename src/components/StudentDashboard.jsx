@@ -11,7 +11,15 @@ import {
   Col
 } from "reactstrap";
 import { getSearch } from "../Actions/apiFetches";
-import { getWishlistJobApps, getActiveJobApps, getClosedJobApps, getJobApps  } from "../Actions/jobAppFetches";
+import {
+  getWishlistJobApps,
+  getWishlistCount,
+  getActiveJobApps,
+  getActiveCount,
+  getClosedJobApps,
+  getClosedCount,
+  getJobApps
+} from "../Actions/jobAppFetches";
 import { Scrollbars } from "react-custom-scrollbars";
 import StudentModal from "./ModalComponents/StudentModal";
 
@@ -20,9 +28,12 @@ const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
   getSearchThunk: url => dispatch(getSearch(url)),
   getJobAppsThunk: () => dispatch(getJobApps()),
-  getWishlistJobAppsThunk: (query) => dispatch(getWishlistJobApps(query)),
-  getActiveJobAppsThunk: (query) => dispatch(getActiveJobApps(query)),
-  getClosedJobAppsThunk: (query) => dispatch(getClosedJobApps(query))
+  getWishlistCountThunk: () => dispatch(getWishlistCount()),
+  getActiveCountThunk: () => dispatch(getActiveCount()),
+  getClosedCountThunk: () => dispatch(getClosedCount()),
+  getWishlistJobAppsThunk: query => dispatch(getWishlistJobApps(query)),
+  getActiveJobAppsThunk: query => dispatch(getActiveJobApps(query)),
+  getClosedJobAppsThunk: query => dispatch(getClosedJobApps(query))
 });
 
 class StudentDashboard extends React.Component {
@@ -37,21 +48,38 @@ class StudentDashboard extends React.Component {
       hover: false,
       showModal: false,
       selectedJob: {},
-      query: null
+      query: null,
+      seeMoreLink: null
     };
   }
 
-  componentDidMount= async () => {
+  componentDidMount = async () => {
     let query = "?limit=5";
-    this.setState({query: query})
-     await this.props.getWishlistJobAppsThunk(query)
-     await this.props.getActiveJobAppsThunk(query)
-     await this.props.getClosedJobAppsThunk(query)
-     this.setState({
+    this.setState({ query: query });
+
+    if (!this.state.seeMoreLink) {
+      await this.props.getWishlistJobAppsThunk(query);
+    }
+
+    await this.props.getActiveJobAppsThunk(query);
+    await this.props.getClosedJobAppsThunk(query);
+    await this.props.getWishlistCountThunk();
+    await this.props.getActiveCountThunk();
+    await this.props.getClosedCountThunk();
+    this.setState({
       selectedJob: {}
-     })
+    });
   };
 
+  noQueryFetch = async () => {
+    console.log("true");
+    let query = "";
+    this.setState({ query: query });
+    console.log("stil true");
+    await this.props.getWishlistJobAppsThunk(query);
+    this.setState({ seeMoreLink: null });
+    console.log("null");
+  };
 
   toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
@@ -79,11 +107,8 @@ class StudentDashboard extends React.Component {
     });
 
     await this.props.getSearchThunk(url);
-
-
   };
   //if fetch is an empty array return a message: (no results matching your search)
-
 
   render() {
     return (
@@ -158,40 +183,90 @@ class StudentDashboard extends React.Component {
           </button>
         </Container>
 
-
         {!this.state.url && (
           <Container className="dashboardMainDisplay">
             <div>
               <Card className="listCard wishCard">
                 <CardHeader>WISHLIST</CardHeader>
                 <CardBody>
-                {this.props.jobApp.wishlist &&
-                this.props.jobApp.wishlist.map(wishlistJobs => 
-                  <Row key={wishlistJobs._id} className = "col-sm-12" id="listRecord">
-                    <Col sm="3" className="logoCol">
-                    {wishlistJobs.companyLogo &&(
-                    <img
-                      className="companyLogo"
-                      src={wishlistJobs.companyLogo}
-                      alt="logo"
-                    />
-                    )}
-                      {!wishlistJobs.companyLogo &&(
-                      <img
-                      className="companyLogo"
-                      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
-                      alt="logo"
-                    />
-                    )}
-                    </Col>
-                    <Col sm="9" className="companyCol">
-                    {wishlistJobs.companyName}<br/>
-                    {wishlistJobs.roleTitle}
-                    </Col>
-                  </Row>
+                  <>
+                    {this.props.jobApp.wishlist &&
+                      this.props.jobApp.wishlist.map(wishlistJobs => (
+                        <Row
+                          key={wishlistJobs._id}
+                          className="col-sm-12"
+                          id="listRecord"
+                        >
+                          <Col sm="3" className="logoCol">
+                            {wishlistJobs.companyLogo && (
+                              <img
+                                className="companyLogo"
+                                src={wishlistJobs.companyLogo}
+                                alt="logo"
+                              />
+                            )}
+                            {!wishlistJobs.companyLogo && (
+                              <img
+                                className="companyLogo"
+                                src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                                alt="logo"
+                              />
+                            )}
+                          </Col>
+                          <Col sm="9" className="companyCol">
+                            {wishlistJobs.companyName}
+                            <br />
+                            {wishlistJobs.roleTitle}
+                          </Col>
+                        </Row>
+                      ))}
+                  </>
+
+                  {this.state.seeMoreLink && (
+                    <Scrollbars>
+                      {this.props.jobApp.wishlist &&
+                        this.props.jobApp.wishlist.map(
+                          (wishlistJobs, index) => (
+                            <Row
+                              key={index}
+                              className="col-sm-12"
+                              id="listRecord"
+                            >
+                              <Col sm="3" className="logoCol">
+                                {wishlistJobs.companyLogo && (
+                                  <img
+                                    className="companyLogo"
+                                    src={wishlistJobs.companyLogo}
+                                    alt="logo"
+                                  />
+                                )}
+                                {!wishlistJobs.companyLogo && (
+                                  <img
+                                    className="companyLogo"
+                                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                                    alt="logo"
+                                  />
+                                )}
+                              </Col>
+                              <Col sm="9" className="companyCol">
+                                {wishlistJobs.companyName}
+                                <br />
+                                {wishlistJobs.roleTitle}
+                              </Col>
+                            </Row>
+                          )
+                        )}
+                    </Scrollbars>
                   )}
-                  <a href="/wishlist" className="seeMoreLink wishlist">
-                    See More
+                  <a
+                    href="#"
+                    className="seeMoreLink wishlist"
+                    onClick={
+                      (() => this.setState({ seeMoreLink: true }),
+                      this.noQueryFetch)
+                    }
+                  >
+                    See {this.props.jobApp.wishlistCount.wishlistCount} More
                   </a>
                 </CardBody>
               </Card>
@@ -200,33 +275,42 @@ class StudentDashboard extends React.Component {
               <Card className="listCard activeCard">
                 <CardHeader>ACTIVE APPLICATIONS</CardHeader>
                 <CardBody>
-                     {this.props.jobApp.active &&
-                this.props.jobApp.active.map(activeJobs => 
-                  <Row key={activeJobs._id} className = "col-sm-12" id="listRecord">
-                    <Col sm="3" className="logoCol">
-                    {activeJobs.companyLogo &&(
-                    <img
-                      className="companyLogo"
-                      src={activeJobs.companyLogo}
-                      alt="logo"
-                    />
-                    )}
-                      {!activeJobs.companyLogo &&(
-                      <img
-                      className="companyLogo"
-                      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
-                      alt="logo"
-                    />
-                    )}
-                    </Col>
-                    <Col sm="9" className="companyCol">
-                    {activeJobs.companyName}<br/>
-                    {activeJobs.roleTitle}
-                    </Col>
-                  </Row>
-                  )}
-                  <a href="/active" className="seeMoreLink active"> 
-                    See More
+                  {this.props.jobApp.active &&
+                    this.props.jobApp.active.map(activeJobs => (
+                      <Row
+                        key={activeJobs._id}
+                        className="col-sm-12"
+                        id="listRecord"
+                      >
+                        <Col sm="3" className="logoCol">
+                          {activeJobs.companyLogo && (
+                            <img
+                              className="companyLogo"
+                              src={activeJobs.companyLogo}
+                              alt="logo"
+                            />
+                          )}
+                          {!activeJobs.companyLogo && (
+                            <img
+                              className="companyLogo"
+                              src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                              alt="logo"
+                            />
+                          )}
+                        </Col>
+                        <Col sm="9" className="companyCol">
+                          {activeJobs.companyName}
+                          <br />
+                          {activeJobs.roleTitle}
+                        </Col>
+                      </Row>
+                    ))}
+                  <a
+                    href="#"
+                    className="seeMoreLink active"
+                    onClick={() => this.setState({ seeMoreLink: true })}
+                  >
+                    See {this.props.jobApp.activeCount.activeCount} More
                   </a>
                 </CardBody>
               </Card>
@@ -235,33 +319,42 @@ class StudentDashboard extends React.Component {
               <Card className="listCard closedCard">
                 <CardHeader>CLOSED APPLICATIONS</CardHeader>
                 <CardBody>
-                {this.props.jobApp.closed &&
-                this.props.jobApp.closed.map(closedJobs =>  
-                  <Row key={closedJobs._id} className = "col-sm-12" id="listRecord">
-                    <Col sm="3" className="logoCol">
-                    {closedJobs.companyLogo &&(
-                    <img
-                      className="companyLogo"
-                      src={closedJobs.companyLogo}
-                      alt="logo"
-                    />
-                    )}
-                      {!closedJobs.companyLogo &&(
-                      <img
-                      className="companyLogo"
-                      src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
-                      alt="logo"
-                    />
-                    )}
-                    </Col>
-                    <Col sm="9" className="companyCol">
-                    {closedJobs.companyName}<br/>
-                    {closedJobs.roleTitle}
-                    </Col>
-                  </Row>
-                 )}
-                  <a href="/closed" className="seeMoreLink closed">
-                    See More
+                  {this.props.jobApp.closed &&
+                    this.props.jobApp.closed.map(closedJobs => (
+                      <Row
+                        key={closedJobs._id}
+                        className="col-sm-12"
+                        id="listRecord"
+                      >
+                        <Col sm="3" className="logoCol">
+                          {closedJobs.companyLogo && (
+                            <img
+                              className="companyLogo"
+                              src={closedJobs.companyLogo}
+                              alt="logo"
+                            />
+                          )}
+                          {!closedJobs.companyLogo && (
+                            <img
+                              className="companyLogo"
+                              src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                              alt="logo"
+                            />
+                          )}
+                        </Col>
+                        <Col sm="9" className="companyCol">
+                          {closedJobs.companyName}
+                          <br />
+                          {closedJobs.roleTitle}
+                        </Col>
+                      </Row>
+                    ))}
+                  <a
+                    href="#"
+                    className="seeMoreLink closed"
+                    onClick={() => this.setState({ seeMoreLink: true })}
+                  >
+                    See {this.props.jobApp.closedCount.closedCount} More
                   </a>
                 </CardBody>
               </Card>
@@ -287,44 +380,47 @@ class StudentDashboard extends React.Component {
             </Row>
             <Scrollbars id="filteredScroll" style={{ height: 500 }}>
               {this.props.publicAPI.filteredSearch &&
-                this.props.publicAPI.filteredSearch.map(
-                  (jobs, index) => 
-                        <Row key={index} className="col-12" id="record">
-                          <Col xs="2" id="companyRecord">
-                            {jobs.company}
-                          </Col>
-                          <Col xs="3" id="titleRecord">
-                            {jobs.title}
-                          </Col>
-                          <Col xs="2">{jobs.location}</Col>
-                          <Col
-                            xs="3"
-                            id="descriptionRecord"
-                            onMouseOver={this.mouseOver}
-                          >
-                            {jobs.description.replace(/<[^>]*>?/gm, '')
-                              // .replace(/<p>/g, ' ') 
-                              // .replace("<h1>", ' ')
-                              // .replace("<strong>", ' ')
-                              // .replace("</strong>", ' ')
-                              // .replace("<em>", ' ')
-                         }
-                          </Col>
-                          <button
-                            onClick={() =>
-                              this.setState({
-                                showModal: true,
-                                selectedJob: jobs
-                              })
-                            }
-                            className="detailsButton"
-                          >
-                            Details
-                          </button>
-                        </Row>
-                )}
+                this.props.publicAPI.filteredSearch.map((jobs, index) => (
+                  <Row key={index} className="col-12" id="record">
+                    <Col xs="2" id="companyRecord">
+                      {jobs.company}
+                    </Col>
+                    <Col xs="3" id="titleRecord">
+                      {jobs.title}
+                    </Col>
+                    <Col xs="2">{jobs.location}</Col>
+                    <Col
+                      xs="3"
+                      id="descriptionRecord"
+                      onMouseOver={this.mouseOver}
+                    >
+                      {jobs.description.replace(/<[^>]*>?/gm, "")
+                      // .replace(/<p>/g, ' ')
+                      // .replace("<h1>", ' ')
+                      // .replace("<strong>", ' ')
+                      // .replace("</strong>", ' ')
+                      // .replace("<em>", ' ')
+                      }
+                    </Col>
+                    <button
+                      onClick={() =>
+                        this.setState({
+                          showModal: true,
+                          selectedJob: jobs
+                        })
+                      }
+                      className="detailsButton"
+                    >
+                      Details
+                    </button>
+                  </Row>
+                ))}
             </Scrollbars>
-            <StudentModal showModal={this.state.showModal} toggleModal={this.toggleModal} selectedJob={this.state.selectedJob} />
+            <StudentModal
+              showModal={this.state.showModal}
+              toggleModal={this.toggleModal}
+              selectedJob={this.state.selectedJob}
+            />
           </Container>
         )}
       </>

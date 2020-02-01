@@ -33,11 +33,20 @@ export default function(state = {}, action) {
                       closed: state.closed.concat(action.payload)                  
                     };
                     case "WISHLIST_COUNT":
-                      console.log(action.payload)
                       return {
                         ...state,
                         wishlistCount: action.payload          
                       };
+                      case "ACTIVE_COUNT":
+                        return {
+                          ...state,
+                          activeCount: action.payload          
+                        };
+                        case "CLOSED_COUNT":
+                          return {
+                            ...state,
+                            closedCount: action.payload          
+                          };
       default:
         return state;
     }

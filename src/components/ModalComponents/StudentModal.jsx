@@ -331,7 +331,7 @@ class StudentModal extends Component {
 
                   <div id="jobInfo">
                     <Scrollbars id="modalScroll" style={{ height: 110 }}>
-                      {this.state.desc}
+                    {this.props.selectedJob.description}
                     </Scrollbars>
                   </div>
                 </Col>

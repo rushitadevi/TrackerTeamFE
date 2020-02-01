@@ -17,7 +17,9 @@ const initialState = {
     wishlist: [],
     active: [],
     closed: [],
-    wishlistCount: null
+    wishlistCount: {},
+    activeCount: {},
+    closedCount: {},
   },
 
 };

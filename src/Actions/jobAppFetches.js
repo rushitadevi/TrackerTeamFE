@@ -82,6 +82,21 @@ export const addJobApp=(application) => async dispatch =>{
       }
       }
 
+      export const getActiveCount = () => {
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/activeCount", {
+          method: "GET", 
+        })
+      
+        var activeCount = await response.json();
+
+        dispatch({
+          type: "ACTIVE_COUNT",
+          payload: activeCount
+        });
+      }
+      }
+
       export const getClosedJobApps = (query) => {
         // console.log(query)
         return async (dispatch, getState) => {
@@ -97,6 +112,20 @@ export const addJobApp=(application) => async dispatch =>{
       }
       }
 
+      export const getClosedCount = () => {
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/closedCount", {
+          method: "GET", 
+        })
+      
+        var closedCount = await response.json();
+
+        dispatch({
+          type: "CLOSED_COUNT",
+          payload: closedCount
+        });
+      }
+      }
       // export const getSingleApp = (id) => {
       //   // console.log(query)
       //   return async (dispatch, getState) => {

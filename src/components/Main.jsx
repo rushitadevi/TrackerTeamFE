@@ -6,7 +6,7 @@ import StudentDashboard from "./StudentDashboard";
 import ManagerDashboard from "./ManagerDashboard";
 import SeeMoreWishlist from "./SeeMoreWishlist";
 import Navbar from "./Navbar";
-import configureStore from "../store";
+import configureStore from "../Store";
 // import { ok } from "assert";
 
 

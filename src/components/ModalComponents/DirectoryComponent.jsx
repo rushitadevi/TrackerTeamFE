@@ -7,6 +7,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Scrollbars from "react-custom-scrollbars";
 
 const mapStateToProps = state => state;
 
@@ -70,11 +71,14 @@ class DirectoryComponent extends Component {
                           <Typography className="pos" color="textSecondary">
                             {companyVacancies.title}
                           </Typography>
+{/*                  
                           <Typography variant="body2" component="p">
                           {companyVacancies.description.replace(/<[^>]*>?/gm, '')}
                             <br />
-                            {'"a benevolent smile"'}
+                         
                           </Typography>
+    */}
+
                         </CardContent>
                         <CardActions>
                           <Button size="small">Learn More</Button>
