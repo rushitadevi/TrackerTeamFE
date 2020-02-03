@@ -12,21 +12,8 @@ import './StyleSheets/login.css';
 import "./StyleSheets/LandingPage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
-<<<<<<< Updated upstream
-import { Provider } from "react-redux";
-import configureStore from "./store";
-import Main from './components/Main';
-
-const newstore = configureStore()
- 
-
-ReactDOM.render(<Provider store={newstore}><Main /></Provider>, document.getElementById('root'));
-
-
-=======
 import Main from './components/Main';
 import Register from './components/Register';
->>>>>>> Stashed changes
 
 
 ReactDOM.render(<Main />, document.getElementById('root'));
