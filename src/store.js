@@ -10,12 +10,20 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const initialState = {
   publicAPI: {
     filteredSearch: [],
+    companyVacancies: []
   },
 
   jobApp: {
     jobApp: [],
     allJobApps: [],
+<<<<<<< HEAD
     wishlist: [],    
+=======
+    wishlist: [],
+    active: [],
+    closed: [],
+    wishlistCount: null
+>>>>>>> studentDashboard-homepage
   },
  userData:{
   userData:[]

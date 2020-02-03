@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import StudentDashboard from "./StudentDashboard";
 import ManagerDashboard from "./ManagerDashboard";
+import SeeMoreWishlist from "./SeeMoreWishlist";
 import Navbar from "./Navbar";
 import configureStore from "../store";
 import Register from "./Register";
@@ -29,6 +30,7 @@ class Main extends Component {
           {/* <FilteredSearchBar/> */}
           {/* <StudentDashboard triggerSearch={this.search} location={this.state.locationResults} /> */}
           <Route path="/student" exact component={StudentDashboard} />
+          <Route path="/wishlist" exact component={SeeMoreWishlist} />
           </Container>
           <Route path="/manager" exact component={ManagerDashboard} />
           <Route path="/register" exact component={Register} />

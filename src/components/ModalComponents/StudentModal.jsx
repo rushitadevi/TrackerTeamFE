@@ -5,14 +5,16 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { Scrollbars } from "react-custom-scrollbars";
 import StatusUpdateModal from "./StatusUpdateModal";
-import { addJobApp,updateJobApp } from "../Actions/jobAppFetches";
+import { addJobApp } from "../../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
+import NotesComponent from "./NotesComponent";
+import DirectoryComponent from "./DirectoryComponent";
 
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
   addJobAppThunk: application => dispatch(addJobApp(application)),
-  updateJobAppThunk:(application,id)=>dispatch(updateJobApp(application,id))
+  // updateJobAppThunk:(application,id)=>dispatch(updateJobApp(application,id))
 });
 
 class StudentModal extends Component {
@@ -21,6 +23,8 @@ class StudentModal extends Component {
     this.state = {
       showModal: false,
       selectedComponent: "JobInfo",
+      id: null,
+      // desc: null,
       application: {
         tasks: [],
         statusDateTime: undefined,
@@ -32,45 +36,117 @@ class StudentModal extends Component {
         roleTitle: undefined,
         location: undefined,
         description: undefined,
+        notes: []
       }
     };
   }
 
-  handleApplication = (task) => {
+  componentDidMount = () => {
+    //  let id = this.props.application._id
+    //  this.setState({id: id})
+    // const selectedJob = this.props.selectedJob
+    // console.log(selectedJob)
+    // let desc = selectedJob.description
+    // desc = desc.replace(/<[^>]*>?/gm, '')
+
+    // this.setState({
+    //    desc: desc
+    // })
+
+  };
+
+  setStatusState = newStatus => {
+    console.log("hello", newStatus);
+    const application = this.state.application;
+    application.status = newStatus;
+
+    console.log(application)
+
+    this.setState({
+      application: application
+    });
+    // console.log(application)
+  };
+
+  onChange = e => {
+    console.log("onChangeMethod");
+    const application = this.state.application;
+    application[e.currentTarget.name] = e.currentTarget.value;
+    // if (e.currentTarget.name === "statusDateTime") {
+    //   application.statusDateTime = e.currentTarget.value;
+    // } else if (e.currentTarget.name === "intDateTime") {
+    //   application.intDateTime = e.currentTarget.value;
+    // } else if (e.currentTarget.name === "replyDateTime") {
+    //   application.replyDateTime = e.currentTarget.value;
+    // } else if (e.currentTarget.value === undefined) {
+    //   e.currentTarget.value = "";
+    // }
+
+    this.setState({
+      application: application
+    });
+  };
+
+  handleApplication = () => {
+    console.log("handleapplication");
+    //   if (this.state === undefined) {
+    //     this.state = ""
+    // }
     let application = {
-      tasks: task,//Rushita
-      statusDateTime: this.state.statusDateTime,
-      intDateTime: this.state.intDateTime,
-      replyDateTime: this.state.replyDateTime,
-      status: this.state.status,
+      tasks: this.state.application.tasks,
+      statusDateTime: this.state.application.statusDateTime,
+      intDateTime: this.state.application.intDateTime,
+      replyDateTime: this.state.application.replyDateTime,
+      status: this.state.application.status,
+      notes: this.state.application.notes,
       companyName: this.props.selectedJob.company,
       companyLogo: this.props.selectedJob.company_logo,
       roleTitle: this.props.selectedJob.title,
       location: this.props.selectedJob.location,
-      description: this.props.selectedJob.description      
+      description: this.props.selectedJob.description
     };
-    
-    console.log(application);
+
     this.setState({ application: application });
-    if (this.state.application._id) 
-    {
-       this.props.updateJobAppThunk(application,this.state.application._id)
-    } 
-    else
-    {
-      this.props.addJobAppThunk(application);
-    }
-    
+
+    this.props.addJobAppThunk(application);
   };
 
-  addTask = (task) => {
-    if (this.state.application._id) {
-      // execute the PUT
-      this.handleApplication(task); //Rushita
-    } else {
-      console.log(task,"task")
-      this.handleApplication(task); //Rushita
-      // execute the post and save the _id
+  addTask = newTask => {
+    const application = this.state.application;
+    application.tasks = [...application.tasks, newTask];
+    this.setState({ application: application });
+    // this.setState({ task: "" })
+    // if (this.state.application._id) {
+    //   // execute the PUT
+    // } else {
+    //   // execute the post and save the _id
+    // }
+  };
+
+  addNotes = newNote => {
+    console.log(newNote);
+    const application = this.state.application;
+    application.notes = [...application.notes, newNote];
+    this.setState({ application: application });
+  };
+
+  deleteTask = deleteTask => {
+    const application = this.state.application;
+    const taskArray = application.tasks;
+    var index = taskArray.indexOf(deleteTask);
+    if (index !== -1) {
+      taskArray.splice(index, 1);
+      this.setState({ taskArray: taskArray });
+    }
+  };
+
+  deleteNotes = deleteNotes => {
+    const application = this.state.application;
+    const taskArray = application.notes;
+    var index = taskArray.indexOf(deleteNotes);
+    if (index !== -1) {
+      taskArray.splice(index, 1);
+      this.setState({ taskArray: taskArray });
     }
   };
 
@@ -78,8 +154,24 @@ class StudentModal extends Component {
     this.setState({ selectedComponent: component });
   };
 
-  toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
+  toggleStatusModal = () => { this.setState({ showModal: false})}
+
+  resetState = () => {   
+    this.setState({
+      application: {
+        tasks: [],
+        statusDateTime: undefined,
+        intDateTime: undefined,
+        replyDateTime: undefined,
+        status: undefined,
+        companyName: undefined,
+        companyLogo: undefined,
+        roleTitle: undefined,
+        location: undefined,
+        description: undefined,
+        notes: []
+      }
+    });
   };
 
   render() {
@@ -94,11 +186,9 @@ class StudentModal extends Component {
             <Button
               id="xButton"
               onClick={() => {
+                if (this.state.application.status) this.handleApplication();
+                this.resetState()
                 this.props.toggleModal();
-                {
-                  this.state.application && this.handleApplication("");
-                }
-                // onSubmit={() => this.handleApplication}
               }}
             >
               X
@@ -125,8 +215,9 @@ class StudentModal extends Component {
             </Button>
             <StatusUpdateModal
               showModal={this.state.showModal}
-              toggleModal={this.toggleModal}
-              handleStatus={newStatus => this.setState({ status: newStatus })}
+              toggleModal={this.toggleStatusModal}
+              handleStatus={newStatus => this.setStatusState(newStatus)}
+              // handleStatus={newStatus => this.setState({ status: newStatus })}
             />
           </Row>
         </Container>
@@ -134,7 +225,7 @@ class StudentModal extends Component {
         <Container>
           <Row className="modalOptionsRect">
             <Row className="modalOptions">
-              <Col xs={12} className="first">
+              <Col xs={12} className="sideOptions first">
                 <a
                   href="#"
                   onClick={() => {
@@ -144,7 +235,7 @@ class StudentModal extends Component {
                   JOB INFO
                 </a>
               </Col>
-              <Col xs={12} className="second">
+              <Col xs={12} className="sideOptions">
                 <a
                   href="#"
                   onClick={() => {
@@ -154,7 +245,7 @@ class StudentModal extends Component {
                   TASKS
                 </a>
               </Col>
-              <Col xs={12} className="third">
+              <Col xs={12} className="sideOptions">
                 <a
                   href="#"
                   onClick={() => {
@@ -164,14 +255,14 @@ class StudentModal extends Component {
                   NOTES
                 </a>
               </Col>
-              <Col xs={12} className="fourth">
+              <Col xs={12} className="sideOptions more">
                 <a
                   href="#"
                   onClick={() => {
                     this.selectComponent("Directory");
                   }}
                 >
-                  DIRECTORY
+                  MORE VACANCIES
                 </a>
               </Col>
             </Row>
@@ -203,10 +294,11 @@ class StudentModal extends Component {
                     name="statusDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.statusDateTime}
-                    onChange={e =>
-                      this.setState({ statusDateTime: e.currentTarget.value })
-                    }
+                    value={this.state.application.statusDateTime}
+                    onChange={e => this.onChange(e)}
+                    /* onChange={e =>
+                      this.setState({ statusDateTime: e.currentTarget.value  || "" })
+                    } */
                   />
 
                   <h6 id="interviewDateTitle">Interview Date</h6>
@@ -215,10 +307,11 @@ class StudentModal extends Component {
                     name="intDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.intDateTime}
-                    onChange={e =>
-                      this.setState({ intDateTime: e.currentTarget.value })
-                    }
+                    value={this.state.application.intDateTime}
+                    onChange={e => this.onChange(e)}
+                    // onChange={e =>
+                    //   this.setState({ intDateTime: e.currentTarget.value || "" })
+                    // }
                   />
 
                   <h6 id="replyDateTitle">Expected Reply Date</h6>
@@ -227,29 +320,47 @@ class StudentModal extends Component {
                     name="replyDateTime"
                     id="dateTime"
                     placeholder="Date &amp; Time"
-                    value={this.state.replyDateTime}
-                    onChange={e =>
-                      this.setState({ replyDateTime: e.currentTarget.value })
-                    }
+                    value={this.state.application.replyDateTime}
+                    onChange={e => this.onChange(e)}
+                    // onChange={e =>
+                    //   this.setState({ replyDateTime: e.currentTarget.value || "" })
+                    // }
                   />
                 </Col>
                 <Col xs={12} className="companyRoleDesc">
                   <h6 id="companyRoleTitle">Role Description</h6>
 
-                  <p id="jobInfo">
+                  <div id="jobInfo">
                     <Scrollbars id="modalScroll" style={{ height: 110 }}>
-                      {this.props.selectedJob.description}
+                      {this.state.desc}
                     </Scrollbars>
-                  </p>
+                  </div>
                 </Col>
               </Row>
             </>
           )}
 
           {this.state.selectedComponent === "Tasks" && (
-            <TaskComponent taskList={this.state.tasks} addTask={this.addTask} />
+            <TaskComponent
+              tasks={this.state.application.tasks}
+              addTask={this.addTask}
+              deleteTask={this.deleteTask}
+            />
           )}
-   
+
+          {this.state.selectedComponent === "Notes" && (
+            <NotesComponent
+              notes={this.state.application.notes}
+              addNotes={this.addNotes}
+              deleteNotes={this.deleteNotes}
+            />
+          )}
+
+          {this.state.selectedComponent === "Directory" && (
+            <DirectoryComponent
+              companyName={this.props.selectedJob.company.replace(/ /g, "+")}
+            />
+          )}
         </Container>
       </Modal>
     );

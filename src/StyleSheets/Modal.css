@@ -1,9 +1,12 @@
 #statusModal {
-    height: 560px;
+    height: 570px;
     border-radius: 8px;
     background: #ffffff;
     border: 1px solid #cccccc;
     box-sizing: border-box;
+    overflow-y:auto;
+    overflow-x: hidden;
+    /* overflow: hidden; */
   }
   
   #modalHeader {
@@ -102,43 +105,21 @@
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
 
-  
-  .first {
-    margin-top: 15px !important;
+  .sideOptions{
     height: 35px;
     width: 100px !important;
     border-bottom: 1px solid #cccccc !important;
     left: 0px;
     padding-left: 0px !important;
     text-align: center;
+    padding-right: 0px !important;
+  }
+  .first {
+    margin-top: 15px !important; 
   }
 
-  .second {
-    top: 0px !important;
-    height: 35px;
-    width: 100px !important;
-    border-bottom: 1px solid #cccccc !important;
-    left: 0px;
-    padding-left: 0px !important;
-    text-align: center;
-  }
-  
-  .third {
-    height: 35px;
-    width: 100px !important;
-    border-bottom: 1px solid #cccccc !important;
-    left: 0px;
-    padding-left: 0px !important;
-    text-align: center;
-  }
-  
-  .fourth {
-    height: 35px;
-    width: 100px !important;
-    border-bottom: 1px solid #cccccc !important;
-    left: 0px;
-    padding-left: 0px !important;
-    text-align: center;
+  .more{
+    height: 56px
   }
   
   a{
@@ -317,26 +298,3 @@
     margin-bottom: 0px
   }
 
-  .tasksRow{
-      padding: 0px !important;
-      width: 378px !important;
-      left: 120px
-  }
-
-  .addTaskTitle{
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    font-weight: bold;
-    padding-bottom: 0px!important; 
-  }
-
- .addTaskCol{
-  margin-top: 15px
- }
-
-
-  .addTask::placeholder {
-    color: #8A7F7F !important;
-    opacity: 1;
-  }

@@ -1,0 +1,25 @@
+.moreVacanciesRow{
+    margin-left: 130px !important;
+    margin-top: 20px
+}
+
+.card {
+    min-width: 200px
+  }
+  .bullet {
+    display: 'inline-block';
+    margin: '0 2px';
+    transform: 'scale(0.8)';
+  }
+  .title {
+    font-size: 14;
+  }
+  .pos {
+    margin-bottom: 12;
+  }
+
+  .MuiCard-root {
+    overflow: hidden;
+    width: 200px;
+    
+}
