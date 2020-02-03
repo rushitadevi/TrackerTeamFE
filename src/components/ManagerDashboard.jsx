@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from "./Navbar";
 //import diagrampicture1 from './Img/diagrampicture1.png'
 import diagrampicture2 from './Img/diagrampicture2.png'
-import { getApplications, getStudents, totAppsWeek, totApps } from "../actions/manager.js"
+import { getApplications, getStudents, totAppsWeek, totApps } from "../Actions/manager.js"
 import { connect } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
 //import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
