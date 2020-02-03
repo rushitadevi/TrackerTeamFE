@@ -22,9 +22,9 @@ class Main extends Component {
       
       <Provider store={configureStore()}>
          <Navbar/>
-         <LandingPage/>
+         
         <Router>
-       
+        <Route path="/" exact component={LandingPage}/>
         <Container fluid className="studentHomepage">
      
           {/* <FilteredSearchBar/> */}

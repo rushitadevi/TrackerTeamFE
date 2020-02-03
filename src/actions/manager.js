@@ -1,11 +1,12 @@
 export const getApplications =()=> {
+  console.log("hello")
     return async (dispatch, getState) => {
        var headers = new Headers({
         "Content-Type": "application/json"
       });
     
       var response = await fetch(
-        "http://localhost:4000/application/app" ,
+        process.env.REACT_APP_URL +  "application/app" ,
         {
           method: "GET",
           headers: headers
@@ -21,13 +22,14 @@ export const getApplications =()=> {
   };
 
   export const getStudents = ()=> {
+    console.log("hello")
     return async (dispatch, getState) => {
        var headers = new Headers({
         "Content-Type": "application/json"
       });
     
       var response = await fetch(
-        "http://localhost:4000/user" ,
+        process.env.REACT_APP_URL +  "user" ,
         {
           method: "GET",
           headers: headers
@@ -47,7 +49,7 @@ export const getApplications =()=> {
     var weekApps
     return async (dispatch, getState) => {
       var response = await fetch(
-       "http://localhost:4000/application/AppsWeek" ,
+        process.env.REACT_APP_URL + "application/AppsWeek" ,
        {
          method: "GET"
        }
@@ -66,7 +68,7 @@ export const getApplications =()=> {
 
     export const totApps=()=>{
       return async(dispatch,getState)=>{
-          var res = await fetch("http://localhost:4000/application/totApp", {
+          var res = await fetch(process.env.REACT_APP_URL +  "application/totApp", {
               method: "GET",
               // headers: {
               //     "Authorization": "Bearer " + localStorage.token

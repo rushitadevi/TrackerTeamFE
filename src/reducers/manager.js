@@ -1,23 +1,22 @@
 export default function(state = {}, action) {
+  console.log(state,"i")
     switch (action.type) {
        case "GET_APPLICATIONS":
         return {
           ...state,
-          applications: action.payload
+          applications:(action.payload)
         };
         case "GET_STUDENTS":
         return {
-            ...state,
-            students : action.payload
-        };
+            ...state,           
+            students :action.payload        };
         case "TOTAL_APP_WEEK":
          return  {
-            // ...state,
+             ...state,
            weekapps : action.weekapps
           };
         case "TOTAL_APPS":
-            return  {
-              
+            return  {              
                appCount : action.payload
              };
        default:

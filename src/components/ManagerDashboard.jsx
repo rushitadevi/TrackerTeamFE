@@ -22,8 +22,8 @@ class ManagerDashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            applications: [],
-            students: [],
+            //applications: [],
+            //students: [],
             newStudet: [],
             weekapps: null,
             appCount: 0
@@ -39,10 +39,12 @@ class ManagerDashboard extends React.Component {
 
     getName = (id) => {
         var arr = this.props.students.students
-        
+         console.log(id,"arr")
         if (arr !== undefined) {
+            console.log("hi")
             var student = []
             student = arr.find(a => a._id === id);
+            console.log(student,"stu")
             if(student!==undefined)
             console.log(student.name,"stid")
             return student !== undefined && student.name !== undefined
@@ -68,7 +70,7 @@ class ManagerDashboard extends React.Component {
             console.log(state.email)
             const toSend = { Email: state.email };
             console.log(toSend, "se")
-            var res = await fetch("http://localhost:4000/user", {
+            var res = await fetch( process.env.REACT_APP_URL + "user", {
                 method: "POST",
                 body: JSON.stringify(toSend),
                 headers: {
@@ -82,7 +84,7 @@ class ManagerDashboard extends React.Component {
             }
 
 
-            res = await fetch("http://localhost:4000/user/" + results[0]._id, {
+            res = await fetch( process.env.REACT_APP_URL + "user/" + results[0]._id, {
                 method: "PUT",
                 body: JSON.stringify(results[0]),
                 headers: {
@@ -100,7 +102,7 @@ class ManagerDashboard extends React.Component {
     }
 
     onClickHandler = async () => {
-        let resp = await fetch('http://localhost:4000/application/downloadPdf', {
+        let resp = await fetch(process.env.REACT_APP_URL + 'application/downloadPdf', {
             method: "GET",
             //   headers: {
             //     "Authorization": "Bearer " + localStorage.token
@@ -127,7 +129,7 @@ class ManagerDashboard extends React.Component {
         return (
             <div className="container-fluid" style={{ backgroundColor: "#F5F9FC", paddingLeft: "0px", paddingRight: "0px" }} >
                 <div>
-                    <NavBar />
+                
                 </div>
                 <div className="row p-3">
                     <div className="col-md-8">
@@ -183,7 +185,7 @@ class ManagerDashboard extends React.Component {
                         <div className="row" style={{ fontWeight: "bolder", fontSize: "24px", borderBottom: "1px solid #dee2e6" }}>RECENT ACTIVITIES
                         </div>
                         <br />
-                        {this.props.applications.applications && this.props.applications.applications.map((app, id) => (
+                        {this.props.students.applications && this.props.students.applications.map((app, id) => (
                             <div key={id} >
                                 {this.getName(app.studentId) !== "" ?
                                     <div >
