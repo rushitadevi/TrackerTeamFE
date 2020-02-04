@@ -8,45 +8,32 @@ export default function(state = {}, action) {
               
             };
             case "GET_JOB_APPS":
-              console.log(action.payload)
               return {
                 ...state,
-                allJobApps: state.allJobApps.concat(action.payload)
-                
+                allJobApps: action.payload,
+                wishlist: { items: action.payload.filter(x => x.status === "wishlist"), count: action.payload.filter(x => x.status === "wishlist").length},
+                closed:{ items: action.payload.filter(x => x.status === "application withdrawn" || x.status === "rejected"), count: action.payload.filter(x => x.status === "application withdrawn" || x.status === "rejected").length},
+                active: { items: action.payload.filter(x => x.status === x.status === "interview"|| x.status === "applied" || x.status === "offer"), count: action.payload.filter(x => x.status === x.status === "interview"|| x.status === "applied" || x.status === "offer").length},
               };
-              case "WISHLIST":
-                console.log(action.payload)
-                return {
-                  ...state,
-                  wishlist: state.wishlist.concat(action.payload)                  
-                };
-                case "ACTIVE":
-                  console.log(action.payload)
-                  return {
-                    ...state,
-                    active: state.active.concat(action.payload)                  
-                  };
-                  case "CLOSED":
-                    console.log(action.payload)
-                    return {
-                      ...state,
-                      closed: state.closed.concat(action.payload)                  
-                    };
-                    case "WISHLIST_COUNT":
-                      return {
-                        ...state,
-                        wishlistCount: action.payload          
-                      };
-                      case "ACTIVE_COUNT":
-                        return {
-                          ...state,
-                          activeCount: action.payload          
-                        };
-                        case "CLOSED_COUNT":
-                          return {
-                            ...state,
-                            closedCount: action.payload          
-                          };
+              // case "WISHLIST":
+              //   return {
+              //     ...state,
+              //     items: action.payload.wishlist,
+              //     count: action.payload.wishlistCount          
+              //   };
+              //   case "ACTIVE":  
+              //     return {
+              //       ...state,
+              //       items: action.payload.active,
+              //       count: action.payload.activeCount                
+              //     };
+              //     case "CLOSED":
+              //       return {
+              //         ...state,
+              //         items: action.payload.closed,     
+              //         count: action.payload.closedCount          
+              //       };
+                   
       default:
         return state;
     }

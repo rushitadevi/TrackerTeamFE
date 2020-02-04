@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Input, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { Scrollbars } from "react-custom-scrollbars";
 import StatusUpdateModal from "./StatusUpdateModal";
-import { addJobApp } from "../../Actions/jobAppFetches";
+import { addJobApp } from "../../../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
 import DirectoryComponent from "./DirectoryComponent";
+import JobInfoComponent from "./JobInfoComponent";
 
 const mapStateToProps = state => state;
 
@@ -40,20 +40,6 @@ class StudentModal extends Component {
     };
   }
 
-  componentDidMount = () => {
-    //  let id = this.props.application._id
-    //  this.setState({id: id})
-    // const selectedJob = this.props.selectedJob
-    // console.log(selectedJob)
-    // let desc = selectedJob.description
-    // desc = desc.replace(/<[^>]*>?/gm, '')
-
-    // this.setState({
-    //    desc: desc
-    // })
-
-  };
-
   setStatusState = newStatus => {
     console.log("hello", newStatus);
     const application = this.state.application;
@@ -64,22 +50,12 @@ class StudentModal extends Component {
     this.setState({
       application: application
     });
-    // console.log(application)
   };
 
   onChange = e => {
     console.log("onChangeMethod");
     const application = this.state.application;
     application[e.currentTarget.name] = e.currentTarget.value;
-    // if (e.currentTarget.name === "statusDateTime") {
-    //   application.statusDateTime = e.currentTarget.value;
-    // } else if (e.currentTarget.name === "intDateTime") {
-    //   application.intDateTime = e.currentTarget.value;
-    // } else if (e.currentTarget.name === "replyDateTime") {
-    //   application.replyDateTime = e.currentTarget.value;
-    // } else if (e.currentTarget.value === undefined) {
-    //   e.currentTarget.value = "";
-    // }
 
     this.setState({
       application: application
@@ -87,10 +63,6 @@ class StudentModal extends Component {
   };
 
   handleApplication = () => {
-    console.log("handleapplication");
-    //   if (this.state === undefined) {
-    //     this.state = ""
-    // }
     let application = {
       tasks: this.state.application.tasks,
       statusDateTime: this.state.application.statusDateTime,
@@ -114,12 +86,6 @@ class StudentModal extends Component {
     const application = this.state.application;
     application.tasks = [...application.tasks, newTask];
     this.setState({ application: application });
-    // this.setState({ task: "" })
-    // if (this.state.application._id) {
-    //   // execute the PUT
-    // } else {
-    //   // execute the post and save the _id
-    // }
   };
 
   addNotes = newNote => {
@@ -174,7 +140,12 @@ class StudentModal extends Component {
   };
 
   render() {
+    const { application } = this.state;
+    const { toggleModal} = this.props;
+    const {selectedJob} = this.props.selectedJob;
+
     return (
+ 
       <Modal
         show={this.props.showModal}
         id="statusModal"
@@ -185,9 +156,9 @@ class StudentModal extends Component {
             <Button
               id="xButton"
               onClick={() => {
-                if (this.state.application.status) this.handleApplication();
+                if (application.status) this.handleApplication();
                 this.resetState()
-                this.props.toggleModal();
+                toggleModal();
               }}
             >
               X
@@ -197,13 +168,13 @@ class StudentModal extends Component {
             <Col sm="3" id="logoCol">
               <img
                 id="modalLogo"
-                src={this.props.selectedJob.company_logo}
+                src={selectedJob.company_logo}
                 height="20px"
                 alt="logo"
               />
             </Col>
             <Col sm="9" id="titleCol">
-              <h3 id="title">{this.props.selectedJob.company}</h3>
+              <h3 id="title">{selectedJob.company}</h3>
             </Col>
 
             <Button
@@ -270,78 +241,15 @@ class StudentModal extends Component {
 
         <Container className="companyInfoCont">
           {this.state.selectedComponent === "JobInfo" && (
-            <>
-              <Row className="col-sm-12 companyInfoRow">
-                <Col xs={6} className="companyInfo">
-                  <h6 id="vacancyTitle">Vacancy Details</h6>
-                  <h6 id="companyInfoTitle">Company Name</h6>
-                  <h6 id="jobInfo">{this.props.selectedJob.company}</h6>
-                  <h6 id="role">Role Title</h6>
-                  <h6 id="jobInfo">{this.props.selectedJob.title}</h6>
-                  <h6 id="loco">Location</h6>
-                  <h6 id="jobInfo">{this.props.selectedJob.location}</h6>
-                  <h6 id="applicationTitle">Posting URL</h6>
-                  <a id="applicationJobInfo" href={this.props.selectedJob.url}>
-                    {this.props.selectedJob.url}
-                  </a>
-                </Col>
-                <Col xs={6} className="companyInfo">
-                  <h6 id="statusTitle">Status: New</h6>
-                  <h6 id="appDateTitle">Application Date</h6>
-                  <Input
-                    type="date"
-                    name="statusDateTime"
-                    id="dateTime"
-                    placeholder="Date &amp; Time"
-                    value={this.state.application.statusDateTime}
-                    onChange={e => this.onChange(e)}
-                    /* onChange={e =>
-                      this.setState({ statusDateTime: e.currentTarget.value  || "" })
-                    } */
-                  />
-
-                  <h6 id="interviewDateTitle">Interview Date</h6>
-                  <Input
-                    type="date"
-                    name="intDateTime"
-                    id="dateTime"
-                    placeholder="Date &amp; Time"
-                    value={this.state.application.intDateTime}
-                    onChange={e => this.onChange(e)}
-                    // onChange={e =>
-                    //   this.setState({ intDateTime: e.currentTarget.value || "" })
-                    // }
-                  />
-
-                  <h6 id="replyDateTitle">Expected Reply Date</h6>
-                  <Input
-                    type="date"
-                    name="replyDateTime"
-                    id="dateTime"
-                    placeholder="Date &amp; Time"
-                    value={this.state.application.replyDateTime}
-                    onChange={e => this.onChange(e)}
-                    // onChange={e =>
-                    //   this.setState({ replyDateTime: e.currentTarget.value || "" })
-                    // }
-                  />
-                </Col>
-                <Col xs={12} className="companyRoleDesc">
-                  <h6 id="companyRoleTitle">Role Description</h6>
-
-                  <div id="jobInfo">
-                    <Scrollbars id="modalScroll" style={{ height: 110 }}>
-                    {this.props.selectedJob.description}
-                    </Scrollbars>
-                  </div>
-                </Col>
-              </Row>
-            </>
+             <JobInfoComponent
+             application={this.state.application}
+             selectedJob = {this.props.selectedJob}
+           />
           )}
 
           {this.state.selectedComponent === "Tasks" && (
             <TaskComponent
-              tasks={this.state.application.tasks}
+              tasks={application.tasks}
               addTask={this.addTask}
               deleteTask={this.deleteTask}
             />
@@ -349,19 +257,25 @@ class StudentModal extends Component {
 
           {this.state.selectedComponent === "Notes" && (
             <NotesComponent
-              notes={this.state.application.notes}
+              notes={application.notes}
               addNotes={this.addNotes}
               deleteNotes={this.deleteNotes}
             />
           )}
 
-          {this.state.selectedComponent === "Directory" && (
-            <DirectoryComponent
+
+          {this.state.selectedComponent === "Directory" &&  
+           <DirectoryComponent
               companyName={this.props.selectedJob.company.replace(/ /g, "+")}
+              selectedJob = {selectedJob}
             />
-          )}
+          }
+
+                    
+ 
         </Container>
       </Modal>
+        
     );
   }
 }

@@ -1,131 +1,136 @@
-export const addJobApp=(application) => async dispatch =>{
-    // console.log("hello", application)
-    try {
-         var res = await fetch(process.env.REACT_APP_URL + "application" , {
-          method: "POST",
-          body: JSON.stringify(application),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        if (res.ok) {
-          var jobApp = await res.json();
-        console.log("hello", jobApp)
+export const addJobApp = (application) => async dispatch => {
+  // console.log("hello", application)
+  try {
+    var res = await fetch(process.env.REACT_APP_URL + "application", {
+      method: "POST",
+      body: JSON.stringify(application),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    if (res.ok) {
+      var jobApp = await res.json();
+      console.log("hello", jobApp)
       dispatch({
         type: "ADD_JOB_APP",
         payload: jobApp
       })
     }
-    
-    } catch (err) {
-      console.log(err)
-    }			
-    }
 
-    export const getJobApps = () => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/app", {
-          method: "GET", 
-        })
-      
-        var allJobApps = await response.json();
+  } catch (err) {
+    console.log(err)
+  }
+}
 
-        dispatch({
-          type: "GET_JOB_APPS",
-          payload: allJobApps
-        });
-      }
-      }
+export const getJobApps = () => {
+  return async (dispatch, getState) => {
+    var response = await fetch(process.env.REACT_APP_URL + "application/app", {
+      method: "GET",
+    })
 
-      export const getWishlistJobApps = (query) => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/wishlist" + query, {
-          method: "GET", 
-        })
-      
-        var wishlist = await response.json();
+    var allJobApps = await response.json();
 
-        dispatch({
-          type: "WISHLIST",
-          payload: wishlist
-        });
-      }
-      }
+    dispatch({
+      type: "GET_JOB_APPS",
+      payload: allJobApps
+    });
+  }
+}
 
-      export const getWishlistCount = () => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/wishlistCount", {
-          method: "GET", 
-        })
-      
-        var wishlistCount = await response.json();
+// export const getSavedJobApps = (parameter) => {
+//   return async (dispatch, getState) => {
 
-        dispatch({
-          type: "WISHLIST_COUNT",
-          payload: wishlistCount
-        });
-      }
-      }
+//     if (parameter === "wishlist") {
+//       var response = await fetch(process.env.REACT_APP_URL + "application/wishlist", {
+//         method: "GET",
+//       })
+//       var wishlist = await response.json();
+//       dispatch({
+//         type: "WISHLIST",
+//         payload: wishlist
+//       });
+//     }
 
-      export const getActiveJobApps = (query) => {
-        // console.log(query)
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/active" + query, {
-          method: "GET", 
-        })
-        var active = await response.json();
+//     if (parameter === "active") {
+//       var response = await fetch(process.env.REACT_APP_URL + "application/active", {
+//         method: "GET",
+//       })
+//       var active = await response.json();
+//       dispatch({
+//         type: "ACTIVE",
+//         payload: active
+//       });
+//     }
 
-        dispatch({
-          type: "ACTIVE",
-          payload: active
-        });
-      }
-      }
+//     if (parameter === "closed") {
+//       var response = await fetch(process.env.REACT_APP_URL + "application/closed", {
+//         method: "GET",
+//       })
+//       var active = await response.json();
+//       dispatch({
+//         type: "ACTIVE",
+//         payload: active
+//       });
+//     }
+//   }
+// }
 
-      export const getActiveCount = () => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/activeCount", {
-          method: "GET", 
-        })
-      
-        var activeCount = await response.json();
+// export const getSavedJobAppsQuery = (parameter) => {
+//   return async (dispatch, getState) => {
+//     let query = "?limit=5";
 
-        dispatch({
-          type: "ACTIVE_COUNT",
-          payload: activeCount
-        });
-      }
-      }
+//     if (parameter == "wishlist")
+//       var response = await fetch(process.env.REACT_APP_URL + "application/wishlist" + query, {
+//         method: "GET",
+//       })
 
-      export const getClosedJobApps = (query) => {
-        // console.log(query)
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/closed" + query, {
-          method: "GET", 
-        })
-        var closed = await response.json();
+//     var wishlist = await response.json();
+//     dispatch({
+//       type: "WISHLIST",
+//       payload: {
+//         count: wishlistCount,
+//         items: wishlist
+//       }
+//     });
 
-        dispatch({
-          type: "CLOSED",
-          payload: closed
-        });
-      }
-      }
+//     if (parameter == "active")
+//       var response = await fetch(process.env.REACT_APP_URL + "application/active" + query, {
+//         method: "GET",
+//       })
 
-      export const getClosedCount = () => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/closedCount", {
-          method: "GET", 
-        })
-      
-        var closedCount = await response.json();
+//     var active = await response.json();
+//     dispatch({
+//       type: "ACTIVE",
+//       payload: {
+//         count: activeCount,
+//         items: active
+//       }
+//     });
 
-        dispatch({
-          type: "CLOSED_COUNT",
-          payload: closedCount
-        });
-      }
-      }
+//     if (parameter == "closed")
+//       var response = await fetch(process.env.REACT_APP_URL + "application/closed" + query, {
+//         method: "GET",
+//       })
+
+//     var active = await response.json();
+//     dispatch({
+//       type: "ACTIVE",
+//       payload: {
+//         count: closedCount,
+//         items: closed
+//       }
+//     });
+//   }
+
+// }
+
+
+
+
+
+
+
+
       // export const getSingleApp = (id) => {
       //   // console.log(query)
       //   return async (dispatch, getState) => {
