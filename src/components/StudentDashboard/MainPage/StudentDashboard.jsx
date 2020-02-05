@@ -36,9 +36,6 @@ class StudentDashboard extends React.Component {
 
   componentDidMount = async () => {
     await this.props.getJobAppsThunk();
-    this.setState({
-      selectedJob: {}
-    });
   };
 
 
@@ -171,7 +168,7 @@ class StudentDashboard extends React.Component {
           
             <FilteredDisplayPage 
               filteredSearch = {this.props.publicAPI.filteredSearch}
-              selectedJob={this.state.selectedJob}
+              url={this.state.url}
             />
 
 

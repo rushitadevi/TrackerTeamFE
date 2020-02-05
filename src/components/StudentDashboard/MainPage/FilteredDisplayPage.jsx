@@ -8,8 +8,15 @@ class FilteredDisplayPage extends Component {
         super(props);
         this.state = {
           showModal: false,
+          selectedJob: {},
         };
       }
+
+      componentDidMount = async () => {
+        this.setState({
+          selectedJob: {}
+        });
+      };
 
 toggleModal = () => {
     this.setState({ showModal: !this.state.showModal });
@@ -66,10 +73,10 @@ toggleModal = () => {
                 ))}
             </Scrollbars>
 
-     {this.props.selectedJob &&<StudentModal
+     {this.state.selectedJob && this.props.url && <StudentModal
               showModal={this.state.showModal}
               toggleModal={this.toggleModal}
-              selectedJob={this.props.selectedJob}
+              selectedJob={this.state.selectedJob}
             />}
        </>
          );

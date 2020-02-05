@@ -141,8 +141,6 @@ class StudentModal extends Component {
 
   render() {
     const { application } = this.state;
-    const { toggleModal} = this.props;
-    const {selectedJob} = this.props.selectedJob;
 
     return (
  
@@ -158,7 +156,7 @@ class StudentModal extends Component {
               onClick={() => {
                 if (application.status) this.handleApplication();
                 this.resetState()
-                toggleModal();
+                this.props.toggleModal();
               }}
             >
               X
@@ -168,13 +166,13 @@ class StudentModal extends Component {
             <Col sm="3" id="logoCol">
               <img
                 id="modalLogo"
-                src={selectedJob.company_logo}
+                src={this.props.selectedJob.company_logo}
                 height="20px"
                 alt="logo"
               />
             </Col>
             <Col sm="9" id="titleCol">
-              <h3 id="title">{selectedJob.company}</h3>
+              <h3 id="title">{this.props.selectedJob.company}</h3>
             </Col>
 
             <Button
@@ -244,6 +242,7 @@ class StudentModal extends Component {
              <JobInfoComponent
              application={this.state.application}
              selectedJob = {this.props.selectedJob}
+             onChange = {(e) => this.onChange(e)}
            />
           )}
 
@@ -267,7 +266,7 @@ class StudentModal extends Component {
           {this.state.selectedComponent === "Directory" &&  
            <DirectoryComponent
               companyName={this.props.selectedJob.company.replace(/ /g, "+")}
-              selectedJob = {selectedJob}
+              selectedJob = {this.props.selectedJob}
             />
           }
 

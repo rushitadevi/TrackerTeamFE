@@ -32,7 +32,7 @@ class JobInfoComponent extends Component {
                     id="dateTime"
                     placeholder="Date &amp; Time"
                     value={application.statusDateTime}
-                    onChange={e => this.onChange(e)}
+                    onChange={e => this.props.onChange(e)}
                   />
 
                   <h6 id="interviewDateTitle">Interview Date</h6>
@@ -42,7 +42,7 @@ class JobInfoComponent extends Component {
                     id="dateTime"
                     placeholder="Date &amp; Time"
                     value={application.intDateTime}
-                    onChange={e => this.onChange(e)}
+                    onChange={e => this.props.onChange(e)}
                   />
 
                   <h6 id="replyDateTitle">Expected Reply Date</h6>
@@ -52,7 +52,7 @@ class JobInfoComponent extends Component {
                     id="dateTime"
                     placeholder="Date &amp; Time"
                     value={application.replyDateTime}
-                    onChange={e => this.onChange(e)}
+                    onChange={e => this.props.onChange(e)}
                   />
                 </Col>
                 <Col xs={12} className="companyRoleDesc">
