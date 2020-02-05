@@ -18,10 +18,6 @@ class FilteredDisplayPage extends Component {
         });
       };
 
-toggleModal = () => {
-    this.setState({ showModal: !this.state.showModal });
-  };
-
     render() { 
   
         return ( 
@@ -60,10 +56,11 @@ toggleModal = () => {
                     </Col>
                     <button
                       onClick={() =>
-                        this.setState({
-                          showModal: true,
-                          selectedJob: jobs
-                        })
+                        this.props.onSelectedJob(jobs)
+                        // this.setState({
+                        //   showModal: true,
+                        //   selectedJob: jobs
+                        // })
                       }
                       className="detailsButton"
                     >
@@ -73,11 +70,11 @@ toggleModal = () => {
                 ))}
             </Scrollbars>
 
-     {this.state.selectedJob && this.props.url && <StudentModal
+     {/* {this.state.selectedJob && this.props.url && <StudentModal
               showModal={this.state.showModal}
               toggleModal={this.toggleModal}
               selectedJob={this.state.selectedJob}
-            />}
+            />} */}
        </>
          );
     }

@@ -131,17 +131,19 @@ export const getJobApps = () => {
 
 
 
-      // export const getSingleApp = (id) => {
-      //   // console.log(query)
-      //   return async (dispatch, getState) => {
-      //     var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
-      //     method: "GET", 
-      //   })
-      //   var application = await response.json();
+      export const getSingleApp = (id) => {
+        // console.log(query)
+        return async (dispatch, getState) => {
+          var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
+          method: "GET", 
+        })
+        var singleApp = await response.json();
 
-      //   dispatch({
-      //     type: "APPLICATION",
-      //     payload: application
-      //   });
-      // }
-      // }
+        dispatch({
+          type: "APPLICATION",
+          payload: singleApp
+        });
+
+        return singleApp;
+      }
+      }

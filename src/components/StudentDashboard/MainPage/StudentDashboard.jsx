@@ -7,6 +7,7 @@ import { getJobApps} from "../../../Actions/jobAppFetches";
 
 import WishlistActiveClosed from "./WishlistActiveClosed";
 import FilteredDisplayPage from "./FilteredDisplayPage";
+import StudentModal from "../ModalComponents/StudentModal";
 
 
 const mapStateToProps = state => state;
@@ -38,7 +39,9 @@ class StudentDashboard extends React.Component {
     await this.props.getJobAppsThunk();
   };
 
-
+  toggleModal = () => {
+    this.setState({ showModal: !this.state.showModal });
+  };
 
   toggleView = () => {
     this.setState({ selectedView: !this.state.selectedView });
@@ -147,18 +150,21 @@ class StudentDashboard extends React.Component {
               extraTitleClass="wishCard"
               seeMoreClass="wishlist"
               app={this.props.jobApp.wishlist}
+              onSelectedJob={(selectedJob) => this.setState({ selectedJob: selectedJob, showModal: true})}
             />
             <WishlistActiveClosed
               title="ACTIVE"
               extraTitleClass="activeCard"
               seeMoreClass="active"
               app={this.props.jobApp.active}
+              onSelectedJob={(selectedJob) => this.setState({ selectedJob: selectedJob, showModal: true})}
             />
             <WishlistActiveClosed
               title="CLOSED"
               extraTitleClass="closedCard"
               seeMoreClass="closed"
               app={this.props.jobApp.closed}
+              onSelectedJob={(selectedJob) => this.setState({ selectedJob: selectedJob, showModal: true})}
             />
           </Container>
         )}
@@ -169,16 +175,16 @@ class StudentDashboard extends React.Component {
             <FilteredDisplayPage 
               filteredSearch = {this.props.publicAPI.filteredSearch}
               url={this.state.url}
+              onSelectedJob={(selectedJob) => this.setState({ selectedJob: selectedJob, showModal: true})}
             />
+          </Container>
+        )}
 
-
-            {/* {this.state.selectedJob &&<StudentModal
+      {this.state.selectedJob && <StudentModal
               showModal={this.state.showModal}
               toggleModal={this.toggleModal}
               selectedJob={this.state.selectedJob}
-            />} */}
-          </Container>
-        )}
+            />}
       </>
     );
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { connect } from "react-redux";
 import {
     Card,
     CardHeader,
@@ -7,9 +7,14 @@ import {
     Row,
     Col
 } from "reactstrap";
+import { getSingleApp } from "../../../Actions/jobAppFetches";
 
 
+const mapStateToProps = state => state;
 
+const mapDispatchToProps = dispatch => ({
+  getSingleAppThunk: id => dispatch(getSingleApp(id))
+});
 
 class WishlistActiveClosed extends Component {
 
@@ -17,10 +22,17 @@ class WishlistActiveClosed extends Component {
         super(props);
         this.state = {
           query: null,
-          seeMoreLink: true
+          seeMoreLink: true,
+          id: null
         };
       }
 
+getId = async id => {
+this.setState({
+    id: id
+})
+await this.props.getSingleAppThunk(id)
+}
 
     render() {
         return (
@@ -52,7 +64,12 @@ class WishlistActiveClosed extends Component {
                                                 />
                                             )}
                                         </Col>
-                                        <Col sm="9" className="companyCol">
+                                        <Col sm="9" className="companyCol" onClick={async () => {
+                                            //this.getId(application._id)
+                                            console.log("clicking")
+                                            const selectedJob = await this.props.getSingleAppThunk(application._id)
+                                            this.props.onSelectedJob(selectedJob)
+                                            }}>
                                             {application.companyName}
                                             <br />
                                             {application.roleTitle}
@@ -78,4 +95,4 @@ class WishlistActiveClosed extends Component {
 }
 
 }
-export default WishlistActiveClosed;
+export default connect(mapStateToProps, mapDispatchToProps)(WishlistActiveClosed);
