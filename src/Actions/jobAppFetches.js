@@ -124,13 +124,6 @@ export const getJobApps = () => {
 
 // }
 
-
-
-
-
-
-
-
       export const getSingleApp = (id) => {
         // console.log(query)
         return async (dispatch, getState) => {
@@ -138,7 +131,7 @@ export const getJobApps = () => {
           method: "GET", 
         })
         var singleApp = await response.json();
-
+ 
         dispatch({
           type: "SINGLE_APP",
           payload: singleApp
