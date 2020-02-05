@@ -27,11 +27,27 @@ class WishlistActiveClosed extends Component {
         };
       }
 
-getId = async id => {
-this.setState({
-    id: id
+getApp = async (id) => {
+
+
+const selectedJob = await this.props.getSingleAppThunk(id)
+
+this.props.onSelectedJob({
+   company: selectedJob.companyName,
+   company_logo: selectedJob.companyLogo,
+   title: selectedJob.roleTitle,
+   location: selectedJob.location,
+   url: selectedJob.applyUrl,
+   description: selectedJob.description, 
+   replyDateTime: selectedJob.replyDateTime, 
+   statusDateTime:selectedJob.statusDateTime, 
+   intDateTime:selectedJob.intDateTime, 
+   notes:selectedJob.notes, 
+   tasks:selectedJob.tasks, 
+   status:selectedJob.status, 
+
 })
-await this.props.getSingleAppThunk(id)
+
 }
 
     render() {
@@ -67,8 +83,9 @@ await this.props.getSingleAppThunk(id)
                                         <Col sm="9" className="companyCol" onClick={async () => {
                                             //this.getId(application._id)
                                             console.log("clicking")
-                                            const selectedJob = await this.props.getSingleAppThunk(application._id)
-                                            this.props.onSelectedJob(selectedJob)
+                                   
+                                            this.getApp(application._id)
+                                        
                                             }}>
                                             {application.companyName}
                                             <br />

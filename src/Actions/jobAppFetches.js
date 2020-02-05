@@ -140,7 +140,7 @@ export const getJobApps = () => {
         var singleApp = await response.json();
 
         dispatch({
-          type: "APPLICATION",
+          type: "SINGLE_APP",
           payload: singleApp
         });
 

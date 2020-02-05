@@ -35,7 +35,8 @@ class StudentModal extends Component {
         roleTitle: undefined,
         location: undefined,
         description: undefined,
-        notes: []
+        notes: [],
+        applyUrl: undefined
       }
     };
   }
@@ -70,6 +71,7 @@ class StudentModal extends Component {
       replyDateTime: this.state.application.replyDateTime,
       status: this.state.application.status,
       notes: this.state.application.notes,
+      applyUrl: this.props.selectedJob.url,
       companyName: this.props.selectedJob.company,
       companyLogo: this.props.selectedJob.company_logo,
       roleTitle: this.props.selectedJob.title,
@@ -134,7 +136,9 @@ class StudentModal extends Component {
         roleTitle: undefined,
         location: undefined,
         description: undefined,
-        notes: []
+        notes: [],
+        applyUrl: undefined
+
       }
     });
   };

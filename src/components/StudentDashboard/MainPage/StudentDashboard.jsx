@@ -30,6 +30,7 @@ class StudentDashboard extends React.Component {
       hover: false,
       showModal: false,
       selectedJob: {},
+      selectedJobId: {},
       query: null,
       seeMoreLink: null
     };
@@ -70,7 +71,6 @@ class StudentDashboard extends React.Component {
 
   render() {
  
-
     return (
       <>
         <Container className="filterBar">
@@ -174,7 +174,6 @@ class StudentDashboard extends React.Component {
           
             <FilteredDisplayPage 
               filteredSearch = {this.props.publicAPI.filteredSearch}
-              url={this.state.url}
               onSelectedJob={(selectedJob) => this.setState({ selectedJob: selectedJob, showModal: true})}
             />
           </Container>

@@ -69,12 +69,6 @@ class FilteredDisplayPage extends Component {
                   </Row>
                 ))}
             </Scrollbars>
-
-     {/* {this.state.selectedJob && this.props.url && <StudentModal
-              showModal={this.state.showModal}
-              toggleModal={this.toggleModal}
-              selectedJob={this.state.selectedJob}
-            />} */}
        </>
          );
     }
