@@ -61,3 +61,11 @@
  margin-top: 6px;
  color: #8a7f7f !important;
 }
+
+#editIcon{
+  color: #8a7f7f !important;
+  margin-left: 40px;
+  bottom: 22px;
+  font-size: 12px !important;
+  position: absolute;
+}

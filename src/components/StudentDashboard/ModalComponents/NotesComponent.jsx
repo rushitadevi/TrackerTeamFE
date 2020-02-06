@@ -11,14 +11,17 @@ class NotesComponents extends Component {
     };
   }
 
-  setNotesState = () => {
+  addNotesState = () => {
     this.props.addNotes(this.state.note);
     this.setState({ note: "" });
   };
 
-  deleteOneNote= note => {
+  deleteOneNote = note => {
     this.props.deleteNotes(note);
+  };
 
+  editOneNote = note => {
+    this.props.editNotes(note);
   };
 
   render() {
@@ -35,7 +38,7 @@ class NotesComponents extends Component {
             />
           </Col>
           <Col sm="2" id="plusNotesButtonCol">
-            <Button id="plusNotesButton" onClick={this.setNotesState}>
+            <Button id="plusNotesButton" onClick={this.addNotesState}>
               +
             </Button>
           </Col>
@@ -61,6 +64,7 @@ class NotesComponents extends Component {
                   >
                     x
                   </Button>
+                  <i class="material-icons" id="editIcon" onClick={() => this.editOneNote(singleNote)} style={{cursor:'pointer'}}>create</i>
                 </Col>
               </>
             ))}

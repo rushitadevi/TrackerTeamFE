@@ -85,6 +85,7 @@ class StudentModal extends Component {
     if (this.props.selectedJob._id){
       const id = this.props.selectedJob._id
       await this.props.updateJobAppThunk(application, id);
+      this.props.updateStateMethod()
     }
     else 
       await this.props.addJobAppThunk(application);
@@ -96,6 +97,16 @@ class StudentModal extends Component {
     this.setState({ application: application });
   };
 
+
+  deleteTask = deleteTask => {
+    const application = this.state.application;
+    var index = application.tasks.indexOf(deleteTask);
+    if (index !== -1) {
+      application.tasks.splice(index, 1);
+      this.setState({ application: application });
+    }
+  };
+
   addNotes = newNote => {
     console.log(newNote);
     const application = this.state.application;
@@ -103,25 +114,24 @@ class StudentModal extends Component {
     this.setState({ application: application });
   };
 
-  deleteTask = deleteTask => {
+  deleteNotes = deleteNotes => {
     const application = this.state.application;
-    const taskArray = application.tasks;
-    var index = taskArray.indexOf(deleteTask);
+    let index = application.notes.indexOf(deleteNotes);
     if (index !== -1) {
-      taskArray.splice(index, 1);
-      this.setState({ taskArray: taskArray });
+      application.notes.splice(index, 1);
+      this.setState({ application: application });
     }
   };
 
-  deleteNotes = deleteNotes => {
-    const application = this.state.application;
-    const taskArray = application.notes;
-    var index = taskArray.indexOf(deleteNotes);
-    if (index !== -1) {
-      taskArray.splice(index, 1);
-      this.setState({ taskArray: taskArray });
-    }
-  };
+  // editNotes = editNotes => {
+  //   const application = this.state.application;
+  //   let notesArray = application.notes;
+  //   var index = notesArray.indexOf(editNotes);
+  //   if (index !== -1) {
+  //     notesArray.splice(index, 1);
+  //     this.setState({ notesArray: notesArray });
+  //   }
+  // };
 
   selectComponent = component => {
     this.setState({ selectedComponent: component });
@@ -195,7 +205,6 @@ class StudentModal extends Component {
               showModal={this.state.showModal}
               toggleModal={this.toggleStatusModal}
               handleStatus={newStatus => this.setStatusState(newStatus)}
-              // handleStatus={newStatus => this.setState({ status: newStatus })}
             />
           </Row>
         </Container>
@@ -269,6 +278,7 @@ class StudentModal extends Component {
               notes={application.notes}
               addNotes={this.addNotes}
               deleteNotes={this.deleteNotes}
+              editNotes={this.editNotes}
             />
           )}
 

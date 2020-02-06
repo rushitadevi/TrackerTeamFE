@@ -82,10 +82,7 @@ this.props.onSelectedJob({
                                                 />
                                             )}
                                         </Col>
-                                        <Col sm="9" className="companyCol" onClick={async () => {
-                                            //this.getId(application._id)
-                                            console.log("clicking")
-                                   
+                                        <Col sm="9" className="companyCol" style={{cursor:'pointer'}} onClick={async () => {
                                             this.getApp(application._id)
                                         
                                             }}>

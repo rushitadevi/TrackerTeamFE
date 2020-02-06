@@ -32,12 +32,17 @@ class StudentDashboard extends React.Component {
       selectedJob: {},
       selectedJobId: {},
       query: null,
-      seeMoreLink: null
+      seeMoreLink: null,
     };
   }
+  
+  updateStateMethod = async () => {
+    await this.props.getJobAppsThunk();   
+   };
 
   componentDidMount = async () => {
-    await this.props.getJobAppsThunk();
+   await this.props.getJobAppsThunk();
+   
   };
 
   toggleModal = () => {
@@ -183,6 +188,7 @@ class StudentDashboard extends React.Component {
               showModal={this.state.showModal}
               toggleModal={this.toggleModal}
               selectedJob={this.state.selectedJob}
+              updateStateMethod={this.updateStateMethod}
             />}
       </>
     );
