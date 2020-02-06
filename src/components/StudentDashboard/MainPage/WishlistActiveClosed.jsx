@@ -46,6 +46,7 @@ this.props.onSelectedJob({
    notes:selectedJob.notes, 
    tasks:selectedJob.tasks, 
    status:selectedJob.status, 
+   _id: selectedJob._id
 
 })
 

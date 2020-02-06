@@ -4,7 +4,7 @@ import { Container, Row, Col } from "reactstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import StatusUpdateModal from "./StatusUpdateModal";
-import { addJobApp } from "../../../Actions/jobAppFetches";
+import { addJobApp, updateJobApp } from "../../../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
 import DirectoryComponent from "./DirectoryComponent";
@@ -13,7 +13,8 @@ import JobInfoComponent from "./JobInfoComponent";
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
-  addJobAppThunk: application => dispatch(addJobApp(application))
+  addJobAppThunk: application => dispatch(addJobApp(application)),
+  updateJobAppThunk: (application, id) => dispatch(updateJobApp(application, id))
 });
 
 class StudentModal extends Component {
@@ -63,7 +64,7 @@ class StudentModal extends Component {
     });
   };
 
-  handleApplication = () => {
+  handleApplication = async() => {
     let application = {
       tasks: this.state.application.tasks,
       statusDateTime: this.state.application.statusDateTime,
@@ -81,7 +82,12 @@ class StudentModal extends Component {
 
     this.setState({ application: application });
 
-    this.props.addJobAppThunk(application);
+    if (this.props.selectedJob._id){
+      const id = this.props.selectedJob._id
+      await this.props.updateJobAppThunk(application, id);
+    }
+    else 
+      await this.props.addJobAppThunk(application);
   };
 
   addTask = newTask => {
@@ -157,8 +163,8 @@ class StudentModal extends Component {
           <Row id="xButtonRow" className="col-sm-12">
             <Button
               id="xButton"
-              onClick={() => {
-                if (application.status) this.handleApplication();
+              onClick={async () => {
+                if (application.status) await this.handleApplication();
                 this.resetState()
                 this.props.toggleModal();
               }}

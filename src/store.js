@@ -19,7 +19,8 @@ const initialState = {
     allJobApps: [],
     items: [],
     count: {},
-    singleApp: {}
+    singleApp: {},
+    jobAppUpdate: []
   },
 
 };

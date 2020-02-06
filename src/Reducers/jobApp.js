@@ -7,6 +7,13 @@ export default function(state = {}, action) {
               jobApp: state.jobApp.concat(action.payload)
               
             };
+            case "UPDATE_JOB_APP":
+              console.log(action.payload)
+              return {
+                ...state,
+                jobAppUpdate: state.jobAppUpdate.concat(action.payload)
+                
+              };
             case "GET_JOB_APPS":
               return {
                 ...state,
