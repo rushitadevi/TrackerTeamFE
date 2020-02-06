@@ -23,7 +23,8 @@ class WishlistActiveClosed extends Component {
         this.state = {
           query: null,
           seeMoreLink: true,
-          id: null
+          id: null,
+          seeLessLink: false
         };
       }
 
@@ -98,9 +99,17 @@ this.props.onSelectedJob({
                         <a
                             href="#"
                             className={"seeMoreLink" + " " + this.props.seeMoreClass}
-                            onClick={() => this.setState({seeMoreLink: false}) }
+                            onClick={() => this.setState({seeMoreLink: false, seeLessLink: true}) }
                         >
                             See {this.props.app.count} More
+                       </a>}
+                       {this.state.seeLessLink && !this.state.seeMoreLink &&
+                        <a
+                            href="#"
+                            className="seeLessLink" 
+                            onClick={() => this.setState({seeMoreLink: false, seeMoreLink: true}) }
+                        >
+                            See Less
                        </a>}
                     </CardBody>
                 </Card>
