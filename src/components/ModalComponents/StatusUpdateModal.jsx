@@ -56,13 +56,16 @@ class StatusUpdateModal extends Component {
                 <a href="#"  onClick={() => {this.statusInput("application withdrawn");{this.props.toggleModal();}}}>
             <i className="material-icons" id="addCircle">add_circle_outline</i> 
                 </a>
-<<<<<<< Updated upstream:src/components/ModalComponents/StatusUpdateModal.jsx
+
                 <a href="#" onClick={() => {this.statusInput("JobInfo");}}>
             <i class="material-icons" id="addCircle">add_circle_outline</i> 
-=======
+
                 <a href="#" onClick={() => {this.statusInput("rejected");{this.props.toggleModal();}}}>
             <i className="material-icons" id="addCircle">add_circle_outline</i> 
->>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StatusUpdateModal.jsx
+
+                <a href="#" onClick={() => {this.statusInput("rejected");{this.props.toggleModal();}}}>
+            <i className="material-icons" id="addCircle">add_circle_outline</i> 
+
                 </a>
             </Col>
           </Row>
