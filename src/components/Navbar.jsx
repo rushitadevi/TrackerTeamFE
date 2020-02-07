@@ -7,7 +7,7 @@ class NavBar extends React.Component {
     }
     render() { 
         return (
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark " style={{ backgroundColor: "#FFB73E !important",paddingLeft:"0px" }}>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-light " style={{ backgroundColor: "#FFB73E !important",paddingLeft:"0px" }}>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10"
                             aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>

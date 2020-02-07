@@ -61,6 +61,10 @@ class NotesComponents extends Component {
                   >
                     x
                   </Button>
+<<<<<<< Updated upstream:src/components/ModalComponents/NotesComponent.jsx
+=======
+                  <i className="material-icons" id="editIcon" onClick={() => this.editOneNote(singleNote)} style={{cursor:'pointer'}}>create</i>
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/NotesComponent.jsx
                 </Col>
               </>
             ))}

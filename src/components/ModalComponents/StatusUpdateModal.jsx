@@ -42,22 +42,27 @@ class StatusUpdateModal extends Component {
             </Col>
             <Col sm={2} id="addStatusOptCol">
                 <a href="#" onClick={() => {this.statusInput("wishlist"); {this.props.toggleModal();}}}>      
-            <i class="material-icons" id="addCircle">add_circle_outline</i>
+            <i className="material-icons" id="addCircle">add_circle_outline</i>
                 </a>
                 <a href="#" onClick={() => {this.statusInput("applied"); {this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i> 
+            <i className="material-icons" id="addCircle">add_circle_outline</i> 
                 </a>
                 <a href="#" onClick={() => {this.statusInput("interview"); {this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i>
+            <i className="material-icons" id="addCircle">add_circle_outline</i>
                 </a>
                 <a href="#"  onClick={() => {this.statusInput("offer"); {this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i>
+            <i className="material-icons" id="addCircle">add_circle_outline</i>
                 </a>
                 <a href="#"  onClick={() => {this.statusInput("application withdrawn");{this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i> 
+            <i className="material-icons" id="addCircle">add_circle_outline</i> 
                 </a>
+<<<<<<< Updated upstream:src/components/ModalComponents/StatusUpdateModal.jsx
                 <a href="#" onClick={() => {this.statusInput("JobInfo");}}>
             <i class="material-icons" id="addCircle">add_circle_outline</i> 
+=======
+                <a href="#" onClick={() => {this.statusInput("rejected");{this.props.toggleModal();}}}>
+            <i className="material-icons" id="addCircle">add_circle_outline</i> 
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StatusUpdateModal.jsx
                 </a>
             </Col>
           </Row>

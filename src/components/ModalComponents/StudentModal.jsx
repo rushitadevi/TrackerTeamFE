@@ -24,6 +24,7 @@ class StudentModal extends Component {
       showModal: false,
       selectedComponent: "JobInfo",
       id: null,
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
       // desc: null,
       application: {
         tasks: [],
@@ -149,6 +150,23 @@ class StudentModal extends Component {
       this.setState({ taskArray: taskArray });
     }
   };
+=======
+     
+    };
+  }
+
+
+  handleApplication = async () => {
+    if (this.props.selectedJob._id){
+      const id = this.props.selectedJob._id
+      await this.props.updateJobAppThunk(this.props.selectedJob, id);
+      this.props.updateStateMethod()
+    }
+    else 
+      await this.props.addJobAppThunk(this.props.selectedJob);
+  };
+
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
 
   selectComponent = component => {
     this.setState({ selectedComponent: component });
@@ -156,6 +174,7 @@ class StudentModal extends Component {
 
   toggleStatusModal = () => { this.setState({ showModal: false})}
 
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
   resetState = () => {   
     this.setState({
       application: {
@@ -175,6 +194,11 @@ class StudentModal extends Component {
   };
 
   render() {
+=======
+  render() {
+    const {selectedJob, updateSelectedJob } = this.props;
+
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
     return (
       <Modal
         show={this.props.showModal}
@@ -185,9 +209,15 @@ class StudentModal extends Component {
           <Row id="xButtonRow" className="col-sm-12">
             <Button
               id="xButton"
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
               onClick={() => {
                 if (this.state.application.status) this.handleApplication();
                 this.resetState()
+=======
+              onClick={async () => {
+                if (selectedJob.status) await this.handleApplication();
+                // this.resetState()
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
                 this.props.toggleModal();
               }}
             >
@@ -198,13 +228,13 @@ class StudentModal extends Component {
             <Col sm="3" id="logoCol">
               <img
                 id="modalLogo"
-                src={this.props.selectedJob.company_logo}
+                src={selectedJob.company_logo}
                 height="20px"
                 alt="logo"
               />
             </Col>
             <Col sm="9" id="titleCol">
-              <h3 id="title">{this.props.selectedJob.company}</h3>
+              <h3 id="title">{selectedJob.company}</h3>
             </Col>
 
             <Button
@@ -216,8 +246,12 @@ class StudentModal extends Component {
             <StatusUpdateModal
               showModal={this.state.showModal}
               toggleModal={this.toggleStatusModal}
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
               handleStatus={newStatus => this.setStatusState(newStatus)}
               // handleStatus={newStatus => this.setState({ status: newStatus })}
+=======
+              handleStatus={newStatus => updateSelectedJob({ status: newStatus})}
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
             />
           </Row>
         </Container>
@@ -271,6 +305,7 @@ class StudentModal extends Component {
 
         <Container className="companyInfoCont">
           {this.state.selectedComponent === "JobInfo" && (
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
             <>
               <Row className="col-sm-12 companyInfoRow">
                 <Col xs={6} className="companyInfo">
@@ -338,18 +373,33 @@ class StudentModal extends Component {
                 </Col>
               </Row>
             </>
+=======
+             <JobInfoComponent
+             selectedJob = {selectedJob}
+             onChange = {(e) => updateSelectedJob({ [e.target.name]: e.target.value })}
+             title = {selectedJob.roleTitle}
+             company = {selectedJob.companyName}
+           />
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
           )}
 
           {this.state.selectedComponent === "Tasks" && (
             <TaskComponent
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
               tasks={this.state.application.tasks}
               addTask={this.addTask}
               deleteTask={this.deleteTask}
+=======
+              tasks={selectedJob.tasks}
+              addTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks.concat(task)}) }
+              deleteTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks.filter(x => x !== task)})}
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
             />
           )}
 
           {this.state.selectedComponent === "Notes" && (
             <NotesComponent
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
               notes={this.state.application.notes}
               addNotes={this.addNotes}
               deleteNotes={this.deleteNotes}
@@ -358,9 +408,24 @@ class StudentModal extends Component {
 
           {this.state.selectedComponent === "Directory" && (
             <DirectoryComponent
-              companyName={this.props.selectedJob.company.replace(/ /g, "+")}
+=======
+              notes={selectedJob.notes}
+              addNotes={(note) => updateSelectedJob({ notes: selectedJob.notes.concat(note)}) }
+              deleteNotes={(note) => updateSelectedJob({ notes: selectedJob.notes.filter(x => x !== note)})}
+              //TODO: editNotes={this.editNotes}
             />
           )}
+
+          {this.state.selectedComponent === "Directory" &&  
+           <DirectoryComponent
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
+              companyName={this.props.selectedJob.company.replace(/ /g, "+")}
+            />
+<<<<<<< Updated upstream:src/components/ModalComponents/StudentModal.jsx
+          )}
+=======
+          }
+>>>>>>> Stashed changes:src/components/StudentDashboard/ModalComponents/StudentModal.jsx
         </Container>
       </Modal>
     );
