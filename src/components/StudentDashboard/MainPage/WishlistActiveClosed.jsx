@@ -10,11 +10,11 @@ import {
 import { getSingleApp } from "../../../Actions/jobAppFetches";
 
 
-const mapStateToProps = state => state;
+// const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => ({
-  getSingleAppThunk: id => dispatch(getSingleApp(id))
-});
+// const mapDispatchToProps = dispatch => ({
+//   getSingleAppThunk: id => dispatch(getSingleApp(id))
+// });
 
 class WishlistActiveClosed extends Component {
 
@@ -27,30 +27,6 @@ class WishlistActiveClosed extends Component {
           seeLessLink: false
         };
       }
-
-getApp = async (id) => {
-
-
-const selectedJob = await this.props.getSingleAppThunk(id)
-
-this.props.onSelectedJob({
-   company: selectedJob.companyName,
-   company_logo: selectedJob.companyLogo,
-   title: selectedJob.roleTitle,
-   location: selectedJob.location,
-   url: selectedJob.applyUrl,
-   description: selectedJob.description, 
-   replyDateTime: selectedJob.replyDateTime, 
-   statusDateTime:selectedJob.statusDateTime, 
-   intDateTime:selectedJob.intDateTime, 
-   notes:selectedJob.notes, 
-   tasks:selectedJob.tasks, 
-   status:selectedJob.status, 
-   _id: selectedJob._id
-
-})
-
-}
 
     render() {
         return (
@@ -83,7 +59,7 @@ this.props.onSelectedJob({
                                             )}
                                         </Col>
                                         <Col sm="9" className="companyCol" style={{cursor:'pointer'}} onClick={async () => {
-                                            this.getApp(application._id)
+                                            this.props.onSelectedJob(application)
                                         
                                             }}>
                                             {application.companyName}
@@ -119,4 +95,4 @@ this.props.onSelectedJob({
 }
 
 }
-export default connect(mapStateToProps, mapDispatchToProps)(WishlistActiveClosed);
+export default WishlistActiveClosed;

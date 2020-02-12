@@ -188,6 +188,10 @@ class StudentDashboard extends React.Component {
               showModal={this.state.showModal}
               toggleModal={this.toggleModal}
               selectedJob={this.state.selectedJob}
+              updateSelectedJob={(update) => this.setState({ selectedJob: {
+                ...this.state.selectedJob,
+                ...update
+              }})}
               updateStateMethod={this.updateStateMethod}
             />}
       </>

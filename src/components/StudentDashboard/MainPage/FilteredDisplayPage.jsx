@@ -41,10 +41,10 @@ class FilteredDisplayPage extends Component {
                 this.props.filteredSearch.map((jobs, index) => (
                   <Row key={index} className="col-12" id="record">
                     <Col xs="2" id="companyRecord">
-                      {jobs.company}
+                      {jobs.companyName}
                     </Col>
                     <Col xs="3" id="titleRecord">
-                      {jobs.title}
+                      {jobs.roleTitle}
                     </Col>
                     <Col xs="2">{jobs.location}</Col>
                     <Col

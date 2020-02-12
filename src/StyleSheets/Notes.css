@@ -34,38 +34,49 @@
   border: none;
   text-shadow: 0 1px 0 #fff;
   background: #fcffff;
-  border: 1px solid #cccccc;
   color: #8a7f7f !important;
   margin-left: 70px !important;
+  position: absolute
 }
 
 .notesListRow {
-  width: 370px !important;
-  left: 125px;
-  height: 80px !important;
-}
-#allNotesList {
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
+  width: 350px !important;
+  left: 133px;
+  height: 50px !important;
+  border: 1px solid #cccccc;
   margin-top: 15px !important;
+  border-radius: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#allNotesList {
   display: inline-block !important;
-  height: 40px !important
-}
-
-#deleteTaskButton {
-  margin-left: 60px;
-  display: inline-block !important;
-}
-
-#allNotesScroll{
- margin-top: 6px;
- color: #8a7f7f !important;
-}
-
-#editIcon{
-  color: #8a7f7f !important;
-  margin-left: 40px;
-  bottom: 22px;
-  font-size: 12px !important;
   position: absolute;
+  width: 320px;
+}
+
+#editIcon {
+  color: #8a7f7f !important;
+  display: inline-block !important;
+  position: absolute;
+  font-size: 11px !important;
+  top: 7px;
+  margin-left: 10px;
+}
+
+#allNotesButtons{
+  display: block !important;
+  margin-left: 285px;
+  padding-left: 0px
+
+}
+
+
+#deleteTaskButton{
+  color: #8a7f7f !important;
+  margin-left: 23px;
+  top: 2px;
+  position: absolute;
+  display: inline-block !important;
 }

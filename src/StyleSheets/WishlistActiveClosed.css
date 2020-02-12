@@ -75,6 +75,7 @@
   margin-left: 80px;
   text-align: center !important;
   color: #8a7f7f;
+  bottom: 15px
 }
 
 .seeLessLink {
@@ -86,9 +87,9 @@
   bottom: 15px;
 }
 
-.seeMoreLink.wishlist {
+/* .seeMoreLink.wishlist {
   margin-top: 50px !important;
-}
+} */
 
 /* ACTIVE APPLICATIONS CARD   */
 
@@ -101,9 +102,9 @@
   bottom: 367px;
 }
 
-.seeMoreLink.active {
+/* .seeMoreLink.active {
   margin-top: 50px !important;
-}
+} */
 
 /* CLOSED APPLICATIONS CARD   */
 
@@ -116,9 +117,6 @@
   background-color: #f38982;
 }
 
-.seeMoreLink.closed {
-  margin-top: 50px !important;
-}
 
 .listCard .card-body {
   overflow-y: auto;

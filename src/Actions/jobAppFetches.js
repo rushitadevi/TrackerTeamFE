@@ -52,6 +52,10 @@ export const getJobApps = () => {
       method: "GET",
     })
 
+    // let first = curr.getDate() - curr.getDay() + i
+    // let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
+    // week.push(day)
+
     var allJobApps = await response.json();
 
     dispatch({

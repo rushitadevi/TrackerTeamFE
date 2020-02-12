@@ -24,114 +24,21 @@ class StudentModal extends Component {
       showModal: false,
       selectedComponent: "JobInfo",
       id: null,
-      // desc: null,
-      application: {
-        tasks: [],
-        statusDateTime: undefined,
-        intDateTime: undefined,
-        replyDateTime: undefined,
-        status: undefined,
-        companyName: undefined,
-        companyLogo: undefined,
-        roleTitle: undefined,
-        location: undefined,
-        description: undefined,
-        notes: [],
-        applyUrl: undefined
-      }
+     
     };
   }
 
-  setStatusState = newStatus => {
-    console.log("hello", newStatus);
-    const application = this.state.application;
-    application.status = newStatus;
 
-    console.log(application)
-
-    this.setState({
-      application: application
-    });
-  };
-
-  onChange = e => {
-    console.log("onChangeMethod");
-    const application = this.state.application;
-    application[e.currentTarget.name] = e.currentTarget.value;
-
-    this.setState({
-      application: application
-    });
-  };
-
-  handleApplication = async() => {
-    let application = {
-      tasks: this.state.application.tasks,
-      statusDateTime: this.state.application.statusDateTime,
-      intDateTime: this.state.application.intDateTime,
-      replyDateTime: this.state.application.replyDateTime,
-      status: this.state.application.status,
-      notes: this.state.application.notes,
-      applyUrl: this.props.selectedJob.url,
-      companyName: this.props.selectedJob.company,
-      companyLogo: this.props.selectedJob.company_logo,
-      roleTitle: this.props.selectedJob.title,
-      location: this.props.selectedJob.location,
-      description: this.props.selectedJob.description
-    };
-
-    this.setState({ application: application });
-
+  handleApplication = async () => {
     if (this.props.selectedJob._id){
       const id = this.props.selectedJob._id
-      await this.props.updateJobAppThunk(application, id);
+      await this.props.updateJobAppThunk(this.props.selectedJob, id);
       this.props.updateStateMethod()
     }
     else 
-      await this.props.addJobAppThunk(application);
+      await this.props.addJobAppThunk(this.props.selectedJob);
   };
 
-  addTask = newTask => {
-    const application = this.state.application;
-    application.tasks = [...application.tasks, newTask];
-    this.setState({ application: application });
-  };
-
-
-  deleteTask = deleteTask => {
-    const application = this.state.application;
-    var index = application.tasks.indexOf(deleteTask);
-    if (index !== -1) {
-      application.tasks.splice(index, 1);
-      this.setState({ application: application });
-    }
-  };
-
-  addNotes = newNote => {
-    console.log(newNote);
-    const application = this.state.application;
-    application.notes = [...application.notes, newNote];
-    this.setState({ application: application });
-  };
-
-  deleteNotes = deleteNotes => {
-    const application = this.state.application;
-    let index = application.notes.indexOf(deleteNotes);
-    if (index !== -1) {
-      application.notes.splice(index, 1);
-      this.setState({ application: application });
-    }
-  };
-
-  // editNotes = editNotes => {
-  //   const application = this.state.application;
-  //   let notesArray = application.notes;
-  //   var index = notesArray.indexOf(editNotes);
-  //   if (index !== -1) {
-  //     notesArray.splice(index, 1);
-  //     this.setState({ notesArray: notesArray });
-  //   }
-  // };
 
   selectComponent = component => {
     this.setState({ selectedComponent: component });
@@ -139,28 +46,8 @@ class StudentModal extends Component {
 
   toggleStatusModal = () => { this.setState({ showModal: false})}
 
-  resetState = () => {   
-    this.setState({
-      application: {
-        tasks: [],
-        statusDateTime: undefined,
-        intDateTime: undefined,
-        replyDateTime: undefined,
-        status: undefined,
-        companyName: undefined,
-        companyLogo: undefined,
-        roleTitle: undefined,
-        location: undefined,
-        description: undefined,
-        notes: [],
-        applyUrl: undefined
-
-      }
-    });
-  };
-
   render() {
-    const { application } = this.state;
+    const {selectedJob, updateSelectedJob } = this.props;
 
     return (
  
@@ -174,8 +61,8 @@ class StudentModal extends Component {
             <Button
               id="xButton"
               onClick={async () => {
-                if (application.status) await this.handleApplication();
-                this.resetState()
+                if (selectedJob.status) await this.handleApplication();
+                // this.resetState()
                 this.props.toggleModal();
               }}
             >
@@ -186,13 +73,13 @@ class StudentModal extends Component {
             <Col sm="3" id="logoCol">
               <img
                 id="modalLogo"
-                src={this.props.selectedJob.company_logo}
+                src={selectedJob.companyLogo}
                 height="20px"
                 alt="logo"
               />
             </Col>
             <Col sm="9" id="titleCol">
-              <h3 id="title">{this.props.selectedJob.company}</h3>
+              <h3 id="title">{selectedJob.companyName}</h3>
             </Col>
 
             <Button
@@ -204,7 +91,7 @@ class StudentModal extends Component {
             <StatusUpdateModal
               showModal={this.state.showModal}
               toggleModal={this.toggleStatusModal}
-              handleStatus={newStatus => this.setStatusState(newStatus)}
+              handleStatus={newStatus => updateSelectedJob({ status: newStatus})}
             />
           </Row>
         </Container>
@@ -259,29 +146,29 @@ class StudentModal extends Component {
         <Container className="companyInfoCont">
           {this.state.selectedComponent === "JobInfo" && (
              <JobInfoComponent
-             application={this.state.application}
-             selectedJob = {this.props.selectedJob}
-             onChange = {(e) => this.onChange(e)}
+             selectedJob = {selectedJob}
+             onChange = {(e) => updateSelectedJob({ [e.target.name]: e.target.value })}
+            //  title = {selectedJob.roleTitle}
+            //  company = {selectedJob.companyName}
            />
           )}
 
           {this.state.selectedComponent === "Tasks" && (
-            <TaskComponent
-              tasks={application.tasks}
-              addTask={this.addTask}
-              deleteTask={this.deleteTask}
+            <TaskComponent 
+              tasks={selectedJob.tasks}
+              addTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks ? selectedJob.tasks.concat(task) : [task]}) }
+              deleteTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks.filter(x => x !== task)})}
             />
           )}
 
           {this.state.selectedComponent === "Notes" && (
             <NotesComponent
-              notes={application.notes}
-              addNotes={this.addNotes}
-              deleteNotes={this.deleteNotes}
-              editNotes={this.editNotes}
+              notes={selectedJob.notes}
+              addNotes={(note) => updateSelectedJob({ notes: selectedJob.notes ? selectedJob.notes.concat(note) : [note]}) }
+              deleteNotes={(note) => updateSelectedJob({ notes: selectedJob.notes.filter(x => x !== note)})}
+              //TODO: editNotes={this.editNotes}
             />
           )}
-
 
           {this.state.selectedComponent === "Directory" &&  
            <DirectoryComponent
@@ -289,9 +176,6 @@ class StudentModal extends Component {
               selectedJob = {this.props.selectedJob}
             />
           }
-
-                    
- 
         </Container>
       </Modal>
         

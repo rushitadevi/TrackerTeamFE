@@ -43,21 +43,17 @@ class NotesComponents extends Component {
             </Button>
           </Col>
         </Row>
-        {/* <Row className="col-sm-12 notesTitleRow">
-              <h6 id="notesHeader">Notes</h6>
-            </Row>
-     */}
-        <Row className="col-sm-12 notesListRow">
+
+        
           {this.props.notes &&
             this.props.notes.map(singleNote => (
               <>
-                <Col sm="9" id="allNotesList">
-                  <Scrollbars id="allNotesScroll" style={{ height: 40 }}>
+              <Row className="col-sm-12 notesListRow">
+                <Col sm="12" id="allNotesList">
                     {singleNote}
-                  </Scrollbars>
                 </Col>
 
-                <Col sm="3" id="allNotesList">
+                <Col sm="12" id="allNotesButtons">
                   <Button
                     id="deleteTaskButton"
                       onClick={() => this.deleteOneNote(singleNote)}
@@ -66,9 +62,10 @@ class NotesComponents extends Component {
                   </Button>
                   <i class="material-icons" id="editIcon" onClick={() => this.editOneNote(singleNote)} style={{cursor:'pointer'}}>create</i>
                 </Col>
+                </Row>
               </>
             ))}
-        </Row>
+        
       </>
     );
   }
