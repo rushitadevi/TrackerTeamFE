@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCompanyVacancies } from "../../Actions/apiFetches";
+import { getCompanyVacancies } from "../../../Actions/apiFetches";
 import { Row, Col } from "reactstrap";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -70,11 +70,14 @@ class DirectoryComponent extends Component {
                           <Typography className="pos" color="textSecondary">
                             {companyVacancies.title}
                           </Typography>
+{/*                  
                           <Typography variant="body2" component="p">
                           {companyVacancies.description.replace(/<[^>]*>?/gm, '')}
                             <br />
-                            {'"a benevolent smile"'}
+                         
                           </Typography>
+    */}
+
                         </CardContent>
                         <CardActions>
                           <Button size="small">Learn More</Button>

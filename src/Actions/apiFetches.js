@@ -8,7 +8,18 @@ export const getSearch = (url) => {
 
     dispatch({
       type: "FILTERED_SEARCH",
-      payload: filteredSearch
+      payload: filteredSearch.map(x => {
+        return {
+      companyName: x.company,
+      companyLogo: x.company_logo,
+      roleTitle: x.title,
+      location: x.location,
+      description: x.description,
+      id: x.id,
+      applyUrl: x.url,
+      notes: [],
+      tasks: [],
+      }})
     });
   }
 }
@@ -27,3 +38,5 @@ export const getCompanyVacancies = (query) => {
     });
   }
 }
+
+

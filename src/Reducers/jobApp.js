@@ -11,40 +11,23 @@ export default function(state = {}, action) {
               console.log(action.payload)
               return {
                 ...state,
-                jobApp: state.jobApp.concat(action.payload)
+                jobAppUpdate: state.jobAppUpdate.concat(action.payload)
                 
               };
             case "GET_JOB_APPS":
-              console.log(action.payload)
               return {
                 ...state,
-                allJobApps: state.allJobApps.concat(action.payload)
-                
+                allJobApps: action.payload,
+                wishlist: { items: action.payload.filter(x => x.status === "wishlist"), count: action.payload.filter(x => x.status === "wishlist").length},
+                closed:{ items: action.payload.filter(x => x.status === "application withdrawn" || x.status === "rejected"), count: action.payload.filter(x => x.status === "application withdrawn" || x.status === "rejected").length},
+                active: { items: action.payload.filter(x => x.status === "interview"|| x.status === "applied" || x.status === "offer"), count: action.payload.filter(x => x.status === x.status === "interview"|| x.status === "applied" || x.status === "offer").length},
               };
-              case "WISHLIST":
-                console.log(action.payload)
-                return {
-                  ...state,
-                  wishlist: state.wishlist.concat(action.payload)                  
-                };
-                case "ACTIVE":
-                  console.log(action.payload)
-                  return {
-                    ...state,
-                    active: state.active.concat(action.payload)                  
-                  };
-                  case "CLOSED":
-                    console.log(action.payload)
-                    return {
-                      ...state,
-                      closed: state.closed.concat(action.payload)                  
-                    };
-                    case "WISHLIST_COUNT":
-                      console.log(action.payload)
-                      return {
-                        ...state,
-                        wishlistCount: action.payload          
-                      };
+            case "SINGLE_APP":
+              return {
+                ...state,
+                singleApp: action.payload                
+              };             
+                   
       default:
         return state;
     }

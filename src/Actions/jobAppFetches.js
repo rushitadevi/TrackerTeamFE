@@ -1,136 +1,136 @@
-export const addJobApp=(application) => async dispatch =>{
-    // console.log("hello", application)
-    try {
-         var res = await fetch(process.env.REACT_APP_URL + "application" , {
-          method: "POST",
-          body: JSON.stringify(application),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-        if (res.ok) {
-          var jobApp = await res.json();
-        console.log("hello", jobApp)
+export const addJobApp = (application) => async dispatch => {
+  try {
+    var res = await fetch(process.env.REACT_APP_URL + "application", {
+      method: "POST",
+      body: JSON.stringify(application),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    if (res.ok) {
+      var jobApp = await res.json();
+      console.log("hello", jobApp)
       dispatch({
         type: "ADD_JOB_APP",
         payload: jobApp
       })
     }
-    
-    } catch (err) {
-      console.log(err)
-    }			
-    }
 
-    export const updateJobApp=(application,id) => async dispatch =>{
-       console.log("hellolplp", application,id)
-      try {
-           var res = await fetch(process.env.REACT_APP_URL + "application/"+ id , {
-            method: "PUT",
-            body: JSON.stringify(application),
-            headers: {
-              "Content-Type": "application/json"
-            }
-          })
-          if (res.ok) {
-            var jobApp = await res.json();
-          console.log("helloppp", jobApp)
-        dispatch({
-          type: "UPDATE_JOB_APP",
-          payload: jobApp
-        })
-      }
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const updateJobApp = (application, id) => async dispatch => {
+  console.log(id)
+   try {
+     var res = await fetch(process.env.REACT_APP_URL + "application/" + id, {
+       method: "PUT",
+       body: JSON.stringify(application),
+       headers: {
+         "Content-Type": "application/json"
+       }
+     })
+     if (res.ok) {
+       var jobAppUpdate = await res.json();
       
-      } catch (err) {
-        console.log(err)
-      }			
-      }
+       dispatch({
+         type: "UPDATE_JOB_APP",
+         payload: jobAppUpdate
+       })
+     }
+ 
+   } catch (err) {
+     console.log(err)
+   }
+ }
 
-    export const getJobApps = () => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/app", {
-          method: "GET", 
-        })
-      
-        var allJobApps = await response.json();
-        dispatch({
-          type: "GET_JOB_APPS",
-          payload: allJobApps
-        });
-      }
-      }
+export const getJobApps = () => {
+  return async (dispatch, getState) => {
+    var response = await fetch(process.env.REACT_APP_URL + "application/app", {
+      method: "GET",
+    })
 
-      export const getWishlistJobApps = (query) => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/wishlist" + query, {
-          method: "GET", 
-        })
-      
-        var wishlist = await response.json();
+    // let first = curr.getDate() - curr.getDay() + i
+    // let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
+    // week.push(day)
 
-        dispatch({
-          type: "WISHLIST",
-          payload: wishlist
-        });
-      }
-      }
+    var allJobApps = await response.json();
 
-      export const getWishlistCount = () => {
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/wishlistCount", {
-          method: "GET", 
-        })
-      
-        var wishlistCount = await response.json();
+    dispatch({
+      type: "GET_JOB_APPS",
+      payload: allJobApps
+    });
+  }
+}
 
-        dispatch({
-          type: "WISHLIST_COUNT",
-          payload: wishlistCount
-        });
-      }
-      }
 
-      export const getActiveJobApps = (query) => {
-        // console.log(query)
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/active" + query, {
-          method: "GET", 
-        })
-        var active = await response.json();
 
-        dispatch({
-          type: "ACTIVE",
-          payload: active
-        });
-      }
-      }
 
-      export const getClosedJobApps = (query) => {
-        // console.log(query)
-        return async (dispatch, getState) => {
-          var response=await fetch(process.env.REACT_APP_URL + "application/closed" + query, {
-          method: "GET", 
-        })
-        var closed = await response.json();
+export const getSingleApp = (id) => {
+  // console.log(query)
+  return async (dispatch, getState) => {
+    var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
+    method: "GET", 
+  })
+  var singleApp = await response.json();
 
-        dispatch({
-          type: "CLOSED",
-          payload: closed
-        });
-      }
-      }
+  dispatch({
+    type: "SINGLE_APP",
+    payload: singleApp
+  });
 
-      // export const getSingleApp = (id) => {
-      //   // console.log(query)
-      //   return async (dispatch, getState) => {
-      //     var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
-      //     method: "GET", 
-      //   })
-      //   var application = await response.json();
+  return singleApp;
+}
+}
 
-      //   dispatch({
-      //     type: "APPLICATION",
-      //     payload: application
-      //   });
-      // }
-      // }
+// export const getSavedJobAppsQuery = (parameter) => {
+//   return async (dispatch, getState) => {
+//     let query = "?limit=5";
+
+//     if (parameter == "wishlist")
+//       var response = await fetch(process.env.REACT_APP_URL + "application/wishlist" + query, {
+//         method: "GET",
+//       })
+
+//     var wishlist = await response.json();
+//     dispatch({
+//       type: "WISHLIST",
+//       payload: {
+//         count: wishlistCount,
+//         items: wishlist
+//       }
+//     });
+
+//     if (parameter == "active")
+//       var response = await fetch(process.env.REACT_APP_URL + "application/active" + query, {
+//         method: "GET",
+//       })
+
+//     var active = await response.json();
+//     dispatch({
+//       type: "ACTIVE",
+//       payload: {
+//         count: activeCount,
+//         items: active
+//       }
+//     });
+
+//     if (parameter == "closed")
+//       var response = await fetch(process.env.REACT_APP_URL + "application/closed" + query, {
+//         method: "GET",
+//       })
+
+//     var active = await response.json();
+//     dispatch({
+//       type: "ACTIVE",
+//       payload: {
+//         count: closedCount,
+//         items: closed
+//       }
+//     });
+//   }
+
+// }
+
+  

@@ -1,0 +1,123 @@
+/* SAVE APPLICATIONS CARDS  */
+
+.listCard {
+  position: absolute;
+  width: 300px;
+  height: 466px;
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  background: #ffffff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  padding-bottom: 45px;
+}
+
+.listRecord {
+  width: 260px;
+  height: 50px;
+  margin-left: 0px;
+  display: block;
+  background: #ffffff;
+  border: 2px solid #eaeef6;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding-left: 0px !important;
+  padding-right: 5px !important;
+  margin-bottom: 10px !important;
+}
+
+.listCard .card-header {
+  border-top: 8px;
+  color: #052f5f !important;
+  text-align: center;
+  font-size: 20px;
+}
+
+.logoCol {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  display: inline-block !important;
+  width: 50px !important;
+}
+
+.companyCol {
+  padding-left: 0px !important;
+  display: inline-block !important;
+  padding-right: 0px !important;
+  width: 400px !important;
+  font-size: small;
+  color: #052f5f !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.companyLogo {
+  width: 50px;
+  height: 30px;
+  margin-bottom: 20px !important;
+}
+
+/* WISHLIST APPLICATIONS CARD   */
+
+.listCard.wishCard {
+  top: 100px;
+  left: 40px;
+}
+
+.wishCard .card-header {
+  background-color: #eaeef6;
+}
+
+.seeMoreLink {
+  display: block;
+  position: absolute;
+  margin-left: 80px;
+  text-align: center !important;
+  color: #8a7f7f;
+  bottom: 15px
+}
+
+.seeLessLink {
+  display: block;
+  position: absolute;
+  margin-left: 90px;
+  text-align: center !important;
+  color: #8a7f7f;
+  bottom: 15px;
+}
+
+/* .seeMoreLink.wishlist {
+  margin-top: 50px !important;
+} */
+
+/* ACTIVE APPLICATIONS CARD   */
+
+.activeCard .card-header {
+  background-color: #59ff60;
+}
+
+.listCard.activeCard {
+  left: 420px !important;
+  bottom: 367px;
+}
+
+/* .seeMoreLink.active {
+  margin-top: 50px !important;
+} */
+
+/* CLOSED APPLICATIONS CARD   */
+
+.listCard.closedCard {
+  left: 800px !important;
+  bottom: 833px;
+}
+
+.closedCard .card-header {
+  background-color: #f38982;
+}
+
+
+.listCard .card-body {
+  overflow-y: auto;
+}

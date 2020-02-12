@@ -11,33 +11,38 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const initialState = {
   publicAPI: {
     filteredSearch: [],
-    companyVacancies: []
+    companyVacancies: [],
   },
 
   jobApp: {
     jobApp: [],
+    wishlist: { items: [], count: 0 },
+    closed: { items: [], count: 0 },
+    active: { items: [], count: 0 },
     allJobApps: [],
-    wishlist: [],    
-    active: [],
-    closed: [],
-    wishlistCount: null
+    items: [],
+    count: {},
+    singleApp: {},
+    jobAppUpdate: []
   },
- userData:{
-  userData:[]
- },
- loggedInUser :{
-  loggedInUser:[]
- },
- students :{
-  students:[],
-  applications:[],
-  appCount:0
- }
- 
+  userData: {
+    userData: []
+  },
+  loggedInUser: {
+    loggedInUser: []
+  },
+  students: {
+    students: [],
+    applications: [],
+    appCount: 0
+  }
+
 };
 
-const combReducer = combineReducers({userData:registratioReducer,loggedInUser:loginReducer,
-   publicAPI: publicAPIReducer,  jobApp: jobAppReducer,students:managerReducer });
+const combReducer = combineReducers({
+  userData: registratioReducer, loggedInUser: loginReducer,
+  publicAPI: publicAPIReducer, jobApp: jobAppReducer, students: managerReducer
+});
 
 export default function configureStore() {
   return createStore(

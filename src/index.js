@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './StyleSheets/WishlistActiveClosed.css';
 import './StyleSheets/Notes.css';
 import './StyleSheets/DirectoryComponent.css';
 import './StyleSheets/Task.css';
