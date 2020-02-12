@@ -48,13 +48,14 @@ class Login extends React.Component {
     }
 
     onChange = (e) => {
-        var LoginDetails = this.state.loginDetails
+        const LoginDetails = this.state.loginDetails
         if (e.currentTarget.id === "email") {
             LoginDetails.email = e.currentTarget.value
         }
         else if (e.currentTarget.id === "password") {
             LoginDetails.password = e.currentTarget.value
         }
+        console.log(LoginDetails)
         this.setState({
             loginDetails: LoginDetails
         })
@@ -77,7 +78,7 @@ class Login extends React.Component {
                                                 <div className="form-group">
                                                     <label for="uname1">Email</label>
                                                     <input type="text" className="form-control form-control-lg rounded-0" placeholder="email"
-                                                        name="uname1" id="email" required onChange={(e) => this.onChange(e)} />
+                                                        name="uname1" id="email" required onChange={(e) => this.setState({ loginDetails: { ...this.state.loginDetails, email: e.target.value}})} />
                                                     <div className="invalid-feedback">Oops, you missed this one.</div>
                                                 </div>
                                                 <div className="form-group">
