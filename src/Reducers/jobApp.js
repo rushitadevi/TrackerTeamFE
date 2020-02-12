@@ -1,14 +1,12 @@
 export default function(state = {}, action) {
     switch (action.type) {
           case "ADD_JOB_APP":
-            console.log(action.payload)
             return {
               ...state,
               jobApp: state.jobApp.concat(action.payload)
               
             };
             case "UPDATE_JOB_APP":
-              console.log(action.payload)
               return {
                 ...state,
                 jobAppUpdate: state.jobAppUpdate.concat(action.payload)
