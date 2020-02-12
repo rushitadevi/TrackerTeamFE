@@ -28,8 +28,8 @@
 #logo {
   padding-top: 0px;
   padding-bottom: 0px;
-  margin-top: 35px;
-  margin-left: 88px;
+  margin-top: 50px !important;
+  margin-left: 95px!important;
   position: absolute;
   font-style: normal;
   font-weight: bold;
@@ -38,6 +38,7 @@
   letter-spacing: 0.25em;
   color: #052f5f;
   font-family: "Arvo", serif;
+  
 }
 
 .dashboardMainDisplay {
