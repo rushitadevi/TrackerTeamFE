@@ -1,10 +1,13 @@
-import React, { Component } from "react"
+import React, { Component } from 'react';
 import LandingPageImg from "./Img/LandingPageImg.jpg"
+import Navbar from "./Navbar";
 
 class LandingPage extends Component {
 
     render() {
         return (
+            <>
+          <Navbar/>
             <div>
                 <div className="w-100 login-navbar">
                     <div className="row">
@@ -41,6 +44,7 @@ class LandingPage extends Component {
                 </div>
 
             </div>
+            </>
         )
 
     }

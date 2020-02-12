@@ -13,8 +13,8 @@ import './StyleSheets/login.css';
 import "./StyleSheets/LandingPage.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
-import Main from './components/Main';
-import Register from './components/Register';
+import Main from './Components/Main';
+
 
 
 ReactDOM.render(<Main />, document.getElementById('root'));

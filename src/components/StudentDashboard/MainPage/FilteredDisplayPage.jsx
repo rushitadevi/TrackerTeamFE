@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Row, Col} from "reactstrap";
 import { Scrollbars } from "react-custom-scrollbars";
-import StudentModal from "../ModalComponents/StudentModal";
 
 class FilteredDisplayPage extends Component {
     constructor(props) {

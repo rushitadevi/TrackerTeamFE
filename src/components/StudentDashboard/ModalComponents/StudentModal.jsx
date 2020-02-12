@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Row, Col } from "reactstrap";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { Container, Row, Col} from "reactstrap";
+import {Button, Modal} from "react-bootstrap";
 import StatusUpdateModal from "./StatusUpdateModal";
 import { addJobApp, updateJobApp } from "../../../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";

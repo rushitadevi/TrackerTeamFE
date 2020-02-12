@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 import {
     Card,
     CardHeader,
@@ -7,14 +6,7 @@ import {
     Row,
     Col
 } from "reactstrap";
-import { getSingleApp } from "../../../Actions/jobAppFetches";
 
-
-// const mapStateToProps = state => state;
-
-// const mapDispatchToProps = dispatch => ({
-//   getSingleAppThunk: id => dispatch(getSingleApp(id))
-// });
 
 class WishlistActiveClosed extends Component {
 

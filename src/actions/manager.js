@@ -1,5 +1,4 @@
 export const getApplications =()=> {
-  console.log("hello")
     return async (dispatch, getState) => {
        var headers = new Headers({
         "Content-Type": "application/json"
@@ -13,7 +12,6 @@ export const getApplications =()=> {
         }
       );
       var jSon = await response.json();
-      console.log(jSon,"js")
       dispatch({
         type: "GET_APPLICATIONS",
         payload: jSon
@@ -22,7 +20,6 @@ export const getApplications =()=> {
   };
 
   export const getStudents = ()=> {
-    console.log("hello")
     return async (dispatch, getState) => {
        var headers = new Headers({
         "Content-Type": "application/json"
@@ -36,7 +33,7 @@ export const getApplications =()=> {
         }
       );
       var jSon = await response.json();
-      console.log(jSon,"students")
+
       dispatch({
         type: "GET_STUDENTS",
         payload: jSon
@@ -56,7 +53,6 @@ export const getApplications =()=> {
      );
      if (response.ok) {
       weekApps = await response.json();
-      console.log(weekApps.lastWeek,"week")
       //weekApps = weekApps.lastWeek
        }
      dispatch({

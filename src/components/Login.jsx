@@ -1,5 +1,4 @@
 import React from "react"
-import { Container, Row, Col } from 'react-bootstrap'
 import { addLoginData } from "../Actions/login"
 import { connect } from "react-redux";
 
@@ -7,7 +6,6 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
     addLoginDataThunk: data => dispatch(addLoginData(data)),
-
 });
 
 class Login extends React.Component {
@@ -18,12 +16,35 @@ class Login extends React.Component {
                 email: null,
                 password: null
             },
+            checkLogin: false
         }
     }
 
     onSubmit = (e) => {
         e.preventDefault();
         this.props.addLoginDataThunk(this.state.loginDetails)
+        this.setState({
+            checkLogin: true
+        })
+    }
+
+    componentDidUpdate = (oldState, oldProps) => {
+        if (this.props.loggedInUser.token) {
+            localStorage.setItem("token", this.props.loggedInUser.token)
+            if (this.props.loggedInUser.role === "Student") {
+                this.props.history.push("/student")
+            }
+            else if (this.props.loggedInUser.role === "Manager") {
+                this.props.history.push("/manager")
+            }
+        }
+    }
+
+    componentDidMount = async => {
+        //if (localStorage.getItem("token"))
+        // fetch("yoururl/whoami")
+        // ==> dispatch the new info to redux => rediret
+        //check if the token is valid
     }
 
     onChange = (e) => {
@@ -37,7 +58,8 @@ class Login extends React.Component {
         this.setState({
             loginDetails: LoginDetails
         })
-         }
+    }
+
     render() {
         return (
             <>
@@ -48,7 +70,7 @@ class Login extends React.Component {
                                 <div className="col-lg-6 col-md-8 mx-auto">
                                     <div className="card rounded shadow shadow-sm">
                                         <div className="card-header">
-                                            <h3 className="mb-0" style={{color: "#052f5f"}} >Login</h3>
+                                            <h3 className="mb-0" style={{ color: "#052f5f" }} >Login</h3>
                                         </div>
                                         <div className="card-body">
                                             <form className="form" onSubmit={(e) => this.onSubmit(e)} >
@@ -69,87 +91,9 @@ class Login extends React.Component {
                                         </div>
                                     </div>
                                 </div>                            </div>
-                       </div>
+                        </div>
                     </div>
                 </div>
-
-
-                <Container>
-                    <Row>
-                        <Col></Col>
-                        <Col>
-
-
-
-
-
-                            {/* <form className="form" style={{ border: "2px solid grey", borderRadius: "20px", paddingLeft: "20px" }} onSubmit={(e) => this.onSubmit(e)}>
-                                <div className="columns">
-                                    <div className="column is-one-third registerColumn">
-                                        <div className="field">
-                                            <label className="label">LOGIN</label>
-                                        </div>
-                                        <div className="field">
-                                            <label className="label">
-                                                <small>EMAIL</small>
-                                            </label>
-                                            <div className="control has-icons-left has-icons-right">
-                                                <input
-                                                    id="email"
-                                                    className="input"
-                                                    type="text"
-                                                    placeholder="Email input"
-                                                    onChange={(e) => this.onChange(e)}
-                                                />
-                                                <span className="icon is-small is-left">
-                                                    <i className="fas fa-envelope" />
-                                                </span>
-                                                <span className="icon is-small is-right">
-                                                    <i className="fas fa-exclamation-triangle" />
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div className="field">
-                                            <label className="label">
-                                                <small>PASSWORD</small>
-                                            </label>
-                                            <div className="control has-icons-left has-icons-right">
-                                                <input
-                                                    id="password"
-                                                    className="input"
-                                                    type="password"
-                                                    placeholder="PASSWORD"
-                                                    onChange={(e) => this.onChange(e)}
-                                                />
-                                                <span className="icon is-small is-left">
-                                                    <i className="fas fa-envelope" />
-                                                </span>
-                                                <span className="icon is-small is-right">
-                                                    <i className="fas fa-exclamation-triangle" />
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div className="field is-grouped">
-                                            <div className="control">
-                                                <button className="button" id="buttonWhite">
-                                                    Submit
-								        </button>
-                                            </div>
-                                        </div>
-                                    </div> */}
-                            {this.props.loggedInUser.loggedInUser && this.props.loggedInUser.loggedInUser.map((user) => (
-                                user.role === "Student" ? this.props.history.push("/student")
-                                    : user.role === "Manager" ? this.props.history.push("/manager")
-                                        : this.props.history.push("/admin")
-                            ))
-                            }
-                            <div className="column" />
-                            {/* </div>
-                            </form> */}
-                        </Col>
-                        <Col></Col>
-                    </Row>
-                </Container>
             </>
         );
     }

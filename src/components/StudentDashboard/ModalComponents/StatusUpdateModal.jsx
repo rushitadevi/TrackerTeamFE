@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-
+import {Button, Modal} from "react-bootstrap";
 
 class StatusUpdateModal extends Component {
   state={}

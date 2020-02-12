@@ -1,10 +1,9 @@
-import React from "react";
+import React, { Component } from 'react';
 import { connect } from "react-redux";
-// import { Link } from "react-router-dom"
+import Navbar from "../../Navbar";
 import {Container,Input} from "reactstrap";
 import { getSearch } from "../../../Actions/apiFetches";
 import { getJobApps} from "../../../Actions/jobAppFetches";
-
 import WishlistActiveClosed from "./WishlistActiveClosed";
 import FilteredDisplayPage from "./FilteredDisplayPage";
 import StudentModal from "../ModalComponents/StudentModal";
@@ -78,6 +77,7 @@ class StudentDashboard extends React.Component {
  
     return (
       <>
+      <Navbar/>
         <Container className="filterBar">
           <h5 id="logo">TrackeR</h5>
           <hr

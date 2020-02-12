@@ -1,11 +1,9 @@
 import React from 'react';
-import NavBar from "./Navbar";
-//import diagrampicture1 from './Img/diagrampicture1.png'
 import diagrampicture2 from './Img/diagrampicture2.png'
 import { getApplications, getStudents, totAppsWeek, totApps } from "../Actions/manager.js"
 import { connect } from "react-redux";
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table'
-//import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css'
+import Navbar from "./Navbar";
 
 const mapStateToProps = state => {
     return state;
@@ -39,14 +37,11 @@ class ManagerDashboard extends React.Component {
 
     getName = (id) => {
         var arr = this.props.students.students
-         console.log(id,"arr")
+
         if (arr !== undefined) {
-            console.log("hi")
             var student = []
             student = arr.find(a => a._id === id);
-            console.log(student,"stu")
             if(student!==undefined)
-            console.log(student.name,"stid")
             return student !== undefined && student.name !== undefined
                 ? student.name
                 : "";
@@ -67,9 +62,7 @@ class ManagerDashboard extends React.Component {
                 }
             }
 
-            console.log(state.email)
             const toSend = { Email: state.email };
-            console.log(toSend, "se")
             var res = await fetch( process.env.REACT_APP_URL + "user", {
                 method: "POST",
                 body: JSON.stringify(toSend),
@@ -80,7 +73,6 @@ class ManagerDashboard extends React.Component {
             })
             if (res.ok) {
                 await res.json();
-                console.log("success")
             }
 
 
@@ -125,8 +117,9 @@ class ManagerDashboard extends React.Component {
     }
 
     render() {
-        console.log(this.props,"pp")
         return (
+            <>
+            <Navbar/>
             <div className="container-fluid" style={{ backgroundColor: "#F5F9FC", paddingLeft: "0px", paddingRight: "0px" }} >
                 <div>
                 
@@ -205,6 +198,7 @@ class ManagerDashboard extends React.Component {
                 <footer className="py-5 bg-dark">
                 </footer>
             </div>
+            </>
         );
     }
 }

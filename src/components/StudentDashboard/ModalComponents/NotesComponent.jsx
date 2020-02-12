@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Input, Row, Col } from "reactstrap";
-import { Scrollbars } from "react-custom-scrollbars";
 
 class NotesComponents extends Component {
   constructor(props) {
