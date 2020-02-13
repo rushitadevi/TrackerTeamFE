@@ -13,7 +13,7 @@ class Login extends React.Component {
         super(props);
         this.state = {
             loginDetails: {
-                email: null,
+                email: "ko@gmail.com",
                 password: null
             },
             checkLogin: false
@@ -40,13 +40,6 @@ class Login extends React.Component {
         }
     }
 
-    componentDidMount = async => {
-        //if (localStorage.getItem("token"))
-        // fetch("yoururl/whoami")
-        // ==> dispatch the new info to redux => rediret
-        //check if the token is valid
-    }
-
     onChange = (e) => {
         const LoginDetails = this.state.loginDetails
         if (e.currentTarget.id === "email") {
@@ -71,23 +64,27 @@ class Login extends React.Component {
                                 <div className="col-lg-6 col-md-8 mx-auto">
                                     <div className="card rounded shadow shadow-sm">
                                         <div className="card-header">
-                                            <h3 className="mb-0" style={{ color: "#052f5f" }} >Login</h3>
+                                            <h3 className="mb-0" style={{ color: "#052f5f" }} >Sign In</h3>
                                         </div>
                                         <div className="card-body">
                                             <form className="form" onSubmit={(e) => this.onSubmit(e)} >
                                                 <div className="form-group">
                                                     <label for="uname1">Email</label>
                                                     <input type="text" className="form-control form-control-lg rounded-0" placeholder="email"
+<<<<<<< Updated upstream:src/Components/Login.jsx
                                                         name="uname1" id="email" required onChange={(e) => this.setState({ loginDetails: { ...this.state.loginDetails, email: e.target.value}})} />
+=======
+                                                        name="uname1" id="email" required onChange={(e) => this.onChange(e)} value={this.state.loginDetails.email} />
+>>>>>>> Stashed changes:src/components/Login.jsx
                                                     <div className="invalid-feedback">Oops, you missed this one.</div>
                                                 </div>
                                                 <div className="form-group">
                                                     <label>Password</label>
-                                                    <input type="password" className="form-control form-control-lg rounded-0"
+                                                    <input type="password" className="form-control form-control-lg rounded-0" value={this.state.loginDetails.password}
                                                         id="password" required placeholder="password" autocomplete="new-password" onChange={(e) => this.onChange(e)} />
                                                     <div className="invalid-feedback">Enter your password too!</div>
                                                 </div>
-                                                <button className="btn submitButton btn-lg float-center" id="btnLogin">Login</button>
+                                                <button className="btn submitButton btn-lg float-center" id="btnLogin">Sign In</button>
                                             </form>
                                         </div>
                                     </div>

@@ -8,8 +8,6 @@ import configureStore from "../Store";
 import Register from "./Register";
 import Login from "./Login";
 import LandingPage from "./LandingPage";
-// import { ok } from "assert";
-
 
 class Main extends Component {
   state = {}
@@ -17,28 +15,20 @@ class Main extends Component {
   render() {
     return (
       <>
-      
-      <Provider store={configureStore()}>
-         {/* <Navbar/> */}
-         
-        <Router>
-        <Route path="/" exact component={LandingPage}/>
-        <Container fluid className="studentHomepage">
-          <Route path="/student" exact component={StudentDashboard} />
-          </Container>
-          <Route path="/manager" exact component={ManagerDashboard} />
-          <Route path="/register" exact component={Register} />
-          <Route path="/signIn" exact component={Login} />
-        </Router>
-       
-      </Provider>
+        <Provider store={configureStore()}>
+          <Router>
+            <Route path="/" exact component={LandingPage} />
+            <Container fluid className="studentHomepage">
+              <Route path="/student" exact component={StudentDashboard} />
+            </Container>
+            <Route path="/manager" exact component={ManagerDashboard} />
+            <Route path="/register" exact component={Register} />
+            <Route path="/signIn" exact component={Login} />
+          </Router>
+        </Provider>
       </>
     );
   }
-
-
 };
-
-
 
 export default Main;

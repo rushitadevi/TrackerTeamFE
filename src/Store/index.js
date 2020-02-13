@@ -28,9 +28,7 @@ const initialState = {
   userData: {
     userData: []
   },
-  loggedInUser: {
-    loggedInUser: []
-  },
+  loggedInUser: {},
   students: {
     students: [],
     applications: [],
@@ -39,8 +37,10 @@ const initialState = {
    manager:{
     applications:[],
     students:[],
-    weekapps: null,
-    appCount:0
+    weekapps: undefined,
+    appCount:undefined,
+    studentStatus:[],
+    sendEmail:false
    }
 };
 

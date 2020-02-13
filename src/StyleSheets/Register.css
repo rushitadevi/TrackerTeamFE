@@ -10,8 +10,6 @@
     font-size: 12px;
 }
 
-
-
 .submitButton {
     /* position: absolute;
     margin-left: 985px !important;
@@ -27,7 +25,8 @@
 
   .signIn{
       display: block;
-      margin-left: 37%;
+      margin-left:42%;
+      cursor: pointer;
   }
 
   .btnCancel{
