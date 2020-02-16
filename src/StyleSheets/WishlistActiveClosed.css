@@ -1,71 +1,61 @@
 /* SAVE APPLICATIONS CARDS  */
 
+
 .listCard {
-  position: absolute;
-  width: 300px;
-  height: 466px;
   border-radius: 8px;
   font-family: "Arvo", serif;
   background: #ffffff;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  padding-bottom: 45px;
+  margin-bottom: 20px;
+  max-width: 300px;
+ 
 }
 
 .listRecord {
-  width: 260px;
-  height: 50px;
-  margin-left: 0px;
-  display: block;
   background: #ffffff;
   border: 2px solid #eaeef6;
   box-sizing: border-box;
   border-radius: 8px;
-  padding-left: 0px !important;
-  padding-right: 5px !important;
-  margin-bottom: 10px !important;
+  margin-right: 2px;
+  padding-right: 10px;
+  margin-left: 0px;
+  margin-bottom: 10px;
 }
 
 .listCard .card-header {
-  border-top: 8px;
   color: #052f5f !important;
   text-align: center;
   font-size: 20px;
 }
 
 .logoCol {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-  display: inline-block !important;
-  width: 50px !important;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: right;
 }
 
 .companyCol {
-  padding-left: 0px !important;
-  display: inline-block !important;
-  padding-right: 0px !important;
-  width: 400px !important;
   font-size: small;
   color: #052f5f !important;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding-right: 0px;
+  padding-left: 15px
 }
 
 .companyLogo {
   width: 50px;
   height: 30px;
-  margin-bottom: 20px !important;
+
 }
 
 /* WISHLIST APPLICATIONS CARD   */
 
-.listCard.wishCard {
-  top: 100px;
-  left: 40px;
-}
 
-.wishCard .card-header {
+
+.wishlist .card-header {
   background-color: #eaeef6;
 }
 
@@ -87,33 +77,18 @@
   bottom: 15px;
 }
 
-/* .seeMoreLink.wishlist {
-  margin-top: 50px !important;
-} */
+.rowSeeMoreLess{
+    justify-content: center;
+}
 
-/* ACTIVE APPLICATIONS CARD   */
 
-.activeCard .card-header {
+.active .card-header {
   background-color: #59ff60;
 }
 
-.listCard.activeCard {
-  left: 420px !important;
-  bottom: 367px;
-}
 
-/* .seeMoreLink.active {
-  margin-top: 50px !important;
-} */
 
-/* CLOSED APPLICATIONS CARD   */
-
-.listCard.closedCard {
-  left: 800px !important;
-  bottom: 833px;
-}
-
-.closedCard .card-header {
+.closed .card-header {
   background-color: #f38982;
 }
 

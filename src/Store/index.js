@@ -37,8 +37,8 @@ const initialState = {
    manager:{
     applications:[],
     students:[],
-    weekapps: undefined,
-    appCount:undefined,
+    weekApps: null,
+    appCount: null,
     studentStatus:[],
     sendEmail:false
    }

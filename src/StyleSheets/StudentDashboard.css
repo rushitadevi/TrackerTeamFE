@@ -1,19 +1,18 @@
-.filterBar {
-  position: absolute;
-  height: 186px;
-  left: 180px !important;
-  margin-top: 50px;
-  padding-left: 0px !important;
-  padding-right: 0px !important;
+#filterBar {
   background: #fcffff;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+#filterBarFilters {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 0px;
 }
 
-@media (min-width: 100px) {
-  .filterBar {
-    /* max-width: 700px !important; */
-    width: 1145px !important;
-    left: 100px !important;
-  }
+#rowFilterBarAndButton {
+  border-top: 1.5px solid #eaeef6;
+  /* padding-right: 10px;
+  padding-left: 15px */
 }
 
 .studentHomepage {
@@ -22,15 +21,10 @@
   overflow-y: auto;
   overflow-x: auto;
   position: absolute;
-
 }
 
-#logo {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-top: 50px !important;
-  margin-left: 95px!important;
-  position: absolute;
+#logoDashboard {
+  margin: 20px 20px 20px 20px;
   font-style: normal;
   font-weight: bold;
   font-size: 22px;
@@ -38,37 +32,16 @@
   letter-spacing: 0.25em;
   color: #052f5f;
   font-family: "Arvo", serif;
-  
 }
 
 .dashboardMainDisplay {
-  position: absolute;
-  display: inline-block;
-  height: 700px;
-  left: 180px !important;
-  margin-top: 300px;
-  margin-bottom: 80px;
   background: #fcffff;
+  margin-top: 40px;
 }
 
-@media (min-width: 100px) {
-  .dashboardMainDisplay {
-    /* max-width: 600px !important; */
-    width: 1145px !important;
-    left: 100px !important;
-  }
-}
-
-.searchCompany {
-  position: absolute;
-  width: 130px !important;
-  height: 25px !important;
-  left: 88px;
-  margin-top: 17px;
-  border: none !important;
-  font-family: "Arvo", serif;
-  background: #fcffff !important;
-  font-size: 1.1rem !important;
+.rowAllCards {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 ::placeholder {
@@ -82,103 +55,38 @@
   box-shadow: none !important;
 }
 
-#searchIcon {
-  color: #8a7f7f !important;
-  margin-left: 70px;
-  bottom: 38px;
-  font-size: 19px !important;
-  position: absolute;
+#seniorJunior {
+  color: #8a7f7f;
 }
 
-#jobRole {
-  position: absolute;
-  width: 145px !important;
-  height: 40px !important;
-  left: 340px;
-  margin-top: 10px;
-  border: none !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-  line-height: 1.5 !important;
-  border-radius: 0.25rem !important;
-  font-family: "Arvo", serif;
-  /* color: rgb(111, 114, 121) !important; */
-  color: #8a7f7f !important;
+.input-group-text {
+  color: #8a7f7f;
   background: #fcffff;
-  padding: 0px;
+  border: none;
 }
 
-#roleIcon {
-  color: #8a7f7f !important;
-  margin-left: 310px;
-  bottom: 38px;
-  font-size: 19px !important;
-  position: absolute;
+.form-control {
+  background-color: #fcffff;
+  background-clip: padding-box;
+  border: none;
+  padding-left: 0px
 }
 
-#entryLevel {
-  position: absolute;
-  width: 110px !important;
-  height: 40px !important;
-  left: 540px;
-  margin-top: 10px;
-  border: none !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-  line-height: 1.5 !important;
-  border-radius: 0.25rem !important;
-  font-family: "Arvo", serif;
-  color: #8a7f7f !important;
-  background: #fcffff;
-  padding: 0px;
-}
-
-#entryLevelIcon {
-  color: #8a7f7f !important;
-  margin-left: 513px;
-  bottom: 38px;
-  font-size: 19px !important;
-  position: absolute;
-}
-
-.locationImg {
-  position: absolute;
-  margin-left: 770px;
-  bottom: 38px;
-  width: 15px !important;
-  height: 19px;
-  color: #8a7f7f !important;
-}
-
-#location {
-  position: absolute;
-  width: 130px !important;
-  height: 40px !important;
-  left: 795px;
-  right: 88px !important;
-  margin-top: 10px;
-  border: none !important;
-  font-size: 1rem !important;
-  font-weight: 400 !important;
-  line-height: 1.5 !important;
-  border-radius: 0.25rem !important;
-  font-family: "Arvo", serif;
-  /* color: rgb(111, 114, 121) !important; */
-  background: #fcffff;
-  padding: 0px;
-  color: #8a7f7f !important;
-}
-
-.searchButton {
-  position: absolute;
-  margin-left: 985px !important;
-  margin-top: 12px !important;
+#btnSearchJob {
   border-radius: 8px;
   font-family: "Arvo", serif;
   width: 80px;
   height: 35px;
   background-color: #e5b85f;
   color: #052f5f !important;
+  margin-top: 22px;
+  margin-left: 30px
+}
+
+.colBtnSearch{
+  padding-left: 0px;
+  padding-right: 0px;
+
 }
 
 /* filteredsearch display */

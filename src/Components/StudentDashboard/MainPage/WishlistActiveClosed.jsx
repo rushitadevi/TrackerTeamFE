@@ -23,18 +23,24 @@ class WishlistActiveClosed extends Component {
     render() {
         return (
             <>
-                <Card className={"listCard" + " " + this.props.extraTitleClass}>
-                    <CardHeader  className='card-header'>{this.props.title}</CardHeader>
+                <Card className={"listCard" + " " + this.props.extraClass}>
+                    
+                <CardHeader className="card-header" >
+                   {this.props.title}
+                    </CardHeader>
+                    
                     <CardBody>
                         <>
+
                             {/* {!this.state.seeMoreLink && this.props.apps.map && */}
                                             {this.props.app.items &&
                                 this.props.app.items.slice(0, this.state.seeMoreLink ? 5 : this.props.app.items.length).map(application => (
                                     <Row
                                         key={application._id}
-                                        className="col-sm-12 listRecord"
+                                        className="listRecord"
                                     >
-                                        <Col sm="3" className="logoCol">
+                                     
+                                        <Col xs={2} sm={3} className="logoCol">
                                             {application.companyLogo && (
                                                 <img
                                                     className="companyLogo"
@@ -50,7 +56,7 @@ class WishlistActiveClosed extends Component {
                                                 />
                                             )}
                                         </Col>
-                                        <Col sm="9" className="companyCol" style={{cursor:'pointer'}} onClick={async () => {
+                                        <Col xs={10} sm={9} className="companyCol" style={{cursor:'pointer'}} onClick={async () => {
                                             this.props.onSelectedJob(application)
                                         
                                             }}>
@@ -58,13 +64,16 @@ class WishlistActiveClosed extends Component {
                                             <br />
                                             {application.roleTitle}
                                         </Col>
+                                       
                                     </Row>
+
                                 ))}
                         </>
+                        <Row className="rowSeeMoreLess">
                         {this.state.seeMoreLink &&
                         <a
                             href="#"
-                            className={"seeMoreLink" + " " + this.props.seeMoreClass}
+                            className="seeMore"
                             onClick={() => this.setState({seeMoreLink: false, seeLessLink: true}) }
                         >
                             See {this.props.app.count} More
@@ -72,12 +81,14 @@ class WishlistActiveClosed extends Component {
                        {this.state.seeLessLink && !this.state.seeMoreLink &&
                         <a
                             href="#"
-                            className="seeLessLink" 
+                            className="seeLess" 
                             onClick={() => this.setState({seeMoreLink: false, seeMoreLink: true}) }
                         >
                             See Less
                        </a>}
+                       </Row>
                     </CardBody>
+               
                 </Card>
            </>
 

@@ -44,10 +44,11 @@ export const totAppsWeek = () => {
     );
     if (response.ok) {
       weekApps = await response.json();
+      weekApps = weekApps.lastWeek
     }
     dispatch({
       type: "TOTAL_APP_WEEK",
-      payload: weekApps.lastWeek
+      payload: weekApps
     });
   };
 };
@@ -62,6 +63,7 @@ export const totApps = () => {
     });
     if (res.ok) {
       var appCount = await res.json();
+      appCount = appCount.totApp
       dispatch({
         type: "TOTAL_APPS",
         payload: appCount

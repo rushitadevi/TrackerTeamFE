@@ -13,7 +13,7 @@ export default function(state = {}, action) {
     case "TOTAL_APP_WEEK":
       return {
         ...state,
-        weekapps: action.payload
+        weekApps: action.payload
       };
     case "TOTAL_APPS":
       return {

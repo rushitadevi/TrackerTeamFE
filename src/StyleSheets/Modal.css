@@ -86,7 +86,7 @@
   }
 
   
-  .btn {
+  /* .btn {
     display: inline-block;
     font-weight: 400;
     color: #212529;
@@ -103,7 +103,7 @@
     border-radius: 8px !important;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
+  } */
 
   .sideOptions{
     height: 35px;
@@ -133,10 +133,10 @@
     color: #052f5f !important;
   }
   
-  .container {
+  /* .container {
     max-width: none !important;
     width: 970px;
-  }
+  } */
   
   .companyInfoCont {
     padding-right: 0px !important;

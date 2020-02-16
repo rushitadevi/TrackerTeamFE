@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import './StyleSheets/WishlistActiveClosed.css';
 import './StyleSheets/Notes.css';
@@ -11,7 +12,6 @@ import './StyleSheets/Modal.css';
 import './StyleSheets/Register.css';
 import './StyleSheets/login.css';
 import "./StyleSheets/LandingPage.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import Main from './Components/Main';
 
