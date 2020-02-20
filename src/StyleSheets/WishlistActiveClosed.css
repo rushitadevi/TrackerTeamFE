@@ -78,7 +78,7 @@
 }
 
 .rowSeeMoreLess{
-    justify-content: center;
+    justify-content: center;  
 }
 
 
@@ -95,4 +95,9 @@
 
 .listCard .card-body {
   overflow-y: auto;
+  max-height: 330px
+}
+
+.scroll{
+
 }
