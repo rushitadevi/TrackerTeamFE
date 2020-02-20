@@ -57,7 +57,7 @@ class StudentModal extends Component {
       >
         <Container id="modalHeader">
           <Row id="xButtonRow" >
-            <Col xs={12} >
+            <Col xs={12} id="xButtonCol">
             <Button
               id="xButton"
               onClick={async () => {
@@ -71,7 +71,7 @@ class StudentModal extends Component {
             </Col>
           </Row>
           <Row id="modalTitleRow">
-            <Col xs={3} className="align-self-center">
+            <Col xs={2} className="align-self-center" id="colModalLogo">
               <img
                 id="modalLogo"
                 fluid
@@ -82,7 +82,7 @@ class StudentModal extends Component {
             <Col xs={6} id="colTitle" className="align-self-center">
               <h3 id="title">{selectedJob.companyName}</h3>
             </Col>
-            <Col xs={3} className="align-self-center">
+            <Col xs={4} className="align-self-center" id="colUpdateButton">
             <Button
               className="updateButton"
               onClick={() => this.setState({ showModal: true })}
@@ -98,9 +98,10 @@ class StudentModal extends Component {
           </Row>
         </Container>
 
-        <Container>
-          <Row className="modalOptionsRect">
+        <Container fluid>
+          {/* <Row className="modalOptionsRect"> */}
             <Row className="modalOptions">
+            <Col xs={12}>
               <Col xs={12} className="sideOptions first">
                 <a
                   href="#"
@@ -141,44 +142,45 @@ class StudentModal extends Component {
                   MORE VACANCIES
                 </a>
               </Col>
+              </Col>
+              <Col xs={12}></Col>
             </Row>
-          </Row>
+          {/* </Row> */}
         </Container>
 
-        <Container className="companyInfoCont">
+        {/* <Container className="companyInfoCont">
           {this.state.selectedComponent === "JobInfo" && (
              <JobInfoComponent
              selectedJob = {selectedJob}
              onChange = {(e) => updateSelectedJob({ [e.target.name]: e.target.value })}
-            //  title = {selectedJob.roleTitle}
-            //  company = {selectedJob.companyName}
-           />
-          )}
 
-          {this.state.selectedComponent === "Tasks" && (
+           />
+          )} */}
+
+          {/* {this.state.selectedComponent === "Tasks" && (
             <TaskComponent 
               tasks={selectedJob.tasks}
               addTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks ? selectedJob.tasks.concat(task) : [task]}) }
               deleteTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks.filter(x => x !== task)})}
             />
-          )}
+          )} */}
 
-          {this.state.selectedComponent === "Notes" && (
+          {/* {this.state.selectedComponent === "Notes" && (
             <NotesComponent
               notes={selectedJob.notes}
               addNotes={(note) => updateSelectedJob({ notes: selectedJob.notes ? selectedJob.notes.concat(note) : [note]}) }
               deleteNotes={(note) => updateSelectedJob({ notes: selectedJob.notes.filter(x => x !== note)})}
               //TODO: editNotes={this.editNotes}
             />
-          )}
-
+          )} */}
+{/* 
           {this.state.selectedComponent === "Directory" &&  
            <DirectoryComponent
               companyName={this.props.selectedJob.company.replace(/ /g, "+")}
               selectedJob = {this.props.selectedJob}
             />
           }
-        </Container>
+        </Container> */}
       </Modal>
         
     );

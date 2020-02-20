@@ -1,32 +1,21 @@
 #statusModal {
-    height: 570px;
     border-radius: 8px;
     background: #ffffff;
     border: 1px solid #cccccc;
     box-sizing: border-box;
     overflow-y:auto;
     overflow-x: hidden;
-    /* overflow: hidden; */
   }
   
   #modalHeader {
-    /* padding-top: 0px;
-    margin-left: 0px;
-    margin-top: 0px;
-    width: 499px;
-    height: 90px; */
     background: #fcffff;
     border: 1px solid #cccccc;
-    /* border-top: 0px;
-    border-left: 0px; */
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
   }
 
   #xButton {
-    /* padding-top: 0px;
-    margin-left: 462px; */
-    font-size: 0.9rem;
+    font-size: 0.6rem;
     font-weight: 700;
     color: #000;
     border: none;
@@ -34,53 +23,52 @@
     background: #fcffff;
     margin-right: 0 !important;
     float: right;
-    padding: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px
 
+  }
 
+  #xButtonCol{
+    padding-right: 5px
   }
   
   #modalTitleRow {
-    /* display: inline-flex !important; */
-     margin-bottom: 5px;
-     border: 1px solid #000
+     margin-bottom: 5px;  
   }
 
-  #logoCol {
-
-    /* margin-top: 12px !important;
-    padding-right:5px !important; */
-    /* text-align: right !important */
+  #colModalLogo {
+   padding-right: 0px;
+   padding-left: 0px;
+   text-align: right;
   }
 
 
    
   #modalLogo {
     height: 80%;
-    width: 80%
+    width: 70%;
+    opacity: 0.8;
+    padding-bottom: 3px
   }
   
     
-  #titleCol {
-    /* margin-top: 15px !important;
-    padding-left: 0px !important; */
- 
-  }
+
 
   .updateButton {
-    /* margin-left: 370px; */
     background-color: #e5b85f !important;
-    /* position: absolute; */
     border-radius: 8px;
     font-family: "Arvo", serif;
-    /* width: 80px;
-    height: 45px; */
-    background-color: #e5b85f;
     color: #fcffff !important;
-    font-style: normal;
-    font-size: smaller !important;
+    font-size: 10px !important;
     font-weight: bold;
-    text-align: center;
+    border: 1px solid #cccccc !important;
+    width: 60px;
+    height: 40px;
+    padding: 0px;
+    float: right
   }
+
+  /*Done*/
 
   .modalOptions {
     /* position: absolute; */
@@ -96,9 +84,9 @@
   }
   
   .modalOptionsRect {
-    /* position: absolute; */
-    /* width: 120px;
-    height: 460px; */
+    position: absolute;
+    /* width: 120px; */
+    height: 100%;
     background: #fcffff;
     border: 1px solid #cccccc;
     box-sizing: border-box;
@@ -204,7 +192,7 @@
   }
 
   #colTitle{
-   
+   padding-left: 5px
   }
   
 
