@@ -8,12 +8,16 @@ export const addLoginData = data => async dispatch => {
       }
     });
     if (res.ok) {
-      var loggedInData = await res.json();
+      var loggedInUser = await res.json();
       dispatch({
         type: "SIGN_IN",
-        payload: loggedInData
+        payload: {
+          user: loggedInUser.user,
+          token: loggedInUser.token,
+        }
       });
+      localStorage.setItem("token", loggedInUser.token)
     }
-  } catch (err) {}
+  } catch (err) { }
 };
 

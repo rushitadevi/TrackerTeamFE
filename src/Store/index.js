@@ -28,7 +28,10 @@ const initialState = {
   userData: {
     userData: []
   },
-  loggedInUser: {},
+  loggedInUser: {
+    user: {},
+    token: undefined,
+  },
   students: {
     students: [],
     applications: [],

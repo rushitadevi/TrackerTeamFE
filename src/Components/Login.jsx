@@ -13,45 +13,28 @@ class Login extends React.Component {
         super(props);
         this.state = {
             loginDetails: {
-                email: "ko@gmail.com",
+                email: "",
                 password: null
             },
             checkLogin: false
         }
     }
 
-    onSubmit = (e) => {
-        e.preventDefault();
-        this.props.addLoginDataThunk(this.state.loginDetails)
-        this.setState({
-            checkLogin: true
-        })
-    }
-
     componentDidUpdate = (oldState, oldProps) => {
         if (this.props.loggedInUser.token) {
-            localStorage.setItem("token", this.props.loggedInUser.token)
-            if (this.props.loggedInUser.role === "Student") {
+
+            if (this.props.loggedInUser.user.role === "Student") {
                 this.props.history.push("/student")
             }
-            else if (this.props.loggedInUser.role === "Manager") {
+            else if (this.props.loggedInUser.user.role === "Manager") {
                 this.props.history.push("/manager")
             }
         }
     }
 
-    onChange = (e) => {
-        const LoginDetails = this.state.loginDetails
-        if (e.currentTarget.id === "email") {
-            LoginDetails.email = e.currentTarget.value
-        }
-        else if (e.currentTarget.id === "password") {
-            LoginDetails.password = e.currentTarget.value
-        }
-        console.log(LoginDetails)
-        this.setState({
-            loginDetails: LoginDetails
-        })
+
+    login = async () => {    
+        this.props.addLoginDataThunk(this.state.loginDetails)  
     }
 
     render() {
@@ -67,21 +50,20 @@ class Login extends React.Component {
                                             <h3 className="mb-0" style={{ color: "#052f5f" }} >Sign In</h3>
                                         </div>
                                         <div className="card-body">
-                                            <form className="form" onSubmit={(e) => this.onSubmit(e)} >
+                    
                                                 <div className="form-group">
-                                                    <label for="uname1">Email</label>
                                                     <input type="text" className="form-control form-control-lg rounded-0" placeholder="email"
-                                                        name="uname1" id="email" required onChange={(e) => this.onChange(e)} value={this.state.loginDetails.email} />
+                                                       required value={this.state.loginDetails.email} onChange={(val) => this.setState({ loginDetails:{...this.state.loginDetails, email: val.currentTarget.value} })}/>
                                                     <div className="invalid-feedback">Oops, you missed this one.</div>
                                                 </div>
                                                 <div className="form-group">
-                                                    <label>Password</label>
+                                                   
                                                     <input type="password" className="form-control form-control-lg rounded-0" value={this.state.loginDetails.password}
-                                                        id="password" required placeholder="password" autocomplete="new-password" onChange={(e) => this.onChange(e)} />
+                                                        required placeholder="password" autocomplete="new-password" onChange={(val) => this.setState({ loginDetails:{...this.state.loginDetails, password: val.currentTarget.value} })} />
                                                     <div className="invalid-feedback">Enter your password too!</div>
                                                 </div>
-                                                <button className="btn submitButton btn-lg float-center" id="btnLogin">Sign In</button>
-                                            </form>
+                                                <button className="btn submitButton btn-lg float-center" id="btnLogin" onClick={this.login}>Sign In</button>
+                        
                                         </div>
                                     </div>
                                 </div>                            </div>
