@@ -56,7 +56,8 @@ class StudentModal extends Component {
         aria-labelledby="contained-modal-title-vcenter"
       >
         <Container id="modalHeader">
-          <Row id="xButtonRow" className="col-sm-12">
+          <Row id="xButtonRow" >
+            <Col xs={12} >
             <Button
               id="xButton"
               onClick={async () => {
@@ -67,26 +68,28 @@ class StudentModal extends Component {
             >
               X
             </Button>
+            </Col>
           </Row>
-          <Row id="modalTitleRow" className="col-sm-12">
-            <Col sm="3" id="logoCol">
+          <Row id="modalTitleRow">
+            <Col xs={3} className="align-self-center">
               <img
                 id="modalLogo"
+                fluid
                 src={selectedJob.companyLogo}
-                height="20px"
                 alt="logo"
               />
             </Col>
-            <Col sm="9" id="titleCol">
+            <Col xs={6} id="colTitle" className="align-self-center">
               <h3 id="title">{selectedJob.companyName}</h3>
             </Col>
-
+            <Col xs={3} className="align-self-center">
             <Button
               className="updateButton"
               onClick={() => this.setState({ showModal: true })}
             >
               UPDATE STATUS
             </Button>
+            </Col >
             <StatusUpdateModal
               showModal={this.state.showModal}
               toggleModal={this.toggleStatusModal}
