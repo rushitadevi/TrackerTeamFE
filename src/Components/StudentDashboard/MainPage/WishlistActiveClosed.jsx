@@ -81,7 +81,7 @@ class WishlistActiveClosed extends Component {
                        {this.state.seeLessLink && !this.state.seeMoreLink &&
                         <a
                             href="#"
-                            className="seeLess" 
+                            className="seeMore" 
                             onClick={() => this.setState({seeMoreLink: false, seeMoreLink: true}) }
                         >
                             See Less

@@ -9,7 +9,8 @@
   border-radius: 8px;
   margin-bottom: 20px;
   max-width: 300px;
- 
+  padding-bottom: 45px;
+  height: 410px
 }
 
 .listRecord {
@@ -78,7 +79,13 @@
 }
 
 .rowSeeMoreLess{
-    justify-content: center;  
+  justify-content: center;
+  display: block;   
+  margin-left: 80px;
+  text-align: center !important;
+  color: #8a7f7f;
+  bottom: 15px;
+  position: absolute;
 }
 
 
@@ -98,6 +105,5 @@
   max-height: 330px
 }
 
-.scroll{
 
-}
+
