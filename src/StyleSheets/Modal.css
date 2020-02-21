@@ -14,17 +14,19 @@
   border-top-right-radius: 8px;
 }
 
-#xButton {
+.xButton {
   font-size: 0.6rem;
   font-weight: 700;
-  color: #000;
-  border: none;
-  text-shadow: 0 1px 0 #fff;
-  background: #fcffff;
+  color: #000 !important;
+  border: none !important;
+  background: #fcffff !important;
   margin-right: 0 !important;
   float: right;
-  padding-right: 0px;
-  padding-bottom: 0px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0px !important;
+  padding-top: 3px !important;
 }
 
 #xButtonCol {
@@ -80,7 +82,10 @@
     border-bottom-left-radius: 8px;
     display: table;
   } */
+#jobInfoScreens{
+padding-bottom: 15px
 
+}
 .modal-content {
   border: none !important;
   border-top-left-radius: 8px;
@@ -94,24 +99,6 @@
   border-bottom: 1px solid #cccccc !important;
 
 }
-/* .btn {
-    display: inline-block;
-    font-weight: 400;
-    color: #212529;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    -webkit-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: none !important;
-    padding: 0px !important;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: 8px !important;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  } */
 
 /* .sideOptions{
     border-bottom: 1px solid #cccccc !important;
@@ -139,7 +126,8 @@
 
 
 .colJobInfoTwo{
-  padding-right: 0px
+  padding-right: 0px;
+  padding-left: 10px
 }
 
 .colJobInfoOne{

@@ -59,7 +59,7 @@ class StudentModal extends Component {
           <Row id="xButtonRow" >
             <Col xs={12} id="xButtonCol">
             <Button
-              id="xButton"
+              className="xButton"
               onClick={async () => {
                 if (selectedJob.status) await this.handleApplication();
                 // this.resetState()
@@ -154,7 +154,7 @@ class StudentModal extends Component {
            
           {/* </Row> */}
        
-         <Col className="col-12 col-sm-8 colJobInfo colJobInfoTwo">
+         <Col className="col-12 col-sm-9 colJobInfo colJobInfoTwo">
         {/* <Container className="companyInfoCont"> */}
           {this.state.selectedComponent === "JobInfo" && (
              <JobInfoComponent
