@@ -154,7 +154,7 @@ class StudentModal extends Component {
            
           {/* </Row> */}
        
-         <Col className="col-8 colJobInfo colJobInfoTwo">
+         <Col className="col-12 col-sm-8 colJobInfo colJobInfoTwo">
         {/* <Container className="companyInfoCont"> */}
           {this.state.selectedComponent === "JobInfo" && (
              <JobInfoComponent
