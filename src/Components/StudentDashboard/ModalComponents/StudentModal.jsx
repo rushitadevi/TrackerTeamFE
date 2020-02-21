@@ -100,9 +100,10 @@ class StudentModal extends Component {
 
         <Container fluid>
           {/* <Row className="modalOptionsRect"> */}
-            <Row className="modalOptions">
-            <Col xs={12}>
-              <Col xs={12} className="sideOptions first">
+          <Row id="jobInfoScreens">
+
+        <Col className="col-xs-4 col-sm-3 colJobInfo colJobInfoOne" >
+              <Col className="col-12 colSideMenu">
                 <a
                   href="#"
                   onClick={() => {
@@ -111,8 +112,10 @@ class StudentModal extends Component {
                 >
                   JOB INFO
                 </a>
-              </Col>
-              <Col xs={12} className="sideOptions">
+               </Col>
+            
+              {/* <Col xs={12} className="sideOptions"> */}
+              <Col className="col-12 colSideMenu">
                 <a
                   href="#"
                   onClick={() => {
@@ -121,8 +124,10 @@ class StudentModal extends Component {
                 >
                   TASKS
                 </a>
-              </Col>
-              <Col xs={12} className="sideOptions">
+                </Col>
+              {/* </Col> */}
+              {/* <Col xs={12} className="sideOptions"> */}
+              <Col className="col-12 colSideMenu">
                 <a
                   href="#"
                   onClick={() => {
@@ -132,7 +137,8 @@ class StudentModal extends Component {
                   NOTES
                 </a>
               </Col>
-              <Col xs={12} className="sideOptions more">
+              <Col className="col-12 colSideMenu">
+              {/* <Col xs={12} className="sideOptions more"> */}
                 <a
                   href="#"
                   onClick={() => {
@@ -141,22 +147,25 @@ class StudentModal extends Component {
                 >
                   MORE VACANCIES
                 </a>
+              {/* </Col> */}
               </Col>
               </Col>
-              <Col xs={12}></Col>
-            </Row>
+       
+           
           {/* </Row> */}
-        </Container>
-
-        {/* <Container className="companyInfoCont">
+       
+         <Col className="col-8 colJobInfo colJobInfoTwo">
+        {/* <Container className="companyInfoCont"> */}
           {this.state.selectedComponent === "JobInfo" && (
              <JobInfoComponent
              selectedJob = {selectedJob}
              onChange = {(e) => updateSelectedJob({ [e.target.name]: e.target.value })}
 
            />
-          )} */}
-
+          )}
+          </Col>
+          </Row>
+       </Container>
           {/* {this.state.selectedComponent === "Tasks" && (
             <TaskComponent 
               tasks={selectedJob.tasks}

@@ -1,115 +1,100 @@
 #statusModal {
-    border-radius: 8px;
-    background: #ffffff;
-    border: 1px solid #cccccc;
-    box-sizing: border-box;
-    overflow-y:auto;
-    overflow-x: hidden;
-  }
-  
-  #modalHeader {
-    background: #fcffff;
-    border: 1px solid #cccccc;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 
-  #xButton {
-    font-size: 0.6rem;
-    font-weight: 700;
-    color: #000;
-    border: none;
-    text-shadow: 0 1px 0 #fff;
-    background: #fcffff;
-    margin-right: 0 !important;
-    float: right;
-    padding-right: 0px;
-    padding-bottom: 0px
+#modalHeader {
+  background: #fcffff;
+  border: 1px solid #cccccc;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
-  }
+#xButton {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  text-shadow: 0 1px 0 #fff;
+  background: #fcffff;
+  margin-right: 0 !important;
+  float: right;
+  padding-right: 0px;
+  padding-bottom: 0px;
+}
 
-  #xButtonCol{
-    padding-right: 5px
-  }
-  
-  #modalTitleRow {
-     margin-bottom: 5px;  
-  }
+#xButtonCol {
+  padding-right: 5px;
+}
 
-  #colModalLogo {
-   padding-right: 0px;
-   padding-left: 0px;
-   text-align: right;
-  }
+#modalTitleRow {
+  margin-bottom: 5px;
+}
 
+#colModalLogo {
+  padding-right: 0px;
+  padding-left: 0px;
+  text-align: right;
+}
 
-   
-  #modalLogo {
-    height: 80%;
-    width: 70%;
-    opacity: 0.8;
-    padding-bottom: 3px
-  }
-  
-    
+#modalLogo {
+  height: 80%;
+  width: 70%;
+  opacity: 0.8;
+  padding-bottom: 3px;
+}
 
+.updateButton {
+  background-color: #e5b85f !important;
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  color: #fcffff !important;
+  font-size: 10px !important;
+  font-weight: bold;
+  border: 1px solid #cccccc !important;
+  width: 60px;
+  height: 40px;
+  padding: 0px;
+  float: right;
+}
 
-  .updateButton {
-    background-color: #e5b85f !important;
-    border-radius: 8px;
-    font-family: "Arvo", serif;
-    color: #fcffff !important;
-    font-size: 10px !important;
-    font-weight: bold;
-    border: 1px solid #cccccc !important;
-    width: 60px;
-    height: 40px;
-    padding: 0px;
-    float: right
-  }
+/*Done*/
 
-  /*Done*/
-
-  .modalOptions {
-    /* position: absolute; */
-    /* width: 120px;
-    height: 200px; */
+/* .modalOptions {
     background: #fcffff;
     border-right: 1px solid #cccccc;
     box-sizing: border-box;
-    /* left: 14px;
-    top: 0px;
-    padding-left: 0px !important; */
     display: table;
-  }
-  
-  .modalOptionsRect {
+  } */
+
+/* .modalOptionsRect {
     position: absolute;
-    /* width: 120px; */
     height: 100%;
     background: #fcffff;
     border: 1px solid #cccccc;
     box-sizing: border-box;
-    /* left: 14px;
-    top: 89px; */
     border-bottom-left-radius: 8px;
-    /* padding-left: 0px !important; */
     display: table;
-  }
-  
-  .modal-content {
-    /* position: absolute; */
-    border: none !important;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    /* padding-top: 0px; */
-  }
-  
+  } */
 
+.modal-content {
+  border: none !important;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
 
+.colSideMenu{
+  text-align: center;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-bottom: 1px solid #cccccc !important;
 
-  
-  /* .btn {
+}
+/* .btn {
     display: inline-block;
     font-weight: 400;
     color: #212529;
@@ -128,184 +113,174 @@
       border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   } */
 
-  .sideOptions{
-    /* height: 35px; */
-    /* width: 100px !important; */
+/* .sideOptions{
     border-bottom: 1px solid #cccccc !important;
-    /* left: 0px; */
     padding-left: 0px !important;
     text-align: center;
     padding-right: 0px !important;
-  }
-  .first {
-    margin-top: 15px !important; 
-  }
+  } */
 
-  .more{
-    height: 56px
-  }
-  
-  a{
-      text-decoration: none !important;
-      color: #052f5f !important;
-  }
+/* #jobInfoScreens::after {
+    content: "";
+    clear: both;
+    display: table;
+  } */
+.colSideMenu {
+  padding-left: 0px;
+  padding-right: 0px
+}
 
-  .h4,
-  h4 {
-    font-size: 1.5rem;
-    color: #052f5f !important;
-  }
-  
-  /* .container {
+.colJobInfo {
+  float: left;
+  /* padding: 15px; */
+  /* padding-left: 10px; */
+  padding-top: 5px;
+  padding-left: 2px
+}
+
+.colJobInfoTwo{
+  padding-right: 0px
+}
+
+.colJobInfoOne{
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right: 1px solid #cccccc !important;
+}
+/* .more {
+  height: 56px;
+} */
+
+a {
+  text-decoration: none !important;
+  color: #052f5f !important;
+  font-size: 15px
+}
+
+/* .h4,
+h4 { */
+  /* font-size: 0.5rem; */
+  /* color: #052f5f !important; */
+/* } */
+
+/* .container {
     max-width: none !important;
     width: 970px;
   } */
-  
-  .companyInfoCont {
+
+/* .companyInfoCont {
     padding-right: 0px !important;
-    /* height: 458px */
-  }
   
-  .companyInfoRow {
+  } */
+
+  .companyInfo{
+    padding-right: 0px;
+    padding-left: 10px
+  }
+
+.companyInfoRow {
+  border-bottom-right-radius: 8px;
+  padding-right: 0px !important;
+}
+
+/* .companyRoleDesc {
     border-bottom-right-radius: 8px;
-    padding-right: 0px !important;
-    /* margin-right: 0px !important;
-    margin-left: 88px !important; */
-    /* width: 396px !important;
-    height: 458px */
-  }
-   
-  .companyRoleDesc {
-    /* height: 159px;
-    width: 400px; */
-    border-bottom-right-radius: 8px;
-  }
-  
+  } */
 
-  
-  #title {
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 20px !important;
-    /* margin-top: 10px */
-    /* display: block */
-  }
+#title {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 20px !important;
+}
 
-  #colTitle{
-   padding-left: 5px
-  }
-  
+#colTitle {
+  padding-left: 5px;
+}
 
- 
-  #vacancyTitle{
-    /* margin-top: 15px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    font-weight: bold
-  }
-  
-  #companyInfoTitle{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #jobInfo{
-    color: #8A7F7F;
-    font-size: 15px;
-    font-family: "Arvo", serif !important;
-  }
-  
-  #role{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #loco{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  
-  #applicationTitle{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #applicationJobInfo{
-    display: block;
-    color: #8A7F7F!important;
-    font-size: 15px;
-    font-family: "Arvo", serif !important;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  
-  }
-  
-  #statusTitle{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    font-weight: bold
-  }
-  
-  #appDateTitle{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #interviewDateTitle{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #replyDateTitle{
-    /* margin-top: 17px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #dateTime{
-    /* height: 25px;
-    width: 120px; */
-    font-size: 10px;
-    /* padding: 0px */
-  }
-  
-  #companyRoleTitle{ 
-    /* margin-top: 15px; */
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
-  
-  #companyRoleDesc{ 
-    font-family: "Arvo", serif;
-    color: #052f5f !important;
-    font-size: 15px;
-    /* margin-bottom: 0px */
-  }
+#vacancyTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  font-weight: bold;
+}
 
+#companyInfoTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#jobInfo {
+  color: #8a7f7f;
+  font-size: 15px;
+  font-family: "Arvo", serif !important;
+}
+
+#role {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#loco {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#applicationTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#applicationJobInfo {
+  display: block;
+  color: #8a7f7f !important;
+  font-size: 15px;
+  font-family: "Arvo", serif !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#statusTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#appDateTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#interviewDateTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#replyDateTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#dateTime {
+  font-size: 10px;
+}
+
+#companyRoleTitle {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
+
+#companyRoleDesc {
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+  font-size: 15px;
+}
