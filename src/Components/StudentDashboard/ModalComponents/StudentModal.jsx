@@ -163,33 +163,33 @@ class StudentModal extends Component {
 
            />
           )}
-          </Col>
-          </Row>
-       </Container>
-          {/* {this.state.selectedComponent === "Tasks" && (
+   
+          {this.state.selectedComponent === "Tasks" && (
             <TaskComponent 
               tasks={selectedJob.tasks}
               addTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks ? selectedJob.tasks.concat(task) : [task]}) }
               deleteTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks.filter(x => x !== task)})}
             />
-          )} */}
+          )}
 
-          {/* {this.state.selectedComponent === "Notes" && (
+          {this.state.selectedComponent === "Notes" && (
             <NotesComponent
               notes={selectedJob.notes}
               addNotes={(note) => updateSelectedJob({ notes: selectedJob.notes ? selectedJob.notes.concat(note) : [note]}) }
               deleteNotes={(note) => updateSelectedJob({ notes: selectedJob.notes.filter(x => x !== note)})}
               //TODO: editNotes={this.editNotes}
             />
-          )} */}
-{/* 
+          )}
+
           {this.state.selectedComponent === "Directory" &&  
            <DirectoryComponent
               companyName={this.props.selectedJob.company.replace(/ /g, "+")}
               selectedJob = {this.props.selectedJob}
             />
           }
-        </Container> */}
+       </Col>
+          </Row>
+       </Container>
       </Modal>
         
     );

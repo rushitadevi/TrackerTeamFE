@@ -1,24 +1,22 @@
 .addTask {
   display: inline-block !important;
-  width: 50% !important;
-  margin-top: 5px;
   border: none !important;
   font-family: "Arvo", serif;
   color: #8a7f7f !important;
   font-size: 15px !important;
-  margin-left: 105px !important;
 }
 
-#plusButton {
-  padding-top: 0px;
-  font-size: 1rem;
+#colTaskInput{
+  padding-left: 20px
+}
+
+.taskButton {
+  font-size: 0.8rem;
   font-weight: 700;
   color: #000;
-  border: none;
-  text-shadow: 0 1px 0 #fff;
-  background: #fcffff;
-  margin-bottom: 10px;
-  border: 1px solid #cccccc;
+  text-shadow: 0 1px 0 #fff !important;
+  background: #fcffff !important;
+  border: 1px solid #cccccc !important;
   color: #8a7f7f !important;
 }
 
@@ -26,32 +24,18 @@
   opacity: 1;
 } */
 
-.taskListRow {
-  left: 105px;
-  width: 335px !important;
-  margin-top: 15px
-}
+
 
 #allList {
   font-family: "Arvo", serif;
   color: #8a7f7f !important;
   font-size: 15px !important;
+  padding-left: 20px
 }
 
-#deleteTaskButton {
-  padding-top: 0px !important;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border: none;
-  text-shadow: 0 1px 0 #fff;
-  background: #fcffff;
-  margin-bottom: 10px;
-  border: 1px solid #cccccc;
-  color: #8a7f7f !important;
 
-}
-
-.taskListRow{
+#taskListRow{
   overflow-y:auto;
   overflow-x: hidden;
+ padding-top: 10px
 }

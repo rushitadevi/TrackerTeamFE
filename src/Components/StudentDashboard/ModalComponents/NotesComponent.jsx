@@ -26,18 +26,18 @@ class NotesComponents extends Component {
   render() {
     return (
       <>
-        <Row className="col-sm-12 notesRow">
-          <Col sm="8" className="notesInputCol">
+        <Row id="rowAddNotes">
+          <Col className="col-9" id="colAddNotes">
             <Input
               className="addNotes"
-              placeholder="...Notes "
+              placeholder="Notes "
               type="textarea"
               value={this.state.note}
               onChange={e => this.setState({ note: e.currentTarget.value })}
             />
           </Col>
-          <Col sm="2" id="plusNotesButtonCol">
-            <Button id="plusNotesButton" onClick={this.addNotesState}>
+          <Col className="col-3" id="colNotesAddButton">
+            <Button className="taskButton" onClick={this.addNotesState}>
               +
             </Button>
           </Col>
@@ -47,20 +47,22 @@ class NotesComponents extends Component {
           {this.props.notes &&
             this.props.notes.map(singleNote => (
               <>
-              <Row className="col-sm-12 notesListRow">
-                <Col sm="12" id="allNotesList">
+              <Row>
+                <Col className="col-8" >
                     {singleNote}
                 </Col>
 
-                <Col sm="12" id="allNotesButtons">
+                <Col className="col-2" >
                   <Button
                     id="deleteTaskButton"
                       onClick={() => this.deleteOneNote(singleNote)}
                   >
                     x
                   </Button>
+                  </Col>
+                  <Col className="col-2" >
                   <i class="material-icons" id="editIcon" onClick={() => this.editOneNote(singleNote)} style={{cursor:'pointer'}}>create</i>
-                </Col>
+                  </Col>
                 </Row>
               </>
             ))}

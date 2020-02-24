@@ -23,6 +23,8 @@ class TaskComponent extends Component {
   render() {
     return (
       <>
+      <Row>
+        <Col className="col-9" id="colTaskInput">
         <Input
           className="addTask"
           placeholder="Add Task "
@@ -35,30 +37,34 @@ class TaskComponent extends Component {
           //   }
           // }}
         />
-
-        <Button id="plusButton" onClick={this.setTaskState}>
+       </Col>
+       <Col className="col-3">
+        <Button className="taskButton" onClick={this.setTaskState}>
           +
         </Button>
-
-        <Row className="col-sm-12 taskListRow">
+        </Col>
+        </Row>
+       
           {this.props.tasks &&
             this.props.tasks.map(task => (
               <>
-                <Col sm="9" id="allList">
+               <Row id="taskListRow">
+                <Col className="col-9" id="allList">
                   - {task}
                 </Col>
 
-                <Col sm="3" id="allList">
+                <Col className="col-3" >
                   <Button
-                    id="deleteTaskButton"
+                    className="taskButton"
                     onClick={() => this.deleteOneTask(task)}
                   >
                     x
                   </Button>
                 </Col>
+                </Row>
               </>
             ))}
-        </Row>
+
       </>
     );
   }
