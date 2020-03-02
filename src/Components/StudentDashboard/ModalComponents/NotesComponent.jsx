@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Input, Row, Col } from "reactstrap";
+import { Scrollbars } from 'react-custom-scrollbars';
 
 class NotesComponents extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class NotesComponents extends Component {
     return (
       <>
         <Row id="rowAddNotes">
-          <Col className="col-9" id="colAddNotes">
+          <Col className="col-9 colAddNotes">
             <Input
               className="addNotes"
               placeholder="Notes "
@@ -36,7 +37,7 @@ class NotesComponents extends Component {
               onChange={e => this.setState({ note: e.currentTarget.value })}
             />
           </Col>
-          <Col className="col-3" id="colNotesAddButton">
+          <Col className="col-3 colNotesAddButton">
             <Button className="taskButton" onClick={this.addNotesState}>
               +
             </Button>
@@ -47,22 +48,27 @@ class NotesComponents extends Component {
           {this.props.notes &&
             this.props.notes.map(singleNote => (
               <>
-              <Row>
-                <Col className="col-8" >
+              <Row id="rowNotesList">
+                <Col className="col-8 colListNotes">
+                <Scrollbars>
                     {singleNote}
+                    </Scrollbars>
                 </Col>
-
-                <Col className="col-2" >
+             <Row xs={2}>
+               {/* <Row id="buttonsListNotes"> */}
+                <Col className="col-1 buttonsCol"  id="deleteNote">
                   <Button
-                    id="deleteTaskButton"
+                    className="taskButton"
                       onClick={() => this.deleteOneNote(singleNote)}
                   >
                     x
                   </Button>
                   </Col>
-                  <Col className="col-2" >
-                  <i class="material-icons" id="editIcon" onClick={() => this.editOneNote(singleNote)} style={{cursor:'pointer'}}>create</i>
+                  <Col className="col-1 buttonsCol" >
+                  <i className="material-icons taskButton editTask" id="editIcon" onClick={() => this.editOneNote(singleNote)} style={{cursor:'pointer'}}>create</i>
                   </Col>
+                  {/* </Row>*/}
+                  </Row> 
                 </Row>
               </>
             ))}

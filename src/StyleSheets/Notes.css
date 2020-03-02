@@ -83,7 +83,7 @@
   display: inline-block !important;
 } */
 
-#colAddNotes{
+.colAddNotes{
  padding-left: 20px;
 }
 
@@ -103,7 +103,42 @@
   height: 120px
 }
 
-#colNotesAddButton{
+.colNotesAddButton{
     padding-right: 20px;
     text-align: right
+}
+
+#rowNotesList{
+  border-radius: 8px;
+  padding-top: 20px;
+  padding-left: 20px;
+
+}
+
+.colListNotes{
+ padding-right: 0px;
+ overflow-wrap: break-word;
+ height: 50px
+}
+
+
+.buttonsNotes{
+  color: #8a7f7f;
+  font-size: 15px;
+  background: transparent;
+}
+
+.editTask{
+  line-height: 1.5 !important;
+  border-radius: .25rem !important;
+  padding: .375rem .55rem;
+}
+
+
+#deleteNote{
+ padding-right: 20px !important
+} 
+
+.buttonsCol{
+    left: 15px
 }

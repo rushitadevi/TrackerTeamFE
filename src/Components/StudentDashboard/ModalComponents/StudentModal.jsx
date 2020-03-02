@@ -8,6 +8,7 @@ import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
 import DirectoryComponent from "./DirectoryComponent";
 import JobInfoComponent from "./JobInfoComponent";
+import { Scrollbars } from 'react-custom-scrollbars';
 
 const mapStateToProps = state => state;
 
@@ -55,9 +56,8 @@ class StudentModal extends Component {
         id="statusModal"
         aria-labelledby="contained-modal-title-vcenter"
       >
-        <Container id="modalHeader">
-          <Row id="xButtonRow" >
-            <Col xs={12} id="xButtonCol">
+        <div id="modalHeader">
+          <div id="xButtonRow" >
             <Button
               className="xButton"
               onClick={async () => {
@@ -68,37 +68,38 @@ class StudentModal extends Component {
             >
               X
             </Button>
-            </Col>
-          </Row>
-          <Row id="modalTitleRow">
-            <Col xs={2} className="align-self-center" id="colModalLogo">
+          </div>
+          <div id="modalTitleRow">
+            <div id="logoTitle">
+            <div id="colModalLogo">
               <img
                 id="modalLogo"
                 fluid
                 src={selectedJob.companyLogo}
                 alt="logo"
               />
-            </Col>
-            <Col xs={6} id="colTitle" className="align-self-center">
-              <h3 id="title">{selectedJob.companyName}</h3>
-            </Col>
-            <Col xs={4} className="align-self-center" id="colUpdateButton">
+            </div>
+            <div id="colTitle">
+              <h1 id="title">{selectedJob.companyName}</h1>
+            </div>
+            </div>
+            <div id="colUpdateButton">
             <Button
               className="updateButton"
               onClick={() => this.setState({ showModal: true })}
             >
               UPDATE STATUS
             </Button>
-            </Col >
+            </div >
             <StatusUpdateModal
               showModal={this.state.showModal}
               toggleModal={this.toggleStatusModal}
               handleStatus={newStatus => updateSelectedJob({ status: newStatus})}
             />
-          </Row>
-        </Container>
+          </div>
+        </div>
 
-        <Container fluid>
+        <div id="infoScreensCont">
           {/* <Row className="modalOptionsRect"> */}
           <Row id="jobInfoScreens">
 
@@ -153,8 +154,10 @@ class StudentModal extends Component {
        
            
           {/* </Row> */}
-       
+
+    
          <Col className="col-12 col-sm-9 colJobInfo colJobInfoTwo">
+        
         {/* <Container className="companyInfoCont"> */}
           {this.state.selectedComponent === "JobInfo" && (
              <JobInfoComponent
@@ -171,7 +174,7 @@ class StudentModal extends Component {
               deleteTask={(task) => updateSelectedJob({ tasks: selectedJob.tasks.filter(x => x !== task)})}
             />
           )}
-
+     
           {this.state.selectedComponent === "Notes" && (
             <NotesComponent
               notes={selectedJob.notes}
@@ -187,9 +190,11 @@ class StudentModal extends Component {
               selectedJob = {this.props.selectedJob}
             />
           }
+        
        </Col>
+     
           </Row>
-       </Container>
+       </div>
       </Modal>
         
     );

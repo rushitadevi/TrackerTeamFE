@@ -5,7 +5,8 @@
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 470px
+  height: 490px;
+  display: flex;
 }
 
 #modalHeader {
@@ -13,6 +14,16 @@
   border: 1px solid #cccccc;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#xButtonRow {
+  flex: 1;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-top: 5px;
 }
 
 .xButton {
@@ -35,20 +46,28 @@
 }
 
 #modalTitleRow {
-  margin-bottom: 5px;
+  flex: 1;
+  display: flex;
+  padding-bottom: 10px;
 }
 
 #colModalLogo {
   padding-right: 0px;
   padding-left: 0px;
-  text-align: right;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 #modalLogo {
   height: 80%;
-  width: 70%;
+  width: 80%;
   opacity: 0.8;
   padding-bottom: 3px;
+  padding-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-self: right;
 }
 
 .updateButton {
@@ -62,128 +81,91 @@
   width: 60px;
   height: 40px;
   padding: 0px;
-  float: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-self: right;
 }
 
-/*Done*/
-
-/* .modalOptions {
-    background: #fcffff;
-    border-right: 1px solid #cccccc;
-    box-sizing: border-box;
-    display: table;
-  } */
-
-/* .modalOptionsRect {
-    position: absolute;
-    height: 100%;
-    background: #fcffff;
-    border: 1px solid #cccccc;
-    box-sizing: border-box;
-    border-bottom-left-radius: 8px;
-    display: table;
-  } */
-#jobInfoScreens{
-padding-bottom: 15px
-
-}
-.modal-content {
-  border: none !important;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+#jobInfoScreens {
+  height: inherit;
 }
 
-.colSideMenu{
+#infoScreensCont {
+  flex: 1;
+}
+
+.colSideMenu {
   text-align: center;
   padding-bottom: 5px;
   padding-top: 5px;
   border-bottom: 1px solid #cccccc !important;
-
 }
 
-/* .sideOptions{
-    border-bottom: 1px solid #cccccc !important;
-    padding-left: 0px !important;
-    text-align: center;
-    padding-right: 0px !important;
-  } */
-
-/* .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  } */
 .colSideMenu {
   padding-left: 0px;
-  padding-right: 0px
+  padding-right: 0px;
 }
 
 .colJobInfo {
   float: left;
   padding-top: 5px;
-  padding-left: 2px
+  padding-left: 2px;
 }
 
-
-
-.colJobInfoTwo{
+.colJobInfoTwo {
   padding-right: 0px;
-  padding-left: 10px
+  padding-left: 10px;
+  height: inherit;
 }
 
-.colJobInfoOne{
+.colJobInfoOne {
   padding-left: 0px;
   padding-right: 0px;
   border-right: 1px solid #cccccc !important;
 }
-/* .more {
-  height: 56px;
-} */
 
 a {
   text-decoration: none !important;
   color: #052f5f !important;
-  font-size: 15px
+  font-size: 15px;
 }
 
-/* .h4,
-h4 { */
-  /* font-size: 0.5rem; */
-  /* color: #052f5f !important; */
-/* } */
-
-/* .container {
-    max-width: none !important;
-    width: 970px;
-  } */
-
-/* .companyInfoCont {
-    padding-right: 0px !important;
-  
-  } */
-
-  .companyInfo{
-    padding-right: 0px;
-    padding-left: 10px
-  }
+.companyInfo {
+  padding-right: 0px;
+  padding-left: 10px;
+}
 
 .companyInfoRow {
   border-bottom-right-radius: 8px;
   padding-right: 0px !important;
 }
 
-/* .companyRoleDesc {
-    border-bottom-right-radius: 8px;
-  } */
-
 #title {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 20px !important;
+  /* margin: auto; */
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 0px;
 }
 
 #colTitle {
-  padding-left: 5px;
+  padding-left: 10px;
+  flex: 1;
+  display: flex;
+}
+
+#colUpdateButton {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+#logoTitle {
+  display: flex;
+  flex: 1;
 }
 
 #vacancyTitle {
@@ -266,10 +248,9 @@ h4 { */
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
+  padding-top: 20px;
 }
 
-#companyRoleDesc {
-  font-family: "Arvo", serif;
-  color: #052f5f !important;
-  font-size: 15px;
+.companyRoleDesc {
+  padding-left: 10px !important;
 }
