@@ -16,22 +16,35 @@ class JobInfoComponent extends Component {
        
         return ( 
             <>
-              <Row className="col-sm-12 companyInfoRow">
-                <Col xs={6} className="companyInfo">
+              <div className="companyInfoRow">
+                <div id="companyInfoColOne">
+                  <div className="companyInfoOne">
                   <h6 id="vacancyTitle">Vacancy Details</h6>
-                  <h6 id="companyInfoTitle">Company Name</h6>
-                  <h6 id="jobInfo">{selectedJob.companyName}</h6>
+                  </div>
+                  <div className="companyInfoOne">
+                  <h6 id="companyInfoTitle">Company Name</h6>           
+                  <h6 className ="jobInfo">{selectedJob.companyName}</h6>
+                  </div>
+                  <div className="companyInfoOne">
                   <h6 id="role">Role Title</h6>
-                  <h6 id="jobInfo">{selectedJob.roleTitle}</h6>
+                  <h6 className="jobInfo">{selectedJob.roleTitle}</h6>
+                  </div>
+                  <div className="companyInfoOne">
                   <h6 id="loco">Location</h6>
-                  <h6 id="jobInfo">{selectedJob.location}</h6>
+                  <h6 className="jobInfo">{selectedJob.location}</h6>
+                  </div>
+                  <div className="companyInfoOne">
                   <h6 id="applicationTitle">Posting URL</h6>
                   <a id="applicationJobInfo" href={selectedJob.applyUrl}>
                     {selectedJob.applyUrl}
                   </a>
-                </Col>
-                <Col xs={6} className="companyInfo">
+                  </div>
+                  </div>
+                <div id="companyInfoColTwo">
+                <div className="companyInfoTwo">
                   <h6 id="statusTitle">Status: New</h6>
+                  </div>
+                  <div className="companyInfoTwo">
                   <h6 id="appDateTitle">Application Date</h6>
                   <Input
                     type="date"
@@ -41,7 +54,8 @@ class JobInfoComponent extends Component {
                     value={selectedJob.statusDateTime ? selectedJob.statusDateTime.split('T')[0] : undefined}
                     onChange={e => this.props.onChange(e)}
                   />
-
+                 </div>
+                 <div className="companyInfoTwo">
                   <h6 id="interviewDateTitle">Interview Date</h6>
                   <Input
                     type="date"
@@ -51,7 +65,8 @@ class JobInfoComponent extends Component {
                     value={selectedJob.intDateTime ? selectedJob.intDateTime.split('T')[0] : undefined}
                     onChange={e => this.props.onChange(e)}
                   />
-
+                 </div>
+                 <div className="companyInfoTwo">
                   <h6 id="replyDateTitle">Expected Reply Date</h6>
                   <Input
                     type="date"
@@ -61,17 +76,20 @@ class JobInfoComponent extends Component {
                     value={selectedJob.replyDateTime ? selectedJob.replyDateTime.split('T')[0] : undefined}
                     onChange={e => this.props.onChange(e)}
                   />
-                </Col>
-                <Col xs={12} className="companyRoleDesc">
+                  </div>
+                </div>
+                </div >
+                <div className="companyRoleDesc">
+                  <div className="roleDesc">
                   <h6 id="companyRoleTitle">Role Description</h6>
-
-                  <div id="jobInfo">
+                  </div>
+                  <div className="roleDesc jobInfo">
                     <Scrollbars id="modalScroll" style={{ height: 110 }}>
                     {selectedJob.description && selectedJob.description.replace(/<[^>]*>?/gm, "")}
                     </Scrollbars>
                   </div>
-                </Col>
-              </Row>
+                </div>
+    
             </>
          );
     }

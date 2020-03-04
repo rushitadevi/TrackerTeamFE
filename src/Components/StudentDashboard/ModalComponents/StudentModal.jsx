@@ -99,11 +99,10 @@ class StudentModal extends Component {
           </div>
         </div>
 
-        <div id="infoScreensCont">
           {/* <Row className="modalOptionsRect"> */}
-          <Row id="jobInfoScreens">
+          <div id="jobInfoScreens">
 
-        <Col className="col-xs-4 col-sm-3 colJobInfo colJobInfoOne" >
+        <div className="colJobInfoOne" >
               <Col className="col-12 colSideMenu">
                 <a
                   href="#"
@@ -150,13 +149,13 @@ class StudentModal extends Component {
                 </a>
               {/* </Col> */}
               </Col>
-              </Col>
+              </div>
        
            
           {/* </Row> */}
 
     
-         <Col className="col-12 col-sm-9 colJobInfo colJobInfoTwo">
+         <div className="colJobInfoTwo">
         
         {/* <Container className="companyInfoCont"> */}
           {this.state.selectedComponent === "JobInfo" && (
@@ -191,10 +190,9 @@ class StudentModal extends Component {
             />
           }
         
-       </Col>
-     
-          </Row>
        </div>
+     
+          </div>
       </Modal>
         
     );

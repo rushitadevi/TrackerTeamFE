@@ -5,7 +5,7 @@
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 490px;
+  height: 495px;
   display: flex;
 }
 
@@ -67,11 +67,10 @@
   padding-left: 20px;
   margin-top: auto;
   margin-bottom: auto;
-  justify-self: right;
 }
 
 .updateButton {
-  background-color: #e5b85f !important;
+  background-color: #e5b85f;
   border-radius: 8px;
   font-family: "Arvo", serif;
   color: #fcffff !important;
@@ -88,40 +87,32 @@
 
 #jobInfoScreens {
   height: inherit;
+  flex: 5;
+  display: flex;
 }
 
-#infoScreensCont {
-  flex: 1;
-}
 
 .colSideMenu {
   text-align: center;
-  padding-bottom: 5px;
-  padding-top: 5px;
+  padding: 8px;
   border-bottom: 1px solid #cccccc !important;
 }
 
-.colSideMenu {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-
-.colJobInfo {
-  float: left;
-  padding-top: 5px;
-  padding-left: 2px;
-}
-
 .colJobInfoTwo {
-  padding-right: 0px;
-  padding-left: 10px;
   height: inherit;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 80%;
+  padding-top: 12px;
+  padding-left: 10px;
+
 }
 
 .colJobInfoOne {
-  padding-left: 0px;
-  padding-right: 0px;
   border-right: 1px solid #cccccc !important;
+  flex: 1
 }
 
 a {
@@ -130,14 +121,30 @@ a {
   font-size: 15px;
 }
 
-.companyInfo {
-  padding-right: 0px;
-  padding-left: 10px;
+#companyInfoColOne{
+  display: flex;
+  flex-direction: column;
+  width: 55%
+}
+
+
+#companyInfoColTwo{
+  display: flex;
+  flex-direction: column;
+}
+
+.companyInfoTwo{
+  flex: 1
+}
+
+.companyInfoOne{
+  flex: 1
 }
 
 .companyInfoRow {
   border-bottom-right-radius: 8px;
-  padding-right: 0px !important;
+  display: flex;
+  flex: 1
 }
 
 #title {
@@ -173,6 +180,7 @@ a {
   color: #052f5f !important;
   font-size: 15px;
   font-weight: bold;
+  word-wrap: normal
 }
 
 #companyInfoTitle {
@@ -181,7 +189,7 @@ a {
   font-size: 15px;
 }
 
-#jobInfo {
+.jobInfo {
   color: #8a7f7f;
   font-size: 15px;
   font-family: "Arvo", serif !important;
@@ -248,9 +256,19 @@ a {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
-  padding-top: 20px;
+  /* padding-top: 20px; */
 }
 
 .companyRoleDesc {
-  padding-left: 10px !important;
+  /* padding-left: 10px !important; */
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px
 }
+
+.roleDesc{
+  flex: 1
+}
+
