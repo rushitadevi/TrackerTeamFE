@@ -5,7 +5,7 @@
   box-sizing: border-box;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 495px;
+  height: 530px;
   display: flex;
 }
 
@@ -91,10 +91,9 @@
   display: flex;
 }
 
-
 .colSideMenu {
   text-align: center;
-  /* padding: 8px; */
+  padding: 8px;
   border-bottom: 1px solid #cccccc !important;
   /* flex: 1;
   height: 10px */
@@ -109,25 +108,32 @@
     /* text-align: center; */
   }
 
-
   .companyInfoRow {
-    width: 100% !important
-  }
-  
-  #companyInfoColOne{
-    width: 50% !important
+    width: 100% !important;
   }
 
-  #companyInfoColTwo{
-    width: 50% !important
+  #companyInfoColOne {
+    width: 50% !important;
   }
 
-  
+  #companyInfoColTwo {
+    width: 50% !important;
+  }
+
   .companyRoleDesc {
-    width: 100% !important
+    width: 100% !important;
+  }
+
+  .colSideMenu {
+    text-align: center;
+    padding: 3px;
+    border-bottom: 1px solid #cccccc !important;
+  }
+
+  .colJobInfoTwo {
+    width: 100% !important;
   }
 }
-
 
 .colJobInfoTwo {
   height: inherit;
@@ -135,17 +141,16 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  width: 100%;
-  padding-left: 15px;
+  width: 80%;
+  padding: 15px;
   padding-top: 15px;
-
 }
 
 .colJobInfoOne {
   border-right: 1px solid #cccccc !important;
   flex: 1;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 a {
@@ -154,42 +159,32 @@ a {
   font-size: 15px;
 }
 
-#companyInfoColOne{
+#companyInfoColOne {
   display: flex;
   flex-direction: column;
   width: 50%;
-  padding-right: 10px
+  padding-right: 10px;
 }
 
-
-#companyInfoColTwo{
+#companyInfoColTwo {
   display: flex;
   flex-direction: column;
-  /* padding-right: 80px; */
-  /* width: 30% */
 }
 
 .modal-content {
   border: none;
 }
 
-
-.companyInfoOne{
-  flex: 1
-}
-
 .companyInfoRow {
   border-bottom-right-radius: 8px;
   display: flex;
-  flex: 1;
-  width: 80%
+  padding-bottom: 10px
 }
 
 #title {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 20px !important;
-  /* margin: auto; */
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 0px;
@@ -218,7 +213,7 @@ a {
   color: #052f5f !important;
   font-size: 15px;
   font-weight: bold;
-  word-wrap: normal
+  word-wrap: normal;
 }
 
 #companyInfoTitle {
@@ -272,18 +267,21 @@ a {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
+  margin-bottom: 0px
 }
 
 #interviewDateTitle {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
+  margin-bottom: 0px
 }
 
 #replyDateTitle {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
+  margin-bottom: 0px
 }
 
 #dateTime {
@@ -300,12 +298,8 @@ a {
 .companyRoleDesc {
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 80%
 }
 
-.roleDesc{
+.roleDesc {
   flex: 1;
 }
-

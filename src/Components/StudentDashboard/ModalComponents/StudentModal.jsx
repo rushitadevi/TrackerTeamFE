@@ -185,8 +185,9 @@ class StudentModal extends Component {
 
           {this.state.selectedComponent === "Directory" &&  
            <DirectoryComponent
-              companyName={this.props.selectedJob.company.replace(/ /g, "+")}
-              selectedJob = {this.props.selectedJob}
+               companyName = {selectedJob.companyName.replace(/ /g, "+")}
+              // companyName={this.props.selectedJob.company.replace(/ /g, "+")}
+              // selectedJob = {this.props.selectedJob}
             />
           }
         
