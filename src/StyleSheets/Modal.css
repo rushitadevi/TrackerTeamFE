@@ -94,9 +94,40 @@
 
 .colSideMenu {
   text-align: center;
-  padding: 8px;
+  /* padding: 8px; */
   border-bottom: 1px solid #cccccc !important;
+  /* flex: 1;
+  height: 10px */
 }
+
+@media screen and (max-width: 411px) {
+  #jobInfoScreens {
+    height: inherit;
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    /* text-align: center; */
+  }
+
+
+  .companyInfoRow {
+    width: 100% !important
+  }
+  
+  #companyInfoColOne{
+    width: 50% !important
+  }
+
+  #companyInfoColTwo{
+    width: 50% !important
+  }
+
+  
+  .companyRoleDesc {
+    width: 100% !important
+  }
+}
+
 
 .colJobInfoTwo {
   height: inherit;
@@ -104,15 +135,17 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  width: 80%;
-  padding-top: 12px;
-  padding-left: 10px;
+  width: 100%;
+  padding-left: 15px;
+  padding-top: 15px;
 
 }
 
 .colJobInfoOne {
   border-right: 1px solid #cccccc !important;
-  flex: 1
+  flex: 1;
+  display: flex;
+  flex-direction: column
 }
 
 a {
@@ -124,18 +157,22 @@ a {
 #companyInfoColOne{
   display: flex;
   flex-direction: column;
-  width: 55%
+  width: 50%;
+  padding-right: 10px
 }
 
 
 #companyInfoColTwo{
   display: flex;
   flex-direction: column;
+  /* padding-right: 80px; */
+  /* width: 30% */
 }
 
-.companyInfoTwo{
-  flex: 1
+.modal-content {
+  border: none;
 }
+
 
 .companyInfoOne{
   flex: 1
@@ -144,7 +181,8 @@ a {
 .companyInfoRow {
   border-bottom-right-radius: 8px;
   display: flex;
-  flex: 1
+  flex: 1;
+  width: 80%
 }
 
 #title {
@@ -260,15 +298,14 @@ a {
 }
 
 .companyRoleDesc {
-  /* padding-left: 10px !important; */
   display: flex;
   flex-direction: column;
   padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px
+  padding-bottom: 10px;
+  width: 80%
 }
 
 .roleDesc{
-  flex: 1
+  flex: 1;
 }
 

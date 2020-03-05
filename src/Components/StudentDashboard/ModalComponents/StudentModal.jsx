@@ -103,7 +103,7 @@ class StudentModal extends Component {
           <div id="jobInfoScreens">
 
         <div className="colJobInfoOne" >
-              <Col className="col-12 colSideMenu">
+              <div className="colSideMenu">
                 <a
                   href="#"
                   onClick={() => {
@@ -112,10 +112,10 @@ class StudentModal extends Component {
                 >
                   JOB INFO
                 </a>
-               </Col>
+               </div>
             
               {/* <Col xs={12} className="sideOptions"> */}
-              <Col className="col-12 colSideMenu">
+              <div className="colSideMenu" >
                 <a
                   href="#"
                   onClick={() => {
@@ -124,10 +124,10 @@ class StudentModal extends Component {
                 >
                   TASKS
                 </a>
-                </Col>
+                </div>
               {/* </Col> */}
               {/* <Col xs={12} className="sideOptions"> */}
-              <Col className="col-12 colSideMenu">
+              <div className="colSideMenu" >
                 <a
                   href="#"
                   onClick={() => {
@@ -136,8 +136,8 @@ class StudentModal extends Component {
                 >
                   NOTES
                 </a>
-              </Col>
-              <Col className="col-12 colSideMenu">
+                </div>
+              <div className="colSideMenu" >
               {/* <Col xs={12} className="sideOptions more"> */}
                 <a
                   href="#"
@@ -148,7 +148,7 @@ class StudentModal extends Component {
                   MORE VACANCIES
                 </a>
               {/* </Col> */}
-              </Col>
+              </div>
               </div>
        
            
