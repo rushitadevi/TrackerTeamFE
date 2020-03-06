@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Input, Row, Col } from "reactstrap";
+import { Scrollbars } from 'react-custom-scrollbars';
 
 class TaskComponent extends Component {
   constructor(props) {
@@ -23,8 +24,9 @@ class TaskComponent extends Component {
   render() {
     return (
       <>
-      <Row>
-        <Col className="col-9" id="colTaskInput">
+
+        <div className="taskRow">
+          <div id="inputTaskField"> 
         <Input
           className="addTask"
           placeholder="Add Task "
@@ -37,34 +39,37 @@ class TaskComponent extends Component {
           //   }
           // }}
         />
-       </Col>
-       <Col className="col-3">
+        </div>
+    
+       <div id="buttonAddTask">
         <Button className="taskButton" onClick={this.setTaskState}>
           +
         </Button>
-        </Col>
-        </Row>
+        </div>
+        </div>
        
           {this.props.tasks &&
             this.props.tasks.map(task => (
               <>
-               <Row id="taskListRow">
-                <Col className="col-9" id="allList">
-                  - {task}
-                </Col>
+            <div className="taskRow">
+                <div className="displayTaskCont" id="allList">
+                <Scrollbars id="scrollTask">
+                  {task}
+                  </Scrollbars>
+                </div>
 
-                <Col className="col-3" >
+                <div id="displayTaskDelete" >
                   <Button
                     className="taskButton"
                     onClick={() => this.deleteOneTask(task)}
                   >
                     x
                   </Button>
-                </Col>
-                </Row>
+                </div>
+                </div>
               </>
             ))}
-
+          
       </>
     );
   }

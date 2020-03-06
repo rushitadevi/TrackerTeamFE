@@ -18,48 +18,61 @@ class StatusUpdateModal extends Component {
         aria-labelledby="contained-modal-title-vcenter"
       >
 
-        <Container id="statusList">
-        <Row id="xButtonRow" className="col-sm-12">
+        <div id="statusList">
+        <div className="xButtonRow" id="statusListxBtn">
             <Button
-              id="minModalxButton"
+              className="xButton"
               onClick={() => {
                 this.props.toggleModal();
               }}
             >
               X
             </Button>
-          </Row>
-          <Row id="statOptionsRow" className="col-sm-12">
-            <Col id="statusOptCol" sm={10}>
-             <h6>Save to wishlist</h6>
-             <h6>Applied</h6>
-             <h6>Interview</h6>
-             <h6>Offer</h6>
-             <h6>Application Withdrawn</h6>
-             <h6>Rejected</h6>
-            </Col>
-            <Col sm={2} id="addStatusOptCol">
-                <a href="#" onClick={() => {this.statusInput("wishlist"); {this.props.toggleModal();}}}>      
-            <i class="material-icons" id="addCircle">add_circle_outline</i>
-                </a>
-                <a href="#" onClick={() => {this.statusInput("applied"); {this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i> 
-                </a>
-                <a href="#" onClick={() => {this.statusInput("interview"); {this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i>
-                </a>
-                <a href="#"  onClick={() => {this.statusInput("offer"); {this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i>
-                </a>
-                <a href="#"  onClick={() => {this.statusInput("application withdrawn");{this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i> 
-                </a>
-                <a href="#" onClick={() => {this.statusInput("rejected");{this.props.toggleModal();}}}>
-            <i class="material-icons" id="addCircle">add_circle_outline</i> 
-                </a>
-            </Col>
-          </Row>
-        </Container>
+          </div>
+
+            <div className="statusDesc">
+             <div className="statusDescText">Save to wishlist</div>
+             <div href="#" onClick={() => {this.statusInput("wishlist"); {this.props.toggleModal();}}}>      
+             <i class="material-icons" id="addCircle">add_circle_outline</i>
+                </div>
+             </div>
+
+             <div className="statusDesc">
+             <div  className="statusDescText">Applied</div>
+             <div href="#" onClick={() => {this.statusInput("applied"); {this.props.toggleModal();}}}>      
+             <i class="material-icons" id="addCircle">add_circle_outline</i>
+              </div>
+             </div>
+
+             <div className="statusDesc">
+             <div  className="statusDescText">Interview</div>
+             <div href="#" onClick={() => {this.statusInput("interview"); {this.props.toggleModal();}}}>      
+             <i class="material-icons" id="addCircle">add_circle_outline</i>
+              </div>
+             </div>
+
+             <div className="statusDesc">
+             <div  className="statusDescText"> Offer</div>
+             <div href="#" onClick={() => {this.statusInput("offer"); {this.props.toggleModal();}}}>      
+             <i class="material-icons" id="addCircle">add_circle_outline</i>
+              </div>
+             </div>
+
+             <div className="statusDesc">
+             <div  className="statusDescText">Application Withdrawn</div>
+             <div href="#" onClick={() => {this.statusInput("application"); {this.props.toggleModal();}}}>      
+             <i class="material-icons" id="addCircle">add_circle_outline</i>
+              </div>
+             </div>
+
+             <div className="statusDesc">
+             <div  className="statusDescText">Rejected</div>
+             <div href="#" onClick={() => {this.statusInput("rejected"); {this.props.toggleModal();}}}>      
+             <i class="material-icons" id="addCircle">add_circle_outline</i>
+              </div>
+             </div>
+
+        </div>
 
        
 

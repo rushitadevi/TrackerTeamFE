@@ -21,39 +21,45 @@ class FilteredDisplayPage extends Component {
   
         return ( 
           <>
-            <Row className="col-12" id="titleRow">
-              <Col xs="2" id="companyTitle">
+          <div id="filterDisplayCont">
+            <div className="filteredRows" id="filterTitleRow">
+              <div className ="headerTitle" id="filterCompanyHeader">
                 Company
-              </Col>
-              <Col xs="2" id="roleTitle">
+              </div>
+              <div className ="headerTitle" id="filterRoleHeader">
                 Role
-              </Col>
-              <Col xs="2" id="locationTitle">
+              </div>
+              <div className ="headerTitle" id="filterLocationHeader">
                 Location
-              </Col>
-              <Col xs="2" id="descriptionTitle">
+              </div>
+              <div className ="headerTitle"  id="filterDescHeader">
                 Description
-              </Col>
-            </Row>
+              </div>
+            </div>
+   
             <Scrollbars id="filteredScroll" style={{ height: 500 }}>
+         
               {this.props.filteredSearch &&
                 this.props.filteredSearch.map((jobs, index) => (
-                  <Row key={index} className="col-12" id="record">
-                    <Col xs="2" id="companyRecord">
+                  <>
+                     <div className = "filteredRows" id="recordMapCont">
+                    <div key={index} id="filterCompany">
                       {jobs.companyName}
-                    </Col>
-                    <Col xs="3" id="titleRecord">
+                    </div>
+                    <div id="filterRole">
                       {jobs.roleTitle}
-                    </Col>
-                    <Col xs="2">{jobs.location}</Col>
-                    <Col
-                      xs="3"
-                      id="descriptionRecord"
+                    </div>
+                    <div id="filterLocation">
+                      {jobs.location}
+                      </div>
+                    <div
+                      id="filteredJobDescText"
                       onMouseOver={this.mouseOver}
                     >
                       {jobs.description.replace(/<[^>]*>?/gm, "")}
-                    </Col>
-                    <button
+                    </div>
+                    <div id="viewDetails">
+                    <div
                       onClick={() =>
                         this.props.onSelectedJob(jobs)
                         // this.setState({
@@ -61,13 +67,17 @@ class FilteredDisplayPage extends Component {
                         //   selectedJob: jobs
                         // })
                       }
-                      className="detailsButton"
+                      id="detailsButton"
                     >
                       Details
-                    </button>
-                  </Row>
+                    </div>
+                    </div>
+                    </div>
+                    </>
                 ))}
             </Scrollbars>
+    
+            </div>
        </>
          );
     }

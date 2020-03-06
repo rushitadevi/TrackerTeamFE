@@ -57,7 +57,7 @@ class StudentModal extends Component {
         aria-labelledby="contained-modal-title-vcenter"
       >
         <div id="modalHeader">
-          <div id="xButtonRow" >
+          <div className="xButtonRow" >
             <Button
               className="xButton"
               onClick={async () => {
@@ -84,12 +84,12 @@ class StudentModal extends Component {
             </div>
             </div>
             <div id="colUpdateButton">
-            <Button
+            <div
               className="updateButton"
               onClick={() => this.setState({ showModal: true })}
             >
-              UPDATE STATUS
-            </Button>
+              Update Status
+            </div>
             </div >
             <StatusUpdateModal
               showModal={this.state.showModal}

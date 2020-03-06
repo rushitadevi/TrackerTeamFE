@@ -1,53 +1,96 @@
-#statusListModal{
-    height: 225px !important;
-    width: 300px !important;
-    border-radius: 8px;
-    background: #ffffff;
-    border: 1px solid #cccccc;
-    box-sizing: border-box;
-    margin-top: 90px;
-   z-index: 1070 !important;
-   transform: none !important;
-   opacity: 0.9 !important;
-  
+#statusListModal {
+  height: 225px !important;
+  width: 300px !important;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  margin-top: 90px;
+  z-index: 1070 !important;
+  transform: none !important;
+  opacity: 0.9 !important;
+  box-shadow: 3px 3px 4px #E5E5E5;
 }
 
-#xListButton{
-    padding-top: 0px;
-    margin-left: 262px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #000;
-    border: none;
-    text-shadow: 0 1px 0 #fff;
-    background: #fcffff;
-}
-#statOptionsRow{
-    padding-right: 0px !important;
-    margin-right: 0px !important;
-    margin-top: 30px
+
+@media screen and (max-width: 411px) {
+    #statusListModal {
+        margin-left: 55px;
+        margin-top: 70px;
+    }
 }
 
-#addStatusOptCol{
-    padding-right: 0px;
+
+@media screen and (max-width: 360px) {
+    #statusListModal {
+        margin-left: 30px;
+        margin-top: 70px;
+    }
 }
 
-#statusOptCol h6{
- line-height: 20px;
- font-family: "Arvo", serif;
- color: #052f5f !important;
+@media screen and (max-width: 320px) {
+    #statusListModal {
+        margin-left: 25px;
+        margin-top: 70px;
+        width: 270px !important;
+    }
 }
 
-#statusOptCol{
-    padding-right: 0px !important;
+#statusList {
+  display: flex;
+  flex-direction: column;
 }
 
-#minModalxButton{
-   margin-left: 262px !important;
-   font-size: 1rem;
-   font-weight: 700;
-   color: #000 !important;
-   border: none;
-   text-shadow: 0 1px 0 #fff;
-   background: #fcffff;
+.statusDescText {
+  flex: 1;
+}
+
+#statusListxBtn {
+  padding-bottom: 2px;
+}
+
+.statusDesc {
+  display: flex;
+  /* padding: 2px; */
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#xListButton {
+  padding-top: 0px;
+  margin-left: 262px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  text-shadow: 0 1px 0 #fff;
+  background: #fcffff;
+}
+#statOptionsRow {
+  padding-right: 0px !important;
+  margin-right: 0px !important;
+  margin-top: 30px;
+}
+
+#addStatusOptCol {
+  padding-right: 0px;
+}
+
+#statusOptCol h6 {
+  line-height: 20px;
+  font-family: "Arvo", serif;
+  color: #052f5f !important;
+}
+
+#statusOptCol {
+  padding-right: 0px !important;
+}
+
+#minModalxButton {
+  margin-left: 262px !important;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #000 !important;
+  border: none;
+  text-shadow: 0 1px 0 #fff;
+  background: #fcffff;
 }

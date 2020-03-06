@@ -55,8 +55,7 @@ class DirectoryComponent extends Component {
             (companyVacancies, index) => {
               return (
                 <>
-                  <Row key={index} className="sm-col-12 moreVacanciesRow">
-                    <Col sm="12" className="moreVacanciesCol">
+                    <div className="moreVacanciesCol">
                       <Card className="card">
                         <CardContent>
                           <Typography
@@ -83,8 +82,7 @@ class DirectoryComponent extends Component {
                           <Button size="small">Learn More</Button>
                         </CardActions>
                       </Card>
-                    </Col>
-                  </Row>
+                    </div>
                 </>
               );
             }
