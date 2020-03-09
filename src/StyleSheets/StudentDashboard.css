@@ -2,6 +2,7 @@
   background: #fcffff;
   padding-bottom: 20px;
   margin-bottom: 20px;
+  margin-top: 40px;
 }
 #filterBarFilters {
   padding-top: 20px;
@@ -18,7 +19,8 @@
   height: 100%;
   overflow-y: auto;
   overflow-x: auto;
-  position: absolute;
+  /* position: absolute; */
+  height: 100vh
 }
 
 #logoDashboard {
@@ -106,6 +108,7 @@
   display: flex;
   flex-direction: column;
   padding: 15px;
+  flex: 1
 }
 /* 
 #roleTitle {
@@ -135,26 +138,20 @@
 } */
 
 #detailsButton {
-  border-radius: 8px;
-  font-family: "Arvo", serif;
+  margin-top: 0px;
   width: 65px;
   height: 30px;
-  background-color: #e5b85f;
-  color: #052f5f !important;
-  font-size: 12px;
+  padding-top: 7px;
 }
 
 #viewDetails {
   flex: 1;
   display: flex;
-  /* flex-basis: 10% */
   justify-content: center;
-  /* padding-right: 15px */
+  padding-top: 0px
 }
 
-/* .headerTitle{
-  flex-basis: 25%
-} */
+
 
 #recordMapCont {
   padding-top: 10px;

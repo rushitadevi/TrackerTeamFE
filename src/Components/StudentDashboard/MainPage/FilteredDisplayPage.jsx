@@ -60,6 +60,8 @@ class FilteredDisplayPage extends Component {
                     </div>
                     <div id="viewDetails">
                     <div
+                    className="updateButton"
+                    id="detailsButton"
                       onClick={() =>
                         this.props.onSelectedJob(jobs)
                         // this.setState({
@@ -67,7 +69,7 @@ class FilteredDisplayPage extends Component {
                         //   selectedJob: jobs
                         // })
                       }
-                      id="detailsButton"
+
                     >
                       Details
                     </div>
