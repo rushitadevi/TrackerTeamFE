@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Row, Col} from "reactstrap";
 import { Scrollbars } from "react-custom-scrollbars";
 
 class FilteredDisplayPage extends Component {
@@ -77,8 +76,7 @@ class FilteredDisplayPage extends Component {
                     </div>
                     </>
                 ))}
-            </Scrollbars>
-    
+            </Scrollbars>    
             </div>
        </>
          );

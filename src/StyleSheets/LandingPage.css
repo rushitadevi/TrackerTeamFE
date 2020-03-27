@@ -1,4 +1,4 @@
-#logo{
+/* #logo{
     margin-top:10px;
     margin-left:12rem;
   }
@@ -61,4 +61,75 @@
     max-width:550px;
     height: 550px;
     margin-top: -25px;
+  } */
+
+  /* New  */
+
+  .Container{
+    display: flex;
+    height: 100vh;
+    background-color:#eaeef6;
+    align-items: center;
   }
+
+  .nav-link:hover{
+    color:#eddb53 !important;
+    font-weight: bold;
+  }
+
+  .leftContiner{
+    flex:1
+  }
+
+  .mainContainer{
+    display: flex;
+    flex: 9;
+    background-color: #f8f9fa;
+    /*          right bottom blur color */
+    box-shadow: 5px 5px 30px #a48c8c;  
+    height: 80vh;
+  }
+
+  .rightContainer
+  {
+    flex:1
+  }
+
+  .leftmainContainer{
+    flex: 1;
+  }
+
+  .rightmainContainer{
+    flex: 1;
+  }
+
+  .tagLine{
+    padding-top: 100px;
+    font-family: "Arvo","serif";
+    color: #052f5f;
+    font-weight: bolder;
+    padding-left: 80px;
+    padding-right: 50px;
+  }
+
+  #logoTRacker {
+    margin: 60px 30px 30px 60px;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 42px;
+    line-height: 27px;
+    letter-spacing: 0.25em;
+    color: #052f5f;
+    font-family: "Arvo", serif;
+  }
+  
+  .imgLanding{
+    padding-top: 50px;
+    padding-left: 90px;
+  }
+
+  @media screen and (max-width: 1920px) {
+    .imgLanding {
+        height: 430px;;
+    }
+}

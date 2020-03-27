@@ -1,4 +1,4 @@
-export const addJobApp = (application) => async dispatch => {
+export const addJobApp = application => async dispatch => {
   try {
     var res = await fetch(process.env.REACT_APP_URL + "application", {
       method: "POST",
@@ -6,50 +6,47 @@ export const addJobApp = (application) => async dispatch => {
       headers: {
         "Content-Type": "application/json"
       }
-    })
+    });
     if (res.ok) {
       var jobApp = await res.json();
-      console.log("hello", jobApp)
       dispatch({
         type: "ADD_JOB_APP",
         payload: jobApp
-      })
+      });
     }
-
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
+};
 
 export const updateJobApp = (application, id) => async dispatch => {
-  console.log(id)
-   try {
-     var res = await fetch(process.env.REACT_APP_URL + "application/" + id, {
-       method: "PUT",
-       body: JSON.stringify(application),
-       headers: {
-         "Content-Type": "application/json"
-       }
-     })
-     if (res.ok) {
-       var jobAppUpdate = await res.json();
-      
-       dispatch({
-         type: "UPDATE_JOB_APP",
-         payload: jobAppUpdate
-       })
-     }
- 
-   } catch (err) {
-     console.log(err)
-   }
- }
+  console.log(id);
+  try {
+    var res = await fetch(process.env.REACT_APP_URL + "application/" + id, {
+      method: "PUT",
+      body: JSON.stringify(application),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    if (res.ok) {
+      var jobAppUpdate = await res.json();
+
+      dispatch({
+        type: "UPDATE_JOB_APP",
+        payload: jobAppUpdate
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 export const getJobApps = () => {
   return async (dispatch, getState) => {
     var response = await fetch(process.env.REACT_APP_URL + "application/app", {
-      method: "GET",
-    })
+      method: "GET"
+    });
 
     // let first = curr.getDate() - curr.getDay() + i
     // let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
@@ -61,28 +58,28 @@ export const getJobApps = () => {
       type: "GET_JOB_APPS",
       payload: allJobApps
     });
-  }
-}
+  };
+};
 
-
-
-
-export const getSingleApp = (id) => {
+export const getSingleApp = id => {
   // console.log(query)
   return async (dispatch, getState) => {
-    var response=await fetch(process.env.REACT_APP_URL + "application/" + id, {
-    method: "GET", 
-  })
-  var singleApp = await response.json();
+    var response = await fetch(
+      process.env.REACT_APP_URL + "application/" + id,
+      {
+        method: "GET"
+      }
+    );
+    var singleApp = await response.json();
 
-  dispatch({
-    type: "SINGLE_APP",
-    payload: singleApp
-  });
+    dispatch({
+      type: "SINGLE_APP",
+      payload: singleApp
+    });
 
-  return singleApp;
-}
-}
+    return singleApp;
+  };
+};
 
 // export const getSavedJobAppsQuery = (parameter) => {
 //   return async (dispatch, getState) => {
@@ -132,5 +129,3 @@ export const getSingleApp = (id) => {
 //   }
 
 // }
-
-  

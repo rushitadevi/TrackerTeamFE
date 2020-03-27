@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Scrollbars } from "react-custom-scrollbars";
-import {Input, Row, Col } from "reactstrap";
+import {Input } from "reactstrap";
 
 class JobInfoComponent extends Component {
   constructor(props) {

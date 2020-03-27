@@ -1,8 +1,6 @@
-.submitButton{
+.btnSignIn{
     border-radius: 10px !important;
     font-family: "Arvo", serif !important;
-    width: 80px !important;
-    height: 35px !important;
     background-color: #e5b85f !important;
     color: #052f5f !important;
     margin-left: 40% !important;

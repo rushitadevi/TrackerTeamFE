@@ -1,5 +1,5 @@
 import React from "react";
-import diagrampicture2 from "./Img/diagrampicture2.png";
+import diagrampicture2 from "./Img/graph.png";
 import {
   getApplications,
   getStudents,
@@ -42,6 +42,10 @@ class ManagerDashboard extends React.Component {
     this.props.totAppsThunk();
   };
 
+  componentDidUpdate=async()=>{
+    this.props.fetchStudents();
+  }
+
   getName = id => {
     var arr = this.props.students.students;
 
@@ -69,9 +73,9 @@ class ManagerDashboard extends React.Component {
         }
       }
       this.props.updateStudentStatusThunk(results[0]);
-
-      const toSend = { Email: state.email };
-      this.props.sendEmailToStudentThunk(toSend);
+      this.props.fetchStudents();
+      // const toSend = { Email: state.email };
+      // this.props.sendEmailToStudentThunk(toSend);
     } catch (err) {
       console.log(err);
     }
@@ -106,7 +110,7 @@ class ManagerDashboard extends React.Component {
   render() {
     return (
       <>
-        <Navbar />
+        <Navbar margin="none" />
         <div
           className="container-fluid"
           style={{
@@ -121,10 +125,40 @@ class ManagerDashboard extends React.Component {
               <div
                 className="container"
                 style={{
-                  borderRight: "1px solid #dee2e6",
-                  borderBottom: "1px solid #dee2e6"
+                  border: "1px solid #dee2e6",
+                  borderRadius:"20px"
                 }}
               >
+                <div
+                  className="row py-3"
+                  style={{ border: "1px solid #dee2e6",borderRadius: "20px" }}
+                >
+                  <div className="col" style={{ textAlign: "center" }}>
+                    <img
+                      src={diagrampicture2}
+                      width="50%"
+                      className="diagrampicture"
+                      alt="diagrampicture"
+                      height="248px"
+                    />
+                     <button
+                      className="btn"
+                      id="buttonExport"
+                      onClick={this.onClickHandler}
+                    >
+                      EXPORT
+                  </button>
+                    <div className="row">
+                      <div className="col">
+                        <b>NO OF JOBS APPLIED FOR THIS WEEK :
+                          {this.props.manager.weekapps}</b>
+                      </div>
+                      <div className="col">
+                        <b>TOTAL APPLICATIONS :{this.props.manager.appCount}</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div className="row table-wrapper-scroll-y my-manager-scrollbar">
                   <Table responsive className="table table-hover" id="tblData">
                     <Thead>
@@ -166,30 +200,6 @@ class ManagerDashboard extends React.Component {
                       ))}
                   </Table>
                 </div>
-                <div
-                  className="row py-3"
-                  style={{ border: "1px solid #dee2e6", marginTop: "10px" }}
-                >
-                  <div className="col-md-4">
-                    NO OF JOBS APPLIED FOR THIS WEEK :
-                    <b>{this.props.manager.weekapps}</b>
-                    <br></br>
-                    TOTAL APPLICATIONS :<b>{this.props.manager.appCount}</b>
-                  </div>
-                  <img
-                    src={diagrampicture2}
-                    width="50%"
-                    className="diagrampicture"
-                    alt="diagrampicture"
-                  />
-                  <button
-                    className="btn"
-                    id="buttonExport"
-                    onClick={this.onClickHandler}
-                  >
-                    EXPORT
-                  </button>
-                </div>
               </div>
             </div>
             <div className="col-md-4 topColumn recentScroll">
@@ -216,12 +226,12 @@ class ManagerDashboard extends React.Component {
                             <b>- {app.companyName}</b>
                           </div>
                         ) : (
-                          <div className="alert alert-info " role="alert">
-                            {" "}
-                            <b>{this.getName(app.studentId)} -</b> {app.status}{" "}
-                            <b>- {app.companyName} </b>
-                          </div>
-                        )}
+                            <div className="alert alert-info " role="alert">
+                              {" "}
+                              <b>{this.getName(app.studentId)} -</b> {app.status}{" "}
+                              <b>- {app.companyName} </b>
+                            </div>
+                          )}
                       </div>
                     ) : null}
                   </div>

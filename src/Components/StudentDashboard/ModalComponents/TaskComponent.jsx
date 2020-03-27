@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Input, Row, Col } from "reactstrap";
+import { Button, Input } from "reactstrap";
 import { Scrollbars } from 'react-custom-scrollbars';
 
 class TaskComponent extends Component {
@@ -26,35 +26,35 @@ class TaskComponent extends Component {
       <>
 
         <div className="taskRow">
-          <div id="inputTaskField"> 
-        <Input
-          className="addTask"
-          placeholder="Add Task "
-          value={this.state.task}
-          onChange={e => this.setState({ task: e.currentTarget.value })}
-          // onKeyDown={e => {
-          //   if (e.key === "Enter") {
-          //     this.props.addTask(this.state.task);
-          //     this.setState({ task: "" });
-          //   }
-          // }}
-        />
-        </div>
-    
-       <div id="buttonAddTask">
-        <Button className="taskButton" onClick={this.setTaskState}>
-          +
+          <div id="inputTaskField">
+            <Input
+              className="addTask"
+              placeholder="Add Task "
+              value={this.state.task}
+              onChange={e => this.setState({ task: e.currentTarget.value })}
+            // onKeyDown={e => {
+            //   if (e.key === "Enter") {
+            //     this.props.addTask(this.state.task);
+            //     this.setState({ task: "" });
+            //   }
+            // }}
+            />
+          </div>
+
+          <div id="buttonAddTask">
+            <Button className="taskButton" onClick={this.setTaskState}>
+              +
         </Button>
+          </div>
         </div>
-        </div>
-       
-          {this.props.tasks &&
-            this.props.tasks.map(task => (
-              <>
-            <div className="taskRow">
+
+        {this.props.tasks &&
+          this.props.tasks.map(task => (
+            <>
+              <div className="taskRow">
                 <div className="displayTaskCont" id="allList">
-                <Scrollbars id="scrollTask">
-                  {task}
+                  <Scrollbars id="scrollTask">
+                    {task}
                   </Scrollbars>
                 </div>
 
@@ -66,10 +66,10 @@ class TaskComponent extends Component {
                     x
                   </Button>
                 </div>
-                </div>
-              </>
-            ))}
-          
+              </div>
+            </>
+          ))}
+
       </>
     );
   }

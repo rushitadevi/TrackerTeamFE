@@ -21,25 +21,25 @@ class NavBar extends React.Component {
                     aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse justify-content-md-center" id="navbarsExample10" >
+                <div className="collapse navbar-collapse justify-content-md-flex-end" id="navbarsExample10" style={{justifyContent:"flex-end",margin:this.props.margin}} >                
                     <ul className="navbar-nav">
-                        {this.props.loggedInUser && this.props.loggedInUser.role === "Student" ?
+                        {this.props.loggedInUser && this.props.loggedInUser.user.role === "Student" ?
                             <li className="nav-item">
                                 <a href="/student" className="nav-link" >
                                     Home</a>
                             </li> : null}
-                        {this.props.loggedInUser && this.props.loggedInUser.role === "Student" ?
+                        {this.props.loggedInUser && this.props.loggedInUser.user.role === "Student" ?
                             null
-                            : this.props.loggedInUser.role === "Manager" ?
+                            : this.props.loggedInUser.user.role === "Manager" ?
                                 null :
                                 <li className="nav-item">
                                     <a href="/signIn" className="nav-link" >
                                         Sign In</a>
                                 </li>
                         }
-                        {this.props.loggedInUser && this.props.loggedInUser.role === "Manager" ?
+                        {this.props.loggedInUser && this.props.loggedInUser.user.role === "Manager" ?
                             null :
-                            this.props.loggedInUser.role === "Student" ?
+                            this.props.loggedInUser.user.role === "Student" ?
                                 null :
                                 <li className="nav-item">
                                     <a href="/register" className="nav-link" >
@@ -47,8 +47,14 @@ class NavBar extends React.Component {
                                 </li>
                         }
                         <li className="nav-item text-center">
-                            <a onClick={this.logOut} className="nav-link" style={{ cursor: "pointer" }} >
-                                Log Out</a>
+                            {this.props.loggedInUser.user && this.props.loggedInUser.user.role === "Manager" ?
+                                <li onClick={this.logOut} className="nav-link" style={{ cursor: "pointer" }} >
+                                    Log Out</li>
+                                : this.props.loggedInUser.user.role === "Student" ?
+                                    <a href="/" onClick={this.logOut} className="nav-link" style={{ cursor: "pointer" }} >
+                                        Log Out</a>
+                                    : null
+                            }
                         </li>
                     </ul>
                 </div>

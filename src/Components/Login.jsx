@@ -22,7 +22,6 @@ class Login extends React.Component {
 
     componentDidUpdate = (oldState, oldProps) => {
         if (this.props.loggedInUser.token) {
-
             if (this.props.loggedInUser.user.role === "Student") {
                 this.props.history.push("/student")
             }
@@ -32,9 +31,8 @@ class Login extends React.Component {
         }
     }
 
-
-    login = async () => {    
-        this.props.addLoginDataThunk(this.state.loginDetails)  
+    login = async () => {
+        this.props.addLoginDataThunk(this.state.loginDetails)
     }
 
     render() {
@@ -50,20 +48,17 @@ class Login extends React.Component {
                                             <h3 className="mb-0" style={{ color: "#052f5f" }} >Sign In</h3>
                                         </div>
                                         <div className="card-body">
-                    
-                                                <div className="form-group">
-                                                    <input type="text" className="form-control form-control-lg rounded-0" placeholder="email"
-                                                       required value={this.state.loginDetails.email} onChange={(val) => this.setState({ loginDetails:{...this.state.loginDetails, email: val.currentTarget.value} })}/>
-                                                    <div className="invalid-feedback">Oops, you missed this one.</div>
-                                                </div>
-                                                <div className="form-group">
-                                                   
-                                                    <input type="password" className="form-control form-control-lg rounded-0" value={this.state.loginDetails.password}
-                                                        required placeholder="password" autocomplete="new-password" onChange={(val) => this.setState({ loginDetails:{...this.state.loginDetails, password: val.currentTarget.value} })} />
-                                                    <div className="invalid-feedback">Enter your password too!</div>
-                                                </div>
-                                                <button className="btn submitButton btn-lg float-center" id="btnLogin" onClick={this.login}>Sign In</button>
-                        
+                                            <div className="form-group">
+                                                <input type="text" className="form-control form-control-lg rounded-0" placeholder="email"
+                                                    required value={this.state.loginDetails.email} onChange={(val) => this.setState({ loginDetails: { ...this.state.loginDetails, email: val.currentTarget.value } })} />
+                                                <div className="invalid-feedback">Oops, you missed this one.</div>
+                                            </div>
+                                            <div className="form-group">
+                                                <input type="password" className="form-control form-control-lg rounded-0" value={this.state.loginDetails.password}
+                                                    required placeholder="password" autocomplete="new-password" onChange={(val) => this.setState({ loginDetails: { ...this.state.loginDetails, password: val.currentTarget.value } })} />
+                                                <div className="invalid-feedback">Enter your password too!</div>
+                                            </div>
+                                            <button className="btn btnSignIn btn-lg float-center" type="submit" id="btnLogin" onClick={this.login}>Sign In</button>
                                         </div>
                                     </div>
                                 </div>                            </div>

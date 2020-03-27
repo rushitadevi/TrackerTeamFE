@@ -42,8 +42,10 @@ export const totAppsWeek = () => {
         method: "GET"
       }
     );
+    console.log(response,"res")
     if (response.ok) {
       weekApps = await response.json();
+      console.log(weekApps,"week")
       weekApps = weekApps.lastWeek
     }
     dispatch({
@@ -63,7 +65,8 @@ export const totApps = () => {
     });
     if (res.ok) {
       var appCount = await res.json();
-      appCount = appCount.totApp
+      console.log(appCount)
+      // appCount = appCount
       dispatch({
         type: "TOTAL_APPS",
         payload: appCount
@@ -73,6 +76,7 @@ export const totApps = () => {
 };
 
 export const updateStudentStatus = data => {
+  console.log(data,"data")
   return async (dispatch, getState) => {
     var res = await fetch(process.env.REACT_APP_URL + "user/" + data._id, {
       method: "PUT",

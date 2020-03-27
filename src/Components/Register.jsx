@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap'
 import { connect } from "react-redux";
 import { addRegisterData } from "../Actions/register";
@@ -62,33 +62,33 @@ class Register extends React.Component {
                         <Col>
                             <form id="registerform" className=" shadow p-3 mb-5 bg-white" onSubmit={e => this.handleSubmit(e)} >
                                 <div >
-                                    <label style={{ color: " #052f5f", fontWeight: "bold", color: "#692799", marginLeft: "35%" }} >REGISTER</label>
+                                    <label style={{ color: " #052f5f", fontWeight: "bold", marginLeft: "35%" }} >REGISTER</label>
                                 </div>
                                 <div className="form-row">
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >NAME</label>
-                                        <input type="text" className="form-control " id="name" required onChange={e => this.onChange(e)} />
+                                        <input type="text" className="form-control" placeholder="Name" id="name" required onChange={e => this.onChange(e)} />
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >SURNAME</label>
-                                        <input type="text" className="form-control" id="surname" required onChange={e => this.onChange(e)} />
+                                        <input type="text" className="form-control" placeholder="Surname" id="surname" required onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
                                 <div className="form-row">
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >EMAIL</label>
-                                        <input type="text" className="form-control " id="email" required onChange={e => this.onChange(e)} />
+                                        <input type="text" className="form-control" placeholder="Email" id="email" required onChange={e => this.onChange(e)} />
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >PASSWORD</label>
-                                        <input type="password" className="form-control" id="password" required onChange={e => this.onChange(e)} />
+                                        <input type="password" className="form-control" placeholder="Password" id="password" required onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
                                 <div className="form-row">
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >ROLE</label>
                                         <div >
-                                            <select id="roleOption" className="custom-select" value={this.state.user.role} onChange={e => this.onChange(e)} >
+                                            <select id="roleOption" className="custom-select" placeholder="Role" value={this.state.user.role} onChange={e => this.onChange(e)} >
                                                 <option>School Manager</option>
                                                 <option>Student</option>
                                                 <option>Admin</option>
@@ -97,18 +97,18 @@ class Register extends React.Component {
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >SCHOOL</label>
-                                        <input type="text" className="form-control" id="schoolName" onChange={e => this.onChange(e)} />
+                                        <input type="text" className="form-control" placeholder="School Name" id="schoolName" onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
                                 <div className="form-row">
                                     <div className="col-md-6 mb-3">
                                         <label className="label" >GITHUBURL</label>
-                                        <input type="text" className="form-control" id="github" onChange={e => this.onChange(e)} />
+                                        <input type="text" className="form-control" placeholder="Github Url" id="github" onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
                                 <button className="submitButton" type="submit">Register</button>
                                 <hr />
-                                <a className="signIn" onClick={() => this.props.history.push("/signIn")} >Sign In</a>
+                                <a className="signIn" href="" onClick={() => this.props.history.push("/signIn")} >Sign In</a>
                             </form>
                         </Col>
                         <Col></Col>

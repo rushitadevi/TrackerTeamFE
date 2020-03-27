@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Container } from "reactstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Provider } from 'react-redux';
 import StudentDashboard from "../Components/StudentDashboard/MainPage/StudentDashboard"
@@ -18,9 +17,7 @@ class Main extends Component {
         <Provider store={configureStore()}>
           <Router>
             <Route path="/" exact component={LandingPage} />
-            <Container fluid className="studentHomepage">
-              <Route path="/student" exact component={StudentDashboard} />
-            </Container>
+            <Route path="/student" exact component={StudentDashboard} />
             <Route path="/manager" exact component={ManagerDashboard} />
             <Route path="/register" exact component={Register} />
             <Route path="/signIn" exact component={Login} />
