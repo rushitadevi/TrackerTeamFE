@@ -91,9 +91,9 @@ class StudentDashboard extends React.Component {
             <h5 id="logoDashboard">TrackeR</h5>
           </Row>
           <Row id="rowFilterBarAndButton">
-            <Col md={10} xs={12} id="filterBarFilters">
+            <Col md={12} xs={12} id="filterBarFilters">
               <Row>
-                <Col md={3} xs={12}>
+                <Col md={2} xs={12}>
                   <InputGroup>
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
@@ -109,7 +109,7 @@ class StudentDashboard extends React.Component {
                     />
                   </InputGroup>
                 </Col>
-                <Col md={3} xs={12}>
+                <Col md={2} xs={12}>
                   <InputGroup>
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
@@ -125,7 +125,7 @@ class StudentDashboard extends React.Component {
                     />
                   </InputGroup>
                 </Col>
-                <Col md={3} xs={12}>
+                <Col md={2} xs={12}>
                   <InputGroup
                     id="juniorSeniorSelect"
                     className="inputFieldsFilter"
@@ -150,7 +150,7 @@ class StudentDashboard extends React.Component {
                     </Input>
                   </InputGroup>
                 </Col>
-                <Col md={3} xs={12}>
+                <Col md={2} xs={12}>
                   <InputGroup>
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
@@ -170,18 +170,20 @@ class StudentDashboard extends React.Component {
                     />
                   </InputGroup>
                 </Col>
-              </Row>
-            </Col>
-            <Col md={2} xs={12} id="colBtnSearch">
-              <Button
-                className="btn appBtn"
+                <Col md={3} xs={12} id="colBtnSearch">
+              <div
+                className="appButtons"
                 id="btnSearchJob"
                 type="submit"
                 onClick={this.searchInput}
               >
                 Search
-              </Button>
+              </div>
             </Col>
+              </Row>
+            </Col>
+          
+            
           </Row>
         </Container>
         {!this.state.url && (

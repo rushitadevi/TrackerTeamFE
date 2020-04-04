@@ -85,7 +85,8 @@ class StudentModal extends Component {
             </div>
             <div id="colUpdateButton">
             <div
-              className="updateButton"
+              className="appButtons"
+              id="updateButton"
               onClick={() => this.setState({ showModal: true })}
             >
               Update Status

@@ -1,89 +1,97 @@
-import React, { Component } from 'react';
-import {Row, Col} from "reactstrap";
+import React, { Component } from "react";
+import { Row, Col } from "reactstrap";
 import { Scrollbars } from "react-custom-scrollbars";
+import { AgGridReact } from "ag-grid-react";
 
 class FilteredDisplayPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          showModal: false,
-          selectedJob: {},
-        };
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      showModal: false,
+      selectedJob: {},
+    };
+  }
 
-      componentDidMount = async () => {
-        this.setState({
-          selectedJob: {}
-        });
-      };
+  componentDidMount = async () => {
+    this.setState({
+      selectedJob: {},
+    });
+  };
 
-    render() { 
-  
-        return ( 
-          <>
-          <div id="filterDisplayCont">
-            <div className="filteredRows" id="filterTitleRow">
-              <div className ="headerTitle" id="filterCompanyHeader">
-                Company
-              </div>
-              <div className ="headerTitle" id="filterRoleHeader">
-                Role
-              </div>
-              <div className ="headerTitle" id="filterLocationHeader">
-                Location
-              </div>
-              <div className ="headerTitle"  id="filterDescHeader">
-                Description
-              </div>
+  render() {
+    return (
+      <>
+        <div className="filterDisplayCont" id="filterCont">
+          <div className="filteredTitleRows">
+            <div className="headerTitle" id="filterCompanyHeader">
+              Company
             </div>
-   
-            <Scrollbars id="filteredScroll" style={{ height: 500 }}>
-         
+            <div className="headerTitle" id="filterRoleHeader">
+              Role
+            </div>
+            <div className="headerTitle" id="filterLocationHeader">
+              Location
+            </div>
+            <div className="headerTitle" id="filterDescHeader">
+              Description
+            </div>
+          </div>
+
+          <Scrollbars id="filteredScroll" style={{ height: 500 }}>
+            <div className="filteredRows">
               {this.props.filteredSearch &&
                 this.props.filteredSearch.map((jobs, index) => (
                   <>
-                     <div className = "filteredRows" id="recordMapCont">
-                    <div key={index} id="filterCompany">
+                    {/* <div className = "filteredRows" id="recordMapCont"> */}
+                    <div
+                      key={index}
+                      id="filterCompany"
+                      className="filteredRecordName"
+                    >
+                      <span className="headerSmallScreen">Company: </span>{" "}
+                      <br />
                       {jobs.companyName}
                     </div>
-                    <div id="filterRole">
+                    <div id="filterRole" className="filteredRecordName">
+                      <span className="headerSmallScreen">Role: </span> <br />
                       {jobs.roleTitle}
                     </div>
-                    <div id="filterLocation">
+                    <div id="filterLocation" className="filteredRecordName">
+                      <span className="headerSmallScreen">Location: </span>{" "}
+                      <br />
                       {jobs.location}
-                      </div>
+                    </div>
                     <div
                       id="filteredJobDescText"
+                      className="filteredRecordName"
                       onMouseOver={this.mouseOver}
                     >
-                      {jobs.description.replace(/<[^>]*>?/gm, "")}
+                      <span className="headerSmallScreen">Description: </span>
+                      <br /> {jobs.description.replace(/<[^>]*>?/gm, "")}
                     </div>
-                    <div id="viewDetails">
-                    <div
-                    className="updateButton"
-                    id="detailsButton"
-                      onClick={() =>
-                        this.props.onSelectedJob(jobs)
+                    <div id="btnViewDetails" className="filteredRecordName">
+                      <span className="headerSmallScreen"> </span> <br />
+                      <div
+                        className="appButtons"
+                        id="detailsButton"
+                        onClick={() => this.props.onSelectedJob(jobs)}
                         // this.setState({
                         //   showModal: true,
                         //   selectedJob: jobs
                         // })
-                      }
-
-                    >
-                      Details
+                      >
+                        Details
+                      </div>
                     </div>
-                    </div>
-                    </div>
-                    </>
+                    {/* </div> */}
+                  </>
                 ))}
-            </Scrollbars>
-    
             </div>
-       </>
-         );
-    }
+          </Scrollbars>
+        </div>
+      </>
+    );
+  }
 }
- 
-export default FilteredDisplayPage;
 
+export default FilteredDisplayPage;
