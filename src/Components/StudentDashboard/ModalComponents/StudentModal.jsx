@@ -56,7 +56,7 @@ class StudentModal extends Component {
       >
         <div id="modalHeader">
           <div className="xButtonRow" >
-            <Button
+            <div
               className="xButton"
               onClick={async () => {
                 if (selectedJob.status) await this.handleApplication();
@@ -65,7 +65,7 @@ class StudentModal extends Component {
               }}
             >
               X
-            </Button>
+            </div>
           </div>
           <div id="modalTitleRow">
             <div id="logoTitle">
