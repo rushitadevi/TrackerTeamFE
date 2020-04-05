@@ -12,6 +12,8 @@ import './StyleSheets/Modal.css';
 import './StyleSheets/Register.css';
 import './StyleSheets/login.css';
 import "./StyleSheets/LandingPage.css";
+import 'ag-grid-community/dist/styles/ag-grid.css'
+import 'ag-grid-community/dist/styles/ag-theme-balham.css'
 import * as serviceWorker from './serviceWorker';
 import Main from './Components/Main';
 

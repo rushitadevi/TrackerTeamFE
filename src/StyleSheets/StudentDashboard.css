@@ -1,17 +1,26 @@
 #filterBar {
   background: #fcffff;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 40px
 }
-#filterBarFilters {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 0px;
+
+.filterBarDashboard{
+  flex: 1;
+  padding-left: 40px
 }
+
+.filterInput{
+  flex: 1
+}
+
 
 #rowFilterBarAndButton {
   border-top: 1.5px solid #eaeef6;
+  padding: 15px;
+  display: flex;  
 }
 
 .studentHomepage {
@@ -20,11 +29,11 @@
   overflow-y: auto;
   overflow-x: auto;
   /* position: absolute; */
-  height: 100vh
+  height: 100vh;
 }
 
 #logoDashboard {
-  margin: 20px 20px 20px 20px;
+  padding: 15px;
   font-style: normal;
   font-weight: bold;
   font-size: 22px;
@@ -34,9 +43,28 @@
   font-family: "Arvo", serif;
 }
 
+
+@media screen and (max-width: 1000px) {
+  #rowFilterBarAndButton {
+    border-top: 1.5px solid #eaeef6;
+    padding: 15px;
+    display: flex; 
+    flex-direction: column; 
+  }
+
+  #colBtnSearch {
+    justify-content: initial !important;
+    padding: 15px;
+    padding-left: 40px;
+  }
+}
+
 .dashboardMainDisplay {
   background: #fcffff;
   margin-top: 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 40px
 }
 
 .rowAllCards {
@@ -53,6 +81,7 @@
   border-color: inherit;
   -webkit-box-shadow: none;
   box-shadow: none !important;
+  background-color: #fcffff;
 }
 
 #seniorJunior {
@@ -70,126 +99,119 @@
   background-clip: padding-box;
   border: none;
   padding-left: 0px;
+  background-color: #fcffff;
+}
+
+#colBtnSearch {
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 #btnSearchJob {
-  border-radius: 8px;
-  font-family: "Arvo", serif;
-  width: 80px;
-  height: 35px;
-  background-color: #e5b85f;
-  color: #052f5f !important;
-  margin-top: 22px;
-  padding-left: 13px;
-}
-
-.colBtnSearch {
-  padding-left: 0px;
-  padding-right: 0px;
+  font-size: smaller;
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
 }
 
 /* filteredsearch display */
-
-#filterTitleRow {
-  font-family: "Arvo", serif;
-  color: #052f5f !important;
-  font-size: 1.05rem !important;
-  font-weight: 400 !important;
-  line-height: 1.5 !important;
-  display: flex;
-}
-
-.filteredRows {
-  flex: 1;
-  display: flex;
-}
-
-#filterDisplayCont {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  flex: 1
-}
-/* 
-#roleTitle {
-  margin-left: 183px;
-  position: absolute;
-}
-
-#locationTitle {
-  margin-left: 455px;
-  position: absolute;
-}
-
-#descriptionTitle {
-  margin-left: 638px;
-  position: absolute;
-}
-
-#record #descriptionRecord {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-#record {
-  margin-top: 10px;
-  padding-left: 0px;
-} */
-
-#detailsButton {
-  margin-top: 0px;
-  width: 65px;
-  height: 30px;
-  padding-top: 7px;
-}
-
-#viewDetails {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  padding-top: 0px
-}
-
-
-
-#recordMapCont {
-  padding-top: 10px;
-}
-
-#filterCompanyHeader {
-  flex-basis: 22%;
-}
-
-#filterLocationHeader {
-  flex-basis: 19%;
-  padding-left: 50px;
-}
-
-#filterRoleHeader {
-  flex-basis: 20%;
-}
-
-#filterDescHeader {
-  flex-basis: 25%;
-}
-
-#filterRole {
-  flex-basis: 20%;
-}
-
-#filterCompany {
-  flex-basis: 22%;
-}
-
-#filterLocation {
-  flex-basis: 19%;
-  padding-left: 50px;
-}
 
 #filteredJobDescText {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  flex-basis: 25%;
+  /* flex-basis: 25%; */
+}
+
+.headerSmallScreen {
+  display: none !important;
+}
+
+
+.filteredTitleRows {
+  flex: 1;
+  display: grid;
+  max-width: 1200px;
+  /* grid-template-areas: "companyTitle roleTitle locationTitle descriptionTitle ."; */
+  grid-template-columns: repeat(1, 15% 25% 20% 30% 10%);
+  /* grid-template-rows: repeat(1, 100%); */
+  /* grid-template-columns: repeat(5, 20%); */
+  width: 100%;
+}
+
+.headerTitle {
+  padding: 5px;
+  position: relative;
+  font-weight: bold;
+}
+
+#filteredScroll {
+  position: relative !important;
+}
+
+.filteredRows {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  /* grid-template-rows: repeat(1, 100%); */
+  /* grid-template-rows: repeat(1, 1fr); */
+  grid-template-columns: repeat(1, 15% 25% 20% 30% 10%);
+    /* grid-template-columns: repeat(5, 5%, 1fr, 1fr, 1fr, 1fr); */
+  /* grid-row-gap: 1em; */
+}
+
+.filterDisplayCont{
+  padding: 20px;
+  padding-right: 30px;
+  padding-left: 30px
+}
+.filteredRecordName {
+  margin: 0;
+  padding: 5px;
+  position: relative;
+  overflow-wrap: break-word;
+}
+
+#btnViewDetails {
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .filteredRows {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .headerTitle {
+    display: none;
+  }
+
+  .headerSmallScreen {
+    display: contents !important;
+    font-weight: normal;
+  }
+
+  #btnViewDetails br {
+    display: none;
+  }
+  #btnViewDetails .headerSmallScreen {
+    display: none;
+  }
+  #btnViewDetails {
+    margin: 0;
+    padding-bottom: 20px
+  }
+
+  .filteredRecordName {
+    font-weight: bold;
+  }
+}
+
+#detailsButton {
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  font-size: smaller;
 }

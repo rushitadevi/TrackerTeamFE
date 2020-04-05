@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button, Modal } from "react-bootstrap";
+import {Modal} from "react-bootstrap";
 import StatusUpdateModal from "./StatusUpdateModal";
 import { addJobApp, updateJobApp } from "../../../Actions/jobAppFetches";
 import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
 import DirectoryComponent from "./DirectoryComponent";
 import JobInfoComponent from "./JobInfoComponent";
-// import { Scrollbars } from 'react-custom-scrollbars';
 
 const mapStateToProps = state => state;
 
@@ -55,7 +54,7 @@ class StudentModal extends Component {
       >
         <div id="modalHeader">
           <div className="xButtonRow" >
-            <Button
+            <div
               className="xButton"
               onClick={async () => {
                 if (selectedJob.status) await this.handleApplication();
@@ -64,28 +63,28 @@ class StudentModal extends Component {
               }}
             >
               X
-            </Button>
+            </div>
           </div>
           <div id="modalTitleRow">
             <div id="logoTitle">
-              <div id="colModalLogo">
-                <img
-                  id="modalLogo"
-                  fluid
-                  src={selectedJob.companyLogo}
-                  alt="logo"
-                />
-              </div>
-              <div id="colTitle">
-                <h1 id="title">{selectedJob.companyName}</h1>
-              </div>
+            <div id="colModalLogo">
+              <img
+                id="modalLogo"               
+                src={selectedJob.companyLogo}
+                alt="logo"
+              />
+            </div>
+            <div id="colTitle">
+              <h1 id="title">{selectedJob.companyName}</h1>
+            </div>
             </div>
             <div id="colUpdateButton">
-              <div
-                className="updateButton"
-                onClick={() => this.setState({ showModal: true })}
-              >
-                Update Status
+            <div
+              className="appButtons"
+              id="updateButton"
+              onClick={() => this.setState({ showModal: true })}
+            >
+              Update Status
             </div>
             </div >
             <StatusUpdateModal

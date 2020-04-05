@@ -65,30 +65,31 @@
   margin-bottom: auto;
 }
 
-.updateButton {
-  border-radius: 8px;
-  font-family: "Arvo", serif;
+#updateButton {
   font-size: 12px !important;
-  color: #fffdf7 !important;
-  /* font-weight: 700; */
-  border: none;
   width: 60px;
-  height: 40px;
-  padding-top: 2px;
   margin-top: auto;
   margin-bottom: auto;
   justify-self: right;
-  background: #FED760;
-  box-shadow: 3px 3px 4px #FFBF0C;
+  text-align: center;
+  padding: 2px;
+}
+
+.appButtons {
+  border-radius: 8px;
+  font-family: "Arvo", serif;
+  color: #fe7547 !important;
+  border: none;
+  background: #fedb6f;
+  box-shadow: 3px 3px 4px #ffbf0c;
   cursor: pointer;
-  text-align: center
 }
 
-.updateButton:hover{
-   background: #FFBF0C;
-   box-shadow: 3px 3px 4px #FED760;
+.appButtons:hover {
+  background: #ffbf0c;
+  box-shadow: 3px 3px 4px #fedb6f;
+  color: #fedbcf !important;
 }
-
 
 #jobInfoScreens {
   height: inherit;
@@ -182,7 +183,7 @@ a {
 .companyInfoRow {
   border-bottom-right-radius: 8px;
   display: flex;
-  padding-bottom: 10px
+  padding-bottom: 10px;
 }
 
 #title {
@@ -271,21 +272,21 @@ a {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
-  margin-bottom: 0px
+  margin-bottom: 0px;
 }
 
 #interviewDateTitle {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
-  margin-bottom: 0px
+  margin-bottom: 0px;
 }
 
 #replyDateTitle {
   font-family: "Arvo", serif;
   color: #052f5f !important;
   font-size: 15px;
-  margin-bottom: 0px
+  margin-bottom: 0px;
 }
 
 #dateTime {

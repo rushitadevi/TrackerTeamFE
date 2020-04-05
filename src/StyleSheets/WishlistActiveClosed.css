@@ -10,7 +10,8 @@
   margin-bottom: 20px;
   max-width: 300px;
   padding-bottom: 45px;
-  height: 410px
+  height: 410px;
+  margin: 0 auto;
 }
 
 .listRecord {
