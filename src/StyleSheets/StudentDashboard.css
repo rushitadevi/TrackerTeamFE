@@ -1,17 +1,26 @@
 #filterBar {
   background: #fcffff;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 40px
 }
-#filterBarFilters {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 0px;
+
+.filterBarDashboard{
+  flex: 1;
+  padding-left: 40px
 }
+
+.filterInput{
+  flex: 1
+}
+
 
 #rowFilterBarAndButton {
   border-top: 1.5px solid #eaeef6;
+  padding: 15px;
+  display: flex;  
 }
 
 .studentHomepage {
@@ -24,7 +33,7 @@
 }
 
 #logoDashboard {
-  margin: 20px 20px 20px 20px;
+  padding: 15px;
   font-style: normal;
   font-weight: bold;
   font-size: 22px;
@@ -34,9 +43,28 @@
   font-family: "Arvo", serif;
 }
 
+
+@media screen and (max-width: 1000px) {
+  #rowFilterBarAndButton {
+    border-top: 1.5px solid #eaeef6;
+    padding: 15px;
+    display: flex; 
+    flex-direction: column; 
+  }
+
+  #colBtnSearch {
+    justify-content: initial !important;
+    padding: 15px;
+    padding-left: 40px;
+  }
+}
+
 .dashboardMainDisplay {
   background: #fcffff;
   margin-top: 40px;
+  max-width: 1140px;
+  margin: 0 auto;
+  margin-top: 40px
 }
 
 .rowAllCards {
@@ -77,8 +105,7 @@
 #colBtnSearch {
   display: flex;
   text-align: center;
-  /* flex-direction: column; */
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 #btnSearchJob {
@@ -133,7 +160,9 @@
 }
 
 .filterDisplayCont{
-  padding: 15px
+  padding: 20px;
+  padding-right: 30px;
+  padding-left: 30px
 }
 .filteredRecordName {
   margin: 0;

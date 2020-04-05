@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Row, Col } from "reactstrap";
 import { Scrollbars } from "react-custom-scrollbars";
-import { AgGridReact } from "ag-grid-react";
 
 class FilteredDisplayPage extends Component {
   constructor(props) {
@@ -44,7 +42,7 @@ class FilteredDisplayPage extends Component {
                   <>
                     {/* <div className = "filteredRows" id="recordMapCont"> */}
                     <div
-                      key={index}
+                      key={jobs.id}
                       id="filterCompany"
                       className="filteredRecordName"
                     >

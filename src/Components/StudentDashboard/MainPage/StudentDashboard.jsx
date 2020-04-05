@@ -6,12 +6,9 @@ import {
   Input,
   Row,
   Col,
-  Button,
   InputGroupAddon,
   InputGroup,
   InputGroupText,
-  Label,
-  FormGroup
 } from "reactstrap";
 import { getSearch } from "../../../Actions/apiFetches";
 import { getJobApps } from "../../../Actions/jobAppFetches";
@@ -19,14 +16,14 @@ import WishlistActiveClosed from "./WishlistActiveClosed";
 import FilteredDisplayPage from "./FilteredDisplayPage";
 import StudentModal from "../ModalComponents/StudentModal";
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = dispatch => ({
-  getSearchThunk: url => dispatch(getSearch(url)),
-  getJobAppsThunk: () => dispatch(getJobApps())
+const mapDispatchToProps = (dispatch) => ({
+  getSearchThunk: (url) => dispatch(getSearch(url)),
+  getJobAppsThunk: () => dispatch(getJobApps()),
 });
 
-class StudentDashboard extends React.Component {
+class StudentDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,7 +37,7 @@ class StudentDashboard extends React.Component {
       selectedJob: {},
       selectedJobId: {},
       query: null,
-      seeMoreLink: null
+      seeMoreLink: null,
     };
   }
 
@@ -60,7 +57,7 @@ class StudentDashboard extends React.Component {
     this.setState({ selectedView: !this.state.selectedView });
   };
 
-  searchInput = async value => {
+  searchInput = async (value) => {
     value.preventDefault();
 
     // debugger;
@@ -74,7 +71,7 @@ class StudentDashboard extends React.Component {
       url += "&location=" + this.state.location;
 
     this.setState({
-      url: url
+      url: url,
     });
 
     await this.props.getSearchThunk(url);
@@ -86,91 +83,86 @@ class StudentDashboard extends React.Component {
       <>
         <Navbar />
 
-        <Container id="filterBar">
-          <Row>
+        <div id="filterBar">
+          <div className="filterBarDashboard">
             <h5 id="logoDashboard">TrackeR</h5>
-          </Row>
-          <Row id="rowFilterBarAndButton">
-            <Col md={12} xs={12} id="filterBarFilters">
-              <Row>
-                <Col md={2} xs={12}>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="material-icons">search</i>
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Company"
-                      value={this.state.company || ""}
-                      onChange={e =>
-                        this.setState({ company: e.currentTarget.value })
-                      }
-                    />
-                  </InputGroup>
-                </Col>
-                <Col md={2} xs={12}>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="material-icons">work_outline</i>
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Role"
-                      value={this.state.role || ""}
-                      onChange={e =>
-                        this.setState({ role: e.currentTarget.value })
-                      }
-                    />
-                  </InputGroup>
-                </Col>
-                <Col md={2} xs={12}>
-                  <InputGroup
-                    id="juniorSeniorSelect"
-                    className="inputFieldsFilter"
-                  >
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="material-icons">file_copy</i>
-                      </InputGroupText>
-                    </InputGroupAddon>
+          </div>
+          <div id="rowFilterBarAndButton" className="filterBarDashboard">
+            <div className="filterInput">
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="material-icons">search</i>
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  placeholder="Company"
+                  value={this.state.company || ""}
+                  onChange={(e) =>
+                    this.setState({ company: e.currentTarget.value })
+                  }
+                />
+              </InputGroup>
+            </div>
+            <div className="filterInput">
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="material-icons">work_outline</i>
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  placeholder="Role"
+                  value={this.state.role || ""}
+                  onChange={(e) =>
+                    this.setState({ role: e.currentTarget.value })
+                  }
+                />
+              </InputGroup>
+            </div>
+            <div className="filterInput">
+              <InputGroup id="juniorSeniorSelect" className="inputFieldsFilter">
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <i className="material-icons">file_copy</i>
+                  </InputGroupText>
+                </InputGroupAddon>
 
-                    <Input
-                      type="select"
-                      name="select"
-                      id="seniorJunior"
-                      value={this.state.level || "senior"}
-                      onChange={e =>
-                        this.setState({ level: e.currentTarget.value })
-                      }
-                    >
-                      <option value="junior">Junior</option>
-                      <option value="senior">Senior</option>
-                    </Input>
-                  </InputGroup>
-                </Col>
-                <Col md={2} xs={12}>
-                  <InputGroup>
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <img
-                          style={{ width: "24px" }}
-                          src="https://www.freeiconspng.com/uploads/gray-location-icon-png-6.png"
-                          alt="/"
-                        />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input
-                      placeholder="Location"
-                      value={this.state.location || ""}
-                      onChange={e =>
-                        this.setState({ location: e.currentTarget.value })
-                      }
+                <Input
+                  type="select"
+                  name="select"
+                  id="seniorJunior"
+                  value={this.state.level || "senior"}
+                  onChange={(e) =>
+                    this.setState({ level: e.currentTarget.value })
+                  }
+                >
+                  <option value="junior">Junior</option>
+                  <option value="senior">Senior</option>
+                </Input>
+              </InputGroup>
+            </div>
+            <div className="filterInput">
+              <InputGroup>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText>
+                    <img
+                      style={{ width: "24px" }}
+                      src="https://www.freeiconspng.com/uploads/gray-location-icon-png-6.png"
+                      alt="/"
                     />
-                  </InputGroup>
-                </Col>
-                <Col md={3} xs={12} id="colBtnSearch">
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input
+                  placeholder="Location"
+                  value={this.state.location || ""}
+                  onChange={(e) =>
+                    this.setState({ location: e.currentTarget.value })
+                  }
+                />
+              </InputGroup>
+            </div>
+            <div id="colBtnSearch" className="filterInput">
               <div
                 className="appButtons"
                 id="btnSearchJob"
@@ -179,13 +171,9 @@ class StudentDashboard extends React.Component {
               >
                 Search
               </div>
-            </Col>
-              </Row>
-            </Col>
-          
-            
-          </Row>
-        </Container>
+            </div>
+          </div>
+        </div>
         {!this.state.url && (
           <Container className="dashboardMainDisplay">
             <Row className="rowAllCards">
@@ -195,7 +183,7 @@ class StudentDashboard extends React.Component {
                   extraClass="wishlist"
                   // seeMoreClass="seeMore"
                   app={this.props.jobApp.wishlist}
-                  onSelectedJob={selectedJob =>
+                  onSelectedJob={(selectedJob) =>
                     this.setState({ selectedJob: selectedJob, showModal: true })
                   }
                 />
@@ -206,7 +194,7 @@ class StudentDashboard extends React.Component {
                   extraClass="active"
                   // seeMoreClass="seeMore"
                   app={this.props.jobApp.active}
-                  onSelectedJob={selectedJob =>
+                  onSelectedJob={(selectedJob) =>
                     this.setState({ selectedJob: selectedJob, showModal: true })
                   }
                 />
@@ -217,7 +205,7 @@ class StudentDashboard extends React.Component {
                   extraClass="closed"
                   // seeMoreClass="seeMore"
                   app={this.props.jobApp.closed}
-                  onSelectedJob={selectedJob =>
+                  onSelectedJob={(selectedJob) =>
                     this.setState({ selectedJob: selectedJob, showModal: true })
                   }
                 />
@@ -227,14 +215,14 @@ class StudentDashboard extends React.Component {
         )}
 
         {this.state.url && (
-          <Container className="dashboardMainDisplay">
+          <div className="dashboardMainDisplay">
             <FilteredDisplayPage
               filteredSearch={this.props.publicAPI.filteredSearch}
-              onSelectedJob={selectedJob =>
+              onSelectedJob={(selectedJob) =>
                 this.setState({ selectedJob: selectedJob, showModal: true })
               }
             />
-          </Container>
+          </div>
         )}
 
         {this.state.selectedJob && (
@@ -242,12 +230,12 @@ class StudentDashboard extends React.Component {
             showModal={this.state.showModal}
             toggleModal={this.toggleModal}
             selectedJob={this.state.selectedJob}
-            updateSelectedJob={update =>
+            updateSelectedJob={(update) =>
               this.setState({
                 selectedJob: {
                   ...this.state.selectedJob,
-                  ...update
-                }
+                  ...update,
+                },
               })
             }
             updateStateMethod={this.updateStateMethod}

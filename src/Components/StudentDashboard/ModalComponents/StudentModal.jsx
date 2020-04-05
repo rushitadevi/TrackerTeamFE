@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Row, Col} from "reactstrap";
 import {Button, Modal} from "react-bootstrap";
 import StatusUpdateModal from "./StatusUpdateModal";
 import { addJobApp, updateJobApp } from "../../../Actions/jobAppFetches";
@@ -8,7 +7,6 @@ import TaskComponent from "./TaskComponent";
 import NotesComponent from "./NotesComponent";
 import DirectoryComponent from "./DirectoryComponent";
 import JobInfoComponent from "./JobInfoComponent";
-import { Scrollbars } from 'react-custom-scrollbars';
 
 const mapStateToProps = state => state;
 
@@ -73,8 +71,7 @@ class StudentModal extends Component {
             <div id="logoTitle">
             <div id="colModalLogo">
               <img
-                id="modalLogo"
-                fluid
+                id="modalLogo"               
                 src={selectedJob.companyLogo}
                 alt="logo"
               />
