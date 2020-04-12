@@ -47,6 +47,7 @@ class StudentDashboard extends Component {
 
   componentDidMount = async () => {
     await this.props.getJobAppsThunk();
+   
   };
 
   toggleModal = () => {
@@ -80,7 +81,7 @@ class StudentDashboard extends Component {
       <>
         <Navbar />
 
-        <div id="filterBar">
+        <div id="filterBar" >
           <div className="filterBarDashboard">
             <h5 id="logoDashboard">TrackeR</h5>
           </div>

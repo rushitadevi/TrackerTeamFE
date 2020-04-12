@@ -4,7 +4,8 @@
   flex-direction: column;
   max-width: 1140px;
   margin: 0 auto;
-  margin-top: 40px
+  margin-top: 40px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .filterBarDashboard{
@@ -64,7 +65,8 @@
   margin-top: 40px;
   max-width: 1140px;
   margin: 0 auto;
-  margin-top: 40px
+  margin-top: 40px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 .rowAllCards {
@@ -144,6 +146,8 @@
   padding: 5px;
   position: relative;
   font-weight: bold;
+  color: #052f5f;
+  font-family: "Arvo", serif;
 }
 
 #filteredScroll {
@@ -152,6 +156,8 @@
 
 .filteredRows {
   width: 100%;
+  color: #052f5f;
+  font-family: "Arvo", serif;
   max-width: 1200px;
   margin: 0 auto;
   display: grid;

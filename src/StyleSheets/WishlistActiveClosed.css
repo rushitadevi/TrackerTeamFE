@@ -1,6 +1,5 @@
 /* SAVE APPLICATIONS CARDS  */
 
-
 .listCard {
   border-radius: 8px;
   font-family: "Arvo", serif;
@@ -19,10 +18,13 @@
   border: 2px solid #eaeef6;
   box-sizing: border-box;
   border-radius: 8px;
-  margin-right: 2px;
-  padding-right: 10px;
-  margin-left: 0px;
-  margin-bottom: 10px;
+  display: flex;
+  margin-bottom: 5px;
+  cursor: pointer
+}
+
+.delRecord{
+  flex-basis: 10%
 }
 
 .listCard .card-header {
@@ -31,33 +33,41 @@
   font-size: 20px;
 }
 
-.logoCol {
-  padding-left: 0px;
-  padding-right: 0px;
-  text-align: right;
-}
-
 .companyCol {
   font-size: small;
   color: #052f5f !important;
+  padding-right: 0px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding-right: 0px;
-  padding-left: 15px
+  flex-basis: 100%
 }
 
+.cardRecRoleTitle{
+  flex-basis: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 15px
+}
+
+.cardRecCompanyNameDelete{
+  display: flex
+}
+.cardRecCompanyName{
+  flex-basis: 90%;
+}
 .companyLogo {
   width: 50px;
   height: 30px;
   padding-top: 5px;
-  padding-left: 5px
-
+  padding-left: 5px;
 }
 
 /* WISHLIST APPLICATIONS CARD   */
-
-
 
 .wishlist .card-header {
   background-color: #eaeef6;
@@ -69,7 +79,7 @@
   margin-left: 80px;
   text-align: center !important;
   color: #8a7f7f;
-  bottom: 15px
+  bottom: 15px;
 }
 
 .seeLessLink {
@@ -81,32 +91,26 @@
   bottom: 15px;
 }
 
-.rowSeeMoreLess{
+.rowSeeMoreLess {
   justify-content: center;
-  display: block;   
+  display: block;
   margin-left: 80px;
   text-align: center !important;
   color: #8a7f7f;
   bottom: 15px;
   position: absolute;
+  cursor: pointer
 }
-
 
 .active .card-header {
   background-color: #59ff60;
 }
 
-
-
 .closed .card-header {
   background-color: #f38982;
 }
 
-
 .listCard .card-body {
   overflow-y: auto;
-  max-height: 330px
+  max-height: 330px;
 }
-
-
-

@@ -1,101 +1,125 @@
-import React, { Component } from 'react';
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    Row,
-    Col
-} from "reactstrap";
+import React, { Component } from "react";
+import { Card, CardHeader, CardBody, Row } from "reactstrap";
+import { getJobApps } from "../../../Actions/jobAppFetches";
+import { connect } from "react-redux";
 
+const mapStateToProps = (state) => state;
+
+const mapDispatchToProps = (dispatch) => ({
+  getJobAppsThunk: () => dispatch(getJobApps()),
+});
 
 class WishlistActiveClosed extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: null,
+      seeMoreLink: true,
+      id: null,
+      seeLessLink: false,
+    };
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-          query: null,
-          seeMoreLink: true,
-          id: null,
-          seeLessLink: false
-        };
-      }
+  deleteRecord = async (id) => {
+    await fetch(process.env.REACT_APP_URL + "application/" + id, {
+      method: "DELETE",
+    });
+    await this.props.getJobAppsThunk();
+  };
 
-    render() {
-        return (
+  render() {
+    return (
+      <>
+        <Card className={"listCard" + " " + this.props.extraClass}>
+          <CardHeader className="card-header">{this.props.title}</CardHeader>
+
+          <CardBody>
             <>
-                <Card className={"listCard" + " " + this.props.extraClass}>
-                    
-                <CardHeader className="card-header" >
-                   {this.props.title}
-                    </CardHeader>
-                    
-                    <CardBody>
-                        <>
+              {this.props.app.items &&
+                this.props.app.items
+                  .slice(
+                    0,
+                    this.state.seeMoreLink ? 5 : this.props.app.items.length
+                  )
+                  .map((application) => (
+                    <div key={application._id} className="listRecord">
+                      <div
+                      onClick={async () => {
+                        this.props.onSelectedJob(application);
+                      }}
+                      >
+                        {application.companyLogo && (
+                          <img
+                            className="companyLogo"
+                            src={application.companyLogo}
+                            alt="logo"
+                          />
+                        )}
+                        {!application.companyLogo && (
+                          <img
+                            className="companyLogo"
+                            src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                            alt="logo"
+                          />
+                        )}
+                      </div>
 
-                            {/* {!this.state.seeMoreLink && this.props.apps.map && */}
-                                            {this.props.app.items &&
-                                this.props.app.items.slice(0, this.state.seeMoreLink ? 5 : this.props.app.items.length).map(application => (
-                                    <Row
-                                        key={application._id}
-                                        className="listRecord"
-                                    >
-                                     
-                                        <Col xs={2} sm={3} className="logoCol">
-                                            {application.companyLogo && (
-                                                <img
-                                                    className="companyLogo"
-                                                    src={application.companyLogo}
-                                                    alt="logo"
-                                                />
-                                            )}
-                                            {!application.companyLogo && (
-                                                <img
-                                                    className="companyLogo"
-                                                    src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
-                                                    alt="logo"
-                                                />
-                                            )}
-                                        </Col>
-                                        <Col xs={10} sm={9} className="companyCol" style={{cursor:'pointer'}} onClick={async () => {
-                                            this.props.onSelectedJob(application)
-                                        
-                                            }}>
-                                            {application.companyName}
-                                            <br />
-                                            {application.roleTitle}
-                                        </Col>
-                                       
-                                    </Row>
-
-                                ))}
-                        </>
-                        <Row className="rowSeeMoreLess">
-                        {this.state.seeMoreLink &&
-                        <a
-                            href="#"
-                            className="seeMore"
-                            onClick={() => this.setState({seeMoreLink: false, seeLessLink: true}) }
+                      <div className="companyCol">
+                        <div className="cardRecCompanyNameDelete">
+                          <div
+                            className="cardRecCompanyName"
+                            onClick={async () => {
+                              this.props.onSelectedJob(application);
+                            }}
+                          >
+                            {application.companyName}
+                          </div>
+                          <div
+                          className="delRecord"
+                            onClick={() => this.deleteRecord(application._id)}
+                          >
+                            x
+                          </div>
+                        </div>
+                        <div className="cardRecRoleTitle"
+                         onClick={async () => {
+                           this.props.onSelectedJob(application);
+                         }}
                         >
-                            See {this.props.app.count} More
-                       </a>}
-                       {this.state.seeLessLink && !this.state.seeMoreLink &&
-                        <a
-                            href="#"
-                            className="seeMore" 
-                            onClick={() => this.setState({seeMoreLink: false, seeMoreLink: true}) }
-                        >
-                            See Less
-                       </a>}
-                       </Row>
-                    </CardBody>
-               
-                </Card>
-           </>
-
-
-
-        )
+                          {application.roleTitle}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+            </>
+            <Row className="rowSeeMoreLess">
+              {this.state.seeMoreLink && (
+                <div
+                  onClick={() =>
+                    this.setState({ seeMoreLink: false, seeLessLink: true })
+                  }
+                >
+                  See {this.props.app.count} More
+                </div>
+              )}
+              {this.state.seeLessLink && !this.state.seeMoreLink && (
+                <div
+                  onClick={() =>
+                    this.setState({ seeLessLink: false, seeMoreLink: true })
+                  }
+                >
+                  See Less
+                </div>
+              )}
+            </Row>
+          </CardBody>
+        </Card>
+      </>
+    );
+  }
 }
 
-}
-export default WishlistActiveClosed;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WishlistActiveClosed);

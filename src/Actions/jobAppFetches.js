@@ -1,4 +1,4 @@
-export const addJobApp = application => async dispatch => {
+export const addJobApp =(application) => async dispatch => {
   try {
     var res = await fetch(process.env.REACT_APP_URL + "application", {
       method: "POST",
@@ -13,6 +13,7 @@ export const addJobApp = application => async dispatch => {
         type: "ADD_JOB_APP",
         payload: jobApp
       });
+      console.log(jobApp)
     }
   } catch (err) {
     console.log(err);

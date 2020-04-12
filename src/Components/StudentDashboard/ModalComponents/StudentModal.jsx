@@ -42,6 +42,8 @@ class StudentModal extends Component {
     this.setState({ selectedComponent: component });
   };
 
+
+
   toggleStatusModal = () => { this.setState({ showModal: false }) }
 
   render() {
@@ -57,6 +59,7 @@ class StudentModal extends Component {
             <div
               className="xButton"
               onClick={async () => {
+
                 if (selectedJob.status) await this.handleApplication();
                 // this.resetState()
                 this.props.toggleModal();
@@ -99,51 +102,49 @@ class StudentModal extends Component {
         <div id="jobInfoScreens">
 
           <div className="colJobInfoOne" >
-            <div className="colSideMenu">
-              <a
+      
+              <div
+              className="colSideMenu"
                 href="#"
                 onClick={() => {
                   this.selectComponent("JobInfo");
                 }}
               >
                 JOB INFO
-                </a>
             </div>
 
-            {/* <Col xs={12} className="sideOptions"> */}
-            <div className="colSideMenu" >
-              <a
+     
+              <div 
+               className="colSideMenu" 
                 href="#"
                 onClick={() => {
                   this.selectComponent("Tasks");
                 }}
               >
                 TASKS
-                </a>
-            </div>
-            {/* </Col> */}
-            {/* <Col xs={12} className="sideOptions"> */}
-            <div className="colSideMenu" >
-              <a
-                href="#"
+                </div>
+    
+              
+              <div
+              className="colSideMenu"
                 onClick={() => {
                   this.selectComponent("Notes");
                 }}
               >
                 NOTES
-                </a>
-            </div>
-            <div className="colSideMenu" >
-              {/* <Col xs={12} className="sideOptions more"> */}
-              <a
-                href="#"
+                </div>
+
+            <div >
+
+              <div
+               className="colSideMenu" 
                 onClick={() => {
                   this.selectComponent("Directory");
                 }}
               >
                 MORE VACANCIES
-                </a>
-              {/* </Col> */}
+                </div>
+
             </div>
           </div>
 

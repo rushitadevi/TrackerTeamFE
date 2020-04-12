@@ -101,8 +101,8 @@
   text-align: center;
   padding: 8px;
   border-bottom: 1px solid #cccccc !important;
-  /* flex: 1;
-  height: 10px */
+  cursor: pointer;
+  color: #052f5f;
 }
 
 @media screen and (max-width: 411px) {
@@ -130,11 +130,6 @@
     width: 100% !important;
   }
 
-  .colSideMenu {
-    text-align: center;
-    padding: 3px;
-    border-bottom: 1px solid #cccccc !important;
-  }
 
   .colJobInfoTwo {
     width: 100% !important;

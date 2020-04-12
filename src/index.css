@@ -4,6 +4,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Georgia, " Times New Roman ", Times, serif";
+  background-color: #EAEEF6;
+  padding-bottom: 40px
 }
 
 code {

@@ -15,13 +15,10 @@ const initialState = {
   },
 
   jobApp: {
-    jobApp: [],
     wishlist: { items: [], count: 0 },
     closed: { items: [], count: 0 },
     active: { items: [], count: 0 },
     allJobApps: [],
-    items: [],
-    count: {},
     singleApp: {},
     jobAppUpdate: []
   },

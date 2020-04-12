@@ -19,6 +19,7 @@ export const getSearch = (url) => {
       applyUrl: x.url,
       notes: [],
       tasks: [],
+      studentId: null,
       }})
     });
   }
