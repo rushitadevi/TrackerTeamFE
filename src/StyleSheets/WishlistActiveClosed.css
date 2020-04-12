@@ -113,4 +113,5 @@
 .listCard .card-body {
   overflow-y: auto;
   max-height: 330px;
+  padding: 0.7em;
 }
