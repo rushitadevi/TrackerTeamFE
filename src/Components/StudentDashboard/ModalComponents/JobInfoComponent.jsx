@@ -42,7 +42,7 @@ class JobInfoComponent extends Component {
                   </div>
                 <div id="companyInfoColTwo">
                 <div className="companyInfoTwo">
-                  <h6 id="statusTitle">Status: New</h6>
+                 <h6 id="statusTitle">Status: {this.props.status.toUpperCase()}</h6>
                   </div>
                   <div className="companyInfoTwo">
                   <h6 id="appDateTitle">Application Date</h6>

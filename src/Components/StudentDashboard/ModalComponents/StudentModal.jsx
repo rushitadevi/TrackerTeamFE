@@ -102,7 +102,6 @@ class StudentModal extends Component {
         <div id="jobInfoScreens">
 
           <div className="colJobInfoOne" >
-      
               <div
               className="colSideMenu"
                 href="#"
@@ -159,6 +158,7 @@ class StudentModal extends Component {
               <JobInfoComponent
                 selectedJob={selectedJob}
                 onChange={(e) => updateSelectedJob({ [e.target.name]: e.target.value })}
+                status={this.props.selectedJob.status ? this.props.selectedJob.status : "New"}
 
               />
             )}

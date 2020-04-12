@@ -39,7 +39,7 @@ class WishlistActiveClosed extends Component {
                 this.props.app.items
                   .slice(
                     0,
-                    this.state.seeMoreLink ? 5 : this.props.app.items.length
+                    this.state.seeMoreLink ? 6 : this.props.app.items.length
                   )
                   .map((application) => (
                     <div key={application._id} className="listRecord">
