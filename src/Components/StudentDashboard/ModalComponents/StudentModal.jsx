@@ -71,11 +71,19 @@ class StudentModal extends Component {
           <div id="modalTitleRow">
             <div id="logoTitle">
             <div id="colModalLogo">
-              <img
-                id="modalLogo"               
-                src={selectedJob.companyLogo}
-                alt="logo"
-              />
+           {selectedJob.companyLogo 
+              ? <img
+                            className="modalLogo"
+                            src={selectedJob.companyLogo}
+                            alt="logo"
+                          />
+
+                          :<img
+                          className="modalLogo"
+                          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                          alt="logo"
+                        />
+           }
             </div>
             <div id="colTitle">
               <h1 id="title">{selectedJob.companyName}</h1>

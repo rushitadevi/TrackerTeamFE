@@ -48,20 +48,20 @@ class WishlistActiveClosed extends Component {
                         this.props.onSelectedJob(application);
                       }}
                       >
-                        {application.companyLogo && (
-                          <img
+                        {application.companyLogo  
+                         ? <img
                             className="companyLogo"
                             src={application.companyLogo}
                             alt="logo"
                           />
-                        )}
-                        {!application.companyLogo && (
-                          <img
-                            className="companyLogo"
-                            src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
-                            alt="logo"
-                          />
-                        )}
+
+                          :<img
+                          className="companyLogo"
+                          src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.fusenet.eu%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fdefault_images%2Flogo_placeholder_0.png%3Fitok%3DDwPivBp_&f=1&nofb=1"
+                          alt="logo"
+                        />
+                        }
+                    
                       </div>
 
                       <div className="companyCol">

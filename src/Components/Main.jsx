@@ -1,31 +1,62 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Provider } from 'react-redux';
-import StudentDashboard from "../Components/StudentDashboard/MainPage/StudentDashboard"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import StudentDashboard from "../Components/StudentDashboard/MainPage/StudentDashboard";
 import ManagerDashboard from "./ManagerDashboard";
-import configureStore from "../Store";
 import Register from "./Register";
 import Login from "./Login";
 import LandingPage from "./LandingPage";
+import NavBar from "./Navbar";
+
+const mapStateToProps = (state) => state;
+const mapDispatchToProps = (dispatch) => ({
+  getUser: (user, token) =>
+    dispatch({
+      type: "SIGN_IN",
+      payload: {
+        user: user,
+        token: token,
+      },
+    }),
+});
 
 class Main extends Component {
-  state = {}
+  state = {};
 
   render() {
     return (
       <>
-        <Provider store={configureStore()}>
-          <Router>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/student" exact component={StudentDashboard} />
-            <Route path="/manager" exact component={ManagerDashboard} />
-            <Route path="/register" exact component={Register} />
-            <Route path="/signIn" exact component={Login} />
-          </Router>
-        </Provider>
+        <Router>
+          <NavBar />
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/student" exact component={StudentDashboard} />
+          <Route path="/manager" exact component={ManagerDashboard} />
+          <Route path="/register" exact component={Register} />
+          <Route path="/signIn" exact component={Login} />
+        </Router>
       </>
     );
   }
-};
 
-export default Main;
+  componentDidMount = async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const res = await fetch(process.env.REACT_APP_URL + "user/refresh", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (res.ok) {
+        var tokenJson = await res.json();
+        localStorage.setItem("token", tokenJson.token);
+        this.props.getUser(tokenJson.user, tokenJson.token);
+      } else {
+        localStorage.removeItem("token");
+      }
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

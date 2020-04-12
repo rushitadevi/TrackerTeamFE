@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import Navbar from "../../Navbar";
 import {
@@ -47,7 +47,6 @@ class StudentDashboard extends Component {
 
   componentDidMount = async () => {
     await this.props.getJobAppsThunk();
-   
   };
 
   toggleModal = () => {
@@ -77,11 +76,9 @@ class StudentDashboard extends Component {
   //if fetch is an empty array return a message: (no results matching your search)
 
   render() {
-      return (
+    return (
       <>
-        <Navbar />
-
-        <div id="filterBar" >
+        <div id="filterBar">
           <div className="filterBarDashboard">
             <h5 id="logoDashboard">TrackeR</h5>
           </div>
@@ -210,7 +207,7 @@ class StudentDashboard extends Component {
               </Col>
             </Row>
           </Container>
-       )}
+        )}
         {this.state.url && (
           <div className="dashboardMainDisplay">
             <FilteredDisplayPage

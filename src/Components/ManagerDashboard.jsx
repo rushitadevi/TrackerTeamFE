@@ -110,7 +110,7 @@ class ManagerDashboard extends React.Component {
   render() {
     return (
       <>
-        <Navbar margin="none" />
+        {/* <Navbar margin="none" /> */}
         <div
           className="container-fluid"
           style={{
