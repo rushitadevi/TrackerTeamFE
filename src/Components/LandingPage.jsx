@@ -14,6 +14,7 @@ class LandingPage extends Component {
               <img src={backImg} alt="no " className="imgLanding" />
             </div>
             <div className="rightmainContainer">
+            <NavBar className="navbarLanding" margin="40px" />
               <h1 className="tagLine">
                 The best way to track, manage and analyze user data...
               </h1>{" "}

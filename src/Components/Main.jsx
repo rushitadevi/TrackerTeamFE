@@ -6,7 +6,6 @@ import ManagerDashboard from "./ManagerDashboard";
 import Register from "./Register";
 import Login from "./Login";
 import LandingPage from "./LandingPage";
-import NavBar from "./Navbar";
 
 const mapStateToProps = (state) => state;
 const mapDispatchToProps = (dispatch) => ({
@@ -27,7 +26,7 @@ class Main extends Component {
     return (
       <>
         <Router>
-          <NavBar />
+ 
           <Route path="/" exact component={LandingPage} />
           <Route path="/student" exact component={StudentDashboard} />
           <Route path="/manager" exact component={ManagerDashboard} />

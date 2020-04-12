@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Navbar from "../../Navbar";
+import NavBar from "../../Navbar";
 import {
   Container,
   Input,
@@ -78,6 +78,7 @@ class StudentDashboard extends Component {
   render() {
     return (
       <>
+     <NavBar margin="none" />
         <div id="filterBar">
           <div className="filterBarDashboard">
             <h5 id="logoDashboard">TrackeR</h5>
