@@ -5,8 +5,6 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-
-
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +15,6 @@ class NavBar extends React.Component {
     localStorage.removeItem("token");
     window.location.href = "/";
   };
-
 
   render() {
     let token = this.props.loggedInUser.token;
@@ -44,39 +41,49 @@ class NavBar extends React.Component {
           style={{ justifyContent: "flex-end", margin: this.props.margin }}
         >
           <ul className="navbar-nav">
-            {token && user === "Student" ? (
-              <li className="nav-item">
-                <a href="/student" className="nav-link">
-                  Home
-                </a>
-              </li>
-            ) : null}
-            {!token &&
-              <li className="nav-item">
-                <a href="/signIn" className="nav-link">
-                  Sign In
-                </a>
-              </li>
-            }
-            {token ? null : (
-              <li className="nav-item">
-                <a href="/register" className="nav-link">
-                  Register
-                </a>
-              </li>
+            {token && (
+              <>
+                {token && user === "Student" && (
+                  <li className="nav-item">
+                    <a href="/student" className="nav-link">
+                      Home
+                    </a>
+                  </li>
+                )}
+                {token && user === "Manager" && (
+                  <li className="nav-item">
+                    <a href="/manager" className="nav-link">
+                      Home
+                    </a>
+                  </li>
+                )}
+                <li className="nav-item text-center">
+                  <a
+                    href="/"
+                    onClick={this.logOut}
+                    className="nav-link"
+                    style={{ cursor: "pointer" }}
+                  >
+                    Log Out
+                  </a>
+                </li>
+              </>
             )}
-            { token ? (
-              <li className="nav-item text-center">
-                <a
-                  href="/"
-                  onClick={this.logOut}
-                  className="nav-link"
-                  style={{ cursor: "pointer" }}
-                >
-                  Log Out
-                </a>
-              </li>
-            ) : null}
+
+            {!token && (
+              <>
+                <li className="nav-item">
+                  <a href="/register" className="nav-link">
+                    Register
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a href="/signIn" className="nav-link">
+                    Sign In
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </nav>
