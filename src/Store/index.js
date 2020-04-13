@@ -19,6 +19,7 @@ const initialState = {
     closed: { items: [], count: 0 },
     active: { items: [], count: 0 },
     allJobApps: [],
+    jobApp: [],
     singleApp: {},
     jobAppUpdate: []
   },
@@ -28,6 +29,8 @@ const initialState = {
   loggedInUser: {
     user: {},
     token: undefined,
+    isAuthenticated: null,
+    loading: null,
   },
   students: {
     students: [],

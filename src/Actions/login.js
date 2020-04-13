@@ -16,8 +16,23 @@ export const addLoginData = data => async dispatch => {
           token: loggedInUser.token,
         }
       });
+      dispatch({
+        type: "USER_LOADED",
+        payload: {
+          isAuthenticated: true,
+          loading: false,
+        }
+      });
       localStorage.setItem("token", loggedInUser.token)
     }
-  } catch (err) { }
+  } catch (err) {
+    dispatch({
+      type: "USER_LOADED",
+      payload: {
+        isAuthenticated: false,
+        loading: true,
+      }
+    });
+   }
 };
 
