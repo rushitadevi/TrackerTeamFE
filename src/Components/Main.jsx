@@ -17,22 +17,15 @@ const mapDispatchToProps = (dispatch) => ({
         token: token,
       },
     }),
-  loadUser: (isAuthenticated, loading) =>
-    dispatch({
-      type: "USER_LOADED",
-      payload: {
-        isAuthenticated: isAuthenticated,
-        loading: loading,
-      },
-    }),
 });
 
 class Main extends Component {
   state = {};
 
   render() {
+    let token = this.props.loggedInUser.token
     let loggedInUser = this.props.loggedInUser;
-    let authenticated = loggedInUser.isAuthenticated;
+
     return (
       <>
         <Router>
@@ -41,7 +34,7 @@ class Main extends Component {
             <Route path="/signIn" exact component={Login} />
             <Route path="/register" exact component={Register} />
           </>
-          {loggedInUser && authenticated && (
+          {loggedInUser && token && (
             <>
               <Route path="/student" exact component={StudentDashboard} />
               <Route path="/manager" exact component={ManagerDashboard} />
@@ -66,10 +59,8 @@ class Main extends Component {
         var tokenJson = await res.json();
         localStorage.setItem("token", tokenJson.token);
         this.props.getUser(tokenJson.user, tokenJson.token);
-        this.props.loadUser(true, false);
       } else {
         localStorage.removeItem("token");
-        this.props.loadUser(false, true);
       }
     }
   };
