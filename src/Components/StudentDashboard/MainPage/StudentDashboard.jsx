@@ -92,7 +92,7 @@ class StudentDashboard extends Component {
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
-                  placeholder="Company"
+                  placeholder=" Company"
                   value={this.state.company || ""}
                   onChange={(e) =>
                     this.setState({ company: e.currentTarget.value })
@@ -108,7 +108,7 @@ class StudentDashboard extends Component {
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
-                  placeholder="Role"
+                  placeholder=" Role"
                   value={this.state.role || ""}
                   onChange={(e) =>
                     this.setState({ role: e.currentTarget.value })
@@ -150,7 +150,7 @@ class StudentDashboard extends Component {
                   </InputGroupText>
                 </InputGroupAddon>
                 <Input
-                  placeholder="Location"
+                  placeholder=" Location"
                   value={this.state.location || ""}
                   onChange={(e) =>
                     this.setState({ location: e.currentTarget.value })
