@@ -28,7 +28,6 @@ class StudentModal extends Component {
 
 
   handleApplication = async () => {
-    this.props.selectedJob.studentId = this.props.studentId
     if (this.props.selectedJob._id) {
       const id = this.props.selectedJob._id
       await this.props.updateJobAppThunk(this.props.selectedJob, id);
@@ -36,6 +35,7 @@ class StudentModal extends Component {
     }
     else
       await this.props.addJobAppThunk(this.props.selectedJob);
+  // }
   };
 
   selectComponent = component => {

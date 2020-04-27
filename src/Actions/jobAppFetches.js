@@ -1,10 +1,12 @@
 export const addJobApp =(application) => async dispatch => {
   try {
+    console.log(application)
     var res = await fetch(process.env.REACT_APP_URL + "application", {
       method: "POST",
       body: JSON.stringify(application),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.token
       }
     });
     if (res.ok) {
