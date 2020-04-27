@@ -48,9 +48,14 @@ export const updateJobApp = (application, id) => async dispatch => {
 export const getJobApps = () => {
   return async (dispatch, getState) => {
     var response = await fetch(process.env.REACT_APP_URL + "application/app", {
-      method: "GET"
-    });
-
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + localStorage.token
+      }
+    }
+//we dont have localStorage.token yet so no headers in GET
+    );
+    
     // let first = curr.getDate() - curr.getDay() + i
     // let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)
     // week.push(day)

@@ -46,7 +46,10 @@ class StudentDashboard extends Component {
   };
 
   componentDidMount = async () => {
+    if(this.props.loggedInUser.token){
+      console.log("hello i have mounted")
     await this.props.getJobAppsThunk();
+    }
   };
 
   toggleModal = () => {
