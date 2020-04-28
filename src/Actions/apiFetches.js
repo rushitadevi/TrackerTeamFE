@@ -1,4 +1,4 @@
-export const getSearch = (url, studentId) => {
+export const getSearch = (url) => {
   return async (dispatch, getState) => {
     var response = await fetch(process.env.REACT_APP_URL + "companyApi/" + url, {
       method: "GET",
@@ -19,7 +19,7 @@ export const getSearch = (url, studentId) => {
       applyUrl: x.url,
       notes: [],
       tasks: [],
-      studentId: studentId,
+      // studentId: studentId,
       }})
     });
   }

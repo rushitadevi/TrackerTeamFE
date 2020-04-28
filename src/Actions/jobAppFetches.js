@@ -23,13 +23,13 @@ export const addJobApp =(application) => async dispatch => {
 };
 
 export const updateJobApp = (application, id) => async dispatch => {
-  console.log(id);
   try {
     var res = await fetch(process.env.REACT_APP_URL + "application/" + id, {
       method: "PUT",
       body: JSON.stringify(application),
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + localStorage.token
       }
     });
     if (res.ok) {
@@ -45,16 +45,26 @@ export const updateJobApp = (application, id) => async dispatch => {
   }
 };
 
-export const getJobApps = () => {
+export const getJobApps = (token) => {
   return async (dispatch, getState) => {
+  if(token){
+    var response = await fetch(process.env.REACT_APP_URL + "application/app", {
+      method: "GET",
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    }
+    )
+  } else {
     var response = await fetch(process.env.REACT_APP_URL + "application/app", {
       method: "GET",
       headers: {
         "Authorization": "Bearer " + localStorage.token
       }
     }
-//we dont have localStorage.token yet so no headers in GET
-    );
+    )
+  }
+
     
     // let first = curr.getDate() - curr.getDay() + i
     // let day = new Date(curr.setDate(first)).toISOString().slice(0, 10)

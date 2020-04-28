@@ -19,8 +19,8 @@ import StudentModal from "../ModalComponents/StudentModal";
 const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => ({
-  getSearchThunk: (url, studentId) => dispatch(getSearch(url, studentId)),
-  getJobAppsThunk: () => dispatch(getJobApps()),
+  getSearchThunk: (url) => dispatch(getSearch(url)),
+  getJobAppsThunk: (token) => dispatch(getJobApps(token)),
 });
 
 class StudentDashboard extends Component {
@@ -47,8 +47,9 @@ class StudentDashboard extends Component {
 
   componentDidMount = async () => {
     if(this.props.loggedInUser.token){
-      console.log("hello i have mounted")
-    await this.props.getJobAppsThunk();
+     let token = this.props.loggedInUser.token
+     console.log(token)
+    await this.props.getJobAppsThunk(token);
     }
   };
 
@@ -74,7 +75,7 @@ class StudentDashboard extends Component {
       url: url,
     });
 
-    await this.props.getSearchThunk(url, studentId);
+    await this.props.getSearchThunk(url);
   };
   //if fetch is an empty array return a message: (no results matching your search)
 
