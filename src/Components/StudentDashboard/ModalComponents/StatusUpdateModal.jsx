@@ -89,7 +89,7 @@ class StatusUpdateModal extends Component {
             <i
               className="material-icons"
               onClick={() => {
-                this.statusInput("applicationWithdrawn");
+                this.statusInput("application_withdrawn");
                 {
                   this.props.toggleModal();
                 }
