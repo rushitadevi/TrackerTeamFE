@@ -6,7 +6,8 @@
   color: #8a7f7f;
   font-size: 15px;
   font-family: "Arvo", serif;
-  height: 110px !important
+  height: 110px !important;
+  background-color: white !important;
 }
 
 #rowAddNotes{
