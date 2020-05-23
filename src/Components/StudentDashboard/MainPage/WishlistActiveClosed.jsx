@@ -28,6 +28,8 @@ class WishlistActiveClosed extends Component {
   };
 
   render() {
+    let length = this.props.app.count
+    let viewMore = length - 6;
     return (
       <>
         <Card className={"listCard" + " " + this.props.extraClass}>
@@ -99,7 +101,9 @@ class WishlistActiveClosed extends Component {
                     this.setState({ seeMoreLink: false, seeLessLink: true })
                   }
                 >
-                  See {this.props.app.count} More
+                  {length > 6
+                  ? 'See ' + viewMore + ' More'
+                  : 'See More'}
                 </div>
               )}
               {this.state.seeLessLink && !this.state.seeMoreLink && (
