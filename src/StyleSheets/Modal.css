@@ -75,6 +75,11 @@
   padding: 2px;
 }
 
+#inputFormBtns{
+  display: flex;
+  flex-direction: column;
+}
+
 .appButtons {
   border-radius: 8px;
   font-family: "Arvo", serif;

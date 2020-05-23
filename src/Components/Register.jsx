@@ -55,65 +55,69 @@ class Register extends React.Component {
     render() {
         return (
             <>
-                <Container>
+                {/* <Container>
                     <Row>
                         <Col>
                         </Col>
-                        <Col>
-                            <form id="registerform" className=" shadow p-3 mb-5 bg-white" onSubmit={e => this.handleSubmit(e)} >
-                                <div >
-                                    <label style={{ color: " #052f5f", fontWeight: "bold", marginLeft: "35%" }} >REGISTER</label>
+                        <Col> */}
+                        <div id="contForm">
+                            <form id="registerForm" className="shadow p-3 mb-5 bg-white" onSubmit={e => this.handleSubmit(e)} >
+                                <div id="registerLabelCont">
+                                    <h3 id="registerLabel" >Register</h3>
                                 </div>
-                                <div className="form-row">
-                                    <div className="col-md-6 mb-3">
+                                <div className="first inputForm">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >NAME</label>
-                                        <input type="text" className="form-control" placeholder="Name" id="name" required onChange={e => this.onChange(e)} />
+                                        <input type="text" className="regInputField form-control" placeholder="Name" id="name" required onChange={e => this.onChange(e)} />
                                     </div>
-                                    <div className="col-md-6 mb-3">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >SURNAME</label>
-                                        <input type="text" className="form-control" placeholder="Surname" id="surname" required onChange={e => this.onChange(e)} />
+                                        <input type="text" className="regInputField form-control" placeholder="Surname" id="surname" required onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
-                                <div className="form-row">
-                                    <div className="col-md-6 mb-3">
+                                <div className="inputForm">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >EMAIL</label>
-                                        <input type="text" className="form-control" placeholder="Email" id="email" required onChange={e => this.onChange(e)} />
+                                        <input type="text" className="regInputField form-control" placeholder="Email" id="email" required onChange={e => this.onChange(e)} />
                                     </div>
-                                    <div className="col-md-6 mb-3">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >PASSWORD</label>
-                                        <input type="password" className="form-control" placeholder="Password" id="password" required onChange={e => this.onChange(e)} />
+                                        <input type="password" className="regInputField form-control" placeholder="Password" id="password" required onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
-                                <div className="form-row">
-                                    <div className="col-md-6 mb-3">
+                                <div className="inputForm">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >ROLE</label>
-                                        <div >
-                                            <select id="roleOption" className="custom-select" placeholder="Role" value={this.state.user.role} onChange={e => this.onChange(e)} >
+                                        <div>
+                                            <select id="roleOption" className="customSelect" placeholder="Role" value={this.state.user.role} onChange={e => this.onChange(e)} >
                                                 <option>School Manager</option>
                                                 <option>Student</option>
-                                                <option>Admin</option>
-                                            </select>
+                                                <option>Admin</option> 
+                                            </select>                                  
                                         </div>
                                     </div>
-                                    <div className="col-md-6 mb-3">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >SCHOOL</label>
-                                        <input type="text" className="form-control" placeholder="School Name" id="schoolName" onChange={e => this.onChange(e)} />
+                                        <input type="text" className="regInputField form-control" placeholder="School Name" id="schoolName" onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
-                                <div className="form-row">
-                                    <div className="col-md-6 mb-3">
+                                <div className="last inputForm">
+                                    <div className="regInput col-md-6 mb-3">
                                         <label className="label" >GITHUBURL</label>
-                                        <input type="text" className="form-control" placeholder="Github Url" id="github" onChange={e => this.onChange(e)} />
+                                        <input type="text" className="regInputField form-control" placeholder="Github Url" id="github" onChange={e => this.onChange(e)} />
                                     </div>
                                 </div>
-                                <button className="submitButton" type="submit">Register</button>
-                                <hr />
+                                <div className="inputFormBtns">
+                                <button className="appButtons submitButton" type="submit">Register</button>
+                                <hr id="breakLine"/>
                                 <a className="signIn" href="" onClick={() => this.props.history.push("/signIn")} >Sign In</a>
+                                </div>
                             </form>
-                        </Col>
+                            </div>
+                        {/* </Col>
                         <Col></Col>
                     </Row>
-                </Container>
+                </Container> */}
             </>);
     }
 }

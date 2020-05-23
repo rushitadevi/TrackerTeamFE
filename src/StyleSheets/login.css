@@ -1,7 +1,40 @@
 .btnSignIn{
-    border-radius: 10px !important;
-    font-family: "Arvo", serif !important;
-    background-color: #e5b85f !important;
-    color: #052f5f !important;
-    margin-left: 40% !important;
+    width: 100%;
 }
+
+#signInForm{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 60%;
+}
+
+.signinBody{
+    text-align: center
+}
+
+.logField{
+  padding-left: 8px
+}
+
+#contSignin{
+    display: flex;
+    height: 100vh;
+}
+
+.signinTitle{
+    text-align: center;
+}
+
+.signinCard{
+    background-color: #fcffff !important;
+    border-radius: 8px !important
+}
+
+@media screen and (min-width: 1140px) {
+    #signInForm {
+      flex-basis: 60%;
+    }
+  }
+
+

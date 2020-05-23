@@ -1,38 +1,124 @@
-#registerform
-{    
-    border: 3px solid #cbdad7;
-    border-radius: 20px;  
-    margin-top: 100px;
+#registerLabel {
+  /* color: #052f5f; */
+  font-weight: "bold";
+  margin: auto;
+  padding: 10px;
+  
 }
 
-.label{
-    font-size: 12px;
+.first{
+    padding-top: 10px
+}
+
+.last{
+    padding-bottom: 7px;
+}
+
+.regInput {
+  flex-basis: 50%;
+}
+
+#roleOption {
+  padding: 0px;
+}
+
+#registerLabelCont {
+  display: flex;
+  background-color: rgba(0,0,0,.02);
+  border-bottom: 1px solid rgba(0,0,0,.05);
+}
+
+#contForm {
+  display: flex;
+  height: 100vh;
+}
+
+.customSelect {
+  background: #fcffff;
+  display: inline-block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  vertical-align: middle;
+  border: none;
+  opacity: 0.75;
+}
+
+#registerForm {
+  background-color: #fcffff !important;
+  border: 3px solid #cbdad7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+  height: 485px;
+  flex-basis: 25%;
+  color: #495057;
+  padding: 0px !important;
+}
+
+
+@media screen and (max-width: 768px) {
+  #registerForm {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #registerForm {
+    flex-basis: 90%;
+  }
+}
+
+.regInputField {
+  padding-left: 4px;
+}
+
+.regInputField::placeholder {
+  padding-left: 0px;
+  font-size: 14px;
+}
+
+.inputForm {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px
+}
+
+.label {
+  font-size: 12px;
+  padding-left: 4px;
+  margin-bottom: 0px;
+  font-weight: 300px
+}
+
+.inputFormBtns {
+  text-align: center;
 }
 
 .submitButton {
-    /* position: absolute;
-    margin-left: 985px !important;
-    margin-top: 12px !important; */
-    border-radius: 10px;
-    font-family: "Arvo", serif;
-    width: 80px;
-    height: 35px;
-    background-color: #e5b85f;
-    color: #052f5f !important;
-    margin-left: 35%;
-  }
+  width: 90%;
+  height: 55%;
+}
 
-  .signIn{
-      display: block;
-      margin-left:42%;
-      cursor: pointer;
-  }
+.signIn {
+  cursor: pointer;
+}
 
-  .btnCancel{
-      border-radius: 10px;
-      font-family: "Arvo","serif";
-      width: 80px;
-      height: 35px;
-      background-color: #e5b85f;
-      color: #052f5f !important;
-  }
+.btnCancel {
+  border-radius: 10px;
+  font-family: "Arvo", "serif";
+  width: 80px;
+  height: 35px;
+  background-color: #e5b85f;
+  color: #052f5f !important;
+}
+
+
+#breakLine{
+    margin-bottom: 5px;
+}
