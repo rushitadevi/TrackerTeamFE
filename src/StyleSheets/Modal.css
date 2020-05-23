@@ -156,6 +156,7 @@
   border-right: 1px solid #cccccc !important;
   display: flex;
   flex-direction: column;
+  background: #fcffff !important;
 }
 
 a {
