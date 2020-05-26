@@ -42,9 +42,9 @@ class ManagerDashboard extends React.Component {
     this.props.totAppsThunk();
   };
 
-  componentDidUpdate=async()=>{
-    this.props.fetchStudents();
-  }
+  // componentDidUpdate=async()=>{
+  //   this.props.fetchStudents();
+  // }
 
   getName = id => {
     var arr = this.props.students.students;

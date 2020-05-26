@@ -1,10 +1,11 @@
 export const getApplications = () => {
   return async (dispatch, getState) => {
     var headers = new Headers({
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + localStorage.token
     });
 
-    var response = await fetch(process.env.REACT_APP_URL + "application/app", {
+    var response = await fetch(process.env.REACT_APP_URL + "application/recentActivities", {
       method: "GET",
       headers: headers
     });
